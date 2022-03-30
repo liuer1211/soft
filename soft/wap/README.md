@@ -23,4 +23,23 @@
     打包文件目录
 
 # 下载依赖
-    
+    npm install --save vue-router@3
+    npm install --save vuex@3.6.2
+    npm install --save axios
+    npm install mockjs
+    npm install --save vant@2.5.2
+    npm install --save less less-loader@5
+    npm install vue-lazyload -S
+    npm install --save nprogress
+    npm install vue-infinite-scroll
+
+# 路由
+    实例化路由
+    交由vue管理
+    展示初始页面
+
+# 首页
+    搜索框
+      输入即搜索 节流
+    展示内容
+      触底加载
