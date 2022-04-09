@@ -4,6 +4,14 @@ import App from './App.vue'
 import router from './router'
 import 'amfe-flexible';
 
+// import { Search } from 'vant';
+// Vue.use(Search);
+
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
+Vue.use(Vant);
+
 Vue.config.productionTip = false
 
 const vm = new Vue({

@@ -47,6 +47,18 @@
       1.3333vw * 40  = 5.3333vw
       设计图宽度 / 5.3333vw = css宽度
     适配插件
+        css: {
+            loaderOptions: {
+            postcss: {
+                plugins: [
+                require('postcss-pxtorem')({
+                    rootValue: 37.5,
+                    propList: ['*']
+                })
+                ]
+            }
+            }
+        },
     路径简写配置： "@/*": ["src/*"]
 
 
