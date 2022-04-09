@@ -1683,6 +1683,11 @@
   "resolved" "https://registry.npmmirror.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz"
   "version" "1.0.2"
 
+"amfe-flexible@^2.2.1":
+  "integrity" "sha1-NT8AKJ5NOMqIoh6zhUQgMIrwtVk="
+  "resolved" "https://registry.npmjs.org/amfe-flexible/-/amfe-flexible-2.2.1.tgz"
+  "version" "2.2.1"
+
 "ansi-colors@^3.0.0":
   "integrity" "sha512-hHUXGagefjN2iRrID63xckIvotOXOojhQKWIPUZ4mNUZ9nLZW+7FMNoE1lOkEhNWYsx/7ysGIuJYCiMAA9FnrA=="
   "resolved" "https://registry.npmmirror.com/ansi-colors/-/ansi-colors-3.2.4.tgz"
@@ -6647,6 +6652,13 @@
     "cssnano-util-get-arguments" "^4.0.0"
     "postcss" "^7.0.0"
     "postcss-value-parser" "^3.0.0"
+
+"postcss-pxtorem@^5.1.1":
+  "integrity" "sha512-uvgIujL/pn0GbZ+rczESD2orHsbXrrCqi+q9wJO8PCk3ZGCoVVtu5hZTbtk+tbZHZP5UkTfCvqOrTZs9Ncqfsg=="
+  "resolved" "https://registry.npmjs.org/postcss-pxtorem/-/postcss-pxtorem-5.1.1.tgz"
+  "version" "5.1.1"
+  dependencies:
+    "postcss" "^7.0.27"
 
 "postcss-reduce-initial@^4.0.3":
   "integrity" "sha512-gKWmR5aUulSjbzOfD9AlJiHCGH6AEVLaM0AV+aSioxUDd16qXP1PCh8d1/BGVvpdWn8k/HiK7n6TjeoXN1F7DA=="

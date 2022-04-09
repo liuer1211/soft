@@ -13,4 +13,17 @@ module.exports = {
   //         // },
   //     },
   // },
+  // 像素适配 宽度px转换成rem; vant-375
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          require('postcss-pxtorem')({
+              rootValue: 37.5,
+              propList: ['*']
+          })
+        ]
+      }
+    }
+  },
 }

@@ -32,6 +32,23 @@
     npm install vue-lazyload -S
     npm install --save nprogress
     npm install vue-infinite-scroll
+    npm install amfe-flexible --save
+    npm i postcss-pxtorem@5.1.1  --save
+
+# 整体配置
+    reset.css
+    0.3秒延迟
+    vw + rem
+      100vw = 一个完美视口
+      ui图 750px
+      1px = 0.13333vw
+      移动端最小像素12px
+      40px   --  1rem
+      1.3333vw * 40  = 5.3333vw
+      设计图宽度 / 5.3333vw = css宽度
+    适配插件
+    路径简写配置： "@/*": ["src/*"]
+
 
 # 路由
     实例化路由
