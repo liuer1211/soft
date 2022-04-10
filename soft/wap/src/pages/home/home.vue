@@ -1,38 +1,56 @@
 <template>
   <div class="home-main">
-    <Search :searchVal='searchVal'></Search>
+    <Search :searchVal='searchVal' :isShow="isShow"></Search>
+    <div class="home-center">
+      <ImgModel></ImgModel>
+    </div>
   </div>
 </template>
 
 <script>
   import Search from '@/components/search/search'
+  import ImgModel from '@/components/imgModel/imgModel'
   export default {
     components: {
-      Search
+      Search,ImgModel
     },
     data() {
       return {
         searchVal: '',
-        offsetTop: document.body.offsetTop,
+        isShow: true,
+        // offsetTop: document.body.offsetTop,
       }
     },
     mounted() {
-      console.log(document.body.offsetHeight)
-      console.log(document.body.offsetTop)
-      console.log(document.body.clientHeight)
-      console.log(this.offsetTop)
+      // console.log(document.body.offsetHeight)
+      // console.log(document.body.offsetTop)
+      // console.log(document.body.clientHeight)
+      // console.log(this.offsetTop)
+      window.addEventListener('scroll',this.rollingheight,true)
     },
     watch:{
-      offsetTop(val) {
-        console.log(val)
-      }
+      // offsetTop(val) {
+      //   console.log(val)
+      // }
+    },
+    methods: {
+      rollingheight(e){
+        console.log(window.pageYOffset)
+        // if (window.pageYOffset>0) {
+        //   this.isShow = false
+        //   console.log(this.isShow)
+        // } else {
+        //   this.isShow = true
+        // }
+      },
     }
   }
 </script>
 
 <style lang="less" scoped>
   .home-main{
-    font-size: 24px;
-    height: 1000px;
+    .home-center{
+      padding-top: 54px;
+    }
   }
 </style>
