@@ -26,4 +26,14 @@ module.exports = {
       }
     }
   },
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;
+      // 打包文件大小配置
+      config.performance = {
+        maxEntrypointSize: 10000000,
+        maxAssetSize: 30000000
+      }
+    }
+  }
 }

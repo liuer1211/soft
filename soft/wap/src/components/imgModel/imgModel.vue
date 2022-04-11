@@ -1,25 +1,14 @@
 <template>
   <div class="model-main">
-    <div class="model-List">
+    <div class="model-List" v-for="(item,index) in list" :key="index" @click="goPage(item)">
       <div class="model-top">
-        <img src="../../assets/images/imgmodel/ylx.jpg" />
-        <i>hot</i>
+        <img :src="item.img" alt=""/>
+        <i>{{item.flag}}</i>
       </div>
       <div class="model-bot">
-        <div>夜灵犀传奇</div>
-        <div>夜灵犀</div>
-        <div>2021-10-21</div>
-      </div>
-    </div>
-    <div class="model-List">
-      <div class="model-top">
-        <img src="../../assets/images/imgmodel/ylx.jpg" />
-        <i>hot</i>
-      </div>
-      <div class="model-bot">
-        <div>夜灵犀传奇</div>
-        <div>夜灵犀</div>
-        <div>2021-10-21</div>
+        <div>{{item.title}}</div>
+        <div>{{item.author}}</div>
+        <div>{{item.date}}</div>
       </div>
     </div>
   </div>
@@ -29,9 +18,32 @@
   export default {
     data() {
       return {
-        
+        list: [
+          {
+            id: '1',
+            img: '../../assets/images/imgmodel/ylx.jpg',
+            flag: 'hot',
+            title: '夜灵犀传奇',
+            author: '夜灵犀',
+            date: '2020-02-02',
+            link: 'yelingxi'
+          }
+        ]
       }
     },
+    methods: {
+      // 跳页面
+      goPage(item){
+        // console.log(item)
+        // 使用path参数传不过来
+        this.$router.push({
+          name: 'novel',
+          params: {
+            data: item
+          }
+        })
+      }
+    }
   }
 </script>
 
@@ -49,6 +61,7 @@
       border-radius: 4px;
       width: 48%;
       margin-bottom: 12px;
+      cursor: pointer;
       .model-top {
         position: relative;
         img {
@@ -73,7 +86,7 @@
           padding: 4px 8px;
           font-size: 12px;
           &:first-child{
-            font-size: 16px;
+            font-size: 14px;
           }
         }
       }
