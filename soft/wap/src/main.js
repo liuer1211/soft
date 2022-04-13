@@ -7,9 +7,14 @@ import 'amfe-flexible';
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
+import VideoPlayer from 'vue-video-player';
+import 'vue-video-player/src/custom-theme.css';
+import 'video.js/dist/video-js.css';
+
 import '@/mock';
 
 Vue.use(Vant);
+Vue.use(VideoPlayer);
 
 Vue.config.productionTip = false
 
