@@ -1,6 +1,29 @@
 <template>
   <div class="search-main" :class="isShow ? 'active' : ''">
-    <van-search v-model="searchValue" :placeholder="placeholder" />
+    <div class="search-head">
+      <div @click="showModel">
+        <van-icon name="apps-o" />
+      </div>
+      <div>
+        <van-search v-model="searchValue" :placeholder="placeholder" />
+      </div>
+    </div>
+    <van-popup v-model="show" position="left" teleport="#search-main" :style="{ width: '50%',height: '100%' }">
+      <div class="pop-main">
+        <div class="pop-top">
+          <div>
+            <img src="" alt=""/>
+          </div>
+          <div>
+            <h1>好剧优享</h1>
+            <span>一片青莲照人间</span>
+          </div>
+        </div>
+        <div class="pop-center">
+          用户
+        </div>
+      </div>
+    </van-popup>
   </div>
 </template>
 
@@ -19,7 +42,8 @@
     data() {
       return {
         searchValue: this.searchVal,
-        placeholder: '今日热词：文明'
+        placeholder: '今日热词：剧本',
+        show: false,
       }
     },
     watch: {
@@ -34,19 +58,70 @@
       // 搜索
       getList(newName) {
         // 
+      },
+      // 展示左侧弹框
+      showModel() {
+        this.show = true;
       }
     }
   }
 </script>
 
 <style lang="less" scoped>
-  .search-main{
+  .search-main {
     position:absolute;
     top: 0;
     width: 100%;
     display: none;
-    &.active{
+    &.active {
       display: block;
+    }
+    .search-head {
+      display: flex;
+      align-items: center;
+      >div:first-child {
+        display: flex;
+        width: 20px;
+        padding: 12px 0 12px 12px;
+        cursor: pointer;
+      }
+      >div:last-child {
+        flex: 1;
+      }
+    }
+    /deep/ .van-popup {
+      &.van-popup--left {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+    .pop-main {
+      font-size: 16px;
+      .pop-top {
+        display: flex;
+        padding: 12px;
+        box-sizing: border-box;
+        background-color: antiquewhite;
+        >div:first-child {
+          img {
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+          }
+        }
+        >div:last-child {
+          padding-left: 10px;
+          h1 {
+            padding: 2px 0;
+          }
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+      .pop-center {
+        padding: 12px 12px;
+      }
     }
   }
 </style>

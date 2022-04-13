@@ -4,11 +4,10 @@ import App from './App.vue'
 import router from './router'
 import 'amfe-flexible';
 
-// import { Search } from 'vant';
-// Vue.use(Search);
-
 import Vant from 'vant';
 import 'vant/lib/index.css';
+
+import '@/mock';
 
 Vue.use(Vant);
 

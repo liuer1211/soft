@@ -1,6 +1,6 @@
 <template>
   <div>
-    门派
+     
   </div>
 </template>
 
@@ -12,10 +12,9 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$route.params.data)
   },
   methods:{
-    
+
   }
 }
 </script>

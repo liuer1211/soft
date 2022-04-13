@@ -1,0 +1,54 @@
+{
+  "novelList": [
+    {
+      "id": "1",
+      "img": "../../assets/images/imgmodel/ylx.jpg",
+      "flag": "hot",
+      "title": "夜灵犀传奇",
+      "author": "夜灵犀",
+      "date": "2020-02-02",
+      "link": "yelingxi",
+      "type": "武侠/爱情/家国"
+    },
+    {
+      "id": "1",
+      "img": "../../assets/images/imgmodel/ylx.jpg",
+      "flag": "hot",
+      "title": "夜灵犀传奇",
+      "author": "夜灵犀",
+      "date": "2020-02-02",
+      "link": "yelingxi",
+      "type": "武侠/爱情/家国"
+    },
+    {
+      "id": "1",
+      "img": "../../assets/images/imgmodel/ylx.jpg",
+      "flag": "hot",
+      "title": "夜灵犀传奇",
+      "author": "夜灵犀",
+      "date": "2020-02-02",
+      "link": "yelingxi",
+      "type": "武侠/爱情/家国"
+    },
+    {
+      "id": "1",
+      "img": "../../assets/images/imgmodel/ylx.jpg",
+      "flag": "hot",
+      "title": "夜灵犀传奇",
+      "author": "夜灵犀",
+      "date": "2020-02-02",
+      "link": "yelingxi",
+      "type": "武侠/爱情/家国"
+    },
+    {
+      "id": "1",
+      "img": "../../assets/images/imgmodel/ylx.jpg",
+      "flag": "hot",
+      "title": "夜灵犀传奇",
+      "author": "夜灵犀",
+      "date": "2020-02-02",
+      "link": "yelingxi",
+      "type": "武侠/爱情/家国"
+    }
+  ]
+}

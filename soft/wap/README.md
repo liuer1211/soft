@@ -34,10 +34,11 @@
     npm install vue-infinite-scroll
     npm install amfe-flexible --save
     npm i postcss-pxtorem@5.1.1  --save
+    npm i vue-video-player --save
 
 # 整体配置
     reset.css
-    0.3秒延迟
+    300毫秒延时  - js下载到本地
     vw + rem
       100vw = 一个完美视口
       ui图 750px
@@ -69,6 +70,8 @@
     实例化路由
     交由vue管理
     展示初始页面
+    push replace 重复点击跳转bug修复
+    切换返回顶部
 
 # 首页
     搜索框
@@ -76,12 +79,43 @@
     展示内容
       触底加载
     mock 模拟数据
+    axios
+    vuex
     接口图片位置找不到
-    路由跳转params参数-使用path参数传不过来
+    路由跳转params参数-使用path参数传不过来 - 父子组件时使用path，如何传值
         this.$router.push({
           name: 'novel',
           params: {
             data: item
           }
         })
+    
+    左侧弹框
+      logo
+      用户
+    右下角 
+      返回 
+      回到顶部
+      半圆
+    颜色搭配
+    字体尺寸统一
 
+# 剧本
+    阴影
+    省略
+    flex
+    filter
+    less的使用
+      继承 混入 变量
+    父子组件
+    父子路由
+
+# 分类
+    渐变
+    视屏
+
+# 详情
+
+
+    
+    

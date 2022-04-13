@@ -1,6 +1,8 @@
 <template>
   <div class="home-main">
+    <!-- 头部 -->
     <Search :searchVal='searchVal' :isShow="isShow"></Search>
+    <!-- 内容 -->
     <div class="home-center">
       <ImgModel></ImgModel>
     </div>
@@ -10,9 +12,10 @@
 <script>
   import Search from '@/components/search/search'
   import ImgModel from '@/components/imgModel/imgModel'
+  
   export default {
     components: {
-      Search,ImgModel
+      Search, ImgModel
     },
     data() {
       return {
@@ -35,7 +38,7 @@
     },
     methods: {
       rollingheight(e){
-        console.log(window.pageYOffset)
+        // console.log(window.pageYOffset)
         // if (window.pageYOffset>0) {
         //   this.isShow = false
         //   console.log(this.isShow)

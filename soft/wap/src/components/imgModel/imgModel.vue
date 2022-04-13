@@ -7,7 +7,8 @@
       </div>
       <div class="model-bot">
         <div>{{item.title}}</div>
-        <div>{{item.author}}</div>
+        <div>作者：{{item.author}}</div>
+        <div>{{item.type}}</div>
         <div>{{item.date}}</div>
       </div>
     </div>
@@ -15,23 +16,25 @@
 </template>
 
 <script>
+  import { reqNovelList } from '@/axios/index'
   export default {
     data() {
       return {
         list: [
-          {
-            id: '1',
-            img: '../../assets/images/imgmodel/ylx.jpg',
-            flag: 'hot',
-            title: '夜灵犀传奇',
-            author: '夜灵犀',
-            date: '2020-02-02',
-            link: 'yelingxi'
-          }
         ]
       }
     },
+    mounted() {
+      this.getDate();
+    },
     methods: {
+      // 获取数据
+      async getDate(){
+        let data = await reqNovelList();
+        if (data.data && data.data.code === '200') {
+          this.list = data.data.data;
+        }
+      },
       // 跳页面
       goPage(item){
         // console.log(item)
@@ -56,6 +59,7 @@
     flex-wrap: wrap;
     padding: 0 12px;
     .model-List{
+      box-shadow: 1px 1px 2px 1px #ebedf0;
       background-color: #43f5ab;
       overflow: hidden;
       border-radius: 4px;
@@ -87,6 +91,7 @@
           font-size: 12px;
           &:first-child{
             font-size: 14px;
+            font-weight: 600;
           }
         }
       }

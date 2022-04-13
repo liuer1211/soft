@@ -1,43 +1,35 @@
 <template>
-  <div>
+  <div class="novel-main">
     <!-- 简介 -->
-    <div>
-      <div></div>
-      <div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <p></p>
-      </div>
-    </div>
+    <Introduce></Introduce>
     <!-- 类型 -->
-    <div>
-      <div>
-        <img src="#" alt="" />
-      </div>
-      <div>
-        <span></span>
-      </div>
-    </div>
+    <TypeModel></TypeModel>
+    <!-- 右侧浮框 -->
+    <RightModel></RightModel>
   </div>
 </template>
 
 <script>
+import Introduce from '@/pages/novel/components/introduce/introduce'
+import TypeModel from '@/pages/novel/components/typeModel/typeModel'
+import RightModel from '@/components/rightModel/rightModel'
 export default {
+  components: {
+    Introduce, TypeModel, RightModel
+  },
   date() {
     return {
-
     }
   },
   mounted() {
     console.log(this.$route.params.data)
   },
   methods:{
-
   }
 }
 </script>
 
 <style lang="less" scoped>
-
+  .novel-main {
+  }
 </style>
