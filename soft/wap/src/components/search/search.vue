@@ -12,7 +12,7 @@
       <div class="pop-main">
         <div class="pop-top">
           <div>
-            <img src="" alt=""/>
+            <img src="../../assets/images/index/logo.png" alt=""/>
           </div>
           <div>
             <h1>好剧优享</h1>

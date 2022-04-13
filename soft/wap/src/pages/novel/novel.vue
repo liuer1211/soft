@@ -22,7 +22,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$route.params.data)
+    // console.log(this.$route.params.data)
   },
   methods:{
   }
