@@ -4,6 +4,9 @@
     npm start
     npm run build
 
+# 访问
+    [点我访问](https://liuer1211.github.io/soft/soft/wap/dist/)
+
 # 配置 package.json
     快捷启动 npm start 
         "start": "npm run serve",
@@ -65,6 +68,7 @@
       图片文件大小
       日志显示
     阿里矢量图标库
+      <i class="iconfont icon-double-arrow-left"></i>
 
 
 # 路由
