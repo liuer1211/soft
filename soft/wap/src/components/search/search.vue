@@ -2,7 +2,8 @@
   <div class="search-main" :class="isShow ? 'active' : ''">
     <div class="search-head">
       <div @click="showModel">
-        <van-icon name="apps-o" />
+        <!-- <van-icon name="apps-o" /> -->
+        <i class="iconfont icon-nav-list"></i>
       </div>
       <div>
         <van-search v-model="searchValue" :placeholder="placeholder" />
@@ -81,9 +82,14 @@
       align-items: center;
       >div:first-child {
         display: flex;
-        width: 20px;
-        padding: 12px 0 12px 12px;
+        width: 24px;
+        padding: 0 0 0 8px;
         cursor: pointer;
+        .iconfont {
+          &.icon-nav-list {
+            font-size: 26px;
+          }
+        } 
       }
       >div:last-child {
         flex: 1;
@@ -101,7 +107,8 @@
         display: flex;
         padding: 12px;
         box-sizing: border-box;
-        background-color: antiquewhite;
+        background-color: #3399ff;
+        color: #fff;
         >div:first-child {
           img {
             width: 40px;

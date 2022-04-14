@@ -60,7 +60,7 @@
     padding: 0 12px;
     .model-List{
       box-shadow: 1px 1px 2px 1px #ebedf0;
-      background-color: #43f5ab;
+      background-color: #3399ff;
       overflow: hidden;
       border-radius: 4px;
       width: 48%;
@@ -78,7 +78,7 @@
           position: absolute;
           top: 0;
           right: 0;
-          background-color: #fbd754;
+          background-color: #ffdd9a;
           padding: 2px;
           font-size: 12px;
           border-bottom-left-radius: 2px;

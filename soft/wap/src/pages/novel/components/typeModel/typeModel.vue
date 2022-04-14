@@ -101,7 +101,7 @@ export default {
         padding: 0 12px 12px 6px;
       }
       .model-bg {
-        background-color: aquamarine;
+        background-color: #3399ff;
         border-radius: 4px;
         display: flex;
         align-items: center;

@@ -2,12 +2,15 @@
   <div class="right-model-main">
     <div class="right-model-one pos" :class="status" @click.stop="toShow">
       <!-- <van-icon name="guide-o" /> -->
+      <i class="iconfont icon-double-arrow-left"></i>
     </div>
     <div class="model-top pos" :class="active1" @click.stop="topOrBack('1')">
       <!-- <van-icon name="back-top" /> -->
+      <i class="iconfont icon-rising"></i>
     </div>
     <div class="model-back pos" :class="active2" @click.stop="topOrBack('2')">
       <!-- <van-icon name="revoke" /> -->
+      <i class="iconfont icon-leftarrow"></i>
     </div>
   </div>
 </template>
@@ -91,7 +94,7 @@ export default {
     }
     .right-model-one {
       bottom: 50%;
-      background-color: #ffc800;
+      background-color: #3399ff;
       // /deep/ .van-icon{
       //   position: absolve;
       //   top: 0;
@@ -105,25 +108,41 @@ export default {
       &.end{
         right: -30px;
       }
+      .iconfont {
+        &.icon-double-arrow-left {
+          font-size: 22px;
+        }
+      }
     }
     .model-top {
       bottom: 55%;
-      background-color: #27a442;
+      background-color: #66ffcc;
       &.show {
         right: 0;
       }
       &.hide {
         right: -30px;
       }
+      .iconfont {
+        &.icon-rising {
+          // color: #fff;
+          font-size: 22px;
+        }
+      } 
     }
     .model-back {
       bottom: 45%;
-      background-color: #5e0fb8;
+      background-color: #9933ff;
       &.show {
         right: 0;
       }
       &.hide {
         right: -30px;
+      }
+      .iconfont {
+        &.icon-leftarrow {
+          font-size: 22px;
+        }
       }
     }
   }

@@ -4,7 +4,8 @@
       <div class="in-left">
         <img src="#" alt=""/>
         <i @click="toShow">
-          <van-icon name="play-circle-o" />
+          <!-- <van-icon name="play-circle-o" /> -->
+          <i class="iconfont icon-play"></i>
         </i>
       </div>
       <div class="in-right">
@@ -24,14 +25,15 @@
             ref="videoPlayer"
             :playsinline="true"
             :options="playerOptions"
-          >
-            <!-- @play="onPlayerPlay($event)" 
             @pause="onPlayerPause($event)"
+            @play="onPlayerPlay($event)" 
+            @timeupdate="onPlayerTimeupdate($event)"
+          >
+            <!-- 
             @ended="onPlayerEnded($event)"
             @waiting="onPlayerWaiting($event)"
             @playing="onPlayerPlaying($event)"
             @loadeddata="onPlayerLoadeddata($event)"
-            @timeupdate="onPlayerTimeupdate($event)"
             @canplay="onPlayerCanplay($event)"
             @canplaythrough="onPlayerCanplaythrough($event)"
             @statechanged="playerStateChanged($event)"
@@ -90,17 +92,17 @@ export default {
     // 关闭弹出层
     closeModel() {
       this.$refs.videoPlayer.player.pause();
-    }
+    },
 
-    // // 播放回调
-    // onPlayerPlay(player) {
-    //   console.log('player play!', player)
-    // },
+    // 播放回调
+    onPlayerPlay(player) {
+      console.log('player play!', player)
+    },
 
-    // // 暂停回调
-    // onPlayerPause(player) {
-    //   console.log('player pause!', player)
-    // },
+    // 暂停回调
+    onPlayerPause(player) {
+      console.log('player pause!', player)
+    },
 
     // // 视频播完回调
     // onPlayerEnded($event) {
@@ -122,10 +124,10 @@ export default {
     //   console.log(player)
     // },
 
-    // // 当前播放位置发生变化时触发。
-    // onPlayerTimeupdate($event) {
-    //   console.log(player)
-    // },
+    // 当前播放位置发生变化时触发。
+    onPlayerTimeupdate($event) {
+      console.log(player)
+    },
 
     // //媒体的readyState为HAVE_FUTURE_DATA或更高
     // onPlayerCanplay(player) {
@@ -157,7 +159,7 @@ export default {
     .introduce-model {
       font-size: 16px;
       display: flex;
-      background-color: antiquewhite;
+      background-color: #3399ff;
       border-radius: 4px;
       padding: 12px;
       box-sizing: border-box;
@@ -166,22 +168,28 @@ export default {
         width: 100px;
         min-width: 100px;
         height: 120px;
-        background-color: aqua;
+        background-color: 6633cc;
         border-radius: 4px;
         overflow: hidden;
         position: relative;
         img {
           width: 100%;
           height: 100%;
-          object-fit: convert;
+          object-fit: cover;
           display: block;
         }
         >i {
           position:absolute;
-          bottom: 4px;
-          right: 4px;
+          bottom: 6px;
+          right: 6px;
           width: 16px;
           height: 16px;
+          .iconfont {
+            &.icon-play{
+              font-size: 20px;
+              color: #fff;
+            }
+          } 
         }
       }
       .in-right {

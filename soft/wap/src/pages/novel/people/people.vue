@@ -71,7 +71,7 @@ export default {
         padding: 6px 12px 6px 6px;
       }
       .people-bg {
-        background-color: aquamarine;
+        background-color: #3399ff;
         border-radius: 4px;
         padding: 12px;
         box-sizing: border-box;

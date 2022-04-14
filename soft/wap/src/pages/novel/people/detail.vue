@@ -11,7 +11,9 @@
         <div>门派：</div>
         <div>事迹：</div>
         <div>座右铭：</div>
-        <i></i>
+        <i>
+          <i class="iconfont icon-pin"></i>
+        </i>
       </div>
     </div>
     <!-- 内容 -->
@@ -55,7 +57,7 @@ export default {
       box-sizing: border-box;
       display: flex;
       border-radius: 4px;
-      background-color: aliceblue;
+      background-color: #3399ff;
       overflow: hidden;
       >div:first-child{
         width: 100px;
@@ -79,12 +81,17 @@ export default {
         }
         i {
           position: absolute;
-          bottom: 0;
-          right: 0;
+          bottom: 2px;
+          right: 2px;
           width: 20px;
           height: 20px;
-          background-color: aquamarine;
+          // background-color: aquamarine;
           cursor: pointer;
+          .iconfont {
+            &.icon-pin{
+              font-size: 22px;
+            }
+          }
         }
       }
     }
