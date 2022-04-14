@@ -5,7 +5,7 @@
     npm run build
 
 # 访问
-    [点我访问](https://liuer1211.github.io/soft/soft/wap/dist/)
+  [点我访问](https://liuer1211.github.io/soft/soft/wap/dist/)
 
 # 配置 package.json
     快捷启动 npm start 
