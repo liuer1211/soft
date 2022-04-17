@@ -3,13 +3,13 @@
     <div class="search-head">
       <div @click="showModel">
         <!-- <van-icon name="apps-o" /> -->
-        <i class="iconfont icon-nav-list"></i>
+        <i class="iconfont icon-nav-list">1</i>
       </div>
       <div>
         <van-search v-model="searchValue" :placeholder="placeholder" />
       </div>
     </div>
-    <van-popup v-model="show" position="left" teleport="#search-main" :style="{ width: '50%',height: '100%' }">
+    <van-popup v-model="show" position="left" teleport="#search-main" :style="{ width: '56%',height: '100%' }">
       <div class="pop-main">
         <div class="pop-top">
           <div>
@@ -20,9 +20,9 @@
             <span>一片青莲照人间</span>
           </div>
         </div>
-        <div class="pop-center">
+        <!-- <div class="pop-center">
           用户
-        </div>
+        </div> -->
       </div>
     </van-popup>
   </div>
@@ -70,10 +70,12 @@
 
 <style lang="less" scoped>
   .search-main {
-    position:absolute;
+    position:fixed;
     top: 0;
     width: 100%;
     display: none;
+    background-color: #fff;
+    z-index: 999;
     &.active {
       display: block;
     }

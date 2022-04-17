@@ -2,7 +2,7 @@
   <div class="introduce-main">
     <div class="introduce-model">
       <div class="in-left">
-        <img src="#" alt=""/>
+        <img src="../../../../assets/images/imgmodel/001.png" alt=""/>
         <i @click="toShow">
           <!-- <van-icon name="play-circle-o" /> -->
           <i class="iconfont icon-play"></i>
@@ -91,7 +91,9 @@ export default {
 
     // 关闭弹出层
     closeModel() {
-      this.$refs.videoPlayer.player.pause();
+      try {
+        this.$refs.videoPlayer.player.pause();
+      } catch(e) {}
     },
 
     // 播放回调
@@ -159,7 +161,7 @@ export default {
     .introduce-model {
       font-size: 16px;
       display: flex;
-      background-color: #3399ff;
+      // background-color: #3399ff;
       border-radius: 4px;
       padding: 12px;
       box-sizing: border-box;

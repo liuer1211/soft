@@ -2,7 +2,7 @@
   <div class="model-main">
     <div class="model-List" v-for="(item,index) in list" :key="index" @click="goPage(item)">
       <div class="model-top">
-        <img :src="item.img" alt=""/>
+        <img src="../../assets/images/imgmodel/001.png" alt=""/>
         <i>{{item.flag}}</i>
       </div>
       <div class="model-bot">
@@ -20,8 +20,7 @@
   export default {
     data() {
       return {
-        list: [
-        ]
+        list: []
       }
     },
     mounted() {
@@ -60,7 +59,7 @@
     padding: 0 12px;
     .model-List{
       box-shadow: 1px 1px 2px 1px #ebedf0;
-      background-color: #3399ff;
+      // background-color: #3399ff;
       overflow: hidden;
       border-radius: 4px;
       width: 48%;

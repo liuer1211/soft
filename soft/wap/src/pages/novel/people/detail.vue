@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <div class="peo-detail-top">
       <div>
-        <img src="#" alt=""/>
+        <img src="../../../assets/images/imgmodel/001.png" alt=""/>
       </div>
       <div>
         <div>名字：夜灵犀</div>
@@ -57,8 +57,9 @@ export default {
       box-sizing: border-box;
       display: flex;
       border-radius: 4px;
-      background-color: #3399ff;
+      // background-color: #3399ff;
       overflow: hidden;
+      border: 1px solid #eee;
       >div:first-child{
         width: 100px;
         min-width: 100px;

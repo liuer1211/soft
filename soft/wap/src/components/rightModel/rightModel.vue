@@ -1,15 +1,15 @@
 <template>
   <div class="right-model-main">
     <div class="right-model-one pos" :class="status" @click.stop="toShow">
-      <!-- <van-icon name="guide-o" /> -->
       <i class="iconfont icon-double-arrow-left"></i>
     </div>
-    <div class="model-top pos" :class="active1" @click.stop="topOrBack('1')">
-      <!-- <van-icon name="back-top" /> -->
+    <div class="model-pri pos" :class="active3" @click.stop="posFun('3')">
       <i class="iconfont icon-rising"></i>
     </div>
-    <div class="model-back pos" :class="active2" @click.stop="topOrBack('2')">
-      <!-- <van-icon name="revoke" /> -->
+    <div class="model-top pos" :class="active1" @click.stop="posFun('1')">
+      <i class="iconfont icon-rising"></i>
+    </div>
+    <div v-show="isBack" class="model-back pos" :class="active2" @click.stop="posFun('2')">
       <i class="iconfont icon-leftarrow"></i>
     </div>
   </div>
@@ -17,13 +17,24 @@
 
 <script>
 export default {
+  props: {
+    statu: {
+      type: String,
+      default: 'cen'
+    },
+    isBack: {
+      type: Boolean,
+      default: true
+    }
+  },
   data() {
     return {
-      status: 'start', // start 全显示； cen 半显示； end 隐藏
+      status: this.statu, // start 全显示； cen 半显示； end 隐藏
       timer: '',
       timers: '',
       active1: 'hide', // show 显示； hide 隐藏
       active2: 'hide', // show 显示； hide 隐藏
+      active3: 'hide', // show 显示； hide 隐藏
     }
   },
   mounted() {
@@ -35,6 +46,7 @@ export default {
     toShow() {
       this.active1 = 'show';
       this.active2 = 'show';
+      this.active3 = 'show';
       this.status = 'end';
       // if (document.documentElement.scrollTop > 50) {
       //   this.active1 = 'show';
@@ -45,6 +57,7 @@ export default {
         this.status = 'cen';
         this.active1 = 'hide';
         this.active2 = 'hide';
+        this.active3 = 'hide';
       },2000)
     },
     // 浮框变化
@@ -54,7 +67,7 @@ export default {
       },1000)
     },
     // 1上滑；2返回
-    topOrBack(code) {
+    posFun(code) {
       if (code === '1') {
         // let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
         // console.log(window.pageYOffset) // xx
@@ -66,9 +79,12 @@ export default {
           this.status = 'cen';
           this.active1 = 'hide';
           this.active2 = 'hide';
+          this.active3 = 'hide';
         },1000)
-      } else {
+      } else if (code === '2') {
         this.$router.go(-1);
+      } else if (code === '3') {
+      } else {
       }
     }
   },
@@ -95,10 +111,6 @@ export default {
     .right-model-one {
       bottom: 50%;
       background-color: #3399ff;
-      // /deep/ .van-icon{
-      //   position: absolve;
-      //   top: 0;
-      // }
       &.start{
         right: 0;
       }
@@ -114,9 +126,10 @@ export default {
         }
       }
     }
-    .model-top {
+    .model-pri {
       bottom: 55%;
-      background-color: #66ffcc;
+      background-color: #fff;
+      box-shadow: 1px 1px 2px 1px #ebedf0;
       &.show {
         right: 0;
       }
@@ -125,14 +138,30 @@ export default {
       }
       .iconfont {
         &.icon-rising {
-          // color: #fff;
+          font-size: 22px;
+        }
+      } 
+    }
+    .model-top {
+      bottom: 45%;
+      background-color: #fff;
+      box-shadow: 1px 1px 2px 1px #ebedf0;
+      &.show {
+        right: 0;
+      }
+      &.hide {
+        right: -30px;
+      }
+      .iconfont {
+        &.icon-rising {
           font-size: 22px;
         }
       } 
     }
     .model-back {
-      bottom: 45%;
-      background-color: #9933ff;
+      bottom: 40%;
+      background-color: #fff;
+      box-shadow: 1px 1px 2px 1px #ebedf0;
       &.show {
         right: 0;
       }

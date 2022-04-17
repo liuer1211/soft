@@ -6,21 +6,24 @@
     <div class="home-center">
       <ImgModel></ImgModel>
     </div>
+    <!-- 右侧浮框 -->
+    <RightModel :statu="statu" :isBack="false"></RightModel>
   </div>
 </template>
 
 <script>
   import Search from '@/components/search/search'
   import ImgModel from '@/components/imgModel/imgModel'
-  
+  import RightModel from '@/components/rightModel/rightModel'
   export default {
     components: {
-      Search, ImgModel
+      Search, ImgModel, RightModel
     },
     data() {
       return {
         searchVal: '',
         isShow: true,
+        statu: 'start'
         // offsetTop: document.body.offsetTop,
       }
     },

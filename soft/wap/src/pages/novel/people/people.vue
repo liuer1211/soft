@@ -3,7 +3,7 @@
     <div class="people-list" v-for="(item,index) in list" :key="index" @click="toPage(item)">
       <div class="people-bg">
         <div>
-          <img :src="item.img" alt=""/>
+          <img src="../../../assets/images/imgmodel/001.png" alt=""/>
         </div>
         <div>
           <span>{{item.title}}</span>
@@ -71,7 +71,7 @@ export default {
         padding: 6px 12px 6px 6px;
       }
       .people-bg {
-        background-color: #3399ff;
+        // background-color: #3399ff;
         border-radius: 4px;
         padding: 12px;
         box-sizing: border-box;
@@ -82,7 +82,7 @@ export default {
           border-radius: 4px;
           display: flex;
           justify-content: center;
-          align-items: center;
+          align-items: flex-start;
           img {
             border-radius: 50%;
             width: 130px;

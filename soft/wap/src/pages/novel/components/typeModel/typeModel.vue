@@ -3,7 +3,7 @@
     <div class="model-list" v-for="(item,index) in list" :key="index" @click="toPage(item)">
       <div class="model-bg">
         <div>
-          <img :src="item.img" alt="" />
+          <img src="../../../../assets/images/imgmodel/001.png" alt="" />
         </div>
         <div>
           <span>{{item.title}}</span>
@@ -101,7 +101,7 @@ export default {
         padding: 0 12px 12px 6px;
       }
       .model-bg {
-        background-color: #3399ff;
+        // background-color: #3399ff;
         border-radius: 4px;
         display: flex;
         align-items: center;
