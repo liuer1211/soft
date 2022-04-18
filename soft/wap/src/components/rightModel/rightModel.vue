@@ -97,6 +97,10 @@ export default {
 
 <style lang="less" scoped>
   .right-model-main {
+    >div {
+      line-height: 20px;
+      vertical-align: middle;
+    }
     .pos {
       position: fixed;
       right: 0;
