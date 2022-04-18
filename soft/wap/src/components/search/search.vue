@@ -2,13 +2,16 @@
   <div class="search-main" :class="isShow ? 'active' : ''">
     <div class="search-head">
       <div @click="showModel">
-        <!-- <van-icon name="apps-o" /> -->
-        <i class="iconfont icon-nav-list">1</i>
+        <i class="iconfont icon-nav-list"></i>
       </div>
       <div>
         <van-search v-model="searchValue" :placeholder="placeholder" />
       </div>
+      <div @click="rShow = !rShow">
+        <i class="iconfont icon-rightalignment"></i>
+      </div>
     </div>
+    <!-- 左侧菜单 -->
     <van-popup v-model="show" position="left" teleport="#search-main" :style="{ width: '56%',height: '100%' }">
       <div class="pop-main">
         <div class="pop-top">
@@ -25,6 +28,12 @@
         </div> -->
       </div>
     </van-popup>
+    <!-- 右侧类别 -->
+    <div class="search-type">
+      <van-popup v-model="rShow" position="top" teleport="#search-type" :style="{ width: '100%',height: '50%' }">
+        132
+      </van-popup>
+    </div>
   </div>
 </template>
 
@@ -45,6 +54,7 @@
         searchValue: this.searchVal,
         placeholder: '今日热词：剧本',
         show: false,
+        rShow: false,
       }
     },
     watch: {
@@ -70,9 +80,11 @@
 
 <style lang="less" scoped>
   .search-main {
+    position: relative;
     position:fixed;
     top: 0;
     width: 100%;
+    height: 54px;
     display: none;
     background-color: #fff;
     z-index: 999;
@@ -93,8 +105,19 @@
           }
         } 
       }
-      >div:last-child {
+      >div:nth-child(2) {
         flex: 1;
+      }
+      >div:last-child {
+        width: 24px;
+        padding: 0 8px 0 0;
+        cursor: pointer;
+        .iconfont {
+          &.icon-rightalignment {
+            font-size: 26px;
+          }
+        }
+        // background-color: #3399ff;
       }
     }
     /deep/ .van-popup {
@@ -130,6 +153,43 @@
       }
       .pop-center {
         padding: 12px 12px;
+      }
+    }
+    /deep/ .van-field__left-icon {
+      display: none;
+    }
+    .search-type {
+      position: relative;
+      // position: absolute;
+      // top: 53px;
+      // left: 0;
+      // right: 0;
+      // padding: 12px;
+      // // background-color: #fff;
+      // // box-shadow: 1px 1px 2px 1px #ebedf0;
+      /deep/ .van-overlay {
+        position: fixed;
+        top: 53px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.7);
+        z-index: 99!important;
+      }
+      /deep/ .van-popup--top{
+        top: 53px;
+        z-index: 99!important;
+      }
+      /deep/ .van-popup{
+        // -webkit-transition: -webkit-transform .3s ease-out;
+        // transition: -webkit-transform .3s ease-out;
+        // transition: transform .3s ease-out;
+        // transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+        // -webkit-transform: '';
+        // transform: "";
+        // transform: translateY(53)
       }
     }
   }

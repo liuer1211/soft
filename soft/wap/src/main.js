@@ -25,3 +25,4 @@ const vm = new Vue({
 
 console.log('vm=', vm)
 console.log('环境：',process.env.NODE_ENV)
+console.log('history=',history)
