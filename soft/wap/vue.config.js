@@ -1,6 +1,8 @@
 module.exports = {
   // 公共文件目录
   publicPath: './',
+  // publicPath: '/wap/',
+  // outputDir: 'wap',
   // 关闭eslint
   lintOnSave: false,
   // 去除map未加密文件

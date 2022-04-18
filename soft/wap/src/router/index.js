@@ -70,7 +70,14 @@ VueRouter.prototype.replace = function(location, resolve, reject) {
   }
 };
 
+// Nginx 配置
+// location /product {
+//   index  index.html index.htm;
+//   try_files $uri $uri/ /product /;
+// }
 const router = new VueRouter({
+  // mode: 'history',
+  // base: '/wap/',
   routes
 })
 
