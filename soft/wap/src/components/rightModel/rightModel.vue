@@ -100,6 +100,7 @@ export default {
     >div {
       line-height: 20px;
       vertical-align: middle;
+      z-index: 888;
     }
     .pos {
       position: fixed;

@@ -56,7 +56,7 @@
 <style lang="less" scoped>
   .home-main{
     .home-center{
-      padding-top: 54px;
+      padding-top: 66px;
     }
   }
 </style>

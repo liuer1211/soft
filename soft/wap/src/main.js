@@ -13,8 +13,11 @@ import 'video.js/dist/video-js.css';
 
 import '@/mock';
 
+// import store from './store'
+
 Vue.use(Vant);
 Vue.use(VideoPlayer);
+
 
 Vue.config.productionTip = false
 

@@ -2,14 +2,14 @@
   <div class="search-main" :class="isShow ? 'active' : ''">
     <div class="search-head">
       <div @click="showModel">
-        <i class="iconfont icon-nav-list"></i>
+        <i class="iconfont icon-nav-list">1</i>
       </div>
       <div>
         <van-search v-model="searchValue" :placeholder="placeholder" />
       </div>
-      <div @click="rShow = !rShow">
+      <!-- <div @click="rShow = !rShow">
         <i class="iconfont icon-rightalignment"></i>
-      </div>
+      </div> -->
     </div>
     <!-- 左侧菜单 -->
     <van-popup v-model="show" position="left" teleport="#search-main" :style="{ width: '56%',height: '100%' }">
@@ -30,7 +30,7 @@
     </van-popup>
     <!-- 右侧类别 -->
     <div class="search-type">
-      <van-popup v-model="rShow" position="top" teleport="#search-type" :style="{ width: '100%',height: '50%' }">
+      <van-popup v-model="rShow" position="right" teleport="#search-type" :style="{ width: '50%',height: '100%' }">
         132
       </van-popup>
     </div>
@@ -60,9 +60,9 @@
     watch: {
       // 监听搜索关键字
       searchValue(newName, oldName) {
-        // console.log(newName, oldName)
+        console.log(newName, oldName)
         // 节流搜索
-        getList(newName);
+        this.getList(newName);
       }
     },
     methods: {
@@ -125,6 +125,10 @@
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
       }
+      &.van-popup--right {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
     }
     .pop-main {
       font-size: 16px;
@@ -169,18 +173,18 @@
       // // box-shadow: 1px 1px 2px 1px #ebedf0;
       /deep/ .van-overlay {
         position: fixed;
-        top: 53px;
+        // top: 53px;
         left: 0;
         bottom: 0;
         right: 0;
         width: 100%;
         height: 100%;
         background-color: rgba(0,0,0,.7);
-        z-index: 99!important;
+        // z-index: 99!important;
       }
       /deep/ .van-popup--top{
         top: 53px;
-        z-index: 99!important;
+        // z-index: 99!important;
       }
       /deep/ .van-popup{
         // -webkit-transition: -webkit-transform .3s ease-out;

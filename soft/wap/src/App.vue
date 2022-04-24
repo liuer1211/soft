@@ -7,14 +7,19 @@
 <script>
   export default {
     name: 'App',
+    mounted() {
+    }
   }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
   // @import 'assets/reset.less';
   // @vw-with: 750;
   // html{
   //   font-size: 100vw/@vw-with * 40;
   // }
+  body {
+    background-color: #fafafa;
+  }
 </style>
 

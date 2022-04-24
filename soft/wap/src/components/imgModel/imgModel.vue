@@ -20,7 +20,7 @@
   export default {
     data() {
       return {
-        list: []
+        list: [],
       }
     },
     mounted() {
@@ -59,7 +59,7 @@
     padding: 0 12px;
     .model-List{
       box-shadow: 1px 1px 2px 1px #ebedf0;
-      // background-color: #3399ff;
+      background-color: #fff;
       overflow: hidden;
       border-radius: 4px;
       width: 48%;

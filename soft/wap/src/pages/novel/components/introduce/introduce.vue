@@ -17,7 +17,7 @@
         </p>
       </div>
     </div>
-    <van-popup v-model="show" @close="closeModel" :close-on-click-overlay="false" closeable close-icon="close" teleport="#introduce-main" :style="{ width: '80%',height: '80%' }">
+    <van-popup v-model="show" @close="closeModel" position="bottom" teleport="#introduce-main" :style="{ width: '100%',height: '90%' }">
       <div class="pop-main"> 
         <div>
           <video-player 
@@ -98,12 +98,12 @@ export default {
 
     // 播放回调
     onPlayerPlay(player) {
-      console.log('player play!', player)
+      // console.log('player play!', player)
     },
 
     // 暂停回调
     onPlayerPause(player) {
-      console.log('player pause!', player)
+      // console.log('player pause!', player)
     },
 
     // // 视频播完回调
@@ -128,7 +128,7 @@ export default {
 
     // 当前播放位置发生变化时触发。
     onPlayerTimeupdate($event) {
-      console.log(player)
+      // console.log(player)
     },
 
     // //媒体的readyState为HAVE_FUTURE_DATA或更高
@@ -161,16 +161,17 @@ export default {
     .introduce-model {
       font-size: 16px;
       display: flex;
-      // background-color: #3399ff;
+      background-color: #fff;
       border-radius: 4px;
-      padding: 12px;
+      // padding: 12px;
       box-sizing: border-box;
-      box-shadow: 1px 1px 2px 1px #ebedf0;
+      box-shadow: 1px 1px 2px 1px #c3c3c3;
+      overflow: hidden;
+      background: linear-gradient(to left top, #7334ff, #ffffff);
       .in-left {
-        width: 100px;
-        min-width: 100px;
-        height: 120px;
-        background-color: 6633cc;
+        width: 120px;
+        min-width: 120px;
+        height: 140px;
         border-radius: 4px;
         overflow: hidden;
         position: relative;
@@ -182,13 +183,13 @@ export default {
         }
         >i {
           position:absolute;
-          bottom: 6px;
-          right: 6px;
-          width: 16px;
-          height: 16px;
+          bottom: 8px;
+          right: 8px;
+          width: 26px;
+          height: 26px;
           .iconfont {
             &.icon-play{
-              font-size: 20px;
+              font-size: 32px;
               color: #fff;
             }
           } 
@@ -196,8 +197,7 @@ export default {
       }
       .in-right {
         flex: 1;
-        padding: 2px 0 0 12px;
-        overflow: hidden;
+        padding: 12px 0 0 12px;
         >div {
           padding: 0 0 6px 0;
           &:nth-child(1) {
@@ -207,7 +207,7 @@ export default {
             font-size: 14px;
           }
           &:nth-child(3) {
-            font-size: 12px;
+            font-size: 14px;
           }
         }
         p {
@@ -225,18 +225,18 @@ export default {
       }
     }
     /deep/ .van-popup {
-      &.van-popup--center {
-        border-radius: 4px;
-        .van-popup__close-icon--top-right{
-          top: 0;
-          right: 0;
-          color: #000;
-        }
+      &.van-popup--bottom {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
       }
     }
     .pop-main {
       font-size: 16px;
-      padding: 16px 12px 12px 12px;
+      padding: 12px;
+      >div:first-child {
+        border-radius: 4px;
+        overflow: hidden;
+      }
       >div:last-child {
         padding: 12px 0 0 0;
       }

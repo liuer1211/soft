@@ -101,17 +101,18 @@ export default {
         padding: 0 12px 12px 6px;
       }
       .model-bg {
-        // background-color: #3399ff;
+        // background-color: #fff;
         border-radius: 4px;
         display: flex;
         align-items: center;
-        padding: 6px;
+        // padding: 6px;
         box-sizing: border-box;
-        box-shadow: 1px 1px 2px 1px #ebedf0;
+        box-shadow: 1px 1px 2px 1px #c3c3c3;
+        background: linear-gradient(to left top, #7334ff, #ffffff);
         >div:first-child {
-          width: 40px;
-          min-width: 40px;
-          height: 40px;
+          width: 50px;
+          min-width: 50px;
+          height: 50px;
           border-radius: 4px;
           overflow: hidden;
           img {
