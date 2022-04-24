@@ -1,7 +1,7 @@
 <template>
   <div class="peo-detail-main">
     <!-- 头部 -->
-    <div class="peo-detail-top">
+    <!-- <div class="peo-detail-top">
       <div>
         <img src="../../../assets/images/imgmodel/001.png" alt=""/>
       </div>
@@ -15,13 +15,20 @@
           <i class="iconfont icon-pin"></i>
         </i>
       </div>
-    </div>
+    </div> -->
     <!-- 内容 -->
-    <div class="peo-detail-cen">
+    <!-- <div class="peo-detail-cen">
       <p>描述</p>
       <p>批言</p>
       <p>事迹</p>
+    </div> -->
+
+    <div class="model-main">
+      
     </div>
+    <div class="bg-main"></div>
+    <div class="img-main"></div>
+    
     <!-- 右侧浮框 -->
     <RightModel></RightModel>
   </div>
@@ -50,58 +57,41 @@ export default {
 
 <style lang="less" scoped>
   .peo-detail-main {
-    font-size: 16px;
-    padding: 12px;
-    box-sizing: border-box;
-    .peo-detail-top {
+    .model-main {
+      position: absolute;
+      top: 0;
+      overflow: auto;
+      height: 1000px;
+      width: 100%;
+      padding: 12px 6px 0 6px;
       box-sizing: border-box;
-      display: flex;
-      border-radius: 4px;
-      // background-color: #3399ff;
-      overflow: hidden;
-      border: 1px solid #eee;
-      >div:first-child{
-        width: 100px;
-        min-width: 100px;
-        height: 120px;
-        border-radius: 4px;
-        overflow: hidden;
-        img {
-          width: 100%;
-          height: 100%;
-          display: block;
-          object-fit: cover;
-        }
-      }
-      >div:last-child {
-        flex: 1;
-        padding: 0 0 0 10px;
-        line-height: 24px;
-        position: relative;
-        >div {
-        }
-        i {
-          position: absolute;
-          bottom: 2px;
-          right: 2px;
-          width: 20px;
-          height: 20px;
-          // background-color: aquamarine;
-          cursor: pointer;
-          .iconfont {
-            &.icon-pin{
-              font-size: 22px;
-            }
-          }
-        }
-      }
+      z-index: 99;
     }
-    .peo-detail-cen {
-      padding: 12px 0 0 0;
-      line-height: 20px;
-      >p {
-
-      }
+    .bg-main {
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9;
+      background: radial-gradient(220% 105% at top center, #0f378c 10%, #5f63d6 40%, #6f73e9 65%, #578ceb);
+    }
+    .img-main {
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background: url(../../../assets/images/people/y.jpg) no-repeat;
+      background-size: 100% 100%;
+      opacity: 0.1;
     }
   }
 </style>

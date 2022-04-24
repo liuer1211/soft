@@ -42,6 +42,16 @@ export default {
           id: '',
           img: '',
           title: '苏晚'
+        },
+        {
+          id: '1',
+          img: '',
+          title: '夜灵犀'
+        },
+        {
+          id: '',
+          img: '',
+          title: '苏晚'
         }
       ],
       statrsCount:800,//星星数量
@@ -107,24 +117,40 @@ export default {
             .imgs {
               width: 100%;
               height: 100%;
+              background : -webkit-radial-gradient(50% 120%, circle cover, #000000cc, #000000b0, #000000ab);;
+              background : -moz-radial-gradient(50% 120%, circle cover, #000000cc, #000000b0, #000000ab);;
+              background : radial-gradient(50% 120%, circle cover, #000000cc, #000000b0, #000000ab);;
+              &::before{
+                content :  "" ;
+                position :  absolute ;
+                background: -webkit-radial-gradient( 50%  120% ,  circle  cover, rgba( 255 ,  255 ,  255 ,  0.5 ), rgba( 255 ,  255 ,  255 ,  0 )  70% );
+                border-radius:  50% ;
+                bottom :  2.5% ;
+                left :  5% ;
+                opacity:  0.6 ;
+                height :  100% ;
+                width :  90% ;
+                -webkit-filter: blur( 5px );
+                z-index :  2 ;
+              }
               img{
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 display: block;
                 border-radius: 50%;
-                opacity: .8;
+                opacity: .3;
               }
             }
-            >div {
+            >div:last-child {
               position: absolute;
               font-size: 14px;
               bottom: 0;
               width: 100%;
               height: 30px;
-              line-height: 26px;
+              line-height: 22px;
               text-align: center;
-              background-color: #00000069;
+              // background-color: #00000069;
               color: #fff;
             }
           }
@@ -157,42 +183,6 @@ export default {
           top: 0;
           left: 0;
           backface-visibility: hidden;
-        }
-      }
-    }
-    .people-list {
-      width: 50%;
-      box-sizing: border-box;
-      cursor: pointer;
-      &:nth-child(1n) {
-        padding: 6px 6px 6px 12px;
-      }
-      &:nth-child(2n) {
-        padding: 6px 12px 6px 6px;
-      }
-      .people-bg {
-        // background-color: #3399ff;
-        border-radius: 4px;
-        padding: 12px;
-        box-sizing: border-box;
-        box-shadow: 1px 1px 2px 1px #ebedf0;
-        >div:first-child {
-          width: 100%;
-          height: 150px;
-          border-radius: 4px;
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-          img {
-            border-radius: 50%;
-            width: 130px;
-            height: 130px;
-            object-fit: cover;
-            display: block;
-          }
-        }
-        >div:last-child {
-          text-align: center;
         }
       }
     }
