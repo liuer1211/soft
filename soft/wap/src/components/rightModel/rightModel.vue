@@ -4,7 +4,7 @@
       <i class="iconfont icon-double-arrow-left"></i>
     </div>
     <div class="model-pri pos" :class="active3" @click.stop="posFun('3')">
-      <i class="iconfont icon-hot"></i>
+      <i class="iconfont icon-warehouse"></i>
     </div>
     <div class="model-top pos" :class="active1" @click.stop="posFun('1')">
       <i class="iconfont icon-rising"></i>
@@ -84,6 +84,7 @@ export default {
       } else if (code === '2') {
         this.$router.go(-1);
       } else if (code === '3') {
+        this.$router.push('/home')
       } else {
       }
     }
@@ -142,7 +143,7 @@ export default {
         right: -30px;
       }
       .iconfont {
-        &.icon-hot {
+        &.icon-warehouse {
           font-size: 22px;
         }
       } 

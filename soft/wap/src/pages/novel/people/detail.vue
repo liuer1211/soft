@@ -24,7 +24,7 @@
     </div> -->
 
     <div class="model-main">
-      
+
     </div>
     <div class="bg-main"></div>
     <div class="img-main"></div>
@@ -61,7 +61,6 @@ export default {
       position: absolute;
       top: 0;
       overflow: auto;
-      height: 1000px;
       width: 100%;
       padding: 12px 6px 0 6px;
       box-sizing: border-box;

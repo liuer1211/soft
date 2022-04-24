@@ -8,7 +8,7 @@
               <img src="../../../assets/images/imgmodel/001.png" alt=""/>
             </div>
             <div>
-              夜灵犀...
+              {{substr(item.name)}}
             </div>
           </div>
         </div>
@@ -36,22 +36,27 @@ export default {
         {
           id: '1',
           img: '',
-          title: '夜灵犀'
+          name: '夜灵犀'
         },
         {
           id: '',
           img: '',
-          title: '苏晚'
+          name: '苏晚'
         },
         {
           id: '1',
           img: '',
-          title: '夜灵犀'
+          name: '百里梦'
         },
         {
           id: '',
           img: '',
-          title: '苏晚'
+          name: '妙乐'
+        },
+        {
+          id: '',
+          img: '',
+          name: '冷面剑客'
         }
       ],
       statrsCount:800,//星星数量
@@ -82,6 +87,14 @@ export default {
           item.style.transform=`translate3d(0,0,-${thisDistance}px)
           rotateY(${(Math.random() * 360)}deg) rotateX(${(Math.random() * -50)}deg) scale(${speed},${speed})`
       })
+    },
+    // 截取 拼接
+    substr(data) {
+      if (data.length>3){
+        return data.substr(0, 3) + '...'
+      } else {
+        return data;
+      }
     }
   }
 }
@@ -93,7 +106,6 @@ export default {
       position: absolute;
       top: 0;
       overflow: auto;
-      height: 1000px;
       width: 100%;
       padding: 12px 6px 0 6px;
       box-sizing: border-box;
