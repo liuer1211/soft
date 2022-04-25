@@ -108,7 +108,7 @@ export default {
         // padding: 6px;
         box-sizing: border-box;
         box-shadow: 1px 1px 2px 1px #c3c3c3;
-        background: linear-gradient(to left top, #7334ff, #ffffff);
+        background: linear-gradient(to left top, #b08cff, #ffffff);
         >div:first-child {
           width: 50px;
           min-width: 50px;

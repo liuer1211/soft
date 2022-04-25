@@ -57,6 +57,106 @@ export default {
           id: '',
           img: '',
           name: '冷面剑客'
+        },
+        {
+          id: '1',
+          img: '',
+          name: '夜灵犀'
+        },
+        {
+          id: '',
+          img: '',
+          name: '苏晚'
+        },
+        {
+          id: '1',
+          img: '',
+          name: '百里梦'
+        },
+        {
+          id: '',
+          img: '',
+          name: '妙乐'
+        },
+        {
+          id: '',
+          img: '',
+          name: '冷面剑客'
+        },
+        {
+          id: '1',
+          img: '',
+          name: '夜灵犀'
+        },
+        {
+          id: '',
+          img: '',
+          name: '苏晚'
+        },
+        {
+          id: '1',
+          img: '',
+          name: '百里梦'
+        },
+        {
+          id: '',
+          img: '',
+          name: '妙乐'
+        },
+        {
+          id: '',
+          img: '',
+          name: '冷面剑客'
+        },
+        {
+          id: '1',
+          img: '',
+          name: '夜灵犀'
+        },
+        {
+          id: '',
+          img: '',
+          name: '苏晚'
+        },
+        {
+          id: '1',
+          img: '',
+          name: '百里梦'
+        },
+        {
+          id: '',
+          img: '',
+          name: '妙乐'
+        },
+        {
+          id: '',
+          img: '',
+          name: '冷面剑客'
+        },
+        {
+          id: '1',
+          img: '',
+          name: '夜灵犀'
+        },
+        {
+          id: '',
+          img: '',
+          name: '苏晚'
+        },
+        {
+          id: '1',
+          img: '',
+          name: '百里梦'
+        },
+        {
+          id: '',
+          img: '',
+          name: '妙乐'
+        },
+        {
+          id: '',
+          img: '',
+          name: '冷面剑客'
         }
       ],
       statrsCount:800,//星星数量
@@ -105,7 +205,7 @@ export default {
     .model-main {
       position: absolute;
       top: 0;
-      overflow: auto;
+      // overflow: auto;
       width: 100%;
       padding: 12px 6px 0 6px;
       box-sizing: border-box;

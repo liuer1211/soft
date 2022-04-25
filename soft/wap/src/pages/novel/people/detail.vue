@@ -24,7 +24,11 @@
     </div> -->
 
     <div class="model-main">
-
+      <h1>{{obj.name}}</h1>
+      <div>门派</div>
+      <div>功夫</div>
+      <div>描写</div>
+      <div>{{obj.shiji}}</div>
     </div>
     <div class="bg-main"></div>
     <div class="img-main"></div>
@@ -41,9 +45,12 @@ export default {
   components: {
     RightModel
   },
-  date() {
+  data() {
     return {
-
+      obj: {
+        name: '夜灵犀夜灵犀夜灵犀',
+        shiji: '夜灵犀夜灵犀夜灵犀'
+      }
     }
   },
   mounted() {
@@ -60,11 +67,13 @@ export default {
     .model-main {
       position: absolute;
       top: 0;
-      overflow: auto;
+      // overflow: auto;
       width: 100%;
-      padding: 12px 6px 0 6px;
+      padding: 12px 12px 0;
       box-sizing: border-box;
       z-index: 99;
+      font-size: 14px;
+      color: #fff;
     }
     .bg-main {
       overflow: hidden;
@@ -90,7 +99,7 @@ export default {
       z-index: 10;
       background: url(../../../assets/images/people/y.jpg) no-repeat;
       background-size: 100% 100%;
-      opacity: 0.1;
+      opacity: 0.2;
     }
   }
 </style>

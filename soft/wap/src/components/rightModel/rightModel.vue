@@ -3,7 +3,7 @@
     <div class="right-model-one pos" :class="status" @click.stop="toShow">
       <i class="iconfont icon-double-arrow-left"></i>
     </div>
-    <div class="model-pri pos" :class="active3" @click.stop="posFun('3')">
+    <div v-show="isBack" class="model-pri pos" :class="active3" @click.stop="posFun('3')">
       <i class="iconfont icon-warehouse"></i>
     </div>
     <div class="model-top pos" :class="active1" @click.stop="posFun('1')">
@@ -106,8 +106,8 @@ export default {
     .pos {
       position: fixed;
       right: 0;
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       padding: 4px;
       box-sizing: border-box;
@@ -121,64 +121,72 @@ export default {
         right: 0;
       }
       &.cen{
-        right: -15px;
+        right: -20px;
       }
       &.end{
-        right: -30px;
+        right: -40px;
       }
       .iconfont {
         &.icon-double-arrow-left {
-          font-size: 22px;
+          font-size: 28px;
+          padding-left: 1px;
+          line-height: 32px;
         }
       }
     }
     .model-pri {
-      bottom: 55%;
+      bottom: 57%;
       background-color: #fff;
-      box-shadow: 1px 1px 2px 1px #ebedf0;
+      // box-shadow: 1px 1px 2px 1px #ebedf0;
       &.show {
         right: 0;
       }
       &.hide {
-        right: -30px;
+        right: -40px;
       }
       .iconfont {
         &.icon-warehouse {
-          font-size: 22px;
+          font-size: 28px;
         }
       } 
     }
     .model-top {
-      bottom: 45%;
+      bottom: 43%;
       background-color: #fff;
-      box-shadow: 1px 1px 2px 1px #ebedf0;
+      // box-shadow: 1px 1px 2px 1px #ebedf0;
       &.show {
         right: 0;
       }
       &.hide {
-        right: -30px;
+        right: -40px;
       }
       .iconfont {
         &.icon-rising {
-          font-size: 22px;
+          font-size: 28px;
+          padding-left: 2px;
         }
       } 
     }
     .model-back {
-      bottom: 40%;
+      bottom: 36%;
       background-color: #fff;
-      box-shadow: 1px 1px 2px 1px #ebedf0;
+      // box-shadow: 1px 1px 2px 1px #ebedf0;
       &.show {
         right: 0;
       }
       &.hide {
-        right: -30px;
+        right: -40px;
       }
       .iconfont {
         &.icon-leftarrow {
-          font-size: 22px;
+          font-size: 28px;
         }
       }
+    }
+
+    .iconfont {
+      line-height: 28px;
+      padding-left: 3px;
     }
   }
 </style>

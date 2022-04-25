@@ -167,7 +167,7 @@ export default {
       box-sizing: border-box;
       box-shadow: 1px 1px 2px 1px #c3c3c3;
       overflow: hidden;
-      background: linear-gradient(to left top, #7334ff, #ffffff);
+      background: linear-gradient(to left top, #b08cff, #ffffff);
       .in-left {
         width: 120px;
         min-width: 120px;
