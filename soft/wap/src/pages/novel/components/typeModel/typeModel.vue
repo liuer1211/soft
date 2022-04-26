@@ -41,6 +41,11 @@ export default {
         },
         {
           img: '',
+          title: '宿命',
+          type: 'fatalism'
+        },
+        {
+          img: '',
           title: '其他',
           type: 'other'
         }
@@ -69,6 +74,10 @@ export default {
           Toast('暂未开通!');
           // this.pagePush(data);
           break;
+        case 'fatalism':
+          Toast('暂未开通!');
+          // this.pagePush(data);
+          break; 
         case 'other':
           Toast('暂未开通!');
           // this.pagePush(data);
@@ -105,6 +114,36 @@ export default {
       &:nth-child(2n) {
         padding: 0 12px 12px 6px;
       }
+      &:nth-child(1){
+        .model-bg {
+          background: linear-gradient(to left top, #b08cff, #ffffff);
+        }
+      }
+      &:nth-child(2){
+        .model-bg {
+          background: linear-gradient(to left top, #9a74ee, #ffffff);
+        }
+      }
+      &:nth-child(3){
+        .model-bg {
+          background: linear-gradient(to left top, #8d58ff, #ffffff);
+        }
+      }
+      &:nth-child(4){
+        .model-bg {
+          background: linear-gradient(to left top, #7239ee, #ffffff);
+        }
+      }
+      &:nth-child(5){
+        .model-bg {
+          background: linear-gradient(to left top, #6425ec, #ffffff);
+        }
+      }
+      &:nth-child(6){
+        .model-bg {
+          background: linear-gradient(to left top, #601ff0, #ffffff);
+        }
+      }
       .model-bg {
         // background-color: #fff;
         border-radius: 4px;
@@ -113,7 +152,6 @@ export default {
         // padding: 6px;
         box-sizing: border-box;
         box-shadow: 1px 1px 2px 1px #c3c3c3;
-        background: linear-gradient(to left top, #b08cff, #ffffff);
         >div:first-child {
           width: 50px;
           min-width: 50px;
