@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { Toast } from 'vant'
 export default {
   data() {
     return {
@@ -57,16 +58,20 @@ export default {
           this.pagePush(data);
           break;
         case 'kungfu':
-          this.pagePush(data);
+          Toast('暂未开通!');
+          // this.pagePush(data);
           break;
         case 'sect':
-          this.pagePush(data);
+          Toast('暂未开通!');
+          // this.pagePush(data);
           break;
         case 'weapon':
-          this.pagePush(data);
+          Toast('暂未开通!');
+          // this.pagePush(data);
           break;
         case 'other':
-          this.pagePush(data);
+          Toast('暂未开通!');
+          // this.pagePush(data);
           break;  
         default:
           break;          

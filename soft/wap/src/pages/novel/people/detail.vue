@@ -25,10 +25,10 @@
 
     <div class="model-main">
       <h1>{{obj.name}}</h1>
-      <div>门派</div>
-      <div>功夫</div>
-      <div>描写</div>
-      <div>{{obj.shiji}}</div>
+      <div>{{obj.menpai}}</div>
+      <div>{{obj.gongfu}}</div>
+      <div>{{obj.miaoshu}}</div>
+      <p>{{obj.shiji}}</p>
     </div>
     <div class="bg-main"></div>
     <div class="img-main"></div>
@@ -48,8 +48,11 @@ export default {
   data() {
     return {
       obj: {
-        name: '夜灵犀夜灵犀夜灵犀',
-        shiji: '夜灵犀夜灵犀夜灵犀'
+        name: '夜灵犀',
+        menpai: '燕云山庄',
+        gongfu: '燕云七绝、乾坤生死诀',
+        miaoshu: '',
+        shiji: '年少成名，一手绝技独步江湖。对于他的本事，江湖中人都是这样流传的“锦绣一挥，神佛难挡”。'
       }
     }
   },
@@ -72,8 +75,22 @@ export default {
       padding: 12px 12px 0;
       box-sizing: border-box;
       z-index: 99;
-      font-size: 14px;
+      font-size: 15px;
       color: #fff;
+      h1 {
+        font-size: 18px;
+      }
+      >div {
+        margin-top: 12px;
+        line-height: 20px;
+      }
+      >p {
+        margin-top: 12px;
+        line-height: 24px;
+        word-wrap: break-word;
+        word-break: break-all;
+        text-indent: 20px;
+      }
     }
     .bg-main {
       overflow: hidden;
