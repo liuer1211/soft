@@ -38,6 +38,7 @@
     npm install amfe-flexible --save
     npm i postcss-pxtorem@5.1.1  --save
     npm i vue-video-player --save
+    npm install swiper@7
 
 # 整体配置
     reset.css
@@ -120,6 +121,17 @@
     视屏
 
 # 详情
+
+# 人物
+    定位
+    球
+
+# 其他
+    swiper
+
+    复选框封装
+
+    网络WiFi
 
 
 

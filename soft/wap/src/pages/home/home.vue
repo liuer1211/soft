@@ -8,6 +8,8 @@
     </div>
     <!-- 右侧浮框 -->
     <RightModel :statu="statu" :isBack="false"></RightModel>
+    <!-- 英雄帖 -->
+    <Stick/>
   </div>
 </template>
 
@@ -15,9 +17,11 @@
   import Search from '@/components/search/search'
   import ImgModel from '@/components/imgModel/imgModel'
   import RightModel from '@/components/rightModel/rightModel'
+  import Stick from '@/components/stick/stick'
+
   export default {
     components: {
-      Search, ImgModel, RightModel
+      Search, ImgModel, RightModel, Stick
     },
     data() {
       return {

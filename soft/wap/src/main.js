@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import router from './router'
-import 'amfe-flexible';
-
+import 'amfe-flexible'; // px适配
+import store from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
@@ -13,7 +13,11 @@ import 'video.js/dist/video-js.css';
 
 import '@/mock';
 
-// import store from './store'
+// import Swiper from 'swiper';
+// import 'swiper/dist/css/swiper.css';
+// import Swiper from "swiper/vue";
+// import "swiper/swiper.min.css";
+// Vue.use(Swiper)
 
 Vue.use(Vant);
 Vue.use(VideoPlayer);
@@ -22,8 +26,9 @@ Vue.use(VideoPlayer);
 Vue.config.productionTip = false
 
 const vm = new Vue({
-  router,
   render: h => h(App),
+  router,
+  store,
 }).$mount('#app')
 
 console.log('vm=', vm)

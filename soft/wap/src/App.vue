@@ -21,5 +21,8 @@
   body {
     background-color: #fafafa;
   }
+  .body-overflow-hidden {
+    overflow: hidden;
+  }
 </style>
 

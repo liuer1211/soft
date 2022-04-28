@@ -46,7 +46,7 @@ export default {
         },
         {
           img: '',
-          title: '其他',
+          title: '诗词歌赋',
           type: 'other'
         }
       ]
@@ -79,8 +79,7 @@ export default {
           // this.pagePush(data);
           break; 
         case 'other':
-          Toast('暂未开通!');
-          // this.pagePush(data);
+          this.pagePush(data);
           break;  
         default:
           break;          
