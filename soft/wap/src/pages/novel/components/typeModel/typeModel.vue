@@ -3,7 +3,7 @@
     <div class="model-list" v-for="(item,index) in list" :key="index" @click="toPage(item)">
       <div class="model-bg">
         <div>
-          <img src="../../../../assets/images/imgmodel/001.png" alt="" />
+          <img src="../../../../assets/images/imgmodel/null.png" alt="" />
         </div>
         <div>
           <span>{{item.title}}</span>
@@ -115,27 +115,27 @@ export default {
       }
       &:nth-child(1){
         .model-bg {
-          background: linear-gradient(to left top, #3b3aff, #ffffff);
+          background: linear-gradient(to left top, #a529fd, #ffffff);
         }
       }
       &:nth-child(2){
         .model-bg {
-          background: linear-gradient(to left top, #9a74ee, #ffffff);
+          background: linear-gradient(to left top, #1ccb00, #ffffff);
         }
       }
       &:nth-child(3){
         .model-bg {
-          background: linear-gradient(to left top, #8d58ff, #ffffff);
+          background: linear-gradient(to left top, #176fe5, #ffffff);
         }
       }
       &:nth-child(4){
         .model-bg {
-          background: linear-gradient(to left top, #7239ee, #ffffff);
+          background: linear-gradient(to left top, #dfdb04, #ffffff);
         }
       }
       &:nth-child(5){
         .model-bg {
-          background: linear-gradient(to left top, #6425ec, #ffffff);
+          background: linear-gradient(to left top, #3932ff, #ffffff);
         }
       }
       &:nth-child(6){

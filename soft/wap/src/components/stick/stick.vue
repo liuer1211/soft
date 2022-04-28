@@ -5,13 +5,13 @@
       <span>雄</span>
       <span>贴</span>
     </div>
-    <div v-show="isStick" class="stick-model">
+    <div v-show="isStick" class="stick-model" @click.stop="close">
       <div>
 
       </div>
-      <div class="close" @click.stop="close">
+      <!-- <div class="close" @click.stop="close">
         <span>×</span>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -72,6 +72,7 @@ export default {
       transition: 0.5s;
       &.hid{
         transform: rotate(-30deg);
+        right: -2px;
       }
       >span{
         flex: 1;
@@ -85,6 +86,7 @@ export default {
       left: 0;
       z-index: 1000;
       background: #5050507a;
+      cursor: pointer;
       transition: 0.5s;
       .close {
         color: #fff;

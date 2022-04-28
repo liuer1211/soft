@@ -2,7 +2,7 @@
   <div class="introduce-main">
     <div class="introduce-model">
       <div class="in-left">
-        <img src="../../../../assets/images/imgmodel/001.png" alt=""/>
+        <img src="../../../../assets/images/imgmodel/und.jpg" alt=""/>
         <i @click="toShow">
           <!-- <van-icon name="play-circle-o" /> -->
           <i class="iconfont icon-play"></i>
@@ -223,6 +223,7 @@ export default {
       }
     }
     /deep/ .van-popup {
+      background-color: #ffedbe;
       &.van-popup--bottom {
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;

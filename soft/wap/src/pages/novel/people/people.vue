@@ -5,7 +5,7 @@
         <div v-for="(item,index) in list" :key="index">
           <div @click="toPage()">
             <div class="imgs">
-              <img src="../../../assets/images/imgmodel/001.png" alt=""/>
+              <img src="../../../assets/images/imgmodel/und.jpg" alt=""/>
             </div>
             <div>
               {{substr(item.name)}}
