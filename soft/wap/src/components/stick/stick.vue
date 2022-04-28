@@ -67,6 +67,7 @@ export default {
       box-sizing: border-box;
       flex-direction: column;
       border: 0.02667rem solid #eac22a;
+      box-shadow: 0.02667rem 0.02667rem 0.05333rem 0.02667rem #ebedf0;
       cursor: pointer;
       transition: 0.5s;
       &.hid{

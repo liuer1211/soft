@@ -115,7 +115,7 @@ export default {
       }
       &:nth-child(1){
         .model-bg {
-          background: linear-gradient(to left top, #b08cff, #ffffff);
+          background: linear-gradient(to left top, #3b3aff, #ffffff);
         }
       }
       &:nth-child(2){
@@ -140,7 +140,7 @@ export default {
       }
       &:nth-child(6){
         .model-bg {
-          background: linear-gradient(to left top, #601ff0, #ffffff);
+          background: linear-gradient(to left top, #e0b307, #ffffff);
         }
       }
       .model-bg {

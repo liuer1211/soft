@@ -65,7 +65,7 @@ export default {
         fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
         sources: [{
           type: "video/mp4", // 类型
-          src: 'https://liuer1211.github.io/soft/soft/wap/src/assets/video/video.mp4' // url地址
+          src: 'http://106.12.129.114/static/video/video.mp4' // url地址
         }],
         poster: '', // 封面地址
         notSupportedMessage: '此视频暂无法播放，请稍后再试', // 允许覆盖Video.js无法播放媒体源时显示的默认信息。
@@ -161,13 +161,11 @@ export default {
     .introduce-model {
       font-size: 16px;
       display: flex;
-      background-color: #fff;
       border-radius: 4px;
-      // padding: 12px;
       box-sizing: border-box;
       box-shadow: 1px 1px 2px 1px #c3c3c3;
       overflow: hidden;
-      background: linear-gradient(to left top, #b08cff, #ffffff);
+      background: linear-gradient(to left top, #ffdd86, #ffffff);
       .in-left {
         width: 120px;
         min-width: 120px;
