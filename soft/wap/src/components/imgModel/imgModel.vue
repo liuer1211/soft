@@ -2,7 +2,7 @@
   <div class="model-main">
     <div class="model-List" v-for="(item,index) in list" :key="index" @click="goPage(item)">
       <div class="model-top">
-        <img src="../../assets/images/imgmodel/001.png" alt=""/>
+        <img :src="getImg(item.img)" alt=""/>
         <i>{{item.flag}}</i>
       </div>
       <div class="model-bot">
@@ -44,6 +44,11 @@
             data: item
           }
         })
+      },
+      // 动态拼接图片地址
+      getImg(data) {
+        let img = require(`../../assets/images/imgmodel/`+data)
+        return img;
       }
     }
   }
