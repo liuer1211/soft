@@ -2,7 +2,7 @@
   <div class="introduce-main">
     <div class="introduce-model">
       <div class="in-left">
-        <img src="../../../../assets/images/imgmodel/und.jpg" alt=""/>
+        <img src="../../../../assets/images/imgmodel/yelingxi.jpg" alt=""/>
         <i @click="toShow">
           <!-- <van-icon name="play-circle-o" /> -->
           <i class="iconfont icon-play"></i>
@@ -40,9 +40,16 @@
             @ready="playerReadied" -->
           </video-player>
         </div>
-        <div>
-          简介
-        </div>
+        <p>
+          简介:世人只知李白一篇《蜀道难》送友人入蜀，殊不知这位剑客更在意蜀地的另一个传说。
+          相传三国时期，铸剑名家打造了三把赫赫有名的宝剑，分别是：黑曜、赤灵、素渊。
+          传闻只要得其一把便可得天下，而这三把宝剑也被魏蜀吴三国的君主各占其一。<br/>
+          几百年过去了，有传言黑曜在蜀地现世，像李白这样的剑客又怎能不心动。
+          但是天意弄人，青莲剑客至死也未曾得见这把旷世宝剑。<br/>
+          几百年过去了，这把剑又横空出世，江湖又将掀起一场腥风血雨。
+          也正在这期间，江湖中突然冒出一位年纪不满二十的少年，打破了这沉寂已久的江湖，此人便是夜灵犀。
+          没有人知道这少年从哪里来，师出何门何派，只记得他只身一人前往少林，挑战主持方丈后全身而退。
+        </p>
       </div>
     </van-popup>
   </div>
@@ -236,8 +243,11 @@ export default {
         border-radius: 4px;
         overflow: hidden;
       }
-      >div:last-child {
+      >p {
         padding: 12px 0 0 0;
+        word-break: break-all;
+        text-indent: 12px;
+        line-height: 24px;
       }
     }
   }

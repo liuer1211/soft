@@ -5,7 +5,7 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="other-model">
-              <h1>印双人 · 夜灵犀</h1>
+              <h1>印双人 · 六耳</h1>
               <p>
                 夜微凉 月照窗<br/>
                 轻舟过小桥 <br/>
@@ -43,7 +43,7 @@
           </div>
           <div class="swiper-slide">
             <div class="other-model">
-              <h1>落日有感 · 夜灵犀</h1>
+              <h1>落日有感 · 六耳</h1>
               <p>
                 饭后屋顶歇，离别故园久。<br/>
                 迎面凉风拂，不觉已入秋。<br/>

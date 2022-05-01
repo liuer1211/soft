@@ -12,6 +12,7 @@ import 'vue-video-player/src/custom-theme.css';
 import 'video.js/dist/video-js.css';
 
 import '@/mock';
+import * as filters from '@/filter';
 
 // import Swiper from 'swiper';
 // import 'swiper/dist/css/swiper.css';
@@ -25,12 +26,17 @@ Vue.use(VideoPlayer);
 
 Vue.config.productionTip = false
 
+// 过滤器
+Object.keys(filters).forEach(key=>{
+  Vue.filter(key,filters[key])
+})
+
 const vm = new Vue({
   render: h => h(App),
   router,
   store,
 }).$mount('#app')
 
-console.log('vm=', vm)
-console.log('环境：',process.env.NODE_ENV)
-console.log('history=',history)
+// console.log('vm=', vm)
+// console.log('环境：',process.env.NODE_ENV)
+// console.log('history=',history)

@@ -47,7 +47,7 @@
       },
       // 动态拼接图片地址
       getImg(data) {
-        let img = require(`../../assets/images/imgmodel/`+data)
+        let img = require(`../../assets/images/imgmodel/${data}`)
         return img;
       }
     }
