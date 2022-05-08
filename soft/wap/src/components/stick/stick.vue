@@ -117,7 +117,7 @@ export default {
           font-size: 18px;
           text-align: center;
           font-weight: 600;
-          margin-bottom: 12px;
+          margin-bottom: 10px;
         }
         p {
           // margin-top: 12px;

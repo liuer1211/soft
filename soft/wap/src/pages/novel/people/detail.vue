@@ -31,7 +31,7 @@
       <p>{{obj.shiji}}</p>
     </div>
     <div class="bg-main"></div>
-    <div class="img-main"></div>
+    <!-- <div class="img-main"></div> -->
     
     <!-- 右侧浮框 -->
     <RightModel></RightModel>

@@ -26,7 +26,7 @@ export default {
         },
         {
           img: '',
-          title: '武功',
+          title: '武学',
           type: 'kungfu'
         },
         {
