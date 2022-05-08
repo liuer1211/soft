@@ -1,5 +1,5 @@
 const state ={
-  isStick: false, // 英雄帖显隐
+  isStick: true, // 英雄帖显隐
   isDream: false, // 逐梦令显隐
 }
 

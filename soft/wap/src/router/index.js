@@ -83,7 +83,12 @@ VueRouter.prototype.replace = function(location, resolve, reject) {
 const router = new VueRouter({
   // mode: 'history',
   // base: '/wap/',
-  routes
+  routes,
+  //滚动行为
+  scrollBehavior(to, from, savedPosition) {
+    //返回的这个y=0，代表的滚动条在最上方
+    return { y: 0 };
+  },
 })
 
 export default router;
