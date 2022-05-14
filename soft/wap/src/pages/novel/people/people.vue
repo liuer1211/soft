@@ -91,7 +91,7 @@ export default {
     // 截取 拼接
     substr(data) {
       if (data.length>3){
-        return data.substr(0, 3) + '...'
+        return data.substr(0, 4) + '...'
       } else {
         return data;
       }

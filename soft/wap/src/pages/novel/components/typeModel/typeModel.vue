@@ -63,20 +63,20 @@ export default {
           this.pagePush(data);
           break;
         case 'kungfu':
-          Toast('暂未开通!');
-          // this.pagePush(data);
+          // Toast('暂未开通!');
+          this.pagePush(data);
           break;
         case 'sect':
-          Toast('暂未开通!');
-          // this.pagePush(data);
+          // Toast('暂未开通!');
+          this.pagePush(data);
           break;
         case 'weapon':
-          Toast('暂未开通!');
-          // this.pagePush(data);
+          // Toast('暂未开通!');
+          this.pagePush(data);
           break;
         case 'fatalism':
-          Toast('暂未开通!');
-          // this.pagePush(data);
+          // Toast('暂未开通!');
+          this.pagePush(data);
           break; 
         case 'other':
           this.pagePush(data);
