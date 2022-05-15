@@ -170,9 +170,9 @@ export default {
     box-sizing: border-box;
     padding: 10px;
     .swiper-wrapper {
-      // justify-content: center;
-      img {
+      .swiper-slide {
         border-radius: 4px;
+        overflow: hidden;
       }
     }
   }

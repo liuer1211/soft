@@ -1,15 +1,24 @@
 <template>
   <div class="kungfu-main">
-    <!-- 背景 -->
-    <div class="bg"></div>
-    <!-- 下层 -->
-    <div class="bot">
-      <div class="animate">
-        燕云七绝 燕云七绝燕云七绝燕云七绝燕云七绝燕云七绝燕云七绝
+    <div id="canvas-main">
+      <canvas id="canvas" class="canvas" width="375px" height="667px">
+        <p>Your browser doesn't support the HTML5 CANVAS tag.</p>
+      </canvas>
+      <div style="display: none" id="canvas-model">
+        <ul role="list">
+          <li><a href="javascript:;" style="font-size: 6pt;">惊雷剑法</a></li>
+          <li><a href="javascript:;" style="font-size: 32.181818181818pt;">凤舞九天</a></li>
+          <li><a href="javascript:;" style="font-size: 10.363636363636pt;">九阳神功</a></li>
+          <li><a href="javascript:;" style="font-size: 12.909090909091pt;">乾坤大挪移</a></li>
+          <li><a href="javascript:;" style="font-size: 8.1818181818182pt;">迷魂大法</a></li>
+          <li><a href="javascript:;" style="font-size: 8.5454545454545pt;">生死决</a></li>
+          <li><a href="javascript:;" style="font-size: 16.909090909091pt;">燕云剑法</a></li>
+          <li><a href="javascript:;" style="font-size: 11.818181818182pt;">扶摇九天</a></li>
+          <li><a href="javascript:;" style="font-size: 6pt;">音波功</a></li>
+          <li><a href="javascript:;" style="font-size: 21.272727272727pt;">混元功</a></li>
+        </ul>
       </div>
     </div>
-    <!-- 上层 -->
-    <div class="top"></div>
   </div>
 </template>
 
@@ -17,65 +26,54 @@
 export default {
   data() {
     return {
-
     }
   },
   mounted() {
-    console.log(this.$route.params.data)
+    console.log(this.$route.params.data);
+    this.getInit();
   },
   methods:{
-
+    getInit() {
+      jQuery(document).ready(function() {
+        if( ! jQuery('#canvas').tagcanvas({
+            textFont: 'Impact,"Arial Black",sans-serif',
+            textColour: '#ffffff',
+            outlineColour: '#aaaaaa',
+            reverse: true,
+            textHeight:16,
+            shape: "sphere", 
+            depth: 0.8,
+            decel:0.99,
+            padding:0,
+            wheelZoom: true,
+            dragControl: false,
+            fadeIn: 0,
+            freezeActive: false,
+            outlineMethod: "outline",
+            outlineOffset: "5",
+            outlineRadius: "0",
+            outlineThickness: "2",
+            maxSpeed: 0.05
+            },'canvas-model')) {
+          jQuery('#canvas-main').hide();
+        }
+      });
+    }
   }
 }
 </script>
 
 <style lang="less" scoped>
   .kungfu-main {
-    >div{
-      position: fixed;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-    .bg {
-      z-index: 1;
-      background: linear-gradient(to top, #171717, #505050);
-    }
-    .bot {
-      z-index: 2;
-      color: #f2d64dee;
-      >div {
-        // writing-mode: vertical-lr;
-        // position: absolute;
-        // top: 0;
-        width: 100%;
-        overflow: hidden;
-      }
-    }
-    .top {
-      z-index: 3;
-    }
-    .animate {
-      animation: 7s wordsLoop linear infinite normal;
-    }
-  }
-  @keyframes wordsLoop {
-    0% {
-      // left: 0;
-      transform: translateX(100%);
-      // opacity: 0;
-    }
-    50% {
-      // left: 50%;
-      // opacity: 1;
-    }
-    100% {
-      // left: 100%;
-      transform: translateX(-100%);
-      // opacity: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    overflow: hidden;
+    .canvas {
+      background-color: #000000;
     }
   }
 </style>
