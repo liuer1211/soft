@@ -1,5 +1,6 @@
 <template>
   <div class="weapon-main">
+    
   </div>
 </template>
 
