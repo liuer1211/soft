@@ -57,7 +57,7 @@ export default {
           topTip: 50-6,
           leftTip: 50-2,
           title: '紫禁城',
-          name: '名剑山庄论剑',
+          name: '山庄论剑',
           code: '004'
         },
         {
@@ -99,18 +99,17 @@ export default {
         background-color: #000;
         color: #fff;
         cursor: pointer;
+        animation: toshow 2s;
         &.round {
           width: 20px;
           height: 20px;
           border-radius: 50%;
           background-color: #fff;
-          animation: toshow 2s;
         }
         &.info {
           padding: 8px;
           box-sizing: border-box;
           border-radius: 4px;
-          animation: toshow 2s;
           &::after {
             content: '';
             position: absolute;
