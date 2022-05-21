@@ -110,6 +110,7 @@ export default {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+    background: linear-gradient( 0deg ,#176fe5,#fff);
   }
   .swiper-slide img {
     display: block;
