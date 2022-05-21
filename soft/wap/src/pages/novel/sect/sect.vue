@@ -60,7 +60,7 @@ export default {
     this.getInitDate();  // 悬浮------------
   },
   methods: {
-   getInitDate() {
+    getInitDate() {
       this.$nextTick(() => {
         let swiper = new Swiper(".mySwiper2", {
           // loop: true,
