@@ -3,9 +3,9 @@
     <div class="model-main">
       <div class="model-bg">
         <div v-for="(item,index) in list" :key="index">
-          <div @click="toPage()">
+          <div @click="toPage(item)">
             <div class="imgs">
-              <img src="../../../assets/images/imgmodel/und.jpg" alt=""/>
+              <img :src="getImg(item.img)" alt=""/>
             </div>
             <div>
               {{substr(item.name)}}
@@ -35,14 +35,22 @@ export default {
       list: [
         {
           id: '1',
-          img: '',
-          name: '夜灵犀'
+          img: 'null.png',
+          name: '夜灵犀',
+          menpai: '燕云山庄',
+          gongfu: '燕云七绝、乾坤生死诀',
+          miaoshu: '',
+          shiji: '年少成名，一手绝技独步江湖。对于他的本事，江湖中人都是这样流传的“锦绣一挥，神佛难挡”。'
         },
-        // {
-        //   id: '',
-        //   img: '',
-        //   name: '苏晚'
-        // },
+        {
+          id: '2',
+          img: '2.jpg',
+          name: '苏晚',
+          menpai: '未知',
+          gongfu: '未知',
+          miaoshu: '',
+          shiji: '未知'
+        },
         // {
         //   id: '1',
         //   img: '',
@@ -95,6 +103,11 @@ export default {
       } else {
         return data;
       }
+    },
+    // 动态拼接图片地址
+    getImg(data) {
+      let img = require(`../../../assets/images/imgmodel/${data}`)
+      return img;
     }
   }
 }

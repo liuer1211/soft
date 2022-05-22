@@ -133,6 +133,12 @@ export default {
                 right: 20px;
                 writing-mode: vertical-rl;
                 color: #fff;
+                padding: 7px;
+                box-sizing: border-box;
+                font-size: 16px;
+                background-color: #00000085;
+                border-radius: 2px;
+                border: 1px solid #5e5e5e;
               }
             }
             >div:nth-child(2) {

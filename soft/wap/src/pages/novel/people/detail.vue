@@ -1,28 +1,5 @@
 <template>
   <div class="peo-detail-main">
-    <!-- 头部 -->
-    <!-- <div class="peo-detail-top">
-      <div>
-        <img src="../../../assets/images/imgmodel/001.png" alt=""/>
-      </div>
-      <div>
-        <div>名字：夜灵犀</div>
-        <div>技能：</div>
-        <div>门派：</div>
-        <div>事迹：</div>
-        <div>座右铭：</div>
-        <i>
-          <i class="iconfont icon-pin"></i>
-        </i>
-      </div>
-    </div> -->
-    <!-- 内容 -->
-    <!-- <div class="peo-detail-cen">
-      <p>描述</p>
-      <p>批言</p>
-      <p>事迹</p>
-    </div> -->
-
     <div class="model-main">
       <h1>{{obj.name}}</h1>
       <div>{{obj.menpai}}</div>
@@ -31,8 +8,6 @@
       <p>{{obj.shiji}}</p>
     </div>
     <div class="bg-main"></div>
-    <!-- <div class="img-main"></div> -->
-    
     <!-- 右侧浮框 -->
     <RightModel></RightModel>
   </div>
@@ -57,10 +32,18 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$route.params.data)
+    console.log(this.$route.params.data);
+    this.getInit();
   },
   methods:{
-
+    // 初始数据
+    getInit() {
+      if (this.$route.params.data) {
+        this.obj = this.$route.params.data;
+      } else {
+        this.$router.back();
+      }
+    }
   }
 }
 </script>
