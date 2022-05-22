@@ -3,44 +3,20 @@
     <!-- 上 -->
     <div class="swiper mySwiper1"  >
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="../../../assets/images/people/y.jpg" />
+        <div class="swiper-slide" v-for="(item, index) in list" :key="index">
+          <img :src="getImg(item.imgs)" />
           <div>
-            <div>燕云山庄</div>
-            <div>泰山以南，云雾缭绕，日出映月</div>
+            <div>{{item.name}}</div>
+            <div>{{item.des}}</div>
           </div>
-        </div>
-        <div class="swiper-slide">
-          <img src="../../../assets/images/people/y.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../../../assets/images/people/y.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../../../assets/images/people/y.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../../../assets/images/people/y.jpg" />
         </div>
       </div>
     </div>
     <!-- 下 -->
     <div class="swiper mySwiper2">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="../../../assets/images/people/y.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../../../assets/images/people/y.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../../../assets/images/people/y.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../../../assets/images/people/y.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="../../../assets/images/people/y.jpg" />
+        <div class="swiper-slide" v-for="(item, index) in list" :key="'i'+index">
+          <img :src="getImg(item.imgs)" />
         </div>
       </div>
     </div>
@@ -54,12 +30,46 @@ import "swiper/swiper-bundle.min.css";
 export default {
   data() {
     return {
+      list: [
+        {
+          imgs: 'y.jpg',
+          name: '燕云山庄',
+          des: '泰山以南，云雾缭绕，日出映月'
+        },
+        {
+          imgs: '1.jpg',
+          name: '燕云山庄',
+          des: '泰山以南，云雾缭绕，日出映月'
+        },
+        {
+          imgs: '2.jpg',
+          name: '燕云山庄',
+          des: '泰山以南，云雾缭绕，日出映月'
+        },
+        {
+          imgs: '3.jpg',
+          name: '燕云山庄',
+          des: '泰山以南，云雾缭绕，日出映月'
+        },
+        {
+          imgs: '4.jpg',
+          name: '燕云山庄',
+          des: '泰山以南，云雾缭绕，日出映月'
+        },
+        {
+          imgs: '5.jpg',
+          name: '燕云山庄',
+          des: '泰山以南，云雾缭绕，日出映月'
+        }
+      ]
     };
   },
   mounted() {
-    this.getInitDate();  // 悬浮------------
+    // 初始数据
+    this.getInitDate();
   },
   methods: {
+    // 初始数据
     getInitDate() {
       this.$nextTick(() => {
         let swiper = new Swiper(".mySwiper2", {
@@ -77,6 +87,11 @@ export default {
           },
         });
       });
+    },
+    // 动态拼接图片地址
+    getImg(data) {
+      let img = require(`../../../assets/images/people/${data}`)
+      return img;
     }
   },
 };
@@ -137,7 +152,6 @@ export default {
         top: 16px;
         right: 56px;
         bottom: 16px;
-        padding-left: 16px;
         box-sizing: border-box;
         writing-mode: vertical-rl;
         transition: .5s;

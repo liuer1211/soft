@@ -13,9 +13,6 @@
             <div>
               <div>{{item.des}}</div>
             </div>
-            <!-- <i>
-              icon-exchangerate
-            </i> -->
             <div>
               <i class="iconfont icon-exchangerate"></i>
             </div>
@@ -38,7 +35,7 @@ export default {
       list: [
         {
           name: '黑曜', 
-          imgs: 'imgmodel/001.png', 
+          imgs: 'people/1.jpg', 
           des: '邪剑黑曜，旷世奇兵', 
           active: false
         },
