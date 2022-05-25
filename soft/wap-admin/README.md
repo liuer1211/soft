@@ -13,6 +13,11 @@
     yarn start
     yarn build
     http://localhost:3000
+    
+    后端项目
+        进入/server目录下
+        npm i
+        npm start
 
 ## 依赖添加
     1. 基本-脚手架初始
@@ -68,11 +73,6 @@
     
     6. 缓存store
         下载：npm install store
-
-    7. 后端项目
-        进入/server目录下
-        npm i
-        npm start
 
 # 页面
     1. login 登录
