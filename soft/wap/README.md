@@ -19,6 +19,7 @@
     测试环境 新建 .env.test文件
         设置 test
         "test": "vue-cli-service build --mode test",
+    postcss配置display:flex 自动补全前缀
 
 # 创建并配置 vue.config.js
     静态文件入口
@@ -39,7 +40,9 @@
     npm i postcss-pxtorem@5.1.1  --save
     npm i vue-video-player --save
     npm install swiper@7
-
+    npm install postcss
+    npm i postcss-loader autoprefixer@8.0.0 -D
+    
 # 整体配置
     reset.css
     300毫秒延时  - js下载到本地

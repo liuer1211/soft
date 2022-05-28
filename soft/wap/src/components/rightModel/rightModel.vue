@@ -40,6 +40,7 @@ export default {
   mounted() {
     // 浮框变化
     this.changeModel();
+    // console.log(this.statu,this.isBack)
   },
   methods:{
     // 展示返回和上滑
