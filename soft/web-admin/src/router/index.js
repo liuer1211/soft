@@ -54,6 +54,27 @@ export const constantRoutes = [
       meta: { title: '首页', icon: 'dashboard' }
     }]
   },
+  {
+    path: '/novel',
+    component: Layout,
+    redirect: '/novel/novelList',
+    name: 'Novel',
+    meta: { title: '小说', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'novelList',
+        name: 'NovelList',
+        component: () => import('@/views/novel/index'),
+        meta: { title: '小说列表', icon: 'table' }
+      },
+      {
+        path: 'typeList',
+        name: 'TypeList',
+        component: () => import('@/views/novel/type'),
+        meta: { title: '内容分类', icon: 'tree' }
+      }
+    ]
+  },
 
   // {
   //   path: '/example',

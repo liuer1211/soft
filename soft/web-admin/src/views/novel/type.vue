@@ -1,5 +1,5 @@
 <template>
   <div>
-    xiaohuo
+    type
   </div>
 </template>
