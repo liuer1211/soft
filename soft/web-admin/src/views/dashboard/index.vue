@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-text">首页: {{ name }}</div>
+    <div>欢迎使用</div>
   </div>
 </template>
 

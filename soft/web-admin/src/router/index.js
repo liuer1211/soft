@@ -75,6 +75,27 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/article',
+    component: Layout,
+    redirect: '/article/articleList',
+    name: 'Article',
+    meta: { title: '文章', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'articleList',
+        name: 'articleList',
+        component: () => import('@/views/article/index'),
+        meta: { title: '小说列表', icon: 'table' }
+      },
+      {
+        path: 'typeList',
+        name: 'TypeList',
+        component: () => import('@/views/article/type'),
+        meta: { title: '内容分类', icon: 'tree' }
+      }
+    ]
+  },
 
   // {
   //   path: '/example',
