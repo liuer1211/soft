@@ -54,6 +54,7 @@
       position: relative;
       height: 44px;
       line-height: 44px;
+      box-shadow: 1px 1px 2px 1px #ebedf0;
       .tabs-main-re {
         overflow: hidden;
         overflow-x: auto;
@@ -84,7 +85,7 @@
             position: absolute;
             content: '';
             bottom: 0;
-            left: 16px;
+            left: 13px;
             z-index: 1;
             height: 4px;
             width: 50px;
