@@ -35,6 +35,22 @@
     methods: {
       getTab(item) {
         this.active = item.active;
+        // this.$nextTick(()=>{
+        //   let a = document.querySelector('.tabs-main-ab.active')
+        //   console.log(a);
+        //   console.log(a.clientWidth);
+        //   console.log(a.offsetLeft);
+        //   console.log(document.documentElement.clientWidth);
+        //   let viewWidth = document.documentElement.clientWidth;
+        //   if (a.offsetLeft + a.clientWidth > viewWidth) {
+        //     console.log('==')
+        //   }
+        // })
+        // 始终让其在可视区域
+        // tabs-main-ab active
+        // window.pageXOffset
+        // let a = document.querySelector('.tabs-main-ab.active')
+        // console.log(a)
       }
     }
   }
@@ -65,6 +81,7 @@
         display: flex;
         background-color: #fff;
         user-select: none;
+        transition: .3s;
         .tabs-main-ab {
           position: relative;
           padding: 0 8px;
@@ -80,6 +97,7 @@
           text-align: center;
           &.active {
             color: #3399ff;
+            transition: .3s;
           }
           &.active::after {
             position: absolute;
@@ -91,10 +109,17 @@
             width: 50px;
             background-color: #3399ff;
             border-radius: 20px;
-            // transition: .5s width;
-            // transform: scale(.8);
+            animation: .3s wid;
           }
         }
+      }
+    }
+    @keyframes wid {
+      0% {
+        transform: scale(.3);
+      }
+      100% {
+        transform: scale(1);
       }
     }
   }
