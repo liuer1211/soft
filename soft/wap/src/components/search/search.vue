@@ -64,7 +64,7 @@
           {
             title: "文章",
             url: "article"
-          }
+          },
         ]
       }
     },
@@ -170,7 +170,8 @@
         >div:last-child {
           padding-left: 10px;
           h1 {
-            padding: 2px 0;
+            padding: 4px 0;
+            box-sizing: border-box;
           }
           span {
             font-size: 12px;
@@ -178,7 +179,7 @@
         }
       }
       .pop-center {
-        padding: 12px 12px;
+        padding: 14px 12px;
         box-sizing: border-box;
         display: flex;
         cursor: pointer;
@@ -186,7 +187,7 @@
         >div:first-child{
           width: 30px;
           i{
-            font-size: 22px;
+            font-size: 24px;
           }
         }
         >div:last-child{
@@ -194,7 +195,7 @@
           flex: 1;
           &::after{
             position: absolute;
-            bottom: -12px;
+            bottom: -16px;
             left: 0;
             width: 100%;
             content: "";

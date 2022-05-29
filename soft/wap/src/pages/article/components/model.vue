@@ -53,7 +53,9 @@
       padding: 0 12px;
       box-sizing: border-box;
       .model-list {
-        margin-bottom: 12px;
+        &:not(:last-child){
+          margin-bottom: 12px;
+        }
         border-radius: 4px;
         background-color: #fff;
         overflow: hidden;
