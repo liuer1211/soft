@@ -106,8 +106,10 @@ export default {
     },
     // 动态拼接图片地址
     getImg(data) {
-      let img = require(`../../../assets/images/imgmodel/${data}`)
-      return img;
+      if (data) {
+        let img = require(`../../../assets/images/imgmodel/${data}`)
+        return img;
+      }
     }
   }
 }

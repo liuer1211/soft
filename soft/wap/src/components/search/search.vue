@@ -23,9 +23,14 @@
             <span>一片青莲照人间</span>
           </div>
         </div>
-        <!-- <div class="pop-center">
-          用户
-        </div> -->
+        <div>
+          <div class="pop-center" v-for="(item,index) in list" :key="index" @click.stop="toPages(item)">
+            <div>
+              <i class="iconfont icon-integral"></i>
+            </div>
+            <div>文章</div>
+          </div>
+        </div>
       </div>
     </van-popup>
     <!-- 右侧类别 -->
@@ -55,6 +60,12 @@
         placeholder: '今日热词：剧本',
         show: false,
         rShow: false,
+        list: [
+          {
+            title: "文章",
+            url: "article"
+          },
+        ]
       }
     },
     watch: {
@@ -73,6 +84,12 @@
       // 展示左侧弹框
       showModel() {
         this.show = true;
+      },
+      // 跳页面
+      toPages(item) {
+        this.$router.push({
+          name: item.url
+        })
       }
     }
   }
@@ -153,7 +170,8 @@
         >div:last-child {
           padding-left: 10px;
           h1 {
-            padding: 2px 0;
+            padding: 4px 0;
+            box-sizing: border-box;
           }
           span {
             font-size: 12px;
@@ -161,7 +179,29 @@
         }
       }
       .pop-center {
-        padding: 12px 12px;
+        padding: 14px 12px;
+        box-sizing: border-box;
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        >div:first-child{
+          width: 30px;
+          i{
+            font-size: 24px;
+          }
+        }
+        >div:last-child{
+          position: relative;
+          flex: 1;
+          &::after{
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+            width: 100%;
+            content: "";
+            border-bottom: 1px solid #eee;
+          }
+        }
       }
     }
     /deep/ .van-field__left-icon {

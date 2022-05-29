@@ -90,8 +90,10 @@ export default {
     },
     // 动态拼接图片地址
     getImg(data) {
-      let img = require(`../../../assets/images/people/${data}`)
-      return img;
+      if (data) {
+        let img = require(`../../../assets/images/people/${data}`)
+        return img;
+      }
     }
   },
 };

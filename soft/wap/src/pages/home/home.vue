@@ -7,7 +7,7 @@
       <ImgModel></ImgModel>
     </div>
     <!-- 右侧浮框 -->
-    <RightModel :statu="statu" :isBack="false"></RightModel>
+    <RightModel :statu="statu" :isBack="isBack"></RightModel>
     <!-- 英雄帖 -->
     <Stick/>
   </div>
@@ -27,7 +27,8 @@
       return {
         searchVal: '',
         isShow: true,
-        statu: 'start'
+        statu: 'start',
+        isBack: true
         // offsetTop: document.body.offsetTop,
       }
     },
