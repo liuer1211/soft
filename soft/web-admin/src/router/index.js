@@ -84,13 +84,13 @@ export const constantRoutes = [
     children: [
       {
         path: 'articleList',
-        name: 'articleList',
+        name: 'ArticleList',
         component: () => import('@/views/article/index'),
         meta: { title: '小说列表', icon: 'table' }
       },
       {
-        path: 'typeList',
-        name: 'TypeList',
+        path: 'artTypeList',
+        name: 'ArtTypeList',
         component: () => import('@/views/article/type'),
         meta: { title: '内容分类', icon: 'tree' }
       }
