@@ -1,7 +1,7 @@
 <template>
   <div class="model-main">
     <div class="model-bg">
-      <div class="model-list" v-for="(item,index) in list" :key="index">
+      <div class="model-list" v-for="(item,index) in list" :key="index" @click="toPage(item)">
         <div>
           <img :src="getImg(item.img)" alt="">
         </div>
@@ -41,6 +41,16 @@
           let img = require(`../../../assets/images/imgmodel/${data}`)
           return img;
         }
+      },
+      // 跳页面
+      toPage(data) {
+        console.log(data)
+        this.$router.push({
+          name: 'articleDetail',
+          params: {
+            data
+          }
+        })
       }
     }
   }
@@ -52,6 +62,7 @@
     .model-bg {
       padding: 0 12px;
       box-sizing: border-box;
+      cursor: pointer;
       .model-list {
         &:not(:last-child){
           margin-bottom: 12px;
@@ -87,6 +98,10 @@
               font-size: 17px;
               padding-bottom: 8px;
               box-sizing: border-box;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              word-break: break-all;
             }
             p{
               font-size: 15px;

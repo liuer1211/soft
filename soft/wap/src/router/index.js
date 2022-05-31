@@ -61,6 +61,11 @@ const routes = [
     path: '/article', 
     component: () => import("@/pages/article/article")
   },
+  { 
+    name: 'articleDetail',
+    path: '/articleDetail', 
+    component: () => import("@/pages/article/articleDetail")
+  },
 ]
 
 //需要重写VueRouter.prototype原型对象身上的push|replace方法
