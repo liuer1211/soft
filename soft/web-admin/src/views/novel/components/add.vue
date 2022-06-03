@@ -47,8 +47,8 @@
                 </el-input>
               </el-form-item>
             </el-col>
+            <!-- 图片 -->
             <el-col :span="12">
-              <!-- 图片 -->
               <el-form-item label="上传封面" :label-width="formLabelWidth">
                 <el-upload
                   class="avatar-uploader"

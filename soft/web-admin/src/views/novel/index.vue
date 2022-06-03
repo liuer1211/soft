@@ -41,11 +41,11 @@
           </template>
         </el-table-column>
         <el-table-column prop="date" label="日期" width="180"></el-table-column>
-        <el-table-column label="操作" width="120">
+        <el-table-column label="操作" width="160">
           <template slot-scope="scope">
-            <el-button type="text" size="small" @click="look(scope.row)">查看</el-button>
-            <el-button type="text" size="small">编辑</el-button>
-            <el-button type="text" size="small">删除</el-button>
+            <el-button type="text" @click="look(scope.row)">查看</el-button>
+            <el-button type="text">编辑</el-button>
+            <el-button type="text">删除</el-button>
           </template>
         </el-table-column>
       </el-table>

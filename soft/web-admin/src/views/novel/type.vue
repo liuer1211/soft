@@ -7,8 +7,8 @@
         <el-table-column prop="label" label="值"></el-table-column>
         <el-table-column label="操作" width="120">
           <template>
-            <el-button type="text" size="small">编辑</el-button>
-            <el-button type="text" size="small">删除</el-button>
+            <el-button type="text">编辑</el-button>
+            <el-button type="text">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
