@@ -69,48 +69,21 @@
       <el-button type="primary" @click="typeAdd">新增</el-button>
     </div>
     <!-- 新增 -->
-    <el-dialog title="新增" :visible.sync="dialogFormVisible" fullscreen>
-      <el-form :model="formAdd">
-        <el-form-item label="名称" :label-width="formLabelWidth">
-          <el-input v-model="formAdd.title"></el-input>
-        </el-form-item>
-        <el-form-item label="作者" :label-width="formLabelWidth">
-          <el-input v-model="formAdd.author"></el-input>
-        </el-form-item>
-        <el-form-item label="类型" :label-width="formLabelWidth">
-          <el-select v-model="form.type" clearable placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-        </el-form-item>
-        <!-- 图片 -->
-        <el-form-item label="上传封面" :label-width="formLabelWidth">
-          <el-upload
-            class="avatar-uploader"
-            action="https://jsonplaceholder.typicode.com/posts/"
-            :show-file-list="false"
-            :on-success="handleAvatarSuccess"
-            :before-upload="beforeAvatarUpload">
-            <img v-if="formAdd.img" :src="formAdd.img" class="avatar">
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-          </el-upload>
-        </el-form-item>
-        
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-      </div>
-    </el-dialog>
+    <Add 
+      :dialogFormVisible="dialogFormVisible" 
+      @toClose="()=>{dialogFormVisible=false}"
+      @toDetermine="toDetermine"
+    />
   </div>
 </template>
 
 <script>
+import Add from './components/add';
+
 export default {
+  components: {
+    Add
+  },
   data() {
     return {
       form: {
@@ -145,7 +118,7 @@ export default {
           title: "夜灵犀传奇",
           author: "六耳",
           type: "武侠/爱情/家国",
-          img: "2.jpg",
+          img: "1.jpg",
           date: "2020-02-02",
           flag: "hot",
           link: "yelingxi",
@@ -165,16 +138,6 @@ export default {
       total: 400, // 总页数
       pageSize: 10, // 一页几条
       dialogFormVisible: false, // 新增显隐
-      formAdd: { // 新增数据
-        title: "",
-        author: "",
-        type: "",
-        img: "",
-        // date: "2020-02-02",
-        // flag: "hot",
-        // link: "yelingxi",
-      },
-      formLabelWidth: '120px',
     }
   },
   methods: {
@@ -205,19 +168,9 @@ export default {
     typeAdd() {
       this.dialogFormVisible = true
     },
-    handleAvatarSuccess(res, file) {
-      this.formAdd.img = URL.createObjectURL(file.raw);
-    },
-    beforeAvatarUpload(file) {
-      const isJPG = file.type === 'image/jpeg';
-      const isLt2M = file.size / 1024 / 1024 < 2;
-      if (!isJPG) {
-        this.$message.error('上传头像图片只能是 JPG 格式!');
-      }
-      if (!isLt2M) {
-        this.$message.error('上传头像图片大小不能超过 2MB!');
-      }
-      return isJPG && isLt2M;
+    // 新增-确定
+    toDetermine() {
+      this.dialogFormVisible = false
     }
   }
 }
@@ -250,28 +203,5 @@ export default {
   }
   ::v-deep .el-select {
     width: 100%;
-  }
-  ::v-deep .avatar-uploader .el-upload {
-    border: 1px dashed #464545;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  ::v-deep .avatar-uploader .el-upload:hover {
-    border-color: #409EFF;
-  }
-  ::v-deep .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 178px;
-    height: 178px;
-    line-height: 178px;
-    text-align: center;
-  }
-  ::v-deep .avatar {
-    width: 178px;
-    height: 178px;
-    display: block;
   }
 </style>
