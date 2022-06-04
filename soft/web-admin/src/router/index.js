@@ -72,6 +72,12 @@ export const constantRoutes = [
         name: 'TypeList',
         component: () => import('@/views/novel/type'),
         meta: { title: '内容分类', icon: 'tree' }
+      },
+      {
+        path: 'people',
+        name: 'People',
+        component: () => import('@/views/people'),
+        meta: { title: '角色人物', icon: 'el-icon-user' }
       }
     ]
   },
@@ -80,17 +86,17 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/article/articleList',
     name: 'Article',
-    meta: { title: '文章', icon: 'el-icon-s-help' },
+    meta: { title: '文章', icon: 'el-icon-copy-document' },
     children: [
       {
         path: 'articleList',
-        name: 'articleList',
+        name: 'ArticleList',
         component: () => import('@/views/article/index'),
-        meta: { title: '小说列表', icon: 'table' }
+        meta: { title: '文章列表', icon: 'el-icon-menu' }
       },
       {
-        path: 'typeList',
-        name: 'TypeList',
+        path: 'artTypeList',
+        name: 'ArtTypeList',
         component: () => import('@/views/article/type'),
         meta: { title: '内容分类', icon: 'tree' }
       }
