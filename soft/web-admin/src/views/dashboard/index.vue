@@ -1,7 +1,10 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">首页: {{ name }}</div>
-    <div>欢迎使用</div>
+    <!-- <div class="dashboard-text">首页: {{ name }}</div>
+    <div>欢迎使用</div> -->
+    <div>
+      今日天气
+    </div>
   </div>
 </template>
 
@@ -21,7 +24,8 @@ export default {
 <style lang="scss" scoped>
 .dashboard {
   &-container {
-    margin: 30px;
+    padding: 30px;
+    box-sizing: border-box;
   }
   &-text {
     font-size: 30px;

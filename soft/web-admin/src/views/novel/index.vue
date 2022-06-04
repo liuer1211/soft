@@ -5,13 +5,18 @@
       <el-form ref="form" :model="form" label-width="80px">
         <el-row>
           <el-col :span="12">
-            <el-form-item label="名字">
-              <el-input v-model="form.name" clearable></el-input>
+            <el-form-item label="书名">
+              <el-input v-model="form.title" clearable></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="作者">
+              <el-input v-model="form.author" clearable></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="类型">
-              <el-select v-model="form.selectVal" clearable placeholder="请选择">
+              <el-select v-model="form.selectVal" clearable multiple placeholder="请选择">
                 <el-option
                   v-for="item in options"
                   :key="item.value"
@@ -34,7 +39,11 @@
       <el-table :data="tableData" border stripe style="width: 100%">
         <el-table-column prop="title" label="书名" width="180"></el-table-column>
         <el-table-column prop="author" label="作者"></el-table-column>
-        <el-table-column prop="type" label="类型"></el-table-column>
+        <el-table-column label="类型">
+          <template slot-scope="scope">
+            <span>{{scope.row.type | novelTypeToNames}}</span>
+          </template>
+        </el-table-column>
         <el-table-column label="封面">
           <template slot-scope="scope">
             <img :src="getImg(scope.row.img)"/>
@@ -87,8 +96,9 @@ export default {
   data() {
     return {
       form: {
-        name: '', // 名字
-        selectVal: '' // 类型
+        title: '', // 书名
+        author: "", // 作者
+        selectVal: [] // 类型
       }, // 表单数据
       options: [
         {
@@ -117,7 +127,7 @@ export default {
           id: "1",
           title: "夜灵犀传奇",
           author: "六耳",
-          type: "武侠/爱情/家国",
+          type: ['01','02'],
           img: "1.jpg",
           date: "2020-02-02",
           flag: "hot",
@@ -127,7 +137,7 @@ export default {
           id: "1",
           title: "夜灵犀传奇",
           author: "六耳",
-          type: "武侠/爱情/家国",
+          type: ['01','03'],
           img: "2.jpg",
           date: "2020-02-02",
           flag: "hot",
