@@ -38,6 +38,20 @@ module.exports = {
       warnings: false,
       errors: true
     },
+    proxy: {
+      "/cityjson": {
+          target: "http://pv.sohu.com",
+      },
+      "/ipJson.jsp": {
+        target: "http://whois.pconline.com.cn",
+        // pathRewrite: {
+        //   '^/api': ''
+        // }
+      },
+      "/weather_mini": {
+        target: "http://wthrcdn.etouch.cn",
+      },
+    },
     before: require('./mock/mock-server.js')
   },
   configureWebpack: {

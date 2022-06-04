@@ -11,8 +11,10 @@ vue后台管理系统，github上常见的管理系统修改
     token
 
 # 首页
-## 天气接口
-    http://wthrcdn.etouch.cn/weather_mini?city=浦东新区
+## 接口
+    ip: http://pv.sohu.com/cityjson?ie=utf-8
+    地理位置: http://whois.pconline.com.cn/ipJson.jsp?callback=testJson&ip=101.229.48.103
+    天气: http://wthrcdn.etouch.cn/weather_mini?city=浦东新区
 
 # 小说
     列表
