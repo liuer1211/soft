@@ -41,6 +41,9 @@ module.exports = {
     proxy: {
       "/cityjson": {
           target: "http://pv.sohu.com",
+          // pathRewrite: {
+          //   '^/api': ''
+          // }
       },
       "/ipJson.jsp": {
         target: "http://whois.pconline.com.cn",
@@ -50,6 +53,9 @@ module.exports = {
       },
       "/weather_mini": {
         target: "http://wthrcdn.etouch.cn",
+        // pathRewrite: {
+        //   '^/api': ''
+        // }
       },
     },
     before: require('./mock/mock-server.js')
@@ -62,7 +68,10 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
-    }
+    },
+    externals: {
+      AMap: "AMap",
+    },
   },
   chainWebpack(config) {
     // it can improve the speed of the first screen, it is recommended to turn on preload
@@ -135,5 +144,5 @@ module.exports = {
           config.optimization.runtimeChunk('single')
         }
       )
-  }
+  },
 }

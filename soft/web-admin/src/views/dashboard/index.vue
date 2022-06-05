@@ -42,8 +42,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import axios from 'axios'
+import { mapGetters } from 'vuex';
+import axios from 'axios';
+import AMap from "AMap";
 
 export default {
   name: 'Dashboard',
@@ -54,24 +55,26 @@ export default {
   },
   data() {
     return {
-      city: {}, // 城市
+      citys: {}, // 城市
       weather: {}, // 天气
+      city: '', // 城市
     }
   },
   created() {
-    this.getInit();
+    this.getLocal();
+    // this.getInit();
   },
   methods: {
     // 初始天气
     async getInit() {
       // 获得地理位置
-      let ip = await this.getIp();
+      // let ip = await this.getIp();
       // console.log(ip);
-      this.city = await this.getCity(ip.cip);
-      console.log(this.city);
+      // this.citys = await this.getCity(ip.cip);
+      // console.log(this.city);
       // 调接口
-      this.weather = await this.getWeather(this.city.city);
-      console.log(this.weather);
+      // this.weather = await this.getWeather(this.city);
+      // console.log(this.weather);
     },
     // 获取ip
     getIp() {
@@ -111,6 +114,30 @@ export default {
           console.log(err);
           reject(err);
         });
+      })
+    },
+    // 获取地理位置
+    getLocal() {
+      AMap.plugin("AMap.Geolocation", () => {
+        var geolocation = new AMap.Geolocation({
+          // 是否使用高精度定位，默认：true
+          enableHighAccuracy: true,
+          // 设置定位超时时间，默认：无穷大
+          timeout: 10000,
+        });
+        geolocation.getCityInfo(async (status, result) => {   //只能获取当前用户所在城市和城市的经纬度
+          if (status == "complete") {
+            this.city = result.city;
+            // console.log("result",result.city)
+            this.weather = await this.getWeather(this.city);
+            // console.log("result",result)
+          }
+        })
+        geolocation.getCurrentPosition((status, result) => {  //获取用户当前的精确位置
+          if (status == "complete") {
+            console.log("result",result)
+          }
+        })
       })
     }
   }
