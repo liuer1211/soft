@@ -22,7 +22,7 @@
             <!-- 一周天气 -->
             <div class="cen" v-if="weather.forecast">
               <div class="one">
-                <div>{{city.city}}</div>
+                <div>{{city}}</div>
               </div>
               <div v-for="(item,index) in weather.forecast" :key="index">
                 <div>{{item.date}}</div>
