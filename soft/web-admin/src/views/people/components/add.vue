@@ -11,14 +11,38 @@
                 <el-input v-model="formAddOne.name"></el-input>
               </el-form-item>
             </el-col>
-            <el-col :span="12">
+            <!-- <el-col :span="12">
               <el-form-item label="门派" :label-width="formLabelWidth">
                 <el-input v-model="formAddOne.sect"></el-input>
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item label="武功" :label-width="formLabelWidth">
+              <el-form-item label="武学" :label-width="formLabelWidth">
                 <el-input v-model="formAddOne.kungfu"></el-input>
+              </el-form-item>
+            </el-col> -->
+            <el-col :span="12">
+              <el-form-item label="门派" :label-width="formLabelWidth">
+                <el-select v-model="formAddOne.sect" clearable placeholder="请选择">
+                  <el-option
+                    v-for="item in sectList"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="武学" :label-width="formLabelWidth">
+                <el-select v-model="formAddOne.kungfu" clearable multiple placeholder="请选择">
+                  <el-option
+                    v-for="item in kungfuList"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
               </el-form-item>
             </el-col>
             <!-- 图片 -->
@@ -64,11 +88,21 @@ export default {
   },
   data() {
     return {
+      sectList: [
+        {value:'000',label:'未知'},
+        {value:'001',label:'燕云山庄'},
+        {value:'002',label:'魔教'}
+      ],
+      kungfuList: [
+        {value:'001',label:'燕云七绝'},
+        {value:'002',label:'乾坤生死诀'},
+        {value:'004',label:'音波功'}
+      ],
       formAddOne: { // 新增数据
         name: "",
         des: "",
         sect: "",
-        kungfu: "",
+        kungfu: [],
         img: "",
         // date: "2020-02-02",
         // flag: "hot",

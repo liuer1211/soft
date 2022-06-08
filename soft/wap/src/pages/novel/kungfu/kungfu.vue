@@ -12,7 +12,7 @@
           <li><a href="javascript:;" style="font-size: 12.909090909091pt;">乾坤大挪移</a></li>
           <li><a href="javascript:;" style="font-size: 8.1818181818182pt;">迷魂大法</a></li>
           <li><a href="javascript:;" style="font-size: 8.5454545454545pt;">生死决</a></li>
-          <li><a href="javascript:;" style="font-size: 16.909090909091pt;">燕云剑法</a></li>
+          <li><a href="javascript:;" style="font-size: 16.909090909091pt;">燕云七绝</a></li>
           <li><a href="javascript:;" style="font-size: 11.818181818182pt;">扶摇九天</a></li>
           <li><a href="javascript:;" style="font-size: 6pt;">音波功</a></li>
           <li><a href="javascript:;" style="font-size: 21.272727272727pt;">混元功</a></li>

@@ -37,6 +37,7 @@
     <!-- 列表 -->
     <div class="novel-list">
       <el-table :data="tableData" border stripe style="width: 100%">
+        <el-table-column prop="num" label="书籍编号"></el-table-column>
         <el-table-column prop="title" label="书名" width="180"></el-table-column>
         <el-table-column prop="author" label="作者"></el-table-column>
         <el-table-column label="类型">
@@ -125,6 +126,7 @@ export default {
       tableData: [
         {
           id: "1",
+          num: "0001",
           title: "夜灵犀传奇",
           author: "六耳",
           type: ['01','02'],
@@ -135,6 +137,7 @@ export default {
         },
         {
           id: "1",
+          num: "0002",
           title: "夜灵犀传奇",
           author: "六耳",
           type: ['01','03'],

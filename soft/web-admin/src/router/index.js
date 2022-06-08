@@ -78,6 +78,12 @@ export const constantRoutes = [
         name: 'People',
         component: () => import('@/views/people'),
         meta: { title: '角色人物', icon: 'el-icon-user' }
+      },
+      {
+        path: 'kungfu',
+        name: 'Kungfu',
+        component: () => import('@/views/kungfu'),
+        meta: { title: '武学', icon: 'el-icon-reading' }
       }
     ]
   },
