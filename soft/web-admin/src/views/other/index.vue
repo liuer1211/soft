@@ -29,7 +29,7 @@
         <el-table :data="tableData" border stripe style="width: 100%">
           <el-table-column prop="num" label="书籍编号"></el-table-column>
           <el-table-column prop="name" label="书籍名"></el-table-column>
-          <el-table-column prop="kuName" label="武学模块编号"></el-table-column>
+          <el-table-column prop="otName" label="其他模块编号"></el-table-column>
           <el-table-column label="操作" width="120">
             <template>
               <el-button type="text" @click="look">查看</el-button>
@@ -59,8 +59,13 @@
         <el-form ref="forms" :model="forms" label-width="80px">
           <el-row>
             <el-col :span="12">
-              <el-form-item label="武学(值)">
-                <el-input v-model="forms.kungfu" clearable></el-input>
+              <el-form-item label="标题">
+                <el-input v-model="forms.title" clearable></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item label="作者">
+                <el-input v-model="forms.author" clearable></el-input>
               </el-form-item>
             </el-col>
             <el-col :span="24">
@@ -74,8 +79,8 @@
       <!-- 列表 -->
       <div class="novel-list">
         <el-table :data="tableDatas" border stripe style="width: 100%">
-          <el-table-column prop="value" label="键"></el-table-column>
-          <el-table-column prop="label" label="值"></el-table-column>
+          <el-table-column prop="title" label="标题"></el-table-column>
+          <el-table-column prop="author" label="作者"></el-table-column>
           <el-table-column label="操作" width="160">
             <template>
               <el-button type="text">查看</el-button>
@@ -132,13 +137,13 @@ export default {
           id: '1',
           num: '0001',
           name: '夜灵犀传奇',
-          kuName: 'k0001'
+          otName: 't0001'
         },
         {
           id: '2',
           num: '0002',
           name: '血雨江湖',
-          kuName: 'k0002'
+          otName: 't0002'
         },
       ], // 列表数据 第一层
       currentPage: 1, // 第几页 第一层
@@ -146,12 +151,12 @@ export default {
       pageSize: 10, // 一页几条 第一层
       flag: true, // true-显示第一层；false-显示第二层
       forms: {
-        kungfu: '', // 门派
+        title: '', // 
+        author: ''
       }, // 表单数据 第一层
       tableDatas: [
-        {value:'001',label:'燕云七绝'},
-        {value:'002',label:'乾坤生死诀'},
-        {value:'004',label:'音波功'}
+        {title:'影成双',author:""},
+        {title:'无题',author:""},
       ], // 列表数据 第二层
       currentPages: 1, // 第几页 第二层
       totals: 400, // 总页数 第二层
