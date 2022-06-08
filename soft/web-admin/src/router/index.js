@@ -78,6 +78,36 @@ export const constantRoutes = [
         name: 'People',
         component: () => import('@/views/people'),
         meta: { title: '角色人物', icon: 'el-icon-user' }
+      },
+      {
+        path: 'kungfu',
+        name: 'Kungfu',
+        component: () => import('@/views/kungfu'),
+        meta: { title: '武学', icon: 'el-icon-reading' }
+      },
+      {
+        path: 'sect',
+        name: 'Sect',
+        component: () => import('@/views/sect'),
+        meta: { title: '门派', icon: 'el-icon-school' }
+      },
+      {
+        path: 'fatalism',
+        name: 'Fatalism',
+        component: () => import('@/views/fatalism'),
+        meta: { title: '宿命', icon: 'el-icon-place' }
+      },
+      {
+        path: 'weapon',
+        name: 'Weapon',
+        component: () => import('@/views/weapon'),
+        meta: { title: '兵器', icon: 'el-icon-position' }
+      },
+      {
+        path: 'other',
+        name: 'Other',
+        component: () => import('@/views/other'),
+        meta: { title: '其他', icon: 'el-icon-tickets' }
       }
     ]
   },

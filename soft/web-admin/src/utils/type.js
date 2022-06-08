@@ -89,3 +89,52 @@ export const novelTypeToNames = (list) => {
   value = arr.join('/')
   return value;
 }
+
+// 门派类型转换
+export const sectTypeToName = (code) => {
+  let value = ''
+  switch(code) {
+    case '000':
+      value = '未知';
+      break;
+    case '001':
+      value = '燕云山庄';
+      break;
+    case '002':
+      value = '魔教';
+      break;
+    default:
+      break;
+  }
+  return value;
+}
+
+// 功夫类型转换
+export const kungfuTypeToName = (code) => {
+  let value = ''
+  switch(code) {
+    case '001':
+      value = '燕云七绝';
+      break;
+    case '002':
+      value = '乾坤生死诀';
+      break;
+    case '003':
+      value = '音波功';
+      break;
+    default:
+      break;
+  }
+  return value;
+}
+
+// 功夫类型转换 返回
+export const kungfuTypeToNames = (list) => {
+  let value = ''
+  let arr = []
+  list.forEach(element => {
+    arr.push(kungfuTypeToName(element))
+  });
+  value = arr.join('、')
+  return value;
+}

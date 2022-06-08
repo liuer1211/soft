@@ -7,47 +7,18 @@
         <el-form :model="formAddOne">
           <el-row>
             <el-col :span="12">
-              <el-form-item label="姓名" :label-width="formLabelWidth">
-                <el-input v-model="formAddOne.name"></el-input>
-              </el-form-item>
-            </el-col>
-            <!-- <el-col :span="12">
-              <el-form-item label="门派" :label-width="formLabelWidth">
-                <el-input v-model="formAddOne.sect"></el-input>
+              <el-form-item label="键" :label-width="formLabelWidth">
+                <el-input v-model="formAddOne.value"></el-input>
               </el-form-item>
             </el-col>
             <el-col :span="12">
-              <el-form-item label="武学" :label-width="formLabelWidth">
-                <el-input v-model="formAddOne.kungfu"></el-input>
-              </el-form-item>
-            </el-col> -->
-            <el-col :span="12">
-              <el-form-item label="门派" :label-width="formLabelWidth">
-                <el-select v-model="formAddOne.sect" clearable placeholder="请选择">
-                  <el-option
-                    v-for="item in sectList"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </el-form-item>
-            </el-col>
-            <el-col :span="12">
-              <el-form-item label="武学" :label-width="formLabelWidth">
-                <el-select v-model="formAddOne.kungfu" clearable multiple placeholder="请选择">
-                  <el-option
-                    v-for="item in kungfuList"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
+              <el-form-item label="值" :label-width="formLabelWidth">
+                <el-input v-model="formAddOne.label"></el-input>
               </el-form-item>
             </el-col>
             <!-- 图片 -->
             <el-col :span="24">
-              <el-form-item label="上传头像" :label-width="formLabelWidth">
+              <el-form-item label="图片" :label-width="formLabelWidth">
                 <el-upload
                   class="avatar-uploader"
                   action="https://jsonplaceholder.typicode.com/posts/"
@@ -88,21 +59,10 @@ export default {
   },
   data() {
     return {
-      sectList: [
-        {value:'000',label:'未知'},
-        {value:'001',label:'燕云山庄'},
-        {value:'002',label:'魔教'}
-      ],
-      kungfuList: [
-        {value:'001',label:'燕云七绝'},
-        {value:'002',label:'乾坤生死诀'},
-        {value:'004',label:'音波功'}
-      ],
       formAddOne: { // 新增数据
-        name: "",
         des: "",
-        sect: "",
-        kungfu: [],
+        value: "",
+        label: "",
         img: "",
         // date: "2020-02-02",
         // flag: "hot",
@@ -163,13 +123,13 @@ export default {
     font-size: 28px;
     color: #8c939d;
     width: 160px;
-    height: 160px;
-    line-height: 160px;
+    height: 200px;
+    line-height: 200px;
     text-align: center;
   }
   ::v-deep .avatar {
     width: 160px;
-    height: 160px;
+    height: 200px;
     display: block;
   }
 </style>
