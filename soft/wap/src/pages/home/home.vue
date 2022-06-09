@@ -28,7 +28,7 @@
         searchVal: '',
         isShow: true,
         statu: 'start',
-        isBack: true
+        isBack: false
         // offsetTop: document.body.offsetTop,
       }
     },

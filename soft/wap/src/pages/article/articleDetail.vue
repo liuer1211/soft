@@ -86,7 +86,7 @@
     }
     .art-bg {
       position: fixed;
-      background-color: #d8c4a2;
+      background-color: #e4d2b2;
       width: 100%;
       height: 100%;
       top: 0;

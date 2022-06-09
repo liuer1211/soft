@@ -40,6 +40,11 @@
                 </el-select>
               </el-form-item>
             </el-col>
+            <el-col :span="12">
+              <el-form-item label="题记" :label-width="formLabelWidth">
+                <el-input v-model="formAddOne.diary"></el-input>
+              </el-form-item>
+            </el-col>
             <!-- 简介 -->
             <el-col :span="24">
               <el-form-item label="简介" :label-width="formLabelWidth">
@@ -154,6 +159,7 @@ export default {
         img: "",
         des: "",
         infoType: [],
+        diary: "",
         // date: "2020-02-02",
         // flag: "hot",
         // link: "yelingxi",

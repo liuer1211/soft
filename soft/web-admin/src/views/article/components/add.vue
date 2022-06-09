@@ -28,6 +28,11 @@
                 </el-select>
               </el-form-item>
             </el-col>
+            <el-col :span="12">
+              <el-form-item label="题记" :label-width="formLabelWidth">
+                <el-input v-model="formAddOne.diary"></el-input>
+              </el-form-item>
+            </el-col>
             <!-- 简介 -->
             <el-col :span="24">
               <el-form-item label="内容" :label-width="formLabelWidth">
@@ -71,16 +76,15 @@ export default {
   },
   data() {
     return {
-      
       options: [
-        {
-          value: '01',
-          label: '最新'
-        },
-        {
-          value: '02',
-          label: '最热'
-        }, 
+        // {
+        //   value: '01',
+        //   label: '最新'
+        // },
+        // {
+        //   value: '02',
+        //   label: '最热'
+        // }, 
         {
           value: '03',
           label: '人文'
@@ -116,6 +120,7 @@ export default {
         type: "",
         img: "",
         des: "",
+        diary: ""
       },
       formLabelWidth: '120px',
     }
