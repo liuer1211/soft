@@ -35,13 +35,13 @@ export default {
       list: [
         {
           name: '黑曜', 
-          imgs: 'people/1.jpg', 
+          imgs: 'sect/1.jpg', 
           des: '邪剑黑曜，旷世奇兵', 
           active: false
         },
         {
           name: '银枪', 
-          imgs: 'people/y.jpg', 
+          imgs: 'sect/2.jpg', 
           des: '百鸟朝凤，惊艳一枪', 
           active: false
         }
