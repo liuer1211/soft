@@ -49,7 +49,7 @@
             <img :src="getImg(scope.row.img)"/>
           </template>
         </el-table-column>
-        <el-table-column prop="date" label="日期" width="180"></el-table-column>
+        <el-table-column prop="date" label="创建日期" width="180"></el-table-column>
         <el-table-column label="操作" width="160">
           <template slot-scope="scope">
             <el-button type="text" @click="look(scope.row)">查看</el-button>
@@ -101,14 +101,14 @@ export default {
         selectVal: '' // 类型
       }, // 表单数据
       options: [
-        {
-          value: '01',
-          label: '最新'
-        },
-        {
-          value: '02',
-          label: '最热'
-        }, 
+        // {
+        //   value: '01',
+        //   label: '最新'
+        // },
+        // {
+        //   value: '02',
+        //   label: '最热'
+        // }, 
         {
           value: '03',
           label: '人文'
@@ -143,7 +143,7 @@ export default {
           id: "1",
           title: "生与死",
           author: "山鬼",
-          type: "01",
+          type: "03",
           img: "1.jpg",
           date: "2020-02-02",
           flag: "hot",

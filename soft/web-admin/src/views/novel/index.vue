@@ -50,7 +50,7 @@
             <img :src="getImg(scope.row.img)"/>
           </template>
         </el-table-column>
-        <el-table-column prop="date" label="日期" width="180"></el-table-column>
+        <el-table-column prop="date" label="创建日期" width="180"></el-table-column>
         <el-table-column label="操作" width="160">
           <template slot-scope="scope">
             <el-button type="text" @click="look(scope.row)">查看</el-button>

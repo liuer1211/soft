@@ -3,12 +3,14 @@
     <div class="right-model-one pos" :class="status" @click.stop="toShow">
       <i class="iconfont icon-double-arrow-left"></i>
     </div>
+    <!-- 返回首页 -->
     <div v-show="isBack" class="model-pri pos" :class="active3" @click.stop="posFun('3')">
       <i class="iconfont icon-warehouse"></i>
     </div>
     <div class="model-top pos" :class="active1" @click.stop="posFun('1')">
       <i class="iconfont icon-rising"></i>
     </div>
+    <!-- 返回上一页 -->
     <div v-show="isBack" class="model-back pos" :class="active2" @click.stop="posFun('2')">
       <i class="iconfont icon-leftarrow"></i>
     </div>
