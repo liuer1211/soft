@@ -2,18 +2,18 @@
   <div class="introduce-main">
     <div class="introduce-model">
       <div class="in-left">
-        <img src="../../../../assets/images/imgmodel/yelingxi.jpg" alt=""/>
+        <img :src="getImg(introInfo.img)" alt=""/>
         <i @click="toShow">
           <!-- <van-icon name="play-circle-o" /> -->
           <i class="iconfont icon-play"></i>
         </i>
       </div>
       <div class="in-right">
-        <div>夜灵犀传奇</div>
-        <div>作者：六耳</div>
-        <div>更新于：2020-02-02</div>
+        <div>{{introInfo.title}}</div>
+        <div>作者：{{introInfo.author}}</div>
+        <div>更新于：{{introInfo.update}}</div>
         <p>
-          江湖纷争几时休，笑看痴人坠其中。江湖纷争几时休，笑看痴人坠其中。
+          {{introInfo.diary}}
         </p>
       </div>
     </div>
@@ -40,16 +40,7 @@
             @ready="playerReadied" -->
           </video-player>
         </div>
-        <p>
-          简介:世人只知李白一篇《蜀道难》送友人入蜀，殊不知这位剑客更在意蜀地的另一个传说。
-          相传三国时期，铸剑名家打造了三把赫赫有名的宝剑，分别是：黑曜、赤灵、素渊。
-          传闻只要得其一把便可得天下，而这三把宝剑也被魏蜀吴三国的君主各占其一。<br/>
-          几百年后，有传言黑曜在蜀地现世，像李白这样的剑客又怎能不心动。
-          但是天意弄人，青莲剑客至死也未曾得见这把旷世宝剑。<br/>
-          又几百年过去了，这把剑又横空出世，江湖又将掀起一场腥风血雨。
-          也正在这期间，江湖中突然冒出一位年纪不满二十的少年，打破了这沉寂已久的江湖，此人便是夜灵犀。
-          没有人知道这少年从哪里来，师出何门何派，只记得他只身一人前往少林，挑战主持方丈后全身而退。
-        </p>
+        <p v-html="introInfo.des"></p>
       </div>
     </van-popup>
   </div>
@@ -61,6 +52,21 @@ export default {
   data() {
     return {
       show: false,
+      num: '',
+      introInfo: {
+        id: "1",
+        img: "yelingxi.jpg",
+        flag: "hot",
+        title: "夜灵犀传奇",
+        author: "六耳",
+        date: "2020-02-02",
+        link: "yelingxi",
+        type: "武侠",
+        num: "0001",
+        update: "2020-05-05",
+        diary: "江湖纷争几时休，笑看痴人坠其中。江湖纷争几时休，笑看痴人坠其中。",
+        des: "世人只知李白一篇《蜀道难》送友人入蜀，殊不知这位剑客更在意蜀地的另一个传说。相传三国时期，铸剑名家打造了三把赫赫有名的宝剑，分别是：黑曜、赤灵、素渊。传闻只要得其一把便可得天下，而这三把宝剑也被魏蜀吴三国的君主各占其一。<br/>几百年后，有传言黑曜在蜀地现世，像李白这样的剑客又怎能不心动。但是天意弄人，青莲剑客至死也未曾得见这把旷世宝剑。<br/>又几百年过去了，这把剑又横空出世，江湖又将掀起一场腥风血雨。也正在这期间，江湖中突然冒出一位年纪不满二十的少年，打破了这沉寂已久的江湖，此人便是夜灵犀。没有人知道这少年从哪里来，师出何门何派，只记得他只身一人前往少林，挑战主持方丈后全身而退。"
+      },
       playerOptions: {
         playbackRates: [0.5, 1.0, 1.5, 2.0], // 可选的播放速度
         autoplay: false, // 如果为true,浏览器准备好时开始回放。
@@ -85,12 +91,31 @@ export default {
       }
     }
   },
+  created() {
+    // 查询初始数据
+    this.getInitData();
+  },
   mounted() {
     // this.$refs.videoPlayer.player.play() // 播放
     // this.$refs.videoPlayer.player.pause() // 暂停
     // this.$refs.videoPlayer.player.src(src) // 重置进度条
   },
   methods:{
+    // 查询
+    getInitData() {
+      this.num = this.$store.state.novel.novelInfo.num;
+      if (this.num) {
+      }
+    },
+
+    // 动态拼接图片地址
+    getImg(data) {
+      if (data) {
+        let img = require(`../../../../assets/images/imgmodel/${data}`)
+        return img;
+      }
+    },
+
     // 展示弹框
     toShow() {
       this.show = true;
