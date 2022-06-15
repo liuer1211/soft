@@ -38,8 +38,6 @@
         </el-col>
       </el-row>
     </div>
-
-    <TinymceEditor />
   </div>
 </template>
 
@@ -47,7 +45,6 @@
 import { mapGetters } from 'vuex';
 import axios from 'axios';
 import AMap from "AMap";
-import TinymceEditor from  "../../components/editor/TinymceEditor.vue"
 export default {
   name: 'Dashboard',
   computed: {
@@ -63,26 +60,6 @@ export default {
       citys: {}, // 城市
       weather: {}, // 天气
       city: '', // 城市
-      nit: {
-
-        // 组件
-
-        plugins:
-
-          ' lists image colorpicker textcolor wordcount contextmenu autoresize',
-
-        // 工具栏
-
-        toolbar:
-
-          'bold italic underline strikethrough | fontsizeselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent  | undo redo | link unlink image  | removeformat ',
-
-        branding: false,
-
-        min_height: 300
-
-      }
-
     }
   },
   created() {
