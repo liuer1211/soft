@@ -52,9 +52,6 @@ export default {
       'name'
     ])
   },
-  components: {
-    TinymceEditor,
-  },
   data() {
     return {
       citys: {}, // 城市
