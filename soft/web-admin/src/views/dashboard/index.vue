@@ -38,6 +38,8 @@
         </el-col>
       </el-row>
     </div>
+    -----------------
+    <textarea id="tt" />
   </div>
 </template>
 
@@ -62,6 +64,11 @@ export default {
   created() {
     this.getLocal();
     // this.getInit();
+  },
+  mounted() {
+    tinymce.init({
+      selector:"#tt"
+    })
   },
   methods: {
     // 初始天气
