@@ -17,6 +17,7 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item, index) in list" :key="'i'+index">
           <img :src="getImg(item.imgs)" />
+          <div class="bot-model">{{item.name}}</div>
         </div>
       </div>
     </div>
@@ -34,33 +35,23 @@ export default {
         {
           imgs: 'y.jpg',
           name: '燕云山庄',
-          des: '泰山以南，云雾缭绕，日出映月'
+          des: '四面环山，云雾缭绕，日出映月'
         },
         {
           imgs: '1.jpg',
-          name: '燕云山庄',
-          des: '泰山以南，云雾缭绕，日出映月'
+          name: '魔教',
+          des: '断崖之上，云天之巅'
         },
         {
           imgs: '2.jpg',
-          name: '燕云山庄',
-          des: '泰山以南，云雾缭绕，日出映月'
+          name: '离别门',
+          des: '幽谷寒舍，鸟语花香'
         },
         {
           imgs: '3.jpg',
-          name: '燕云山庄',
-          des: '泰山以南，云雾缭绕，日出映月'
+          name: '镖局',
+          des: '太湖之畔，国色天香'
         },
-        {
-          imgs: '4.jpg',
-          name: '燕云山庄',
-          des: '泰山以南，云雾缭绕，日出映月'
-        },
-        {
-          imgs: '5.jpg',
-          name: '燕云山庄',
-          des: '泰山以南，云雾缭绕，日出映月'
-        }
       ]
     };
   },
@@ -81,7 +72,7 @@ export default {
         });
         let swiper2 = new Swiper(".mySwiper1", {
           // loop: true,
-          spaceBetween: 10,
+          // spaceBetween: 10,
           thumbs: {
             swiper: swiper,
           },
@@ -127,13 +118,19 @@ export default {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    background: linear-gradient( 0deg ,#176fe5,#fff);
+    background: linear-gradient(0deg, #438aea, #92abf0);
   }
   .swiper-slide img {
-    display: block;
+    display: none;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .swiper-slide .bot-model {
+    position: absolute;
+    font-size: 14px;
+    color: #fad20d;
+    writing-mode: vertical-rl;
   }
   .mySwiper1 {
     height: 80%;
@@ -142,6 +139,7 @@ export default {
       position: relative;
       img {
         opacity: .9;
+        display: none;
       }
       &.swiper-slide-active {
         >div {

@@ -38,6 +38,9 @@
         </el-col>
       </el-row>
     </div>
+    -----------------
+    <textarea id="tt" rows="20" />
+    <div @click="getCon">获取内容</div>
   </div>
 </template>
 
@@ -45,7 +48,6 @@
 import { mapGetters } from 'vuex';
 import axios from 'axios';
 import AMap from "AMap";
-
 export default {
   name: 'Dashboard',
   computed: {
@@ -64,7 +66,28 @@ export default {
     this.getLocal();
     // this.getInit();
   },
+  mounted() {
+    tinymce.init({
+      selector:"#tt",
+      language:'zh_CN',
+      // branding: false,
+      // toolbar:''
+      setup:function(editor){
+        console.log(editor);
+        editor.on('click',function(e){
+          console.log('c:',editor.getContent())
+        })
+      },
+      init_instance_callback:function(editor){
+        console.log('init:',editor);
+        editor.setContent('<p>hello</p>')
+      }
+    })
+  },
   methods: {
+    getCon() {
+      console.log(tinymce.activeEditor.getContent())
+    },
     // 初始天气
     async getInit() {
       // 获得地理位置
@@ -135,7 +158,7 @@ export default {
         })
         geolocation.getCurrentPosition((status, result) => {  //获取用户当前的精确位置
           if (status == "complete") {
-            console.log("result",result)
+            // console.log("result",result)
           }
         })
       })

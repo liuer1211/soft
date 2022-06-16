@@ -32,6 +32,7 @@ export default {
   },
   data() {
     return {
+      num: '',
       list: [
         {
           id: '1',
@@ -74,7 +75,22 @@ export default {
   mounted() {
     this.getStar();
   },
+  created() {
+    // 判断小说编号是否存在
+    if (this.$store.state.novel.novelInfo && this.$store.state.novel.novelInfo.num) {
+      // 查询初始数据
+      this.getInitData();
+    } else {
+      this.$router.go(-1);
+    }
+  },
   methods:{
+    // 查询
+    getInitData() {
+      this.num = this.$store.state.novel.novelInfo.num;
+      if (this.num) {
+      }
+    },
     // 跳页面
     toPage(data) {
       this.$router.push({
