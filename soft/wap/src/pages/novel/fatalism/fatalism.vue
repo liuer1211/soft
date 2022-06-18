@@ -16,6 +16,9 @@
         {{item.name}}
       </div>
     </div>
+    <div class="fat-fix">
+
+    </div>
   </div>
 </template>
 
@@ -38,7 +41,7 @@ export default {
           left: 30,
           topTip: 20-6,
           leftTip: 30-2,
-          title: '紫禁城',
+          title: '月与楼',
           name: '香楼听曲',
           code: '002'
         },
@@ -56,7 +59,7 @@ export default {
           left: 50,
           topTip: 50-6,
           leftTip: 50-2,
-          title: '紫禁城',
+          title: '名剑山庄',
           name: '山庄论剑',
           code: '004'
         },
@@ -67,7 +70,16 @@ export default {
           leftTip: 50-2,
           title: '小重山',
           name: '风花雪月',
-          code: '003'
+          code: '005'
+        },
+        {
+          top: 90,
+          left: 40,
+          topTip: 90-6,
+          leftTip: 40-2,
+          title: '吉祥赌坊',
+          name: '探秘',
+          code: '006'
         }
       ]
     };
@@ -93,7 +105,8 @@ export default {
       position: absolute;
       height: 100%;
       width: 100%;
-      background: linear-gradient(to top, #3932ff, #5d84dc);
+      z-index: 2;
+      // background: linear-gradient(to top, #3932ff, #5d84dc);
       >div {
         position: absolute;
         background-color: #000;
@@ -123,6 +136,13 @@ export default {
           }
         }
       }
+    }
+    .fat-fix {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      background: linear-gradient(to top, #3932ff, #5d84dc);
     }
   }
   @keyframes toshow {
