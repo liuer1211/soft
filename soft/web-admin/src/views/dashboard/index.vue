@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <!-- <div class="dashboard-text">首页: {{ name }}</div> -->
-    <div>
+    <div class="de-main">
       <el-row>
         <!-- 天气 -->
         <el-col :span="24">
@@ -38,9 +38,8 @@
         </el-col>
       </el-row>
     </div>
-    -----------------
-    <textarea id="tt" rows="20" />
-    <div @click="getCon">获取内容</div>
+    <!-- 富文本编辑 -->
+    <Edit/>
   </div>
 </template>
 
@@ -48,8 +47,14 @@
 import { mapGetters } from 'vuex';
 import axios from 'axios';
 import AMap from "AMap";
+
+import Edit from '../../components/edit/edit'
+
 export default {
   name: 'Dashboard',
+  components:{
+    Edit
+  },
   computed: {
     ...mapGetters([
       'name'
@@ -67,22 +72,22 @@ export default {
     // this.getInit();
   },
   mounted() {
-    tinymce.init({
-      selector:"#tt",
-      language:'zh_CN',
-      // branding: false,
-      // toolbar:''
-      setup:function(editor){
-        console.log(editor);
-        editor.on('click',function(e){
-          console.log('c:',editor.getContent())
-        })
-      },
-      init_instance_callback:function(editor){
-        console.log('init:',editor);
-        editor.setContent('<p>hello</p>')
-      }
-    })
+    // tinymce.init({
+    //   selector:"#tt",
+    //   language:'zh_CN',
+    //   // branding: false,
+    //   // toolbar:'',
+    //   setup:function(editor){
+    //     console.log(editor);
+    //     editor.on('click',function(e){
+    //       console.log('c:',editor.getContent())
+    //     })
+    //   },
+    //   init_instance_callback:function(editor){
+    //     console.log('init:',editor);
+    //     editor.setContent('<p>hello</p>')
+    //   }
+    // })
   },
   methods: {
     getCon() {
@@ -233,5 +238,8 @@ export default {
     padding: 0 12px 12px;
     box-sizing: border-box;
   }
+}
+.de-main {
+  margin-bottom: 12px;
 }
 </style>
