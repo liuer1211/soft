@@ -39,7 +39,7 @@ export default {
           img: 'null.png',
           name: '夜灵犀',
           menpai: '燕云山庄',
-          gongfu: '燕云七绝、乾坤生死诀',
+          gongfu: '燕云七绝、乾坤生死诀、扶摇九天',
           miaoshu: '',
           shiji: '年少成名，一手绝技独步江湖。对于他的本事，江湖中人都是这样流传的“锦绣一挥，神佛难挡”。'
         },
@@ -47,26 +47,92 @@ export default {
           id: '2',
           img: '2.jpg',
           name: '苏晚',
-          menpai: '未知',
-          gongfu: '未知',
+          menpai: '魔教',
+          gongfu: '魅影迷踪、弹指沁音',
           miaoshu: '',
-          shiji: '未知'
+          shiji: ''
         },
-        // {
-        //   id: '1',
-        //   img: '',
-        //   name: '百里梦'
-        // },
-        // {
-        //   id: '',
-        //   img: '',
-        //   name: '妙乐'
-        // },
-        // {
-        //   id: '',
-        //   img: '',
-        //   name: '冷面剑客'
-        // }
+        {
+          id: '3',
+          img: 'null.png',
+          name: '百里梦',
+          menpai: '名剑山庄',
+          gongfu: '昔月剑法',
+          miaoshu: '',
+          shiji: ''
+        },
+        {
+          id: '4',
+          img: 'null.png',
+          name: '妙乐',
+          menpai: '少林寺',
+          gongfu: '伏魔功',
+          miaoshu: '',
+          shiji: ''
+        },
+        {
+          id: '5',
+          img: 'null.png',
+          name: '李玉帛',
+          menpai: '正威镖局',
+          gongfu: '燕云七绝、陆家剑法',
+          miaoshu: '',
+          shiji: ''
+        },
+        {
+          id: '6',
+          img: 'null.png',
+          name: '陆秋艳',
+          menpai: '正威镖局',
+          gongfu: '陆家剑法',
+          miaoshu: '',
+          shiji: ''
+        },
+        {
+          id: '7',
+          img: 'null.png',
+          name: '陆秋荣',
+          menpai: '正威镖局',
+          gongfu: '陆家剑法',
+          miaoshu: '',
+          shiji: ''
+        },
+        {
+          id: '8',
+          img: 'null.png',
+          name: '李怀唐',
+          menpai: '魔教',
+          gongfu: '魅影迷踪、断魂掌',
+          miaoshu: '',
+          shiji: ''
+        },
+        {
+          id: '9',
+          img: 'null.png',
+          name: '陈瞎子',
+          menpai: '门派不详',
+          gongfu: '扶摇九天、卜卦',
+          miaoshu: '',
+          shiji: ''
+        },
+        {
+          id: '10',
+          img: 'null.png',
+          name: '风花雪月',
+          menpai: '门派不详',
+          gongfu: '箫、剑、折扇、暗器',
+          miaoshu: '',
+          shiji: ''
+        },
+        {
+          id: '11',
+          img: 'null.png',
+          name: '晚江',
+          menpai: '离别门',
+          gongfu: '妙手回春',
+          miaoshu: '',
+          shiji: ''
+        },
       ],
       statrsCount:800,//星星数量
       distance:1000,//间距
@@ -114,7 +180,7 @@ export default {
     },
     // 截取 拼接
     substr(data) {
-      if (data.length>3){
+      if (data.length>4){
         return data.substr(0, 4) + '...'
       } else {
         return data;
