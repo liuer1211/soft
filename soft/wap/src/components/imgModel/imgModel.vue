@@ -8,7 +8,7 @@
       <div class="model-bot">
         <div>{{item.title}}</div>
         <div>作者：{{item.author}}</div>
-        <div>{{item.type}}</div>
+        <div>{{item.type | novelTypeToNames}}</div>
         <div>{{item.date}}</div>
       </div>
     </div>
