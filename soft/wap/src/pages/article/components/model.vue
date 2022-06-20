@@ -38,7 +38,7 @@
       // 动态拼接图片地址
       getImg(data) {
         if(data) {
-          let img = require(`../../../assets/images/imgmodel/${data}`)
+          let img = require(`../../../assets/images/article/${data}`)
           return img;
         }
       },

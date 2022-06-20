@@ -44,13 +44,23 @@ export default {
         },
         {
           imgs: '2.jpg',
-          name: '离别门',
+          name: '别离门',
           des: '幽谷寒舍，鸟语花香'
         },
         {
           imgs: '3.jpg',
-          name: '镖局',
+          name: '正威镖局',
           des: '太湖之畔，国色天香'
+        },
+        {
+          imgs: '3.jpg',
+          name: '少林寺',
+          des: '嵩山有寺，北斗之望'
+        },
+        {
+          imgs: '3.jpg',
+          name: '名剑山庄',
+          des: '天下一剑，亦正亦邪'
         },
       ]
     };
@@ -131,6 +141,10 @@ export default {
     font-size: 14px;
     color: #fad20d;
     writing-mode: vertical-rl;
+    opacity: .3;
+  }
+  .swiper-slide.swiper-slide-thumb-active .bot-model{
+    opacity: 1;
   }
   .mySwiper1 {
     height: 80%;
@@ -194,7 +208,7 @@ export default {
   .mySwiper2 .swiper-slide {
     width: 25%;
     height: 100%;
-    opacity: 0.2;
+    opacity: 0.4;
   }
   .mySwiper2 .swiper-slide-thumb-active {
     opacity: 1;
