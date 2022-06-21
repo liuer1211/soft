@@ -20,3 +20,47 @@ name: "EPERMError"
 pid: 11612
 hostname: LAPTOP-SCNM41S6
 
+2022-06-21 21:42:43,433 ERROR 11612 nodejs.EPERMError: EPERM: operation not permitted, watch
+    at FSEvent.FSWatcher._handle.onchange (internal/fs/watchers.js:125:28)
+errno: -4048
+syscall: "watch"
+code: "EPERM"
+filename: null
+dir: "F:\\web\\git\\soft\\soft\\egg-server\\app\\controller"
+name: "EPERMError"
+pid: 11612
+hostname: LAPTOP-SCNM41S6
+
+2022-06-21 21:42:43,435 ERROR 11612 nodejs.EPERMError: EPERM: operation not permitted, watch
+    at FSEvent.FSWatcher._handle.onchange (internal/fs/watchers.js:125:28)
+errno: -4048
+syscall: "watch"
+code: "EPERM"
+filename: null
+dir: "F:\\web\\git\\soft\\soft\\egg-server\\config"
+name: "EPERMError"
+pid: 11612
+hostname: LAPTOP-SCNM41S6
+
+2022-06-21 21:43:50,270 ERROR 11612 nodejs.EPERMError: EPERM: operation not permitted, watch
+    at FSEvent.FSWatcher._handle.onchange (internal/fs/watchers.js:125:28)
+errno: -4048
+syscall: "watch"
+code: "EPERM"
+filename: null
+dir: "F:\\web\\git\\soft\\soft\\egg-server\\app\\controller"
+name: "EPERMError"
+pid: 11612
+hostname: LAPTOP-SCNM41S6
+
+2022-06-21 21:43:50,272 ERROR 11612 nodejs.EPERMError: EPERM: operation not permitted, watch
+    at FSEvent.FSWatcher._handle.onchange (internal/fs/watchers.js:125:28)
+errno: -4048
+syscall: "watch"
+code: "EPERM"
+filename: null
+dir: "F:\\web\\git\\soft\\soft\\egg-server\\config"
+name: "EPERMError"
+pid: 11612
+hostname: LAPTOP-SCNM41S6
+

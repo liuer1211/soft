@@ -1,0 +1,108 @@
+2022-06-21 21:36:42,058 INFO 11612 [egg:logger] init all loggers with options: {"dir":"F:\\web\\git\\soft\\soft\\egg-server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"enablePerformanceTimer":false,"type":"agent"}
+2022-06-21 21:36:42,068 INFO 11612 [egg:core] dump config after load, 6ms
+2022-06-21 21:36:42,096 INFO 11612 [egg-watcher] Start watching: ["F:\\web\\git\\soft\\soft\\egg-server\\app","F:\\web\\git\\soft\\soft\\egg-server\\config","F:\\web\\git\\soft\\soft\\egg-server\\mocks","F:\\web\\git\\soft\\soft\\egg-server\\mocks_proxy","F:\\web\\git\\soft\\soft\\egg-server\\app.js"]
+2022-06-21 21:36:42,096 INFO 11612 [egg-watcher] Start watching: "F:\\web\\git\\soft\\soft\\egg-server\\app"
+2022-06-21 21:36:42,096 INFO 11612 [egg-watcher] Start watching: "F:\\web\\git\\soft\\soft\\egg-server\\config"
+2022-06-21 21:36:42,096 INFO 11612 [egg-watcher] Start watching: "F:\\web\\git\\soft\\soft\\egg-server\\mocks"
+2022-06-21 21:36:42,096 INFO 11612 [egg-watcher] Start watching: "F:\\web\\git\\soft\\soft\\egg-server\\mocks_proxy"
+2022-06-21 21:36:42,096 INFO 11612 [egg-watcher] Start watching: "F:\\web\\git\\soft\\soft\\egg-server\\app.js"
+2022-06-21 21:36:42,097 INFO 11612 [egg-watcher:agent] watcher start success
+2022-06-21 21:36:42,104 INFO 11612 [egg:core] dump config after ready, 5ms
+2022-06-21 21:36:42,919 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\public","stat":{"dev":2533337177,"mode":16822,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":562949954537955,"size":0,"blocks":0,"atimeMs":1655818602917.6978,"mtimeMs":1655818602917.6978,"ctimeMs":1655818602917.6978,"birthtimeMs":1655818602917.6978,"atime":"2022-06-21T13:36:42.918Z","mtime":"2022-06-21T13:36:42.918Z","ctime":"2022-06-21T13:36:42.918Z","birthtime":"2022-06-21T13:36:42.918Z"},"remove":false,"isDirectory":true,"isFile":false}
+2022-06-21 21:40:03,816 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller\\home.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:40:03,817 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\router.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:40:03,820 ERROR 11612 nodejs.EPERMError: EPERM: operation not permitted, watch
+    at FSEvent.FSWatcher._handle.onchange (internal/fs/watchers.js:125:28)
+errno: -4048
+syscall: "watch"
+code: "EPERM"
+filename: null
+dir: "F:\\web\\git\\soft\\soft\\egg-server\\app\\controller"
+name: "EPERMError"
+pid: 11612
+hostname: LAPTOP-SCNM41S6
+
+2022-06-21 21:40:03,821 ERROR 11612 nodejs.EPERMError: EPERM: operation not permitted, watch
+    at FSEvent.FSWatcher._handle.onchange (internal/fs/watchers.js:125:28)
+errno: -4048
+syscall: "watch"
+code: "EPERM"
+filename: null
+dir: "F:\\web\\git\\soft\\soft\\egg-server\\config"
+name: "EPERMError"
+pid: 11612
+hostname: LAPTOP-SCNM41S6
+
+2022-06-21 21:40:03,822 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\config\\config.default.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:40:03,822 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:40:03,822 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\config\\plugin.js","stat":null,"remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:40:04,034 WARN 11612 [agent:development] reload worker because F:\web\git\soft\soft\egg-server\config\plugin.js rename
+2022-06-21 21:40:05,521 WARN 11612 [ClusterClient:Connection] socket is closed by other side while there were still unhandled data in the socket buffer
+2022-06-21 21:40:10,804 WARN 11612 [agent:development] reload worker because F:\web\git\soft\soft\egg-server\app\router.js change
+2022-06-21 21:40:10,591 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller","stat":{"dev":2533337177,"mode":16822,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":1970324838001619,"size":0,"blocks":0,"atimeMs":1655818810590.358,"mtimeMs":1655818810590.358,"ctimeMs":1655818810590.358,"birthtimeMs":1655818810589.698,"atime":"2022-06-21T13:40:10.590Z","mtime":"2022-06-21T13:40:10.590Z","ctime":"2022-06-21T13:40:10.590Z","birthtime":"2022-06-21T13:40:10.590Z"},"remove":false,"isDirectory":true,"isFile":false}
+2022-06-21 21:40:10,592 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\router.js","stat":{"dev":2533337177,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":1970324838001621,"size":191,"blocks":0,"atimeMs":1655818810590.358,"mtimeMs":1655818810590.358,"ctimeMs":1655818810590.358,"birthtimeMs":1655818810590.358,"atime":"2022-06-21T13:40:10.590Z","mtime":"2022-06-21T13:40:10.590Z","ctime":"2022-06-21T13:40:10.590Z","birthtime":"2022-06-21T13:40:10.590Z"},"remove":false,"isDirectory":false,"isFile":true}
+2022-06-21 21:40:10,593 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller","stat":{"dev":2533337177,"mode":16822,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":1970324838001619,"size":0,"blocks":0,"atimeMs":1655818810590.358,"mtimeMs":1655818810590.358,"ctimeMs":1655818810590.358,"birthtimeMs":1655818810589.698,"atime":"2022-06-21T13:40:10.590Z","mtime":"2022-06-21T13:40:10.590Z","ctime":"2022-06-21T13:40:10.590Z","birthtime":"2022-06-21T13:40:10.590Z"},"remove":false,"isDirectory":true,"isFile":false}
+2022-06-21 21:40:10,594 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\router.js","stat":{"dev":2533337177,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":1970324838001621,"size":191,"blocks":0,"atimeMs":1655818810590.358,"mtimeMs":1655818810590.358,"ctimeMs":1655818810590.358,"birthtimeMs":1655818810590.358,"atime":"2022-06-21T13:40:10.590Z","mtime":"2022-06-21T13:40:10.590Z","ctime":"2022-06-21T13:40:10.590Z","birthtime":"2022-06-21T13:40:10.590Z"},"remove":false,"isDirectory":false,"isFile":true}
+2022-06-21 21:42:43,647 WARN 11612 [agent:development] reload worker because F:\web\git\soft\soft\egg-server\config\plugin.js rename
+2022-06-21 21:42:43,431 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller\\home.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:42:43,432 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller","stat":{"dev":2533337177,"mode":16822,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":1970324838001619,"size":0,"blocks":0,"atimeMs":1655818963431.4807,"mtimeMs":1655818963431.4807,"ctimeMs":1655818963431.4807,"birthtimeMs":1655818810589.698,"atime":"2022-06-21T13:42:43.431Z","mtime":"2022-06-21T13:42:43.431Z","ctime":"2022-06-21T13:42:43.431Z","birthtime":"2022-06-21T13:40:10.590Z"},"remove":false,"isDirectory":true,"isFile":false}
+2022-06-21 21:42:43,433 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\router.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:42:43,434 ERROR 11612 nodejs.EPERMError: EPERM: operation not permitted, watch
+    at FSEvent.FSWatcher._handle.onchange (internal/fs/watchers.js:125:28)
+errno: -4048
+syscall: "watch"
+code: "EPERM"
+filename: null
+dir: "F:\\web\\git\\soft\\soft\\egg-server\\app\\controller"
+name: "EPERMError"
+pid: 11612
+hostname: LAPTOP-SCNM41S6
+
+2022-06-21 21:42:43,434 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\config\\config.default.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:42:43,434 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:42:43,435 ERROR 11612 nodejs.EPERMError: EPERM: operation not permitted, watch
+    at FSEvent.FSWatcher._handle.onchange (internal/fs/watchers.js:125:28)
+errno: -4048
+syscall: "watch"
+code: "EPERM"
+filename: null
+dir: "F:\\web\\git\\soft\\soft\\egg-server\\config"
+name: "EPERMError"
+pid: 11612
+hostname: LAPTOP-SCNM41S6
+
+2022-06-21 21:42:43,435 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\config\\plugin.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:42:43,740 WARN 11612 [ClusterClient:Connection] socket is closed by other side while there were still unhandled data in the socket buffer
+2022-06-21 21:43:22,367 WARN 11612 [agent:development] reload worker because F:\web\git\soft\soft\egg-server\app\router.js change
+2022-06-21 21:43:22,158 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller","stat":{"dev":2533337177,"mode":16822,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":2533274791422930,"size":0,"blocks":0,"atimeMs":1655819002157.1663,"mtimeMs":1655819002157.1663,"ctimeMs":1655819002157.1663,"birthtimeMs":1655819002157.1663,"atime":"2022-06-21T13:43:22.157Z","mtime":"2022-06-21T13:43:22.157Z","ctime":"2022-06-21T13:43:22.157Z","birthtime":"2022-06-21T13:43:22.157Z"},"remove":false,"isDirectory":true,"isFile":false}
+2022-06-21 21:43:22,160 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller","stat":{"dev":2533337177,"mode":16822,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":2533274791422930,"size":0,"blocks":0,"atimeMs":1655819002157.1663,"mtimeMs":1655819002157.1663,"ctimeMs":1655819002157.1663,"birthtimeMs":1655819002157.1663,"atime":"2022-06-21T13:43:22.157Z","mtime":"2022-06-21T13:43:22.157Z","ctime":"2022-06-21T13:43:22.157Z","birthtime":"2022-06-21T13:43:22.157Z"},"remove":false,"isDirectory":true,"isFile":false}
+2022-06-21 21:43:22,161 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\router.js","stat":{"dev":2533337177,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":2533274791422932,"size":191,"blocks":0,"atimeMs":1655819002158.4468,"mtimeMs":1655819002158.4468,"ctimeMs":1655819002158.4468,"birthtimeMs":1655819002158.4468,"atime":"2022-06-21T13:43:22.158Z","mtime":"2022-06-21T13:43:22.158Z","ctime":"2022-06-21T13:43:22.158Z","birthtime":"2022-06-21T13:43:22.158Z"},"remove":false,"isDirectory":false,"isFile":true}
+2022-06-21 21:43:22,161 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"change","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\router.js","stat":{"dev":2533337177,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":2533274791422932,"size":191,"blocks":0,"atimeMs":1655819002158.4468,"mtimeMs":1655819002158.4468,"ctimeMs":1655819002158.4468,"birthtimeMs":1655819002158.4468,"atime":"2022-06-21T13:43:22.158Z","mtime":"2022-06-21T13:43:22.158Z","ctime":"2022-06-21T13:43:22.158Z","birthtime":"2022-06-21T13:43:22.158Z"},"remove":false,"isDirectory":false,"isFile":true}
+2022-06-21 21:43:50,479 WARN 11612 [agent:development] reload worker because F:\web\git\soft\soft\egg-server\config\plugin.js rename
+2022-06-21 21:43:50,269 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller\\home.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:43:50,270 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\router.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:43:50,271 ERROR 11612 nodejs.EPERMError: EPERM: operation not permitted, watch
+    at FSEvent.FSWatcher._handle.onchange (internal/fs/watchers.js:125:28)
+errno: -4048
+syscall: "watch"
+code: "EPERM"
+filename: null
+dir: "F:\\web\\git\\soft\\soft\\egg-server\\app\\controller"
+name: "EPERMError"
+pid: 11612
+hostname: LAPTOP-SCNM41S6
+
+2022-06-21 21:43:50,271 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\config\\config.default.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:43:50,271 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\app\\controller","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:43:50,271 INFO 11612 [egg-watcher] Received a change event from eventSource: {"event":"rename","path":"F:\\web\\git\\soft\\soft\\egg-server\\config\\plugin.js","remove":true,"isDirectory":false,"isFile":false}
+2022-06-21 21:43:50,273 ERROR 11612 nodejs.EPERMError: EPERM: operation not permitted, watch
+    at FSEvent.FSWatcher._handle.onchange (internal/fs/watchers.js:125:28)
+errno: -4048
+syscall: "watch"
+code: "EPERM"
+filename: null
+dir: "F:\\web\\git\\soft\\soft\\egg-server\\config"
+name: "EPERMError"
+pid: 11612
+hostname: LAPTOP-SCNM41S6
+
