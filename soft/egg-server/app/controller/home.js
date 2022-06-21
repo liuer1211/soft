@@ -4,8 +4,10 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-    const { ctx } = this;
-    ctx.body = '首页';
+    const { ctx, service } = this;
+    let res = await service.home.index();
+    // console.log('res=',res);
+    ctx.body = res;
   }
 }
 
