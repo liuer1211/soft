@@ -1,0 +1,301 @@
+{
+  "keys": "F:\\web\\git\\soft\\soft\\egg-server\\config\\config.default.js",
+  "middleware": "F:\\web\\git\\soft\\soft\\egg-server\\config\\config.default.js",
+  "session": {
+    "maxAge": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-session\\config\\config.default.js",
+    "logValue": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+    "csrf": {
+      "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "type": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "supportedRequests": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "refererWhiteList": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xframe": {
+      "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "ipExceptionList": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieDomain": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "allowArrayField": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js",
+      "disable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideIgnore": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "view": {
+    "root": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultViewEngine": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-view\\config\\config.default.js",
+    "mapping": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "env": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "name": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "cookies": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "maxIpsCount": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "maxProxyCount": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "version": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "description": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "private": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "egg": {
+      "declarations": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "dependencies": {
+      "egg": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "egg-scripts": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "autod": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "autod-egg": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "egg-bin": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "egg-ci": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "egg-mock": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "eslint": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "eslint-config-egg": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "engines": {
+      "node": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "scripts": {
+      "start": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "stop": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "dev": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "debug": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "test": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "test-local": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "cov": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "lint": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "ci": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "autod": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "ci": {
+      "version": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "repository": {
+      "type": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "url": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "author": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "license": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "baseDir": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "cacheControl": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "textLimit": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "strict": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "depth": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "onerror": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "logger": {
+    "dir": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "env": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "level": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "enablePerformanceTimer": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "logging": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "port": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "F:\\web\\git\\soft\\soft\\egg-server\\node_modules\\egg\\config\\config.default.js"
+}

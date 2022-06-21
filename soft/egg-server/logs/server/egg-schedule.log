@@ -1,0 +1,9 @@
+2022-06-21 21:36:42,956 INFO 11612 [Timer] F:\web\git\soft\soft\egg-server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 24797047ms at 2022-06-22 04:30:00.003
+2022-06-21 21:36:42,956 INFO 11612 [Timer] F:\web\git\soft\soft\egg-server\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 8597044ms at 2022-06-22 00:00:00.000
+2022-06-21 21:36:42,956 INFO 11612 [Timer] F:\web\git\soft\soft\egg-server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 8598044ms at 2022-06-22 00:00:01.000
+2022-06-21 21:36:42,853 INFO 8468 [egg-schedule]: register schedule F:\web\git\soft\soft\egg-server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2022-06-21 21:36:42,853 INFO 8468 [egg-schedule]: register schedule F:\web\git\soft\soft\egg-server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2022-06-21 21:36:42,853 INFO 8468 [egg-schedule]: register schedule F:\web\git\soft\soft\egg-server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2022-06-21 21:40:11,840 INFO 23896 [egg-schedule]: register schedule F:\web\git\soft\soft\egg-server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2022-06-21 21:40:11,840 INFO 23896 [egg-schedule]: register schedule F:\web\git\soft\soft\egg-server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2022-06-21 21:40:11,840 INFO 23896 [egg-schedule]: register schedule F:\web\git\soft\soft\egg-server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
