@@ -127,8 +127,8 @@ export default {
         {
           id: '11',
           img: 'null.png',
-          name: '晚江',
-          menpai: '离别门',
+          name: '梅林',
+          menpai: '别离门',
           gongfu: '妙手回春',
           miaoshu: '',
           shiji: ''

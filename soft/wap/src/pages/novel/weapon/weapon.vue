@@ -167,7 +167,7 @@ export default {
               justify-content: center;
               align-items: center;
               i {
-                color: #fff;
+                color: #000000;
                 font-size: 20px;
               }
             }

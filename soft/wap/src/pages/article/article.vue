@@ -34,7 +34,28 @@
           {title: '散文', type: '09', active:'9'},
         ],
         modelList: [
-          {title: '生与死', des: '生不能留名，死又将何往！', img: '1.jpg', name: '山鬼', date: '2022-05-01', type: '02', top: '1', look: '10', agree: '12'},
+          {
+            title: '生与死', 
+            des: '生不能留名，死又将何往！', 
+            img: '1.jpg', 
+            name: '山鬼', 
+            date: '2022-05-01', 
+            type: '02', 
+            top: '1', 
+            look: '10', 
+            agree: '12'
+          },
+          {
+            title: '壬寅变革', 
+            des: '是时候出现一种新的文体了！', 
+            img: '1.jpg', 
+            name: '雅风', 
+            date: '2022-05-01', 
+            type: '02', 
+            top: '1', 
+            look: '10', 
+            agree: '12'
+          },
         ]
       }
     },
