@@ -44,13 +44,13 @@
       },
       // 跳页面
       toPage(data) {
-        console.log(data)
-        this.$router.push({
-          name: 'articleDetail',
-          params: {
-            data
-          }
-        })
+        // console.log(data)
+        // this.$router.push({
+        //   name: 'articleDetail',
+        //   params: {
+        //     data
+        //   }
+        // })
       }
     }
   }
@@ -95,7 +95,7 @@
           >.top{
             >h2{
               font-weight: 600;
-              font-size: 17px;
+              font-size: 16px;
               padding-bottom: 8px;
               box-sizing: border-box;
               overflow: hidden;
@@ -104,7 +104,7 @@
               word-break: break-all;
             }
             p{
-              font-size: 15px;
+              font-size: 14px;
               overflow: hidden;
               white-space: nowrap;
               text-overflow: ellipsis;
