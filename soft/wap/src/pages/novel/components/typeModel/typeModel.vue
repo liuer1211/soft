@@ -115,32 +115,32 @@ export default {
       }
       &:nth-child(1){
         .model-bg {
-          background: linear-gradient(to left top, #a529fd, #ffffff);
+          background: linear-gradient(to left top, #bc5dff, #ba5cfd);
         }
       }
       &:nth-child(2){
         .model-bg {
-          background: linear-gradient(to left top, #1ccb00, #ffffff);
+          background: linear-gradient(to left top, #65f14e, #1ccb00);
         }
       }
       &:nth-child(3){
         .model-bg {
-          background: linear-gradient(to left top, #176fe5, #ffffff);
+          background: linear-gradient(to left top, #3b87ed, #176fe5);
         }
       }
       &:nth-child(4){
         .model-bg {
-          background: linear-gradient(to left top, #dfdb04, #ffffff);
+          background: linear-gradient(to left top, #f1ef5c, #dfdb04);
         }
       }
       &:nth-child(5){
         .model-bg {
-          background: linear-gradient(to left top, #3932ff, #ffffff);
+          background: linear-gradient(to left top, #706bef, #544ff1);
         }
       }
       &:nth-child(6){
         .model-bg {
-          background: linear-gradient(to left top, #e0b307, #ffffff);
+          background: linear-gradient(to left top, #e9ce67, #e0b307);
         }
       }
       .model-bg {

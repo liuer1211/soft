@@ -1,21 +1,16 @@
 <template>
   <div class="kungfu-main">
-    <div id="canvas-main">
-      <canvas id="canvas" class="canvas" width="375px" height="667px">
-        <p>Your browser doesn't support the HTML5 CANVAS tag.</p>
+    <div id="cnvasModel">
+      <canvas width="375px" height="667px" id="myCanvas">
+        <p>Anything in here will be replaced on browsers that support the canvas element</p>
       </canvas>
-      <div style="display: none" id="canvas-model">
-        <ul role="list">
-          <li><a href="javascript:;" style="font-size: 6pt;">惊雷剑法</a></li>
-          <li><a href="javascript:;" style="font-size: 32.181818181818pt;">凤舞九天</a></li>
-          <li><a href="javascript:;" style="font-size: 8.5454545454545pt;">生死决</a></li>
-          <li><a href="javascript:;" style="font-size: 8.1818181818182pt;">迷魂大法</a></li>
-          <li><a href="javascript:;" style="font-size: 16.909090909091pt;">燕云七绝</a></li>
-          <li><a href="javascript:;" style="font-size: 11.818181818182pt;">扶摇九天</a></li>
-          <li><a href="javascript:;" style="font-size: 6pt;">音波功</a></li>
-          <li><a href="javascript:;" style="font-size: 21.272727272727pt;">混元功</a></li>
-        </ul>
-      </div>
+    </div>
+    <div id="tags" style="display: none;">
+      <ul>
+        <li v-for="(item,index) in tagArr" :key="index">
+          <a href="javascript:;" >{{item.name}}</a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -24,6 +19,11 @@
 export default {
   data() {
     return {
+      tagArr:[
+        {name:'惊雷剑法'},{name:'凤舞九天'},{name:'迷魂大法'},{name:'乾坤生死决'},
+        {name:'燕云七绝'},{name:'扶摇九天'},{name:'音波功'},{name:'混元功'},
+        {name:'魅影迷踪'},{name:'伏魔功'}
+      ]
     }
   },
   mounted() {
@@ -32,30 +32,18 @@ export default {
   },
   methods:{
     getInit() {
-      jQuery(document).ready(function() {
-        if( ! jQuery('#canvas').tagcanvas({
-            textFont: 'Impact,"Arial Black",sans-serif',
-            textColour: '#ffffff',
-            outlineColour: '#aaaaaa',
-            reverse: true,
-            textHeight:16,
-            shape: "sphere", 
-            depth: 0.8,
-            decel:0.99,
-            padding:0,
-            wheelZoom: true,
-            dragControl: false,
-            fadeIn: 0,
-            freezeActive: false,
-            outlineMethod: "outline",
-            outlineOffset: "5",
-            outlineRadius: "0",
-            outlineThickness: "2",
-            maxSpeed: 0.05
-            },'canvas-model')) {
-          jQuery('#canvas-main').hide();
-        }
-      });
+      try {
+        TagCanvas.Start('myCanvas', 'tags', {
+          textColour: '#fff',
+          dragControl: 1,
+          decel: 0.95,
+          textHeight: 20,
+          minSpeed: 0.01,
+          initial: [0.1,0.1],
+        });
+      } catch (e) {
+        document.getElementById('cnvasModel').style.display = 'none';
+      }
     }
   }
 }

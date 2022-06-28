@@ -55,7 +55,7 @@ export default {
       num: '',
       introInfo: {
         id: "1",
-        img: "yelingxi.jpg",
+        img: "b001.png",
         flag: "hot",
         title: "夜灵犀传奇",
         author: "六耳",
@@ -197,7 +197,7 @@ export default {
       box-sizing: border-box;
       box-shadow: 1px 1px 2px 1px #c3c3c3;
       overflow: hidden;
-      background: linear-gradient(to left top, #ffdd86, #ffffff);
+      background: linear-gradient(to left top, #ffdd86, #ffdd86);
       .in-left {
         width: 120px;
         min-width: 120px;
