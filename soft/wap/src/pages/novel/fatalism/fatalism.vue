@@ -34,6 +34,7 @@ export default {
           leftTip: 10-2,
           title: '少室山',
           name: '初试江湖',
+          people: '夜灵犀、恒叶方丈',
           code: '001'
         },
         {
@@ -43,6 +44,7 @@ export default {
           leftTip: 30-2,
           title: '月与楼',
           name: '香楼听曲',
+          people: '夜灵犀、苏晚',
           code: '002'
         },
         {
@@ -52,6 +54,7 @@ export default {
           leftTip: 10-2,
           title: '小重山',
           name: '邪剑之争',
+          people: '夜灵犀、李玉帛',
           code: '003'
         },
         {
@@ -61,6 +64,7 @@ export default {
           leftTip: 50-2,
           title: '名剑山庄',
           name: '山庄论剑',
+          people: '夜灵犀、百里梦、妙乐',
           code: '004'
         },
         {
@@ -70,6 +74,7 @@ export default {
           leftTip: 50-2,
           title: '小重山',
           name: '风花雪月',
+          people: '夜灵犀、风花雪月',
           code: '005'
         },
         {
@@ -78,7 +83,8 @@ export default {
           topTip: 90-6,
           leftTip: 40-2,
           title: '吉祥赌坊',
-          name: '探秘',
+          name: '投石问路',
+          people: '夜灵犀、程瞎子、苏晚',
           code: '006'
         }
       ]
@@ -92,7 +98,13 @@ export default {
   methods: {
    // 跳转
    goPage(data) {
-     console.log(data)
+    console.log(data);
+    this.$router.push({
+      name: 'fatalismDetail',
+      params: {
+        data
+      }
+    })
    }
   },
 };

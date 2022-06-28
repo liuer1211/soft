@@ -2,9 +2,8 @@
   <div class="peo-detail-main">
     <div class="model-main">
       <h1>{{obj.name}}</h1>
-      <div>{{obj.menpai}}</div>
-      <div>{{obj.gongfu}}</div>
-      <div>{{obj.miaoshu}}</div>
+      <div>{{obj.title}}</div>
+      <div>{{obj.people}}</div>
       <p>{{obj.shiji}}</p>
     </div>
     <div class="bg-main"></div>
@@ -23,11 +22,14 @@ export default {
   data() {
     return {
       obj: {
-        name: '夜灵犀',
-        menpai: '燕云山庄',
-        gongfu: '燕云七绝、乾坤生死诀',
-        miaoshu: '',
-        shiji: '年少成名，一手绝技独步江湖。对于他的本事，江湖中人都是这样流传的“锦绣一挥，神佛难挡”。'
+        code: "002",
+        left: 30,
+        leftTip: 28,
+        name: "香楼听曲",
+        title: "月与楼",
+        top: 20,
+        topTip: 14,
+        people: '夜灵犀、苏晚',
       }
     }
   },
