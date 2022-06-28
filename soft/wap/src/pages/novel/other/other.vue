@@ -91,7 +91,7 @@ export default {
             slideShadows: true, // 阴影
           },
           grabCursor: true, // 手
-          loop: true, // 循环
+          // loop: true, // 循环
         });
       });
     }

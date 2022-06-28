@@ -65,7 +65,7 @@
     flex-wrap: wrap;
     padding: 0 12px;
     .model-List{
-      box-shadow: 1px 1px 2px 1px #ebedf0;
+      box-shadow: 1px 1px 2px 1px #e0e0e0;
       background-color: #fff;
       overflow: hidden;
       border-radius: 4px;

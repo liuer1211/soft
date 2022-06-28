@@ -128,7 +128,7 @@ export default {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    background: linear-gradient(0deg, #438aea, #92abf0);
+    background: linear-gradient(0deg, #438aea, #7699fb);
   }
   .swiper-slide img {
     display: none;
@@ -185,10 +185,10 @@ export default {
           &:first-child {
             font-weight: 600;
             font-size: 26px;
-            color: #fad20d;
+            color: #ffffff;
             letter-spacing: 6px;
             text-align: left;
-            text-shadow: 1px 1px 4px #fff;
+            text-shadow: 1px 1px 4px #7c7c7c;
           }
         }
       }
