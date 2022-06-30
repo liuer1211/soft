@@ -199,7 +199,7 @@
             left: 0;
             width: 100%;
             content: "";
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #d5d5d5;
           }
         }
       }
