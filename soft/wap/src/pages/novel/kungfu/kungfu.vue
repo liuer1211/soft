@@ -20,9 +20,9 @@ export default {
   data() {
     return {
       tagArr:[
-        {name:'惊雷剑法'},{name:'凤舞九天'},{name:'迷魂大法'},{name:'乾坤生死决'},
-        {name:'燕云七绝'},{name:'扶摇九天'},{name:'音波功'},{name:'混元功'},
-        {name:'魅影迷踪'},{name:'伏魔功'}
+        {name:'惊雷剑法'},{name:'凤舞九天'},{name:'乾坤生死决'},{name:'燕云七绝'},
+        {name:'扶摇九天'},{name:'迷魂大法'},{name:'音波功'},{name:'混元功'},
+        {name:'魅影迷踪'},{name:'伏魔功'},{name:'昔月剑法'}
       ]
     }
   },
