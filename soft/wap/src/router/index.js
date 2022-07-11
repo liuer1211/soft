@@ -52,6 +52,11 @@ const routes = [
     component: () => import("@/pages/novel/fatalism/fatalism")
   },
   { 
+    name: 'fatalismDetail',
+    path: '/fatalismDetail', 
+    component: () => import("@/pages/novel/fatalism/detail")
+  },
+  { 
     name: 'weapon',
     path: '/weapon', 
     component: () => import("@/pages/novel/weapon/weapon")

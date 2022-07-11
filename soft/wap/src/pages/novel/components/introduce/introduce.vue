@@ -49,6 +49,7 @@
 <script>
 // import video from '../../../../assets/video/video.mp4'
 export default {
+  // const url = window.location.host,
   data() {
     return {
       show: false,
@@ -78,7 +79,7 @@ export default {
         fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
         sources: [{
           type: "video/mp4", // 类型
-          src: 'http://106.12.129.114/static/video/001.mp4' // url地址
+          src: `http://${window.location.host}/static/video/001.mp4` // url地址
         }],
         poster: '', // 封面地址
         notSupportedMessage: '此视频暂无法播放，请稍后再试', // 允许覆盖Video.js无法播放媒体源时显示的默认信息。
