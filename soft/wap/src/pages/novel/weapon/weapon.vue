@@ -35,13 +35,13 @@ export default {
       list: [
         {
           name: '黑曜', 
-          imgs: 'sect/1.jpg', 
+          imgs: 'sect/1.png', 
           des: '邪剑黑曜，旷世奇兵', 
           active: false
         },
         {
           name: '银枪', 
-          imgs: 'sect/2.jpg', 
+          imgs: 'sect/2.png', 
           des: '百鸟朝凤，惊艳一枪', 
           active: false
         }
@@ -120,7 +120,11 @@ export default {
               width: 100%;
               height: 100%;
               display: block;
-              background-color: #dab22f;
+              // background-color: #dab22f;
+              background-color: rgba(255, 255, 255, 0.25);
+              backdrop-filter: blur(6px);
+              border: 1px solid rgba(255, 255, 255, 0.18);
+              box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
               img {
                 width: 100%;
                 height: 100%;
@@ -147,14 +151,18 @@ export default {
               width: 100%;
               height: 100%;
               transform: rotateY(540deg);
-              background-color: #dab22f;
+              // background-color: #dab22f;
+              background-color: rgba(255, 255, 255, 0.25);
+              backdrop-filter: blur(6px);
+              border: 1px solid rgba(255, 255, 255, 0.18);
+              box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
               display: none;
               >div {
                 position:absolute;
                 top: 20px;
                 right: 20px;
                 writing-mode: vertical-rl;
-                color: #fff;
+                color: #000;
               }
             }
             >div:nth-child(3) {
