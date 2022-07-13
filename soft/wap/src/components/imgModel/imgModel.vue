@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import { reqNovelList } from '@/axios/index'
+  import { reqQueryNovelList } from '@/axios/index'
   export default {
     data() {
       return {
@@ -29,7 +29,9 @@
     methods: {
       // 获取数据
       async getDate(){
-        let data = await reqNovelList();
+        let params = {};
+        let data = await reqQueryNovelList(params);
+        console.log(data)
         if (data.data && data.data.code === '200') {
           this.list = data.data.data;
         }

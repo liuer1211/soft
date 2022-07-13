@@ -1,7 +1,11 @@
 /*
 * 包含多个应用的接口
 * */
-import ajax from './ajax'
+import requests from './ajax'
+import ajaxMock from './ajaxMock'
+
+// 小说正剧列表-mock
+export const reqNovelList = () => ajaxMock('/novelList');
 
 // 小说正剧列表
-export const reqNovelList = () => ajax('/novelList')
+export const reqQueryNovelList = (params)=>requests({url:"/queryTitleList",method:"post",data:params});

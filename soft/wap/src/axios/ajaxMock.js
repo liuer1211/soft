@@ -1,0 +1,30 @@
+/*
+* 接口封装
+* */
+import axios from 'axios'
+import store from '../store'
+export default function ajax(url,data={},type='GET') {
+  store.isLoading = true;
+  return new Promise(function (resolve,reject) {
+    let promise
+    if(type==='GET'){
+      let dataStr=''
+      Object.keys(data).forEach(key=>{
+        dataStr+=key+'='+data[key]+'&'
+      })
+      if(dataStr!==''){
+        dataStr=dataStr.substring(0,dataStr.lastIndexOf('&'))
+        url=url+'?'+dataStr
+      }
+      promise=axios.get(url)
+    }else {
+      promise=axios.post(url,data);
+    }
+    promise.then(function (response) {
+      resolve(response,data)
+    }).catch(function (error) {
+      reject(error)
+    })
+  })
+}
+ 
