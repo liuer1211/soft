@@ -9,12 +9,30 @@ module.exports = {
   // productionSourceMap: false,
   //配置代理跨域
   // devServer: {
-  //     proxy: {
-  //         // "/api": {
-  //         //     target: "http://39.98.123.211",
-  //         // },
-  //     },
+  //   devServer: {
+  //       proxy: {
+  //           "/api": {
+  //               target: "http://39.98.123.211",
+  //           },
+  //       },
+  //   },
   // },
+  devServer: {
+    proxy: {
+      "/api": {
+          target: "http://180.76.106.221:8001",
+          pathRewrite: {
+            '^/api': ''
+          }
+      },
+      // "/api": {
+      //   target: "http://192.168.1.100:8001",
+      //   pathRewrite: {
+      //     '^/api': ''
+      //   }
+      // },
+    },
+  },
   // 像素适配 宽度px转换成rem; vant-375
   css: {
     loaderOptions: {

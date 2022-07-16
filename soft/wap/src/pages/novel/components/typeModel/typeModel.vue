@@ -15,15 +15,12 @@
 
 <script>
 import { Toast } from 'vant'
+import { reqQueryNovalDetail } from '@/axios/index' 
 export default {
   data() {
     return {
-      list: [
-        {
-          img: '',
-          title: '人物',
-          type: 'people'
-        },
+      lists: [
+        // '01','02'
         {
           img: '',
           title: '武学',
@@ -49,13 +46,100 @@ export default {
           title: '诗词歌赋',
           type: 'other'
         }
-      ]
+      ],
+      li: {
+        "01": {
+          img: '',
+          title: '人物',
+          type: 'people',
+          code: '01'
+        },
+        "02": {
+          img: '',
+          title: '武学',
+          type: 'kungfu',
+          code: '02'
+        },
+        "03": {
+          img: '',
+          title: '门派',
+          type: 'sect',
+          code: '03'
+        },
+        "04": {
+          img: '',
+          title: '兵器',
+          type: 'weapon',
+          code: '04'
+        },
+        "05": {
+          img: '',
+          title: '宿命',
+          type: 'fatalism',
+          code: '05'
+        },
+        "06": {
+          img: '',
+          title: '诗词歌赋',
+          type: 'other',
+          code: '06'
+        },
+      },
+      list:[],
+      id: undefined,
     }
+  },
+  watch: {
+    // list: {
+    //   handler(newName, oldName){
+    //     this.list = newName.map((item)=>{
+    //       return this.li[item]
+    //     }) 
+    //   },
+    //   immediate: true,
+    //   deep: true
+    // }
   },
   mounted() {
     // console.log(this.list)
   },
+  created() {
+    this.getListDetail();
+  },
   methods:{
+    // 获取数据，展示，存储
+    async getListDetail(){
+      // 首页进入
+      if (this.$route.params.data) {
+        // this.novelInfo = this.$route.params.data;
+
+        let params = {
+          novalId: this.$route.params.data.id.toString()
+        }
+        let data = await reqQueryNovalDetail(params);
+        // console.log(data)
+        if (data.responseCode && data.responseCode === '0000') {
+          this.lists = data.novalAttributeList;
+          this.id = data.result.id;
+          this.getList(this.lists);
+        }
+        // 存入vuex
+        this.$store.dispatch('getNovelTypeList',this.list)
+      } else {
+        // 详细页返回
+        if (this.$store.state.novel.novelTypeList && this.$store.state.novel.novelTypeList.length) {
+          this.list = this.$store.state.novel.novelTypeList;
+        } else {
+          // this.$router.go(-1);
+        }
+      }
+    },
+    getList(data) {
+      this.list = data.map((item)=>{
+        return this.li[item]
+      })
+      console.log(this.list)
+    },
     // 跳页面
     toPage(data) {
       switch(data.type) {
@@ -90,7 +174,8 @@ export default {
       this.$router.push({
         name: data.type,
         params: {
-          data
+          data,
+          id: this.id
         }
       })
     }
@@ -125,7 +210,7 @@ export default {
       }
       &:nth-child(3){
         .model-bg {
-          background: linear-gradient(to left top, #3b87ed, #176fe5);
+          background: linear-gradient(to left top, #3b87ed, #7699fb);
         }
       }
       &:nth-child(4){
@@ -135,7 +220,7 @@ export default {
       }
       &:nth-child(5){
         .model-bg {
-          background: linear-gradient(to left top, #706bef, #544ff1);
+          background: linear-gradient(to left top, #706af5, #6863ff);
         }
       }
       &:nth-child(6){

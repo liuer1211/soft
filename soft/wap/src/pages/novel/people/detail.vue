@@ -2,10 +2,10 @@
   <div class="peo-detail-main">
     <div class="model-main">
       <h1>{{obj.name}}</h1>
-      <div>{{obj.menpai}}</div>
-      <div>{{obj.gongfu}}</div>
-      <div>{{obj.miaoshu}}</div>
-      <p>{{obj.shiji}}</p>
+      <div>{{sect.name}}</div>
+      <div>{{kun}}</div>
+      <div>{{obj.instro}}</div>
+      <p>{{obj.descr}}</p>
     </div>
     <div class="bg-main"></div>
     <!-- 右侧浮框 -->
@@ -23,12 +23,19 @@ export default {
   data() {
     return {
       obj: {
-        name: '夜灵犀',
-        menpai: '燕云山庄',
-        gongfu: '燕云七绝、乾坤生死诀',
-        miaoshu: '',
-        shiji: '年少成名，一手绝技独步江湖。对于他的本事，江湖中人都是这样流传的“锦绣一挥，神佛难挡”。'
-      }
+        // "id": 1,
+        // "name": "夜灵犀",
+        // "instro": "燕云山庄",
+        // "descr": "年少成名，一手绝技独步江湖。对于他的本事，江湖中人都是这样流传的“锦绣一挥，神佛难挡”。",
+        // "img": "22.jpg",
+        // "createTime": "2022-07-15 15:04:13",
+        // "novalId": 1,
+        // "kungFu": "1",
+        // "sect": "1"
+      },
+      sect: '', // 门派
+      kungfu: '', // 功夫
+      kun: '', // 功夫
     }
   },
   mounted() {
@@ -40,6 +47,20 @@ export default {
     getInit() {
       if (this.$route.params.data) {
         this.obj = this.$route.params.data;
+
+        this.sect = this.$store.state.novel.novelSectList.find((item)=>{
+          console.log(item, this.obj.sect, item.sect === this.obj.sect)
+          return item.id.toString() === this.obj.sect;
+        })
+        this.obj.kungFu.split(',').forEach((kun)=>{
+          this.kungfu = this.$store.state.novel.novelKungfuList.filter((item)=>{
+            return kun === item.id.toString();
+          })
+        })
+        let mapKun = this.kungfu.map(item=>{
+          return item.name
+        })
+        this.kun = mapKun.join('/')
       } else {
         this.$router.back();
       }

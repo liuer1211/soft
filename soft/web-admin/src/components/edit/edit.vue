@@ -10,7 +10,7 @@
 import tinymce from 'tinymce/tinymce' // tinymce默认hidden，不引入不显示
 import Editor from '@tinymce/tinymce-vue'
 // 引入富文本编辑器主题的js和css
-import 'tinymce/skins/content/default/content.css'
+import 'tinymce/skins/content/default/content.min.css'
 import 'tinymce/themes/silver'
 import 'tinymce/icons/default/icons.min.js' // 解决了icons.js 报错Unexpected token '<'
 // 编辑器插件plugins

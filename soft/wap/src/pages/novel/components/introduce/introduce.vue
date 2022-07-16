@@ -2,18 +2,18 @@
   <div class="introduce-main">
     <div class="introduce-model">
       <div class="in-left">
-        <img :src="getImg(introInfo.img)" alt=""/>
+        <img :src="getImg(novelInfo.imgName)" alt=""/>
         <i @click="toShow">
           <!-- <van-icon name="play-circle-o" /> -->
           <i class="iconfont icon-play"></i>
         </i>
       </div>
       <div class="in-right">
-        <div>{{introInfo.title}}</div>
-        <div>作者：{{introInfo.author}}</div>
-        <div>更新于：{{introInfo.update}}</div>
+        <div>{{novelInfo.title}}</div>
+        <div>作者：{{novelInfo.author}}</div>
+        <div>更新于：{{novelInfo.updateTime}}</div>
         <p>
-          {{introInfo.diary}}
+          {{novelInfo.instro}}
         </p>
       </div>
     </div>
@@ -40,7 +40,7 @@
             @ready="playerReadied" -->
           </video-player>
         </div>
-        <p v-html="introInfo.des"></p>
+        <p v-html="novelInfo.context"></p>
       </div>
     </van-popup>
   </div>
@@ -48,25 +48,32 @@
 
 <script>
 // import video from '../../../../assets/video/video.mp4'
+import { reqQueryNovalDetail } from '@/axios/index' 
 export default {
   // const url = window.location.host,
+  props: {
+    // novelInfo: {
+    //   type: Object,
+    //   default: ()=>({})
+    // }
+  },
   data() {
     return {
       show: false,
       num: '',
-      introInfo: {
-        id: "1",
-        img: "b001.png",
-        flag: "hot",
-        title: "夜灵犀传奇",
-        author: "六耳",
-        date: "2020-02-02",
-        link: "yelingxi",
-        type: "武侠",
-        num: "0001",
-        update: "2020-05-05",
-        diary: "江湖纷争几时休，笑看痴人坠其中。江湖纷争几时休，笑看痴人坠其中。",
-        des: "世人只知李白一篇《蜀道难》送友人入蜀，殊不知这位剑客更在意蜀地的另一个传说。相传三国时期，铸剑名家打造了三把赫赫有名的宝剑，分别是：黑曜、赤灵、素渊。传闻只要得其一把便可得天下，而这三把宝剑也被魏蜀吴三国的君主各占其一。<br/>几百年后，有传言黑曜在蜀地现世，像李白这样的剑客又怎能不心动。但是天意弄人，青莲剑客至死也未曾得见这把旷世宝剑。<br/>又几百年过去了，这把剑又横空出世，江湖又将掀起一场腥风血雨。也正在这期间，江湖中突然冒出一位年纪不满二十的少年，打破了这沉寂已久的江湖，此人便是夜灵犀。没有人知道这少年从哪里来，师出何门何派，只记得他只身一人前往少林，挑战主持方丈后全身而退。"
+      novelInfo: {
+        // id: "1",
+        // img: "b001.png",
+        // flag: "hot",
+        // title: "夜灵犀传奇",
+        // author: "六耳",
+        // date: "2020-02-02",
+        // link: "yelingxi",
+        // type: "武侠",
+        // num: "0001",
+        // update: "2020-05-05",
+        // diary: "江湖纷争几时休，笑看痴人坠其中。江湖纷争几时休，笑看痴人坠其中。",
+        // des: "世人只知李白一篇《蜀道难》送友人入蜀，殊不知这位剑客更在意蜀地的另一个传说。相传三国时期，铸剑名家打造了三把赫赫有名的宝剑，分别是：黑曜、赤灵、素渊。传闻只要得其一把便可得天下，而这三把宝剑也被魏蜀吴三国的君主各占其一。<br/>几百年后，有传言黑曜在蜀地现世，像李白这样的剑客又怎能不心动。但是天意弄人，青莲剑客至死也未曾得见这把旷世宝剑。<br/>又几百年过去了，这把剑又横空出世，江湖又将掀起一场腥风血雨。也正在这期间，江湖中突然冒出一位年纪不满二十的少年，打破了这沉寂已久的江湖，此人便是夜灵犀。没有人知道这少年从哪里来，师出何门何派，只记得他只身一人前往少林，挑战主持方丈后全身而退。"
       },
       playerOptions: {
         playbackRates: [0.5, 1.0, 1.5, 2.0], // 可选的播放速度
@@ -94,7 +101,8 @@ export default {
   },
   created() {
     // 查询初始数据
-    this.getInitData();
+    // this.getInitData();
+    this.getListDetail();
   },
   mounted() {
     // this.$refs.videoPlayer.player.play() // 播放
@@ -102,17 +110,44 @@ export default {
     // this.$refs.videoPlayer.player.src(src) // 重置进度条
   },
   methods:{
-    // 查询
-    getInitData() {
-      this.num = this.$store.state.novel.novelInfo.num;
-      if (this.num) {
+    // 获取数据，展示，存储
+    async getListDetail(){
+      // 首页进入
+      if (this.$route.params.data) {
+        // this.novelInfo = this.$route.params.data;
+
+        let params = {
+          novalId: this.$route.params.data.id.toString()
+        }
+        let data = await reqQueryNovalDetail(params);
+        // console.log(data)
+        if (data.responseCode && data.responseCode === '0000') {
+          this.novelInfo = data.result;
+          console.log(this.novelInfo)
+        }
+
+        // 存入vuex
+        this.$store.dispatch('getNovelInfo',this.novelInfo)
+      } else {
+        // 详细页返回
+        if (this.$store.state.novel.novelInfo && this.$store.state.novel.novelInfo.id) {
+          this.novelInfo = this.$store.state.novel.novelInfo;
+        } else {
+          this.$router.go(-1);
+        }
       }
     },
+    // // 查询
+    // getInitData() {
+    //   this.num = this.$store.state.novel.novelInfo.num;
+    //   if (this.num) {
+    //   }
+    // },
 
     // 动态拼接图片地址
     getImg(data) {
       if (data) {
-        let img = require(`../../../../assets/images/imgmodel/${data}`)
+        let img = require(`../../../../assets/images/novel/${data}`)
         return img;
       }
     },
