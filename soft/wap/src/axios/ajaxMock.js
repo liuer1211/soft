@@ -4,7 +4,6 @@
 import axios from 'axios'
 import store from '../store'
 export default function ajax(url,data={},type='GET') {
-  store.isLoading = true;
   return new Promise(function (resolve,reject) {
     let promise
     if(type==='GET'){

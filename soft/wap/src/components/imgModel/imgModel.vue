@@ -2,25 +2,42 @@
   <div class="model-main">
     <div class="model-List" v-for="(item,index) in list" :key="index" @click="goPage(item)">
       <div class="model-top">
-        <img :src="getImg(item.img)" alt=""/>
-        <i>{{item.flag}}</i>
+        <img :src="getImg(item.imgName)" alt=""/>
+        <i>{{item.flag || 'hot'}}</i>
       </div>
       <div class="model-bot">
         <div>{{item.title}}</div>
         <div>作者：{{item.author}}</div>
-        <div>{{item.type | novelTypeToNames}}</div>
-        <div>{{item.date}}</div>
+        <div>{{item.titleTypeCode | novelTypeToNames}}</div>
+        <!-- <div>{{item.titleTypeName}}</div> -->
+        <div>{{item.createTime}}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import { reqQueryNovelList } from '@/axios/index'
+  import { reqQueryNovelList } from '@/axios/index' 
   export default {
     data() {
       return {
-        list: [],
+        list: [
+          {
+            // actDate: "20220522"
+            // author: "番茄"
+            // context: null
+            // createTime: "2022-05-22 13:27:50"
+            // id: 1
+            // imgName: "1.jpg"
+            // instro: "夜灵犀传奇之邪见黑曜"
+            // num: "0000001"
+            // title: "夜灵犀传奇"
+            // titleTypeCode: "01,02"
+            // titleTypeName: "武侠/爱情"
+            // updateTime: "2022-07-15 14:45:27"
+            // videoName: ""
+          }
+        ],
       }
     },
     mounted() {
@@ -32,8 +49,9 @@
         let params = {};
         let data = await reqQueryNovelList(params);
         console.log(data)
-        if (data.data && data.data.code === '200') {
-          this.list = data.data.data;
+        if (data.responseCode && data.responseCode === '0000') {
+          this.list = data.result;
+          console.log(this.list)
         }
       },
       // 跳页面
@@ -50,7 +68,7 @@
       // 动态拼接图片地址
       getImg(data) {
         if (data) {
-          let img = require(`../../assets/images/imgmodel/${data}`)
+          let img = require(`../../assets/images/novel/${data}`)
           return img;
         }
       }

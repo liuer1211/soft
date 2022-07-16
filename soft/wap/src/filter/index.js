@@ -86,9 +86,12 @@ export const novelTypeToName = (code) => {
 
 // 小说类型转换 返回
 export const novelTypeToNames = (list) => {
+  if (!list) {
+    return;
+  }
   let value = ''
   let arr = []
-  list.forEach(element => {
+  list.split(',').forEach(element => {
     arr.push(novelTypeToName(element))
   });
   value = arr.join('/')

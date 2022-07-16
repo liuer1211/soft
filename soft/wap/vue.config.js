@@ -25,6 +25,12 @@ module.exports = {
             '^/api': ''
           }
       },
+      // "/api": {
+      //   target: "http://192.168.1.100:8001",
+      //   pathRewrite: {
+      //     '^/api': ''
+      //   }
+      // },
     },
   },
   // 像素适配 宽度px转换成rem; vant-375

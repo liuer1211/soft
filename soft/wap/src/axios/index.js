@@ -8,4 +8,10 @@ import ajaxMock from './ajaxMock'
 export const reqNovelList = () => ajaxMock('/novelList');
 
 // 小说正剧列表
-export const reqQueryNovelList = (params)=>requests({url:"/queryTitleList",method:"post",data:params});
+export const reqQueryNovelList = (params)=>requests({url:"/queryNovalList",method:"post",data:params});
+
+// 小说正剧列表详情
+export const reqQueryNovalDetail = (params)=>requests({url:"/queryNovalDetail",method:"post",data:params});
+
+// 小说正剧列表详情
+export const reqQueryNovalAttributeList = (params)=>requests({url:"/queryNovalAttributeList",method:"post",data:params});

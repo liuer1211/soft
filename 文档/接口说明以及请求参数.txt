@@ -1,0 +1,23 @@
+查询小说列表：
+queryNovalList
+http://180.76.106.221:8001/queryNovalList
+入参：无
+
+查询小说详情：
+queryNovalDetail
+http://180.76.106.221:8001/queryNovalDetail?novalId=1
+入参： novalId    为列表接口返回id字段
+
+查询小说属性（人物/武学等）
+queryNovalAttributeList
+http://180.76.106.221:8001/queryNovalAttributeList?novalId=1&attribute=01
+入参： novalId    为列表接口返回id字段
+          attribute   参数对应说明
+人物	01
+武学	02
+门派	03
+兵器	04
+宿命	05
+其他	06
+
+ 

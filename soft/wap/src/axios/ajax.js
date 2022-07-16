@@ -3,15 +3,31 @@ import axios from "axios";
 //在当前模块中引入store
 //如果出现进度条没有显示：一定是你忘记了引入样式了
 //底下的代码也是创建axios实例
+let baseURL = "/api";
+
 let requests = axios.create({
   //基础路径
-  baseURL: "/api",
+  baseURL: process.env.NODE_ENV === 'development' ? baseURL : 'http://180.76.106.221:8001/',
   //请求不能超过5S
   timeout: 5000,
+  // contentType: 'application/x-www-form-urlencoded'
+  // headers: {
+  //   "Content-Type": 'multipart/form-data'
+  // }
 });
 
 //请求拦截器----在项目中发请求（请求没有发出去）可以做一些事情
 requests.interceptors.request.use((config) => {
+  // console.log(config)
+  // let {data} = {...config}
+  // debugger
+  // data = JSON.stringify(data)
+  // config.data = data;
+  if(config.method == 'post'){
+    let data = new FormData();
+    for(let k in config.data) data.append(k, config.data[k]);
+    config.data = data;
+  }
   return config;
 });
 

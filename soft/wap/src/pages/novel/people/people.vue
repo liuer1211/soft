@@ -5,7 +5,7 @@
         <div v-for="(item,index) in list" :key="index">
           <div @click="toPage(item)">
             <div class="imgs">
-              <img :src="getImg(item.img)" alt=""/>
+              <!-- <img :src="getImg(item.img)" alt=""/> -->
             </div>
             <div>
               {{substr(item.name)}}
@@ -26,6 +26,7 @@
 
 <script>
 import RightModel from '@/components/rightModel/rightModel'
+import { reqQueryNovalAttributeList } from '@/axios/index' 
 export default {
   components: {
     RightModel
@@ -34,127 +35,173 @@ export default {
     return {
       num: '',
       list: [
-        {
-          id: '1',
-          img: 'null.png',
-          name: '夜灵犀',
-          menpai: '燕云山庄',
-          gongfu: '燕云七绝、乾坤生死诀、扶摇九天',
-          miaoshu: '',
-          shiji: '年少成名，一手绝技独步江湖。对于他的本事，江湖中人都是这样流传的“锦绣一挥，神佛难挡”。'
-        },
-        {
-          id: '2',
-          img: '2.jpg',
-          name: '苏晚',
-          menpai: '魔教',
-          gongfu: '魅影迷踪、弹指沁音',
-          miaoshu: '',
-          shiji: ''
-        },
-        {
-          id: '3',
-          img: 'null.png',
-          name: '百里梦',
-          menpai: '名剑山庄',
-          gongfu: '昔月剑法',
-          miaoshu: '',
-          shiji: ''
-        },
-        {
-          id: '4',
-          img: 'null.png',
-          name: '妙乐',
-          menpai: '少林寺',
-          gongfu: '伏魔功',
-          miaoshu: '',
-          shiji: ''
-        },
-        {
-          id: '5',
-          img: 'null.png',
-          name: '李玉帛',
-          menpai: '正威镖局',
-          gongfu: '燕云七绝、陆家剑法',
-          miaoshu: '',
-          shiji: ''
-        },
-        {
-          id: '6',
-          img: 'null.png',
-          name: '陆秋艳',
-          menpai: '正威镖局',
-          gongfu: '陆家剑法',
-          miaoshu: '',
-          shiji: ''
-        },
-        {
-          id: '7',
-          img: 'null.png',
-          name: '陆秋荣',
-          menpai: '正威镖局',
-          gongfu: '陆家剑法',
-          miaoshu: '',
-          shiji: ''
-        },
-        {
-          id: '8',
-          img: 'null.png',
-          name: '李怀唐',
-          menpai: '魔教',
-          gongfu: '魅影迷踪、断魂掌',
-          miaoshu: '',
-          shiji: ''
-        },
-        {
-          id: '9',
-          img: 'null.png',
-          name: '陈瞎子',
-          menpai: '门派不详',
-          gongfu: '扶摇九天、卜卦',
-          miaoshu: '',
-          shiji: ''
-        },
-        {
-          id: '10',
-          img: 'null.png',
-          name: '风花雪月',
-          menpai: '门派不详',
-          gongfu: '箫、剑、折扇、暗器',
-          miaoshu: '',
-          shiji: ''
-        },
-        {
-          id: '11',
-          img: 'null.png',
-          name: '落梅',
-          menpai: '别离门',
-          gongfu: '妙手回春',
-          miaoshu: '',
-          shiji: ''
-        },
+        // {
+        //   id: '1',
+        //   img: 'null.png',
+        //   name: '夜灵犀',
+        //   menpai: '燕云山庄',
+        //   gongfu: '燕云七绝、乾坤生死诀、扶摇九天',
+        //   miaoshu: '',
+        //   shiji: '年少成名，一手绝技独步江湖。对于他的本事，江湖中人都是这样流传的“锦绣一挥，神佛难挡”。'
+        // },
+        // {
+        //   id: '2',
+        //   img: '2.jpg',
+        //   name: '苏晚',
+        //   menpai: '魔教',
+        //   gongfu: '魅影迷踪、弹指沁音',
+        //   miaoshu: '',
+        //   shiji: ''
+        // },
+        // {
+        //   id: '3',
+        //   img: 'null.png',
+        //   name: '百里梦',
+        //   menpai: '名剑山庄',
+        //   gongfu: '昔月剑法',
+        //   miaoshu: '',
+        //   shiji: ''
+        // },
+        // {
+        //   id: '4',
+        //   img: 'null.png',
+        //   name: '妙乐',
+        //   menpai: '少林寺',
+        //   gongfu: '伏魔功',
+        //   miaoshu: '',
+        //   shiji: ''
+        // },
+        // {
+        //   id: '5',
+        //   img: 'null.png',
+        //   name: '李玉帛',
+        //   menpai: '正威镖局',
+        //   gongfu: '燕云七绝、陆家剑法',
+        //   miaoshu: '',
+        //   shiji: ''
+        // },
+        // {
+        //   id: '6',
+        //   img: 'null.png',
+        //   name: '陆秋艳',
+        //   menpai: '正威镖局',
+        //   gongfu: '陆家剑法',
+        //   miaoshu: '',
+        //   shiji: ''
+        // },
+        // {
+        //   id: '7',
+        //   img: 'null.png',
+        //   name: '陆秋荣',
+        //   menpai: '正威镖局',
+        //   gongfu: '陆家剑法',
+        //   miaoshu: '',
+        //   shiji: ''
+        // },
+        // {
+        //   id: '8',
+        //   img: 'null.png',
+        //   name: '李怀唐',
+        //   menpai: '魔教',
+        //   gongfu: '魅影迷踪、断魂掌',
+        //   miaoshu: '',
+        //   shiji: ''
+        // },
+        // {
+        //   id: '9',
+        //   img: 'null.png',
+        //   name: '陈瞎子',
+        //   menpai: '门派不详',
+        //   gongfu: '扶摇九天、卜卦',
+        //   miaoshu: '',
+        //   shiji: ''
+        // },
+        // {
+        //   id: '10',
+        //   img: 'null.png',
+        //   name: '风花雪月',
+        //   menpai: '门派不详',
+        //   gongfu: '箫、剑、折扇、暗器',
+        //   miaoshu: '',
+        //   shiji: ''
+        // },
+        // {
+        //   id: '11',
+        //   img: 'null.png',
+        //   name: '落梅',
+        //   menpai: '别离门',
+        //   gongfu: '妙手回春',
+        //   miaoshu: '',
+        //   shiji: ''
+        // },
       ],
       statrsCount:800,//星星数量
       distance:1000,//间距
+      sectList: [], // 门派
+      kungfuList: [] // 功夫
     }
   },
   mounted() {
     this.getStar();
   },
   created() {
-    // 判断小说编号是否存在
-    if (this.$store.state.novel.novelInfo && this.$store.state.novel.novelInfo.num) {
-      // 查询初始数据
-      this.getInitData();
-    } else {
-      this.$router.go(-1);
-    }
+    // // 判断小说编号是否存在
+    // if (this.$store.state.novel.novelInfo && this.$store.state.novel.novelInfo.num) {
+    //   // 查询初始数据
+    //   this.getInitData();
+    // } else {
+    //   this.$router.go(-1);
+    // }
+    this.getListDetail();
   },
   methods:{
-    // 查询
-    getInitData() {
-      this.num = this.$store.state.novel.novelInfo.num;
-      if (this.num) {
+    // // 查询
+    // getInitData() {
+    //   this.num = this.$store.state.novel.novelInfo.num;
+    //   if (this.num) {
+    //   }
+    // },
+    async getListDetail() {
+      // 首页进入
+      if (this.$route.params.id) {
+        // 查询门派
+        let res1 = await reqQueryNovalAttributeList({
+          novalId: this.$route.params.id.toString(),
+          attribute: '03'
+        });
+        if (res1.responseCode && res1.responseCode === '0000') {
+          this.sectList = res1.result;
+          this.$store.dispatch('getNovelSectList',this.sectList)
+        }
+        // 查询功夫
+        let res2 = await reqQueryNovalAttributeList({
+          novalId: this.$route.params.id.toString(),
+          attribute: '02'
+        });
+        if (res2.responseCode && res2.responseCode === '0000') {
+          this.kungfuList = res2.result;
+          this.$store.dispatch('getNovelKungfuList',this.kungfuList)
+        }
+        // console.log(this.$route.params)
+        // 查人物
+        let params = {
+          novalId: this.$route.params.id.toString(),
+          attribute: this.$route.params.data.code
+        }
+        let data = await reqQueryNovalAttributeList(params);
+        if (data.responseCode && data.responseCode === '0000') {
+          this.list = data.result;
+          // this.getList(this.lists);
+        }
+        // 存入vuex
+        this.$store.dispatch('getNovelPeopleList',this.list)
+      } else {
+        // 详细页返回
+        if (this.$store.state.novel.novelPeopleList && this.$store.state.novel.novelPeopleList.length) {
+          this.list = this.$store.state.novel.novelPeopleList;
+        } else {
+          this.$router.go(-1);
+        }
       }
     },
     // 跳页面
