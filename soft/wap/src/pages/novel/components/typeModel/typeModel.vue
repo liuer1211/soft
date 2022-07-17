@@ -137,7 +137,7 @@ export default {
       this.list = data.map((item)=>{
         return this.li[item]
       })
-      console.log(this.list)
+      // console.log(this.list)
     },
     // 跳页面
     toPage(data) {

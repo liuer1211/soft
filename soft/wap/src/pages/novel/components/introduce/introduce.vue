@@ -1,8 +1,8 @@
 <template>
   <div class="introduce-main">
     <div class="introduce-model">
-      <div class="in-left">
-        <img :src="getImg(novelInfo.imgName)" alt=""/>
+      <div class="in-left" v-if="novelInfo.imgName">
+        <img :src="`http://180.76.106.221:5010/images/novel/${novelInfo.imgName}`" alt=""/>
         <i @click="toShow">
           <!-- <van-icon name="play-circle-o" /> -->
           <i class="iconfont icon-play"></i>
@@ -123,7 +123,7 @@ export default {
         // console.log(data)
         if (data.responseCode && data.responseCode === '0000') {
           this.novelInfo = data.result;
-          console.log(this.novelInfo)
+          // console.log(this.novelInfo)
         }
 
         // 存入vuex

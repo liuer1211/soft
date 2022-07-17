@@ -137,7 +137,7 @@ export default {
     },
    // 跳转
    goPage(data) {
-    console.log(data);
+    // console.log(data);
     this.$router.push({
       name: 'fatalismDetail',
       params: {

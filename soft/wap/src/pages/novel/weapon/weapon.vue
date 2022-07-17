@@ -3,7 +3,7 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item, index) in list" :key="index">
-          <div @click.stop="item.active = !item.active" :class="{active:item.active}">
+          <div @click.stop="getActive(item)" :class="{active:item.active}">
             <div>
               <img :src="getImg(item.img)" />
               <div>
@@ -13,9 +13,9 @@
             <div>
               <div>{{item.descr}}</div>
             </div>
-            <div>
+            <!-- <div>
               <i class="iconfont icon-exchangerate"></i>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -51,6 +51,7 @@ export default {
   created() {
     // 初始数据
     this.getListDetail();
+    // this.getInitDate();
   },
   watch: {
     list:{
@@ -63,6 +64,11 @@ export default {
     }
   },
   methods: {
+    //
+    getActive(item) {
+      // item.active = !item.active
+      // console.log(item)
+    },
     // 初始数据
     async getListDetail() {
       // 首页进入
