@@ -152,6 +152,7 @@ export default {
     // } else {
     //   this.$router.go(-1);
     // }
+    console.log(this.$route.params);
     this.getListDetail();
   },
   methods:{

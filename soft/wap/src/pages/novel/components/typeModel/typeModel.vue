@@ -112,7 +112,6 @@ export default {
       // 首页进入
       if (this.$route.params.data) {
         // this.novelInfo = this.$route.params.data;
-
         let params = {
           novalId: this.$route.params.data.id.toString()
         }
@@ -175,7 +174,7 @@ export default {
         name: data.type,
         params: {
           data,
-          id: this.id
+          id: this.id || this.$store.state.novel.novelInfo.id
         }
       })
     }

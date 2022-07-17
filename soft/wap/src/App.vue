@@ -5,9 +5,14 @@
 </template>
 
 <script>
+  // import Skeleton from '@/components/skeleton'
   export default {
     name: 'App',
+    // components: {
+    //   Skeleton
+    // },
     mounted() {
+      // console.log(this.$store)
     }
   }
 </script>

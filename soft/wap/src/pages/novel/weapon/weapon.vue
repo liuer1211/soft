@@ -5,13 +5,13 @@
         <div class="swiper-slide" v-for="(item, index) in list" :key="index">
           <div @click.stop="item.active = !item.active" :class="{active:item.active}">
             <div>
-              <img :src="getImg(item.imgs)" />
+              <img :src="getImg(item.img)" />
               <div>
                 <div>{{item.name}}</div>
               </div>
             </div>
             <div>
-              <div>{{item.des}}</div>
+              <div>{{item.descr}}</div>
             </div>
             <div>
               <i class="iconfont icon-exchangerate"></i>
@@ -27,32 +27,68 @@
 <script>
 import Swiper from "swiper/swiper-bundle.min.js";
 import "swiper/swiper-bundle.min.css";
-
+import { reqQueryNovalAttributeList } from '@/axios/index' 
 export default {
   data() {
     return {
       active: false,
       list: [
-        {
-          name: '黑曜', 
-          imgs: 'sect/1.png', 
-          des: '邪剑黑曜，旷世奇兵', 
-          active: false
-        },
-        {
-          name: '银枪', 
-          imgs: 'sect/2.png', 
-          des: '百鸟朝凤，惊艳一枪', 
-          active: false
-        }
+        // {
+        //   name: '黑曜', 
+        //   img: 'sect/1.png', 
+        //   descr: '邪剑黑曜，旷世奇兵', 
+        //   active: false
+        // },
+        // {
+        //   name: '银枪', 
+        //   img: 'sect/2.png', 
+        //   descr: '百鸟朝凤，惊艳一枪', 
+        //   active: false
+        // }
       ]
     };
   },
-  mounted() {
+  created() {
     // 初始数据
-    this.getInitDate();
+    this.getListDetail();
+  },
+  watch: {
+    list:{
+      handler(newval,oldval) {
+        this.$nextTick(()=>{
+          this.getInitDate();
+        })
+      },
+      deep: true,
+    }
   },
   methods: {
+    // 初始数据
+    async getListDetail() {
+      // 首页进入
+      if (this.$route.params.id) {
+        // 查询功夫
+        let list = await reqQueryNovalAttributeList({
+          novalId: this.$route.params.id.toString(),
+          attribute: this.$route.params.data.code
+        });
+        if (list.responseCode && list.responseCode === '0000') {
+          this.list = list.result
+          this.list.forEach(item => {
+            this.$set(item,'active',false)
+          });
+          this.$store.dispatch('getNovelWeaponList',this.list)
+        }
+        // console.log(this.list)
+      } else {
+        // 详细页返回
+        if (this.$store.state.novel.novelWeaponList && this.$store.state.novel.novelWeaponList.length) {
+          this.list = this.$store.state.novel.novelWeaponList
+        } else {
+          this.$router.go(-1);
+        }
+      }
+    },
     // 初始数据
     getInitDate() {
       this.$nextTick(() => {
