@@ -135,6 +135,7 @@ export default {
 
 <style lang="less" scoped>
   .sect-main {
+    animation: toshow 2s;
     height: 100%;
     width: 100%;
     position: absolute;

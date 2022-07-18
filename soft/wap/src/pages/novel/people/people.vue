@@ -271,6 +271,7 @@ export default {
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            animation: toshow 2s;
             .imgs {
               width: 100%;
               height: 100%;

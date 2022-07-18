@@ -14,12 +14,17 @@
         <div>{{item.createTime}}</div>
       </div>
     </div>
+    <Skeleton v-show="$store.state.common.isLoading"/>
   </div>
 </template>
 
 <script>
   import { reqQueryNovelList } from '@/axios/index' 
+  import Skeleton from '@/components/skeleton'
   export default {
+    components: {
+      Skeleton
+    },
     data() {
       return {
         list: [

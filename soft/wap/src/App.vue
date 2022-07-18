@@ -18,7 +18,7 @@
 </script>
 
 <style lang="less">
-  // @import 'assets/reset.less';
+  @import 'assets/reset.less';
   // @vw-with: 750;
   // html{
   //   font-size: 100vw/@vw-with * 40;

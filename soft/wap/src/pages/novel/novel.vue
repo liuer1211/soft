@@ -6,6 +6,7 @@
     <TypeModel></TypeModel>
     <!-- 右侧浮框 -->
     <RightModel></RightModel>
+    <Skeleton v-show="$store.state.common.isLoading"/>
   </div>
 </template>
 
@@ -13,10 +14,11 @@
 import Introduce from '@/pages/novel/components/introduce/introduce'
 import TypeModel from '@/pages/novel/components/typeModel/typeModel'
 import RightModel from '@/components/rightModel/rightModel'
+import Skeleton from '@/components/skeleton'
 // import { reqQueryNovalDetail } from '@/axios/index' 
 export default {
   components: {
-    Introduce, TypeModel, RightModel
+    Introduce, TypeModel, RightModel, Skeleton
   },
   date() {
     return {

@@ -196,12 +196,5 @@ export default {
       background: linear-gradient(to top, #3932ff, #5d84dc);
     }
   }
-  @keyframes toshow {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+  
 </style>

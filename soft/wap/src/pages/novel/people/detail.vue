@@ -48,19 +48,22 @@ export default {
       if (this.$route.params.data) {
         this.obj = this.$route.params.data;
         // 门派
-        this.sect = this.$store.state.novel.novelSectList.find((item)=>{
-          // console.log(item, this.obj.sect, item.sect === this.obj.sect)
-          return item.id.toString() === this.obj.sect;
-        })
-        // 功夫
-        this.obj.kungFu.split(',').forEach((kun)=>{
-          this.$store.state.novel.novelKungfuList.forEach((item)=>{
-            if (kun === item.id.toString()) {
-              this.kungfu.push(item.name)
-            }
+        if (this.obj.sect) {
+          this.sect = this.$store.state.novel.novelSectList.find((item)=>{
+            // console.log(item, this.obj.sect, item.sect === this.obj.sect)
+            return item.id.toString() === this.obj.sect;
           })
-        })
-
+        }
+        // 功夫
+        if(this.obj.kungFu) {
+          this.obj.kungFu.split(',').forEach((kun)=>{
+            this.$store.state.novel.novelKungfuList.forEach((item)=>{
+              if (kun === item.id.toString()) {
+                this.kungfu.push(item.name)
+              }
+            })
+          })
+        }
         // console.log(this.kungfu)
       } else {
         this.$router.back();

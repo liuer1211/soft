@@ -182,6 +182,7 @@ export default {
     width: 280px;
     height: 550px;
     z-index: 2;
+    animation: toshow 2s;
   }
 
   .swiper-slide {

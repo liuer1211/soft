@@ -70,7 +70,7 @@ export default {
     getInit() {
       try {
         TagCanvas.Start('myCanvas', 'tags', {
-          textColour: '#fff',
+          textColour: '#f1ef5c',
           dragControl: 1,
           decel: 0.95,
           textHeight: 20,
@@ -94,8 +94,15 @@ export default {
     width: 100%;
     background-color: #000;
     overflow: hidden;
+    >div {
+      animation: toshow 2s;
+    }
     .canvas {
       background-color: #000000;
+    }
+    a {
+      font-weight: 600;
+      text-shadow: 0.02667rem 0.02667rem 0.10667rem #7c7c7c;
     }
   }
 </style>

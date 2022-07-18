@@ -137,6 +137,7 @@ export default {
         height: 100%;
         .swiper-slide {
           position: relative;
+          animation: toshow 2s;
           >div {
             position: relative;
             width: 100%;
