@@ -57,6 +57,12 @@ module.exports = {
         //   '^/api': ''
         // }
       },
+      "/api": {
+        target: "http://180.76.106.221:8001",
+        pathRewrite: {
+          '^/api': ''
+        }
+      },
     },
     before: require('./mock/mock-server.js')
   },
