@@ -5,7 +5,7 @@
       <div>{{sect.name}}</div>
       <div>{{kungfu.join('/')}}</div>
       <div>{{obj.instro}}</div>
-      <p>{{obj.descr}}</p>
+      <p v-html="obj.descr"></p>
     </div>
     <div class="bg-main"></div>
     <!-- 右侧浮框 -->
