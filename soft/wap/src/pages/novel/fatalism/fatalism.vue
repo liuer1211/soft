@@ -13,7 +13,7 @@
         :style="{top:item.topTip+'%',left:item.leftTip+'%'}"
         @click.stop="goPage(item)"
       >
-        {{item.descr}}
+        {{item.instro}}
       </div>
     </div>
     <div class="fat-fix">
