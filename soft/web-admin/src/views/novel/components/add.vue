@@ -48,8 +48,10 @@
             <!-- 简介 -->
             <el-col :span="24">
               <el-form-item label="简介" :label-width="formLabelWidth">
-                <el-input type="textarea" rows="8" placeholder="请输入内容" v-model="formAddOne.des" maxlength="300" show-word-limit>
-                </el-input>
+                <!-- <el-input type="textarea" rows="8" placeholder="请输入内容" v-model="formAddOne.des" maxlength="300" show-word-limit>
+                </el-input> -->
+                <!-- 富文本编辑 -->
+                <Edit :value="formAddOne.context"/>
               </el-form-item>
             </el-col>
             <!-- 图片 -->
@@ -94,12 +96,19 @@
 </template>
 
 <script>
-
+import Edit from '../../../components/edit/edit'
 export default {
+  components:{
+    Edit
+  },
   props:{
     dialogFormVisible: {
       type: Boolean,
       default: false,
+    },
+    detail: {
+      type: Object,
+      default: ()=>({})
     }
   },
   data() {
@@ -160,6 +169,7 @@ export default {
         des: "",
         infoType: [],
         diary: "",
+        context: "",
         // date: "2020-02-02",
         // flag: "hot",
         // link: "yelingxi",
@@ -181,11 +191,11 @@ export default {
     // 确定
     toDetermine() {
       console.log("",this.formAddOne)
-      this.$message({
-        message: '成功！',
-        type: 'success'
-      });
-      this.$emit("toDetermine",false)
+      // this.$message({
+      //   message: '成功！',
+      //   type: 'success'
+      // });
+      // this.$emit("toDetermine",false)
     },
     // 上传图片处理
     handleAvatarSuccess(res, file) {
@@ -216,6 +226,31 @@ export default {
     beforeRemove(file, fileList) {
       return this.$confirm(`确定移除 ${ file.name }？`);
     }
+  },
+  created() {
+    console.log('--1--')
+  },
+  mounted(){
+    console.log('--2--')
+  },
+  watch:{
+    detail: {
+      // 每个属性值发生变化就会调用这个函数
+      handler(newVal, oldVal) {
+        console.log('oldVal:', oldVal)
+        console.log('newVal:', newVal, newVal.context)
+        if (newVal.context) {
+          this.formAddOne.context = newVal.context
+        } else {
+          console.log('------')
+          this.formAddOne.context = ''
+        }
+      },
+      // 立即处理 进入页面就触发
+      // immediate: true,
+      // 深度监听 属性的变化
+      deep: true,
+    },
   }
 }
 </script>

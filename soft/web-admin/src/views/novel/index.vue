@@ -53,9 +53,9 @@
         <el-table-column prop="createTime" label="创建日期" width="180"></el-table-column>
         <el-table-column label="操作" width="160">
           <template slot-scope="scope">
-            <el-button type="text" @click="look(scope.row)">查看</el-button>
-            <el-button type="text">编辑</el-button>
-            <el-button type="text">删除</el-button>
+            <!-- <el-button type="text">查看</el-button> -->
+            <el-button type="text" @click="typeAdd(scope.row)">编辑</el-button>
+            <!-- <el-button type="text">删除</el-button> -->
           </template>
         </el-table-column>
       </el-table>
@@ -76,13 +76,14 @@
     </div>
     <!-- 底部按钮 -->
     <div class="novel-main-bot">
-      <el-button type="primary" @click="typeAdd">新增</el-button>
+      <el-button type="primary" @click="typeAdd('')">新增</el-button>
     </div>
     <!-- 新增 -->
     <Add 
       :dialogFormVisible="dialogFormVisible" 
       @toClose="()=>{dialogFormVisible=false}"
       @toDetermine="toDetermine"
+      :detail="detail"
     />
   </div>
 </template>
@@ -167,7 +168,8 @@ export default {
           updateTime: "2022-07-15 14:45:27",
           videoName: "001.mp4",
         }
-      ]
+      ],
+      detail: {}
     }
   },
   created() {
@@ -188,11 +190,6 @@ export default {
     onSubmit() {
       console.log('submit!');
     },
-    // 查看
-    look(row) {
-      this.getDate();
-      console.log(row);
-    },
     // 条数
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
@@ -209,8 +206,13 @@ export default {
       }
     },
     // 新增
-    typeAdd() {
-      this.dialogFormVisible = true
+    typeAdd(data) {
+      if (data) {
+        this.detail = data
+      } else {
+        this.detail = {}
+      }
+      this.dialogFormVisible = true;
     },
     // 新增-确定
     toDetermine() {

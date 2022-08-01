@@ -81,7 +81,7 @@ export default {
         setup: (editor) => {
           // 初次化编辑器
           editor.on('init', () => {
-            that.isInit = true //告知是初始化\
+            that.isInit = true //告知是初始化
             if (that.value) {
               editor.setContent(that.value)
               that.isInit = false
