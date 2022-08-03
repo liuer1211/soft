@@ -40,9 +40,9 @@
                 </el-select>
               </el-form-item>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="24">
               <el-form-item label="题记" :label-width="formLabelWidth">
-                <el-input v-model="formAddOne.diary"></el-input>
+                <el-input v-model="formAddOne.instro"></el-input>
               </el-form-item>
             </el-col>
             <!-- 简介 -->
@@ -51,7 +51,7 @@
                 <!-- <el-input type="textarea" rows="8" placeholder="请输入内容" v-model="formAddOne.des" maxlength="300" show-word-limit>
                 </el-input> -->
                 <!-- 富文本编辑 -->
-                <Edit :value="formAddOne.context"/>
+                <Tiptap v-if="dialogFormVisible" :context="formAddOne.context" @getData="getData"/>
               </el-form-item>
             </el-col>
             <!-- 图片 -->
@@ -96,10 +96,11 @@
 </template>
 
 <script>
-import Edit from '../../../components/edit/edit'
+import Tiptap from '../../../components/Tiptap'
+
 export default {
   components:{
-    Edit
+    Tiptap,
   },
   props:{
     dialogFormVisible: {
@@ -168,7 +169,7 @@ export default {
         img: "",
         des: "",
         infoType: [],
-        diary: "",
+        instro: "",
         context: "",
         // date: "2020-02-02",
         // flag: "hot",
@@ -180,7 +181,8 @@ export default {
         //   name: 'food.jpeg', 
         //   url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
         // }, 
-      ]
+      ],
+      textInfo: ''
     }
   },
   methods:{
@@ -188,9 +190,14 @@ export default {
     toClose() {
       this.$emit("toClose",false)
     },
+    //
+    getData(data) {
+      this.textInfo = data;
+      // console.log(data)
+    },
     // 确定
     toDetermine() {
-      console.log("",this.formAddOne)
+      console.log("",this.formAddOne, this.textInfo)
       // this.$message({
       //   message: '成功！',
       //   type: 'success'
@@ -237,13 +244,15 @@ export default {
     detail: {
       // 每个属性值发生变化就会调用这个函数
       handler(newVal, oldVal) {
-        console.log('oldVal:', oldVal)
-        console.log('newVal:', newVal, newVal.context)
+        console.log('oldVal:', newVal)
+        // console.log('newVal:', newVal, newVal.context)
         if (newVal.context) {
           this.formAddOne.context = newVal.context
+          this.formAddOne.instro = newVal.instro
         } else {
           console.log('------')
           this.formAddOne.context = ''
+          this.formAddOne.instro = ''
         }
       },
       // 立即处理 进入页面就触发
@@ -251,7 +260,14 @@ export default {
       // 深度监听 属性的变化
       deep: true,
     },
-  }
+  },
+  beforeDestroy(){
+    console.log('---b-d=',this.context)
+  }, //实例销毁前
+
+  destroyed(){
+    console.log('---d=',this.context)
+  }, //实例销毁后
 }
 </script>
 
