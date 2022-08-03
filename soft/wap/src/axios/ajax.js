@@ -1,5 +1,6 @@
 //对于axios进行二次封装
 import axios from "axios";
+import store from "@/store";
 //在当前模块中引入store
 //如果出现进度条没有显示：一定是你忘记了引入样式了
 //底下的代码也是创建axios实例
@@ -18,6 +19,7 @@ let requests = axios.create({
 
 //请求拦截器----在项目中发请求（请求没有发出去）可以做一些事情
 requests.interceptors.request.use((config) => {
+  store.commit('getLoading', true)
   // console.log(config)
   // let {data} = {...config}
   // debugger
@@ -35,9 +37,11 @@ requests.interceptors.request.use((config) => {
 requests.interceptors.response.use(
   (res) => {
     // console.log(res)
+    store.commit('getLoading', false)
     return res.data;
   },
   (err) => {
+    store.commit('getLoading', false)
     // alert("服务器响应数据失败");
   }
 );

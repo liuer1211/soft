@@ -1,10 +1,10 @@
 <template>
   <div class="peo-detail-main">
     <div class="model-main">
-      <h1>{{obj.name}}</h1>
-      <div>{{obj.title}}</div>
-      <div>{{obj.people}}</div>
-      <p>{{obj.shiji}}</p>
+      <h1>{{obj.instro}}</h1>
+      <div>{{obj.address}}</div>
+      <div>{{obj.name}}</div>
+      <p v-html="obj.descr"></p>
     </div>
     <div class="bg-main"></div>
     <!-- 右侧浮框 -->

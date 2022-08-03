@@ -94,7 +94,7 @@ export default {
       bottom: 0;
       right: 0;
       left: 0;
-      z-index: 1000;
+      z-index: 1001;
       background: #5050507a;
       cursor: pointer;
       // animation: name duration timing-function delay iteration-count direction fill-mode;

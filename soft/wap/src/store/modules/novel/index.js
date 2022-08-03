@@ -4,6 +4,9 @@ const state ={
   novelPeopleList: [], // 人物
   novelSectList: [], // 门派
   novelKungfuList: [], // 功夫
+  novelWeaponList: [], // 兵器
+  novelFatalismList: [], // 宿命
+  novelOtherList: [],  // 诗词歌赋
 }
 
 const mutations ={
@@ -21,6 +24,15 @@ const mutations ={
   },
   getNovelKungfuList(state, data) { // 功夫列表
     state.novelKungfuList = data;
+  },
+  getNovelWeaponList(state, data) {  // 兵器
+    state.novelWeaponList = data;
+  },
+  getNovelFatalismList(state, data) {  //  宿命
+    state.novelFatalismList = data;
+  },
+  getNovelOtherList(state, data) {  //  诗词歌赋
+    state.novelOtherList = data;
   }
 }
 
@@ -39,6 +51,15 @@ const actions ={
   },
   getNovelKungfuList({commit}, data) { // 功夫列表
     commit('getNovelKungfuList', data);
+  },
+  getNovelWeaponList({commit}, data) {  // 兵器
+    commit('getNovelWeaponList', data);
+  },
+  getNovelFatalismList({commit}, data) {  // 宿命
+    commit('getNovelFatalismList', data);
+  },
+  getNovelOtherList({commit}, data) {  // 诗词歌赋
+    commit('getNovelOtherList', data);
   }
 }
 

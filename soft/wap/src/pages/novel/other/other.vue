@@ -3,56 +3,10 @@
     <div class="other-swiper-main">
       <div class="swiper"> 
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+          <div class="swiper-slide" v-for="(item,index) in list" :key="index">
             <div class="other-model">
-              <h1>影成双 · 六耳</h1>
-              <p>
-                夜微凉<br/>
-                月照窗<br/>
-                轻舟过小桥 <br/>
-                倩影泛波光<br/>
-                仙衣衬玉指 朱唇配红妆<br/>
-                举止半含羞 柔情两相望<br/>
-                曾经沧海 最是牵人肠<br/>
-                地老天荒 终是将身藏<br/><br/>
-
-                窗外明月如常<br/>          
-                你我再见渺茫<br/>
-                孤星依旧现微光<br/>
-                而我只能将你深藏<br/>
-                晚风轻抚脸庞<br/>
-                刻意掀起过往<br/>
-                坐看星河两相傍<br/>
-                轻舟涟漪影成双<br/><br/>
-                
-                风作响<br/>
-                柳轻扬<br/>
-                刀剑掠残影<br/>
-                眉宇现寒光<br/>
-                古今名与利 好似梦一场<br/>
-                江湖多风雨 岁月显沧桑<br/>
-                锦袖一挥 断念隐街巷<br/>
-                拂尘而去 且将余生藏<br/><br/>
-
-                窗外明月如常<br/>          
-                你我再见渺茫<br/>
-                孤星依旧现微光<br/>
-                而我只能将你深藏<br/>
-                晚风轻抚脸庞<br/>
-                刻意掀起过往<br/>
-                坐看星河两相傍<br/>
-                轻舟涟漪影成双<br/><br/>
-              </p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="other-model">
-              <h1>落日有感 · 六耳</h1>
-              <p>
-                信步山岭间，离别故园久。<br/>
-                迎面凉风拂，不觉已入秋。<br/>
-                落日照大地，余晖暖山丘。<br/>
-                人生多坎坷，美景不长留。
+              <h1>{{item.instro}} · {{item.name}}</h1>
+              <p v-html="item.descr">
               </p>
             </div>
           </div>
@@ -69,20 +23,108 @@
 import RightModel from '@/components/rightModel/rightModel'
 import Swiper from "swiper/swiper-bundle.min.js";
 import "swiper/swiper-bundle.min.css";
-
+import { reqQueryNovalAttributeList } from '@/axios/index' 
 export default {
   components: {
     RightModel
   },
   data() {
     return {
+      list: [
+        // {
+        //   name: '六耳',
+        //   instro: '影成双',
+          // descr: `
+            // <p>
+              // <p>夜微凉</p>
+              // <p>月照窗</p>
+              // <p>轻舟过小桥</p>  
+              // <p>倩影泛波光</p> 
+              // <p>仙衣衬玉指 朱唇配红妆</p> 
+              // <p>举止半含羞 柔情两相望</p> 
+              // <p>曾经沧海 最是牵人肠</p> 
+              // <p>地老天荒 终是将身藏</p><br/>  
+              // <p>窗外明月如常</p>           
+              // <p>你我再见渺茫</p> 
+              // <p>孤星依旧现微光</p> 
+              // <p>而我只能将你深藏</p> 
+              // <p>晚风轻抚脸庞</p> 
+              // <p>刻意掀起过往</p> 
+              // <p>坐看星河两相傍</p> 
+              // <p>轻舟涟漪影成双</p><br/>  
+              // <p>风作响</p>
+              // <p>柳轻扬</p> 
+              // <p>刀剑掠残影</p> 
+              // <p>眉宇现寒光</p> 
+              // <p>古今名与利 好似梦一场</p> 
+              // <p>江湖多风雨 岁月显沧桑</p> 
+              // <p>锦袖一挥 断念隐街巷</p> 
+              // <p>拂尘而去 且将余生藏</p><br/>  
+              // <p>窗外明月如常</p>           
+              // <p>你我再见渺茫</p> 
+              // <p>孤星依旧现微光</p> 
+              // <p>而我只能将你深藏</p> 
+              // <p>晚风轻抚脸庞</p> 
+              // <p>刻意掀起过往</p> 
+              // <p>坐看星河两相傍</p> 
+              // <p>轻舟涟漪影成双</p> 
+            // </p>
+          //   `
+        // },
+        // {
+        //   name: '六耳',
+        //   instro: '落日有感',
+        //   descr: `<p>
+        //           信步山岭间，离别故园久。<br/>
+        //           迎面凉风拂，不觉已入秋。<br/>
+        //           落日照大地，余晖暖山丘。<br/>
+        //           人生多坎坷，美景不长留。
+        //         </p>`
+        // }
+      ]
     }
   },
+  watch: {
+    list:{
+      handler(newval,oldval) {
+        this.$nextTick(()=>{
+          this.getInitDate();
+        })
+      },
+      deep: true,
+    }
+  },
+  created() {
+    // 初始数据
+    this.getListDetail();
+  },
   mounted() {
-    console.log(this.$route.params.data)
-    this.getInitDate();
+    // console.log(this.$route.params.data)
   },
   methods:{
+    // 初始数据
+    async getListDetail() {
+      // 首页进入
+      if (this.$route.params.id) {
+        // 查询功夫
+        let list = await reqQueryNovalAttributeList({
+          novalId: this.$route.params.id.toString(),
+          attribute: this.$route.params.data.code
+        });
+        if (list.responseCode && list.responseCode === '0000') {
+          this.list = list.result
+          this.$store.dispatch('getNovelOtherList',this.list)
+        }
+        // console.log(this.list)
+      } else {
+        // 详细页返回
+        if (this.$store.state.novel.novelOtherList && this.$store.state.novel.novelOtherList.length) {
+          this.list = this.$store.state.novel.novelOtherList
+        } else {
+          this.$router.go(-1);
+        }
+      }
+    },
     getInitDate() {
       this.$nextTick(() => {
         const swiper = new Swiper(".swiper", {
@@ -140,6 +182,7 @@ export default {
     width: 280px;
     height: 550px;
     z-index: 2;
+    animation: toshow 2s;
   }
 
   .swiper-slide {

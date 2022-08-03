@@ -1,8 +1,9 @@
 <template>
   <div class="model-main">
     <div class="model-List" v-for="(item,index) in list" :key="index" @click="goPage(item)">
-      <div class="model-top">
-        <img :src="getImg(item.imgName)" alt=""/>
+      <div class="model-top" v-if="item.imgName">
+        <!-- <img :src="getImg(item.imgName)" alt=""/> -->
+        <img :src="`http://180.76.106.221:5010/images/novel/${item.imgName}`" alt=""/>
         <i>{{item.flag || 'hot'}}</i>
       </div>
       <div class="model-bot">
@@ -13,12 +14,17 @@
         <div>{{item.createTime}}</div>
       </div>
     </div>
+    <Skeleton v-show="$store.state.common.isLoading"/>
   </div>
 </template>
 
 <script>
   import { reqQueryNovelList } from '@/axios/index' 
+  import Skeleton from '@/components/skeleton'
   export default {
+    components: {
+      Skeleton
+    },
     data() {
       return {
         list: [
@@ -48,10 +54,10 @@
       async getDate(){
         let params = {};
         let data = await reqQueryNovelList(params);
-        console.log(data)
+        // console.log(data)
         if (data.responseCode && data.responseCode === '0000') {
           this.list = data.result;
-          console.log(this.list)
+          // console.log(this.list)
         }
       },
       // 跳页面

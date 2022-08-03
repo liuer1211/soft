@@ -5,7 +5,9 @@ import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
-
+import { ElementTiptapPlugin } from 'element-tiptap';
+// 引入 import element-tiptap 样式
+import 'element-tiptap/lib/index.css';
 import '@/styles/index.scss' // global css
 
 import App from './App'
@@ -34,7 +36,9 @@ if (process.env.NODE_ENV === 'production') {
 Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
-
+Vue.use(ElementTiptapPlugin, {
+  lang: 'zh', // 设置语言为中文
+});
 Vue.config.productionTip = false
 
 Object.keys(filter).forEach((key)=>{

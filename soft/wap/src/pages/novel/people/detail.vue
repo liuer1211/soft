@@ -3,9 +3,9 @@
     <div class="model-main">
       <h1>{{obj.name}}</h1>
       <div>{{sect.name}}</div>
-      <div>{{kun}}</div>
+      <div>{{kungfu.join('/')}}</div>
       <div>{{obj.instro}}</div>
-      <p>{{obj.descr}}</p>
+      <p v-html="obj.descr"></p>
     </div>
     <div class="bg-main"></div>
     <!-- 右侧浮框 -->
@@ -34,12 +34,12 @@ export default {
         // "sect": "1"
       },
       sect: '', // 门派
-      kungfu: '', // 功夫
-      kun: '', // 功夫
+      kungfu: [], // 功夫
+      // kun: '', // 功夫
     }
   },
   mounted() {
-    console.log(this.$route.params.data);
+    // console.log(this.$route.params.data);
     this.getInit();
   },
   methods:{
@@ -47,20 +47,24 @@ export default {
     getInit() {
       if (this.$route.params.data) {
         this.obj = this.$route.params.data;
-
-        this.sect = this.$store.state.novel.novelSectList.find((item)=>{
-          console.log(item, this.obj.sect, item.sect === this.obj.sect)
-          return item.id.toString() === this.obj.sect;
-        })
-        this.obj.kungFu.split(',').forEach((kun)=>{
-          this.kungfu = this.$store.state.novel.novelKungfuList.filter((item)=>{
-            return kun === item.id.toString();
+        // 门派
+        if (this.obj.sect) {
+          this.sect = this.$store.state.novel.novelSectList.find((item)=>{
+            // console.log(item, this.obj.sect, item.sect === this.obj.sect)
+            return item.id.toString() === this.obj.sect;
           })
-        })
-        let mapKun = this.kungfu.map(item=>{
-          return item.name
-        })
-        this.kun = mapKun.join('/')
+        }
+        // 功夫
+        if(this.obj.kungFu) {
+          this.obj.kungFu.split(',').forEach((kun)=>{
+            this.$store.state.novel.novelKungfuList.forEach((item)=>{
+              if (kun === item.id.toString()) {
+                this.kungfu.push(item.name)
+              }
+            })
+          })
+        }
+        // console.log(this.kungfu)
       } else {
         this.$router.back();
       }

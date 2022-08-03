@@ -5,15 +5,15 @@
         v-for="(item, index) in list" 
         :key="index" 
         :style="{top:item.top+'%',left:item.left+'%'}"
-        @click="goPage(item)"
+        @click.stop="goPage(item)"
       ></div>
       <div class="info" 
         v-for="(item, index) in list" 
         :key="'id'+index" 
         :style="{top:item.topTip+'%',left:item.leftTip+'%'}"
-        @click="goPage(item)"
+        @click.stop="goPage(item)"
       >
-        {{item.name}}
+        {{item.instro}}
       </div>
     </div>
     <div class="fat-fix">
@@ -23,70 +23,71 @@
 </template>
 
 <script>
+import { reqQueryNovalAttributeList } from '@/axios/index' 
 export default {
   data() {
     return {
       list: [
-        {
-          top: 10,
-          left: 10,
-          topTip: 10-6,
-          leftTip: 10-2,
-          title: '少室山',
-          name: '初试江湖',
-          people: '夜灵犀、恒叶方丈',
-          code: '001'
-        },
-        {
-          top: 20,
-          left: 30,
-          topTip: 20-6,
-          leftTip: 30-2,
-          title: '月与楼',
-          name: '香楼听曲',
-          people: '夜灵犀、苏晚',
-          code: '002'
-        },
-        {
-          top: 30,
-          left: 10,
-          topTip: 30-6,
-          leftTip: 10-2,
-          title: '小重山',
-          name: '邪剑之争',
-          people: '夜灵犀、李玉帛',
-          code: '003'
-        },
-        {
-          top: 50,
-          left: 50,
-          topTip: 50-6,
-          leftTip: 50-2,
-          title: '名剑山庄',
-          name: '山庄论剑',
-          people: '夜灵犀、百里梦、妙乐',
-          code: '004'
-        },
-        {
-          top: 70,
-          left: 50,
-          topTip: 70-6,
-          leftTip: 50-2,
-          title: '小重山',
-          name: '风花雪月',
-          people: '夜灵犀、风花雪月',
-          code: '005'
-        },
-        {
-          top: 90,
-          left: 40,
-          topTip: 90-6,
-          leftTip: 40-2,
-          title: '吉祥赌坊',
-          name: '投石问路',
-          people: '夜灵犀、程瞎子、苏晚',
-          code: '006'
-        }
+        // {
+        //   top: 10,
+        //   left: 10,
+        //   topTip: 10-6,
+        //   leftTip: 10-2,
+        //   address: '少室山',
+        //   descr: '初试江湖',
+        //   name: '夜灵犀、恒叶方丈',
+        //   code: '001'
+        // },
+        // {
+        //   top: 20,
+        //   left: 30,
+        //   topTip: 20-6,
+        //   leftTip: 30-2,
+        //   address: '月与楼',
+        //   descr: '香楼听曲',
+        //   name: '夜灵犀、苏晚',
+        //   code: '002'
+        // },
+        // {
+        //   top: 30,
+        //   left: 10,
+        //   topTip: 30-6,
+        //   leftTip: 10-2,
+        //   address: '小重山',
+        //   descr: '邪剑之争',
+        //   name: '夜灵犀、李玉帛',
+        //   code: '003'
+        // },
+        // {
+        //   top: 50,
+        //   left: 50,
+        //   topTip: 50-6,
+        //   leftTip: 50-2,
+        //   address: '名剑山庄',
+        //   descr: '山庄论剑',
+        //   name: '夜灵犀、百里梦、妙乐',
+        //   code: '004'
+        // },
+        // {
+        //   top: 70,
+        //   left: 50,
+        //   topTip: 70-6,
+        //   leftTip: 50-2,
+        //   address: '小重山',
+        //   descr: '风花雪月',
+        //   name: '夜灵犀、风花雪月',
+        //   code: '005'
+        // },
+        // {
+        //   top: 90,
+        //   left: 40,
+        //   topTip: 90-6,
+        //   leftTip: 40-2,
+        //   address: '吉祥赌坊',
+        //   descr: '投石问路',
+        //   name: '夜灵犀、程瞎子、苏晚',
+        //   code: '006'
+        // }
       ]
     };
   },
@@ -95,10 +96,48 @@ export default {
     //   console.log(document.documentElement.clientHeight);
     // });
   },
+  created() {
+    // 初始数据
+    this.getListDetail();
+  },
   methods: {
+    // 初始数据
+    async getListDetail() {
+      // 首页进入
+      if (this.$route.params.id) {
+        // 查询功夫
+        let list = await reqQueryNovalAttributeList({
+          novalId: this.$route.params.id.toString(),
+          attribute: this.$route.params.data.code
+        });
+        if (list.responseCode && list.responseCode === '0000') {
+          this.list = list.result
+          this.list.forEach((item,index) => {
+            this.$set(item,'top',10*index+10)
+            this.$set(item,'topTip',10*index+4)
+            if (index%2===0) {
+              this.$set(item,'left',15)
+              this.$set(item,'leftTip',15-2)
+            } else {
+              this.$set(item,'left',70)
+              this.$set(item,'leftTip',70-2)
+            }
+          });
+          this.$store.dispatch('getNovelFatalismList',this.list)
+        }
+        // console.log(this.list)
+      } else {
+        // 详细页返回
+        if (this.$store.state.novel.novelFatalismList && this.$store.state.novel.novelFatalismList.length) {
+          this.list = this.$store.state.novel.novelFatalismList
+        } else {
+          this.$router.go(-1);
+        }
+      }
+    },
    // 跳转
    goPage(data) {
-    console.log(data);
+    // console.log(data);
     this.$router.push({
       name: 'fatalismDetail',
       params: {
@@ -157,12 +196,5 @@ export default {
       background: linear-gradient(to top, #3932ff, #5d84dc);
     }
   }
-  @keyframes toshow {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+  
 </style>
