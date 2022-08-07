@@ -9,6 +9,7 @@ import { ElementTiptapPlugin } from 'element-tiptap';
 // 引入 import element-tiptap 样式
 import 'element-tiptap/lib/index.css';
 import '@/styles/index.scss' // global css
+import AComponentUI from 'acomponent-ui';
 
 import App from './App'
 import store from './store'
@@ -39,6 +40,8 @@ Vue.use(ElementUI, { locale })
 Vue.use(ElementTiptapPlugin, {
   lang: 'zh', // 设置语言为中文
 });
+Vue.use(AComponentUI);
+
 Vue.config.productionTip = false
 
 Object.keys(filter).forEach((key)=>{

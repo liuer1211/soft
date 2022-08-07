@@ -57,7 +57,7 @@
             <!-- 图片 -->
             <el-col :span="12">
               <el-form-item label="上传封面" :label-width="formLabelWidth">
-                <el-upload
+                <!-- <el-upload
                   class="avatar-uploader"
                   action="https://jsonplaceholder.typicode.com/posts/"
                   :show-file-list="false"
@@ -65,7 +65,9 @@
                   :before-upload="beforeAvatarUpload">
                   <img v-if="formAddOne.img" :src="formAddOne.img" class="avatar">
                   <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                </el-upload>
+                </el-upload> -->
+                <Cropper/>
+                <div class="img-tip">图片请上传宽高比例[4:5]，例如：320px*400px。格式为：png/jpg/jpeg</div>
               </el-form-item>
             </el-col>
             <!-- 视频 -->
@@ -97,10 +99,11 @@
 
 <script>
 import Tiptap from '../../../components/Tiptap'
+import Cropper from '../../../components/cropper'
 
 export default {
   components:{
-    Tiptap,
+    Tiptap,Cropper
   },
   props:{
     dialogFormVisible: {
@@ -204,22 +207,22 @@ export default {
       // });
       // this.$emit("toDetermine",false)
     },
-    // 上传图片处理
-    handleAvatarSuccess(res, file) {
-      this.formAddOne.img = URL.createObjectURL(file.raw);
-    },
-    // 上传图片处理
-    beforeAvatarUpload(file) {
-      const isJPG = file.type === 'image/jpeg';
-      const isLt2M = file.size / 1024 / 1024 < 2;
-      if (!isJPG) {
-        this.$message.error('上传头像图片只能是 JPG 格式!');
-      }
-      if (!isLt2M) {
-        this.$message.error('上传头像图片大小不能超过 2MB!');
-      }
-      return isJPG && isLt2M;
-    },
+    // // 上传图片处理
+    // handleAvatarSuccess(res, file) {
+    //   this.formAddOne.img = URL.createObjectURL(file.raw);
+    // },
+    // // 上传图片处理
+    // beforeAvatarUpload(file) {
+    //   const isJPG = file.type === 'image/jpeg';
+    //   const isLt2M = file.size / 1024 / 1024 < 2;
+    //   if (!isJPG) {
+    //     this.$message.error('上传头像图片只能是 JPG 格式!');
+    //   }
+    //   if (!isLt2M) {
+    //     this.$message.error('上传头像图片大小不能超过 2MB!');
+    //   }
+    //   return isJPG && isLt2M;
+    // },
     // 上传视频
     handleRemove(file, fileList) {
       console.log(file, fileList);
@@ -277,6 +280,13 @@ export default {
     }
     .but-cen{
       text-align: center;
+    }
+    .img-tip {
+      text-align: left;
+      word-break: break-word;
+      color: #f00;
+      line-height: 20px;
+      margin-top: 10px;
     }
   }
   ::v-deep .el-select {
