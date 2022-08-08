@@ -62,4 +62,7 @@ vue后台管理系统，github上常见的管理系统修改
     列表
     新增
 
-    
+
+ElementTiptapPlugin
+解决Duplicate use of selection JSON ID cell方法
+在项目目录下找打 node_modules/tiptap-extensions/node-modules，把最后的 node-modules 目录名字修改为 node-modules–，就可以顺利解决报错问题了！    
