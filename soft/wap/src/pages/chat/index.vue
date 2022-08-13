@@ -1,35 +1,37 @@
 <template>
-  <div class="chat-main active">
-    <!-- 聊天列表 -->
-    <div class="chat-list" v-for="(item,index) in list" :key="index">
-      <div class="chat-img">
-        <img class="left" v-if="item.id!==id && item.time===''" src="../../assets/images/imgmodel/1.jpg" alt="">
-      </div>
-      <div class="chat-content-main">
-        <div v-if="item.content" class="chat-name" :class="{'is-right':item.id===id}">{{item.name}}</div>
-        <div v-if="item.content" class="chat-content-model" :class="{'is-right':item.id===id}">
-          <div class="chat-content">{{item.content}}</div>
+  <div class="chat-main">
+    <div class="chat-top" :class="{show:active}">
+      <!-- 聊天列表 -->
+      <div class="chat-list" v-for="(item,index) in list" :key="index">
+        <div class="chat-img">
+          <img class="left" v-if="item.id!==id && item.time===''" src="../../assets/images/imgmodel/1.jpg" alt="">
         </div>
-        <div class="chat-time" v-if="!item.content">{{item.time}}</div>
-      </div>
-      <div class="chat-img">
-        <img class="right" v-if="item.id===id" src="../../assets/images/imgmodel/1.jpg" alt="">
+        <div class="chat-content-main">
+          <div v-if="item.content" class="chat-name" :class="{'is-right':item.id===id}">{{item.name}}</div>
+          <div v-if="item.content" class="chat-content-model" :class="{'is-right':item.id===id}">
+            <div class="chat-content">{{item.content}}</div>
+          </div>
+          <div class="chat-time" v-if="!item.content">{{item.time}}</div>
+        </div>
+        <div class="chat-img">
+          <img class="right" v-if="item.id===id" src="../../assets/images/imgmodel/1.jpg" alt="">
+        </div>
       </div>
     </div>
     <!-- 底部输入 -->
     <div class="chat-foot">
       <div class="chat-top">
-        <div class="chat-emo">😀</div>
-        <input class="chat-input" v-model="context" />
+        <div class="chat-emo" @click="getEmoView">😀</div>
+        <input class="chat-input" v-model="context" @focus="active = false"/>
         <div class="chat-send">
           <div @click="toSend">发送</div>
         </div>
       </div>
-      <div class="chat-bot">
+      <div class="chat-bot" :class="{show:active}">
         <div class="chat-model">
           <div class="chat-row">
             <div 
-              v-for="(item,index) in 15" 
+              v-for="(item,index) in 20" 
               :key="index"
               @click="getEmo"
             >😀</div>
@@ -41,7 +43,14 @@
 </template>
 
 <script>
-
+// chat_id: "62f626f37e756a06a87172bc_62f6271e7e756a06a87172bd"
+// content: "😁"
+// create_time: 1660299295868
+// from: "62f6271e7e756a06a87172bd"
+// read: false
+// to: "62f626f37e756a06a87172bc"
+// __v: 0
+// _id: "62f6281f3867230b907b4564"
 export default {
   data() {
     return {
@@ -88,10 +97,15 @@ export default {
       ,'😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣'
       ,'😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣'],
       context: '',
+      active: false,
     }
   },
   methods:{
     toSend() {
+      this.context.trim();
+      if(!this.context.trim()){
+        return;
+      }
       let obj = {
         id: '001',
         name: 'tom',
@@ -99,15 +113,33 @@ export default {
         content: this.context,
         time: '',
       };
+      let obj1 = {
+        id: '002',
+        name: 'tom',
+        img: '',
+        content: this.context,
+        time: '',
+      };
       this.list.push(obj);
+      this.list.push(obj1);
       this.context = '';
+      this.setScroll();
       // document.documentElement.scrollTop // 滚动条高
       // document.body.clientHeight // 窗口高
       // document.documentElement.scrollHeight
       // document.documentElement.scrollTop = document.documentElement.scrollHeight - document.body.clientHeight
     },
+    setScroll() {
+      this.$nextTick(()=>{
+        window.scrollTo(0, document.body.scrollHeight)
+      })
+    },
     getEmo() {
       this.context = this.context + '😀';
+    },
+    getEmoView() {
+      this.active = !this.active;
+      this.setScroll();
     }
   }
 }
@@ -115,10 +147,13 @@ export default {
 
 <style lang="less" scoped>
   .chat-main{
-    padding: 0 0 50px 0;
-    box-sizing: border-box;
-    &.active{
-      padding: 0 0 200px 0;
+    .chat-top{
+      padding: 0 0 50px 0;
+      box-sizing: border-box;
+      &.show{
+        padding: 0 0 250px 0;
+        box-sizing: border-box;
+      }
     }
     .chat-list{
       display: flex;
@@ -160,7 +195,7 @@ export default {
         .chat-content-model{
           display: flex;
           &.is-right{
-            justify-content: end;
+            justify-content: flex-end;
           }
           .chat-content{
             font-size: 16px;
@@ -182,6 +217,8 @@ export default {
       bottom: 0;
       left: 0;
       right: 0;
+      background: #fafafa;
+      z-index: 1;
       .chat-top{
         width: 100%;
         height: 50px;
@@ -193,6 +230,7 @@ export default {
           height: 50px;
           text-align: center;
           line-height: 50px;
+          cursor: pointer;
         }
         .chat-input{
           flex: 1;
@@ -225,8 +263,12 @@ export default {
         }
       }
       .chat-bot{
-        height:150px;
+        height:200px;
         background: #fafafa;
+        display: none;
+        &.show{
+          display: block;
+        }
         .chat-model{
           .chat-row{
             display: flex;
