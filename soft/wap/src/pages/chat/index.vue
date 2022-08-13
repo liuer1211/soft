@@ -4,7 +4,7 @@
       <!-- 聊天列表 -->
       <div class="chat-list" v-for="(item,index) in list" :key="index">
         <div class="chat-img">
-          <img class="left" v-if="item.id!==id && item.time===''" src="../../assets/images/imgmodel/1.jpg" alt="">
+          <img class="left" v-if="item.id!==id && item.time===''" :src="getImg(item.img)" alt="">
         </div>
         <div class="chat-content-main">
           <div v-if="item.content" class="chat-name" :class="{'is-right':item.id===id}">{{item.name}}</div>
@@ -14,7 +14,7 @@
           <div class="chat-time" v-if="!item.content">{{item.time}}</div>
         </div>
         <div class="chat-img">
-          <img class="right" v-if="item.id===id" src="../../assets/images/imgmodel/1.jpg" alt="">
+          <img class="right" v-if="item.id===id" :src="getImg(item.img)" alt="">
         </div>
       </div>
     </div>
@@ -24,17 +24,33 @@
         <div class="chat-emo" @click="getEmoView">😀</div>
         <input class="chat-input" v-model="context" @focus="active = false"/>
         <div class="chat-send">
-          <div @click="toSend">发送</div>
+          <div @click="toSend">
+            发送
+          </div>
         </div>
       </div>
       <div class="chat-bot" :class="{show:active}">
         <div class="chat-model">
-          <div class="chat-row">
+          <!-- <div class="chat-row">
             <div 
               v-for="(item,index) in 20" 
               :key="index"
               @click="getEmo"
             >😀</div>
+          </div> -->
+          <div class="swiper mySwiper1"  >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="(item, index) in emoList" :key="index">
+                <div class="chat-row">
+                  <div 
+                    v-for="(item,index) in item"
+                    :key="index"
+                    @click="getEmo"
+                  >{{item}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
       </div>
@@ -51,6 +67,9 @@
 // to: "62f626f37e756a06a87172bc"
 // __v: 0
 // _id: "62f6281f3867230b907b4564"
+import Swiper from "swiper/swiper-bundle.min.js";
+import "swiper/swiper-bundle.min.css";
+
 export default {
   data() {
     return {
@@ -59,14 +78,14 @@ export default {
         {
           id: '001',
           name: 'tom',
-          img: '',
+          img: '1.jpg',
           content: '😀哈哈哈哈',
           time:'',
         },
         {
           id: '002',
           name: 'jack',
-          img: '',
+          img: '2.jpg',
           content: '😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi',
           time: '',
         },
@@ -80,14 +99,14 @@ export default {
         {
           id: '002',
           name: 'jack',
-          img: '',
+          img: '2.jpg',
           content: '😀哈哈哈哈',
           time:'',
         },
         {
           id: '001',
           name: 'tom',
-          img: '',
+          img: '1.jpg',
           content: '😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi',
           time: '',
         },
@@ -98,9 +117,40 @@ export default {
       ,'😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣'],
       context: '',
       active: false,
+      emoList: [],
     }
   },
+  mounted() {
+    this.getInit();
+  },
   methods:{
+    getInit(){
+      // 拼接二维数组
+      let list = []
+      this.emojis.forEach((item, index) => {
+        list.push(item);
+        if(list.length === 20){
+          this.emoList.push(list);
+          list = [];
+        }
+        // 非整除
+        let a = this.emojis/20 !== Math.ceil(this.emojis/20);
+        // 最后一组
+        let b = Math.ceil(this.emojis.length/20) === this.emoList.length+1;
+        // 最后一个
+        let c = this.emojis.length-1 === index;
+        if( a && b && c) {
+          this.emoList.push(list);
+        }
+      });
+      let swiper = new Swiper(".mySwiper1", {
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+    },
+
     toSend() {
       this.context.trim();
       if(!this.context.trim()){
@@ -109,14 +159,14 @@ export default {
       let obj = {
         id: '001',
         name: 'tom',
-        img: '',
+        img: '1.jpg',
         content: this.context,
         time: '',
       };
       let obj1 = {
         id: '002',
-        name: 'tom',
-        img: '',
+        name: 'jack',
+        img: '2.jpg',
         content: this.context,
         time: '',
       };
@@ -124,22 +174,28 @@ export default {
       this.list.push(obj1);
       this.context = '';
       this.setScroll();
-      // document.documentElement.scrollTop // 滚动条高
-      // document.body.clientHeight // 窗口高
-      // document.documentElement.scrollHeight
-      // document.documentElement.scrollTop = document.documentElement.scrollHeight - document.body.clientHeight
     },
+
     setScroll() {
       this.$nextTick(()=>{
         window.scrollTo(0, document.body.scrollHeight)
       })
     },
+
     getEmo() {
       this.context = this.context + '😀';
     },
+
     getEmoView() {
       this.active = !this.active;
       this.setScroll();
+    },
+
+    getImg(data) {
+      if (data) {
+        let img = require(`../../assets/images/imgmodel/${data}`)
+        return img;
+      }
     }
   }
 }
@@ -266,6 +322,8 @@ export default {
         height:200px;
         background: #fafafa;
         display: none;
+        padding: 12px 12px 0 12px;
+        box-sizing: border-box;
         &.show{
           display: block;
         }
@@ -276,11 +334,14 @@ export default {
             flex-wrap: wrap;
             >div{
               width: 20%;
-              height: 50px;
-              line-height: 50px;
+              height: 40px;
+              line-height: 40px;
               text-align: center;
               cursor: pointer;
             }
+          }
+          .swiper{
+            height: 185px;
           }
         }
       }
