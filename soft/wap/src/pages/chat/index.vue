@@ -22,22 +22,16 @@
     <div class="chat-foot">
       <div class="chat-top">
         <div class="chat-emo" @click="getEmoView">😀</div>
-        <input class="chat-input" v-model="context" @focus="active = false"/>
+        <input class="chat-input" v-model="context" id="context" @focus="active = false"/>
         <div class="chat-send">
-          <div @click="toSend">
-            发送
+          <div>
+            <label v-show="!active" @click="toSend" for="context">发送1</label>
+            <label v-show="active" @click="toSend">发送2</label>
           </div>
         </div>
       </div>
       <div class="chat-bot" :class="{show:active}">
         <div class="chat-model">
-          <!-- <div class="chat-row">
-            <div 
-              v-for="(item,index) in 20" 
-              :key="index"
-              @click="getEmo"
-            >😀</div>
-          </div> -->
           <div class="swiper mySwiper1"  >
             <div class="swiper-wrapper">
               <div class="swiper-slide" v-for="(item, index) in emoList" :key="index">
