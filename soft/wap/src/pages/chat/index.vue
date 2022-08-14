@@ -46,7 +46,7 @@
                   <div 
                     v-for="(item,index) in item"
                     :key="index"
-                    @click="getEmo"
+                    @click="getEmo(item)"
                   >{{item}}</div>
                 </div>
               </div>
@@ -189,8 +189,8 @@ export default {
       })
     },
 
-    getEmo() {
-      this.context = this.context + '😀';
+    getEmo(item) {
+      this.context = this.context + item;
     },
 
     getEmoView() {

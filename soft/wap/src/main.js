@@ -14,7 +14,7 @@ import 'video.js/dist/video-js.css';
 import '@/mock';
 import * as filters from '@/filter';
 
-import './test/socket'
+// import './test/socket'
 
 // import Swiper from 'swiper';
 // import 'swiper/dist/css/swiper.css';
