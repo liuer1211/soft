@@ -91,7 +91,7 @@
     flex-wrap: wrap;
     padding: 0 12px;
     .model-List{
-      box-shadow: 1px 1px 2px 1px #e0e0e0;
+      box-shadow: 1px 1px 2px 1px #f5f5f5;
       background-color: #fff;
       overflow: hidden;
       border-radius: 4px;
@@ -110,7 +110,7 @@
           position: absolute;
           top: 0;
           right: 0;
-          background-color: #ffdd9a;
+          background-color: #ffbf41;
           padding: 2px;
           font-size: 12px;
           border-bottom-left-radius: 2px;

@@ -20,7 +20,6 @@ export default {
   data() {
     return {
       lists: [
-        // '01','02'
         {
           img: '',
           title: '武学',

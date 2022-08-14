@@ -180,7 +180,7 @@ export default {
 
     getFocus() {
       this.active = false;
-      this.setScroll();
+      // this.setScroll();
     },
 
     setScroll() {
