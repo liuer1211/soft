@@ -1,5 +1,12 @@
 <template>
   <div class="chat-main">
+    <!-- 头部 -->
+    <div class="chat-head">
+      <div class="left" @click="$router.back()"><van-icon class="arrow-left" name="arrow-left" /></div>
+      <h1>客服</h1>
+      <div class="right"></div>
+    </div>
+    <!-- 聊天 -->
     <div class="chat-top" :class="{show:active}">
       <!-- 聊天列表 -->
       <div class="chat-list" v-for="(item,index) in list" :key="index">
@@ -8,8 +15,8 @@
         </div>
         <div class="chat-content-main">
           <div v-if="item.content" class="chat-name" :class="{'is-right':item.id===id}">{{item.name}}</div>
-          <div v-if="item.content" class="chat-content-model" :class="{'is-right':item.id===id}">
-            <div class="chat-content">{{item.content}}</div>
+          <div v-if="item.content" class="chat-content-model" :class="{'is-right': item.id===id}">
+            <div class="chat-content" :class="{'active': item.id!==id}">{{item.content}}</div>
           </div>
           <div class="chat-time" v-if="!item.content">{{item.time}}</div>
         </div>
@@ -20,13 +27,13 @@
     </div>
     <!-- 底部输入 -->
     <div class="chat-foot">
-      <div class="chat-top">
+      <div class="chat-foot-top">
         <div class="chat-emo" @click="getEmoView">😀</div>
         <input class="chat-input" v-model="context" id="context" @focus="active = false"/>
         <div class="chat-send">
           <div>
-            <label v-show="!active" @click="toSend" for="context">发送1</label>
-            <label v-show="active" @click="toSend">发送2</label>
+            <label v-show="!active" @click="toSend" for="context">发送</label>
+            <label v-show="active" @click="toSend">发送</label>
           </div>
         </div>
       </div>
@@ -115,6 +122,7 @@ export default {
     }
   },
   mounted() {
+    window.scrollTo(0, document.body.scrollHeight)
     this.getInit();
   },
   methods:{
@@ -197,11 +205,37 @@ export default {
 
 <style lang="less" scoped>
   .chat-main{
+    .chat-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 49px;
+      line-height: 49px;
+      border-bottom: 1px solid #eee;
+      box-sizing: content-box;
+      background: #fff;
+      position: fixed;
+      top: 0;
+      padding: 0 12px 0 4px;
+      box-sizing: border-box;
+      .left{
+        .arrow-left{
+          margin-top: 17px;
+        }
+        cursor: pointer;
+      }
+      h1 {
+        font-size: 18px;
+      }
+      .right{
+      }
+    }
     .chat-top{
-      padding: 0 0 50px 0;
+      padding: 50px 0 50px 0;
       box-sizing: border-box;
       &.show{
-        padding: 0 0 250px 0;
+        padding: 50px 0 250px 0;
         box-sizing: border-box;
       }
     }
@@ -217,6 +251,7 @@ export default {
           width: 40px;
           height: 40px;
           object-fit: cover;
+          border-radius: 4px;
           &.left{
             float: right;
           }
@@ -253,12 +288,17 @@ export default {
             padding: 12px;
             border-radius: 4px;
             word-break: break-word;
+            box-shadow: 1px 1px 2px 1px #f4f4f4;
+            &.active{
+              background: #fff;
+            }
           }
         }
         .chat-time{
           text-align: center;
           font-size: 16px;
           line-height: 50px;
+          color: #505050;
         }
       }
     }
@@ -269,7 +309,7 @@ export default {
       right: 0;
       background: #fafafa;
       z-index: 1;
-      .chat-top{
+      .chat-foot-top{
         width: 100%;
         height: 50px;
         display: flex;
@@ -316,7 +356,7 @@ export default {
         height:200px;
         background: #fafafa;
         display: none;
-        padding: 12px 12px 0 12px;
+        padding: 10px 12px 0 12px;
         box-sizing: border-box;
         &.show{
           display: block;
@@ -335,7 +375,7 @@ export default {
             }
           }
           .swiper{
-            height: 185px;
+            height: 188px;
           }
         }
       }
