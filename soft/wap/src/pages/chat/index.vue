@@ -29,7 +29,7 @@
     <div class="chat-foot">
       <div class="chat-foot-top">
         <div class="chat-emo" @click="getEmoView">😀</div>
-        <input class="chat-input" v-model="context" id="context" @focus="active = false"/>
+        <input class="chat-input" v-model="context" id="context" @focus="getFocus"/>
         <div class="chat-send">
           <div>
             <label v-show="!active" @click="toSend" for="context">发送</label>
@@ -175,6 +175,11 @@ export default {
       this.list.push(obj);
       this.list.push(obj1);
       this.context = '';
+      this.setScroll();
+    },
+
+    getFocus() {
+      this.active = false;
       this.setScroll();
     },
 
