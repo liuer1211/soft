@@ -152,7 +152,7 @@
     const view = document.getElementById('view');
     view.scrollIntoView();
 
-    
+    vue inspect > output.js   输出默认配置文件
 
 兵器
 

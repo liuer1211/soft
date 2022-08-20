@@ -68,7 +68,7 @@
             icon: "description"
           },
           {
-            title: "客服",
+            title: "解忧",
             url: "chat",
             icon: "manager-o"
           },

@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <div class="chat-head">
       <div class="left" @click="$router.back()"><van-icon class="arrow-left" name="arrow-left" /></div>
-      <h1>客服</h1>
+      <h1>解忧阁</h1>
       <div class="right"></div>
     </div>
     <!-- 聊天 -->
@@ -70,47 +70,28 @@
 // _id: "62f6281f3867230b907b4564"
 import Swiper from "swiper/swiper-bundle.min.js";
 import "swiper/swiper-bundle.min.css";
+import {listMath} from './js'
 
 export default {
   data() {
     return {
-      id: '001',
+      id: '002',
+      name: '游客',
+      startText: {
+        id: '001',
+        name: '阁主',
+        img: '1.jpg',
+        content: '欢迎来到解忧阁，请输入您想说的话，我们将给出您想要的答案！',
+        time:'',
+      },
       list: [
-        {
-          id: '001',
-          name: 'tom',
-          img: '1.jpg',
-          content: '😀哈哈哈哈',
-          time:'',
-        },
-        {
-          id: '002',
-          name: 'jack',
-          img: '2.jpg',
-          content: '😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi',
-          time: '',
-        },
-        {
-          id: '',
-          name: '',
-          img: '',
-          content: '',
-          time: '22:23',
-        },
-        {
-          id: '002',
-          name: 'jack',
-          img: '2.jpg',
-          content: '😀哈哈哈哈',
-          time:'',
-        },
-        {
-          id: '001',
-          name: 'tom',
-          img: '1.jpg',
-          content: '😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi',
-          time: '',
-        },
+        // {
+        //   id: '002',
+        //   name: '游客',
+        //   img: '2.jpg',
+        //   content: '😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi😁heiheiehi',
+        //   time: '',
+        // },
       ],
       emojis: ['😀', '😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣','😀'
       ,'😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣'
@@ -124,8 +105,16 @@ export default {
   mounted() {
     window.scrollTo(0, document.body.scrollHeight)
     this.getInit();
+    this.getCaht();
   },
   methods:{
+    // 拼接第一句话
+    getCaht() {
+      setTimeout(()=>{
+        this.list.push(this.startText);
+      },500)
+    },
+    // 表情
     getInit(){
       // 拼接二维数组
       let list = []
@@ -152,52 +141,69 @@ export default {
         },
       });
     },
-
+    // 发送
     toSend() {
       this.context.trim();
       if(!this.context.trim()){
         return;
       }
       let obj = {
-        id: '001',
-        name: 'tom',
-        img: '1.jpg',
-        content: this.context,
-        time: '',
-      };
-      let obj1 = {
-        id: '002',
-        name: 'jack',
+        id: this.id,
+        name: this.name,
         img: '2.jpg',
         content: this.context,
         time: '',
       };
+      // 随即获取回复
+      let obj1 = {
+        id: '001',
+        name: '阁主',
+        img: '1.jpg',
+        content: this.getContext(),
+        time: '',
+      };
       this.list.push(obj);
-      this.list.push(obj1);
+      // 延时回复
+      setTimeout(()=>{
+        this.list.push(obj1);
+        this.setScroll();
+      },500)
       this.context = '';
       this.setScroll();
     },
-
+    // 随即获取回复
+    getContext() {
+      try {
+        let index = Math.ceil(Math.random()*10);
+        // console.log(index);
+        let context = listMath(index);
+        return context;
+      } catch(e) {
+        console.log(e);
+        return '';
+      }
+    },
+    // 输入框聚焦
     getFocus() {
       this.active = false;
       // this.setScroll();
     },
-
+    // 设置滚动条
     setScroll() {
       this.$nextTick(()=>{
         window.scrollTo(0, document.body.scrollHeight)
       })
     },
-
+    // 拼接文字和表情
     getEmo(item) {
       this.context = this.context + item;
     },
-
+    // 显示隐藏表情
     getEmoView() {
       this.active = !this.active;
       this.setScroll();
     },
-
+    // 头像图片地址
     getImg(data) {
       if (data) {
         let img = require(`../../assets/images/imgmodel/${data}`)
@@ -248,6 +254,7 @@ export default {
       display: flex;
       padding: 12px 0;
       box-sizing: border-box;
+      animation: bg .5s;
       .chat-img{
         width: 50px;
         min-width: 50px;
@@ -294,6 +301,8 @@ export default {
             border-radius: 4px;
             word-break: break-word;
             box-shadow: 1px 1px 2px 1px #f4f4f4;
+            line-height: 22px;
+            letter-spacing: 1px;
             &.active{
               background: #fff;
             }
@@ -384,6 +393,14 @@ export default {
           }
         }
       }
+    }
+  }
+  @keyframes bg {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 </style>>
