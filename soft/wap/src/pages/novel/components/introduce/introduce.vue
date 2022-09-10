@@ -112,29 +112,49 @@ export default {
   methods:{
     // 获取数据，展示，存储
     async getListDetail(){
-      // 首页进入
-      if (this.$route.params.data) {
-        // this.novelInfo = this.$route.params.data;
+      try{
+        // 首页进入
+        if (this.$route.params.data) {
+          // this.novelInfo = this.$route.params.data;
 
-        let params = {
-          novalId: this.$route.params.data.id.toString()
-        }
-        let data = await reqQueryNovalDetail(params);
-        // console.log(data)
-        if (data.responseCode && data.responseCode === '0000') {
-          this.novelInfo = data.result;
-          // console.log(this.novelInfo)
-        }
+          let params = {
+            novalId: this.$route.params.data.id.toString()
+          }
+          let data = await reqQueryNovalDetail(params);
+          // console.log(data)
+          if (data.responseCode && data.responseCode === '0000') {
+            this.novelInfo = data.result;
+            // console.log(this.novelInfo)
+          }
 
+          // 存入vuex
+          this.$store.dispatch('getNovelInfo',this.novelInfo)
+        } else {
+          // 详细页返回
+          if (this.$store.state.novel.novelInfo && this.$store.state.novel.novelInfo.id) {
+            this.novelInfo = this.$store.state.novel.novelInfo;
+          } else {
+            this.$router.go(-1);
+          }
+        }
+      } catch(e) {
+        this.novelInfo = {
+          "id": 1,
+            "num": "0000001",
+            "title": "夜灵犀传奇",
+            "author": "六耳",
+            "titleTypeCode": "01,02",
+            "titleTypeName": "武侠/爱情",
+            "actDate": "20220522",
+            "instro": "年少热血气如虹，暮年病榻万事空。江湖纷争何时休，笑看痴人坠其中。",
+            "context": '<p>何为侠，总说行侠仗义。侠可谓助人为乐，此为侠之始也。路见不平，拔刀相助，此为侠之小成。穷则独善其身，达则兼济天下，此为侠之大者。</p><p>相传三国时期，铸剑名家欧冶子打造了三把赫赫有名的宝剑，分别是：黑曜、赤灵、素渊。传闻只要三者得其一便可得天下，而这三把宝剑也被魏蜀吴三国的君主各占其一。随着时代的更迭，这三把宝剑也辗转不知了去向。</p><p>几百年过去了，有传言这三把宝剑之一的黑曜在小重山现世。霎时间，江湖波澜四起。有传闻黑曜是最为妖邪的一柄剑，它还藏有一个更为惊人的秘密。</p><p>曾记得，十年前，一位年纪不满二十的少年横空出世，打破了沉寂已久的江湖，此人便是夜灵犀。没有人知道这少年从何处来，师承何门何派，只记得他只身一人前往少林，挑战主持方丈后全身而退。如今，黑曜现世，又将会带给他怎样的劫数。', 
+            "imgName": "1.jpg",
+            "videoName": "001.mp4",
+            "createTime": "2022-05-22 13:27:50",
+            "updateTime": "2022-07-15 14:45:27"
+        }
         // 存入vuex
         this.$store.dispatch('getNovelInfo',this.novelInfo)
-      } else {
-        // 详细页返回
-        if (this.$store.state.novel.novelInfo && this.$store.state.novel.novelInfo.id) {
-          this.novelInfo = this.$store.state.novel.novelInfo;
-        } else {
-          this.$router.go(-1);
-        }
       }
     },
     // // 查询

@@ -108,28 +108,43 @@ export default {
   methods:{
     // 获取数据，展示，存储
     async getListDetail(){
-      // 首页进入
-      if (this.$route.params.data) {
-        // this.novelInfo = this.$route.params.data;
-        let params = {
-          novalId: this.$route.params.data.id.toString()
+      try {
+        // 首页进入
+        if (this.$route.params.data) {
+          // this.novelInfo = this.$route.params.data;
+          let params = {
+            novalId: this.$route.params.data.id.toString()
+          }
+          let data = await reqQueryNovalDetail(params);
+          // console.log(data)
+          if (data.responseCode && data.responseCode === '0000') {
+            this.lists = data.novalAttributeList;
+            this.id = data.result.id;
+            this.getList(this.lists);
+          }
+          // 存入vuex
+          this.$store.dispatch('getNovelTypeList',this.list)
+        } else {
+          // 详细页返回
+          if (this.$store.state.novel.novelTypeList && this.$store.state.novel.novelTypeList.length) {
+            this.list = this.$store.state.novel.novelTypeList;
+          } else {
+            // this.$router.go(-1);
+          }
         }
-        let data = await reqQueryNovalDetail(params);
-        // console.log(data)
-        if (data.responseCode && data.responseCode === '0000') {
-          this.lists = data.novalAttributeList;
-          this.id = data.result.id;
-          this.getList(this.lists);
-        }
+      } catch(e) {
+        this.lists = [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06"
+        ];
+        this.id = 1;
+        this.getList(this.lists);
         // 存入vuex
         this.$store.dispatch('getNovelTypeList',this.list)
-      } else {
-        // 详细页返回
-        if (this.$store.state.novel.novelTypeList && this.$store.state.novel.novelTypeList.length) {
-          this.list = this.$store.state.novel.novelTypeList;
-        } else {
-          // this.$router.go(-1);
-        }
       }
     },
     getList(data) {
