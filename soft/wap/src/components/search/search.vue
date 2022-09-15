@@ -72,6 +72,11 @@
             url: "chat",
             icon: "manager-o"
           },
+          // {
+          //   title: "用户",
+          //   url: "user",
+          //   icon: "user-o"
+          // },
         ]
       }
     },

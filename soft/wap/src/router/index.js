@@ -4,6 +4,7 @@ Vue.use(VueRouter);
 // 1. 定义路由组件.
 import Home from '../pages/home/home'
 import Novel from '../pages/novel/novel'
+import User from '../pages/user/user'
 
 const routes = [
   // 重定向
@@ -15,6 +16,11 @@ const routes = [
     name: 'home',
     path: '/home', 
     component: Home 
+  },
+  { 
+    name: 'user',
+    path: '/user', 
+    component: User 
   },
   { 
     name: 'novel',

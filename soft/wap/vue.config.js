@@ -25,12 +25,15 @@ module.exports = {
             '^/api': ''
           }
       },
-      // "/api": {
-      //   target: "http://192.168.1.100:8001",
-      //   pathRewrite: {
-      //     '^/api': ''
-      //   }
-      // },
+      "/cityjson": {
+        target: "http://pv.sohu.com",
+      },
+      "/ipJson.jsp": {
+        target: "http://whois.pconline.com.cn",
+      },
+      "/weather_mini": {
+        target: "http://wthrcdn.etouch.cn",
+      },
     },
   },
   // 像素适配 宽度px转换成rem; vant-375

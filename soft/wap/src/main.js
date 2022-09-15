@@ -7,6 +7,9 @@ import store from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+
 import VideoPlayer from 'vue-video-player';
 import 'vue-video-player/src/custom-theme.css';
 import 'video.js/dist/video-js.css';
