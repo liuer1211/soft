@@ -1,6 +1,8 @@
 //对于axios进行二次封装
 import axios from "axios";
 import store from "@/store";
+import qs from 'qs';
+
 //在当前模块中引入store
 //如果出现进度条没有显示：一定是你忘记了引入样式了
 //底下的代码也是创建axios实例
@@ -11,25 +13,14 @@ let requests = axios.create({
   baseURL: process.env.NODE_ENV === 'development' ? baseURL : 'http://180.76.106.221:8001/',
   //请求不能超过5S
   timeout: 5000,
-  // contentType: 'application/x-www-form-urlencoded'
-  // headers: {
-  //   "Content-Type": 'multipart/form-data'
-  // }
+  headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" }
 });
 
 //请求拦截器----在项目中发请求（请求没有发出去）可以做一些事情
 requests.interceptors.request.use((config) => {
   store.commit('getLoading', true)
-  // console.log(config)
-  // let {data} = {...config}
-  // debugger
-  // data = JSON.stringify(data)
-  // config.data = data;
-  if(config.method == 'post'){
-    let data = new FormData();
-    for(let k in config.data) data.append(k, config.data[k]);
-    config.data = data;
-  }
+  // console.log(process.env.NODE_ENV,config.data)
+  config.data = qs.stringify(config.data);
   return config;
 });
 
