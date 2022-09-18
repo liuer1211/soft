@@ -82,26 +82,52 @@ export default {
   methods: {
     // 初始数据
     async getListDetail() {
-      // 首页进入
-      if (this.$route.params.id) {
-        // 查询功夫
-        let res3 = await reqQueryNovalAttributeList({
-          novalId: this.$route.params.id.toString(),
-          attribute: this.$route.params.data.code
-        });
-        if (res3.responseCode && res3.responseCode === '0000') {
-          this.list = res3.result
-          this.$store.dispatch('getNovelSectList',this.list)
-        }
-        // console.log(this.list)
-      } else {
-        // 详细页返回
-        if (this.$store.state.novel.novelSectList && this.$store.state.novel.novelSectList.length) {
-          this.list = this.$store.state.novel.novelSectList
+      try{
+        // 首页进入
+        if (this.$route.params.id) {
+          // 查询
+          let res3 = await reqQueryNovalAttributeList({
+            novalId: this.$route.params.id.toString(),
+            attribute: this.$route.params.data.code
+          });
+          if (res3.responseCode && res3.responseCode === '0000') {
+            this.list = res3.result
+            this.$store.dispatch('getNovelSectList',this.list)
+          }
+          // console.log(this.list)
         } else {
-          this.$router.go(-1);
+          // 详细页返回
+          if (this.$store.state.novel.novelSectList && this.$store.state.novel.novelSectList.length) {
+            this.list = this.$store.state.novel.novelSectList
+          } else {
+            this.$router.go(-1);
+          }
         }
+      } catch(e) {
+        this.list = [{
+          "id": 1,
+          "name": "燕云山庄",
+          "instro": "",
+          "descr": "四面环山，云雾缭绕，日出映月",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        },{
+          "id": 8,
+          "name": "魔教",
+          "instro": "",
+          "descr": "断崖之上，云天之巅",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        }]
+        this.$store.dispatch('getNovelSectList',this.list)
       }
+      
     },
     // 初始数据
     getInitDate() {

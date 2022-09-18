@@ -71,28 +71,56 @@ export default {
     },
     // 初始数据
     async getListDetail() {
-      // 首页进入
-      if (this.$route.params.id) {
-        // 查询功夫
-        let list = await reqQueryNovalAttributeList({
-          novalId: this.$route.params.id.toString(),
-          attribute: this.$route.params.data.code
-        });
-        if (list.responseCode && list.responseCode === '0000') {
-          this.list = list.result
-          this.list.forEach(item => {
-            this.$set(item,'active',false)
+      try {
+        // 首页进入
+        if (this.$route.params.id) {
+          // 查询
+          let list = await reqQueryNovalAttributeList({
+            novalId: this.$route.params.id.toString(),
+            attribute: this.$route.params.data.code
           });
-          this.$store.dispatch('getNovelWeaponList',this.list)
-        }
-        // console.log(this.list)
-      } else {
-        // 详细页返回
-        if (this.$store.state.novel.novelWeaponList && this.$store.state.novel.novelWeaponList.length) {
-          this.list = this.$store.state.novel.novelWeaponList
+          if (list.responseCode && list.responseCode === '0000') {
+            this.list = list.result
+            this.list.forEach(item => {
+              this.$set(item,'active',false)
+            });
+            this.$store.dispatch('getNovelWeaponList',this.list)
+          }
+          // console.log(this.list)
         } else {
-          this.$router.go(-1);
+          // 详细页返回
+          if (this.$store.state.novel.novelWeaponList && this.$store.state.novel.novelWeaponList.length) {
+            this.list = this.$store.state.novel.novelWeaponList
+          } else {
+            this.$router.go(-1);
+          }
         }
+      } catch(e) {
+        this.list = [{
+          "id": 1,
+          "name": "黑曜",
+          "instro": "",
+          "descr": "邪剑黑曜，旷世奇兵",
+          "img": "sect/1.png",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        },{
+          "id": 2,
+          "name": "银枪",
+          "instro": "",
+          "descr": "百鸟朝凤，惊艳一枪",
+          "img": "sect/2.png",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        }]
+        this.list.forEach(item => {
+          this.$set(item,'active',false)
+        });
+        this.$store.dispatch('getNovelWeaponList',this.list)
       }
     },
     // 初始数据

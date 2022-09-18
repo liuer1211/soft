@@ -163,46 +163,108 @@ export default {
     //   }
     // },
     async getListDetail() {
-      // 首页进入
-      if (this.$route.params.id) {
-        // 查询门派
-        let res1 = await reqQueryNovalAttributeList({
-          novalId: this.$route.params.id.toString(),
-          attribute: '03'
-        });
-        if (res1.responseCode && res1.responseCode === '0000') {
-          this.sectList = res1.result;
-          this.$store.dispatch('getNovelSectList',this.sectList)
-        }
-        // 查询功夫
-        let res2 = await reqQueryNovalAttributeList({
-          novalId: this.$route.params.id.toString(),
-          attribute: '02'
-        });
-        if (res2.responseCode && res2.responseCode === '0000') {
-          this.kungfuList = res2.result;
-          this.$store.dispatch('getNovelKungfuList',this.kungfuList)
-        }
-        // console.log(this.$route.params)
-        // 查人物
-        let params = {
-          novalId: this.$route.params.id.toString(),
-          attribute: this.$route.params.data.code
-        }
-        let data = await reqQueryNovalAttributeList(params);
-        if (data.responseCode && data.responseCode === '0000') {
-          this.list = data.result;
-          // this.getList(this.lists);
-        }
-        // 存入vuex
-        this.$store.dispatch('getNovelPeopleList',this.list)
-      } else {
-        // 详细页返回
-        if (this.$store.state.novel.novelPeopleList && this.$store.state.novel.novelPeopleList.length) {
-          this.list = this.$store.state.novel.novelPeopleList;
+      try {
+        // 首页进入
+        if (this.$route.params.id) {
+          // 查询门派
+          let res1 = await reqQueryNovalAttributeList({
+            novalId: this.$route.params.id.toString(),
+            attribute: '03'
+          });
+          if (res1.responseCode && res1.responseCode === '0000') {
+            this.sectList = res1.result;
+            this.$store.dispatch('getNovelSectList',this.sectList)
+          }
+          // 查询功夫
+          let res2 = await reqQueryNovalAttributeList({
+            novalId: this.$route.params.id.toString(),
+            attribute: '02'
+          });
+          if (res2.responseCode && res2.responseCode === '0000') {
+            this.kungfuList = res2.result;
+            this.$store.dispatch('getNovelKungfuList',this.kungfuList)
+          }
+          // console.log(this.$route.params)
+          // 查人物
+          let params = {
+            novalId: this.$route.params.id.toString(),
+            attribute: this.$route.params.data.code
+          }
+          let data = await reqQueryNovalAttributeList(params);
+          if (data.responseCode && data.responseCode === '0000') {
+            this.list = data.result;
+            // this.getList(this.lists);
+          }
+          // 存入vuex
+          this.$store.dispatch('getNovelPeopleList',this.list)
         } else {
-          this.$router.go(-1);
+          // 详细页返回
+          if (this.$store.state.novel.novelPeopleList && this.$store.state.novel.novelPeopleList.length) {
+            this.list = this.$store.state.novel.novelPeopleList;
+          } else {
+            this.$router.go(-1);
+          }
         }
+      } catch(e) {
+        this.sectList = [{
+          "id": 1,
+          "name": "燕云山庄",
+          "instro": "",
+          "descr": "四面环山，云雾缭绕，日出映月",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        }]
+        this.$store.dispatch('getNovelSectList',this.sectList)
+
+        this.kungfuList = [{
+          "id": '3',
+          "name": "乾坤生死决",
+          "instro": "",
+          "descr": "",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        },{
+          "id": '4',
+          "name": "燕云七绝",
+          "instro": "",
+          "descr": "",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        },{
+          "id": '5',
+          "name": "扶摇九天",
+          "instro": "",
+          "descr": "",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        }
+        ]
+        this.$store.dispatch('getNovelKungfuList',this.kungfuList)
+
+        this.list = [{
+          "id": '1',
+          "name": "夜灵犀",
+          "instro": "孑然一身真洒脱，寻欢作乐苦笑颜。世间哪得知心人，万卷愁云映眼帘。",
+          "descr": "",
+          "img": "22.jpg",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "3,4,5",
+          "sect": "1"
+        }];
+        this.$store.dispatch('getNovelPeopleList',this.list)
       }
     },
     // 跳页面

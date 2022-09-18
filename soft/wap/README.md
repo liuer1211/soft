@@ -147,6 +147,12 @@
     分支提交 合并
 
 
+# js
+    设置内容在可视区
+    const view = document.getElementById('view');
+    view.scrollIntoView();
+
+    vue inspect > output.js   输出默认配置文件
 
 兵器
 

@@ -1,5 +1,8 @@
 <template>
   <div class="dashboard-container">
+    <div class="des-card">
+      <Card/>
+    </div>
     <!-- <div class="dashboard-text">首页: {{ name }}</div> -->
     <div class="de-main">
       <el-row>
@@ -39,7 +42,7 @@
       </el-row>
     </div>
     <!-- 富文本编辑 -->
-    <Edit/>
+    <!-- <Edit/> -->
     <div>
       <el-tiptap
         v-model="content"
@@ -54,6 +57,7 @@
 import { mapGetters } from 'vuex';
 import axios from 'axios';
 import AMap from "AMap";
+import Card from './components/card'
 
 import Edit from '../../components/edit/edit'
 import {
@@ -100,7 +104,7 @@ import {
 export default {
   name: 'Dashboard',
   components:{
-    Edit
+    Edit, Card
   },
   computed: {
     ...mapGetters([
@@ -281,7 +285,7 @@ export default {
 <style lang="scss" scoped>
 .dashboard {
   &-container {
-    padding: 30px;
+    padding: 18px 0;
     box-sizing: border-box;
   }
   &-text {
@@ -347,5 +351,8 @@ export default {
 }
 .de-main {
   margin-bottom: 12px;
+}
+.des-card {
+  margin-bottom: 18px;
 }
 </style>

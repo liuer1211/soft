@@ -10,6 +10,7 @@
           v-for="(item,index) in list" 
           :key="index" 
           :class="item.active===active ? 'active':''"
+          :id="item.active===active ? 'active':''"
           @click="getTab(item)"
         >
           {{item.title}}
@@ -35,22 +36,10 @@
     methods: {
       getTab(item) {
         this.active = item.active;
-        // this.$nextTick(()=>{
-        //   let a = document.querySelector('.tabs-main-ab.active')
-        //   console.log(a);
-        //   console.log(a.clientWidth);
-        //   console.log(a.offsetLeft);
-        //   console.log(document.documentElement.clientWidth);
-        //   let viewWidth = document.documentElement.clientWidth;
-        //   if (a.offsetLeft + a.clientWidth > viewWidth) {
-        //     console.log('==')
-        //   }
-        // })
-        // 始终让其在可视区域
-        // tabs-main-ab active
-        // window.pageXOffset
-        // let a = document.querySelector('.tabs-main-ab.active')
-        // console.log(a)
+        this.$nextTick(()=>{
+          const view = document.getElementById('active');
+          view.scrollIntoView();
+        })
       }
     }
   }
@@ -84,7 +73,7 @@
         transition: .3s;
         .tabs-main-ab {
           position: relative;
-          padding: 0 8px;
+          // padding: 0 8px;
           box-sizing: border-box;
           color: #646566;
           cursor: pointer;

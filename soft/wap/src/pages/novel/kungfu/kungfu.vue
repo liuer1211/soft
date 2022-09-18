@@ -45,25 +45,60 @@ export default {
   methods:{
     // 初始数据
     async getListDetail() {
-      // 首页进入
-      if (this.$route.params.id) {
-        // 查询功夫
-        let res2 = await reqQueryNovalAttributeList({
-          novalId: this.$route.params.id.toString(),
-          attribute: this.$route.params.data.code
-        });
-        if (res2.responseCode && res2.responseCode === '0000') {
-          this.list = res2.result
-          this.$store.dispatch('getNovelKungfuList',this.list)
-        }
-        // console.log(this.list)
-      } else {
-        // 详细页返回
-        if (this.$store.state.novel.novelKungfuList && this.$store.state.novel.novelKungfuList.length) {
-          this.list = this.$store.state.novel.novelKungfuList
+      try {
+        // 首页进入
+        if (this.$route.params.id) {
+          // 查询功夫
+          let res2 = await reqQueryNovalAttributeList({
+            novalId: this.$route.params.id.toString(),
+            attribute: this.$route.params.data.code
+          });
+          if (res2.responseCode && res2.responseCode === '0000') {
+            this.list = res2.result
+            this.$store.dispatch('getNovelKungfuList',this.list)
+          }
+          // console.log(this.list)
         } else {
-          this.$router.go(-1);
+          // 详细页返回
+          if (this.$store.state.novel.novelKungfuList && this.$store.state.novel.novelKungfuList.length) {
+            this.list = this.$store.state.novel.novelKungfuList
+          } else {
+            this.$router.go(-1);
+          }
         }
+      } catch(e){
+        this.list = [{
+          "id": '3',
+          "name": "乾坤生死决",
+          "instro": "",
+          "descr": "",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        },{
+          "id": '4',
+          "name": "燕云七绝",
+          "instro": "",
+          "descr": "",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        },{
+          "id": '5',
+          "name": "扶摇九天",
+          "instro": "",
+          "descr": "",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "kungFu": "",
+          "sect": ""
+        }]
+        this.$store.dispatch('getNovelKungfuList',this.list)
       }
     },
     // 初始面板

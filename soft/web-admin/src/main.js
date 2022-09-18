@@ -11,6 +11,9 @@ import 'element-tiptap/lib/index.css';
 import '@/styles/index.scss' // global css
 import AComponentUI from 'acomponent-ui';
 
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+
 import App from './App'
 import store from './store'
 import router from './router'
@@ -54,3 +57,5 @@ new Vue({
   store,
   render: h => h(App)
 })
+
+

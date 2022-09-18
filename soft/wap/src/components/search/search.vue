@@ -23,12 +23,13 @@
             <span>一片青莲照人间</span>
           </div>
         </div>
+        <!-- <van-icon name="manager-o" /> -->
         <div>
           <div class="pop-center" v-for="(item,index) in list" :key="index" @click.stop="toPages(item)">
             <div>
-              <i class="iconfont icon-integral"></i>
+              <van-icon :name="item.icon" />
             </div>
-            <div>文章</div>
+            <div>{{item.title}}</div>
           </div>
         </div>
       </div>
@@ -63,8 +64,19 @@
         list: [
           {
             title: "文章",
-            url: "article"
+            url: "article",
+            icon: "description"
           },
+          {
+            title: "解忧",
+            url: "chat",
+            icon: "manager-o"
+          },
+          // {
+          //   title: "用户",
+          //   url: "user",
+          //   icon: "user-o"
+          // },
         ]
       }
     },

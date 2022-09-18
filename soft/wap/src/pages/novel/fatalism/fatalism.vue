@@ -103,36 +103,82 @@ export default {
   methods: {
     // 初始数据
     async getListDetail() {
-      // 首页进入
-      if (this.$route.params.id) {
-        // 查询功夫
-        let list = await reqQueryNovalAttributeList({
-          novalId: this.$route.params.id.toString(),
-          attribute: this.$route.params.data.code
-        });
-        if (list.responseCode && list.responseCode === '0000') {
-          this.list = list.result
-          this.list.forEach((item,index) => {
-            this.$set(item,'top',10*index+10)
-            this.$set(item,'topTip',10*index+4)
-            if (index%2===0) {
-              this.$set(item,'left',15)
-              this.$set(item,'leftTip',15-2)
-            } else {
-              this.$set(item,'left',70)
-              this.$set(item,'leftTip',70-2)
-            }
+      try {
+        // 首页进入
+        if (this.$route.params.id) {
+          // 查询
+          let list = await reqQueryNovalAttributeList({
+            novalId: this.$route.params.id.toString(),
+            attribute: this.$route.params.data.code
           });
-          this.$store.dispatch('getNovelFatalismList',this.list)
-        }
-        // console.log(this.list)
-      } else {
-        // 详细页返回
-        if (this.$store.state.novel.novelFatalismList && this.$store.state.novel.novelFatalismList.length) {
-          this.list = this.$store.state.novel.novelFatalismList
+          if (list.responseCode && list.responseCode === '0000') {
+            this.list = list.result
+            this.list.forEach((item,index) => {
+              this.$set(item,'top',10*index+10)
+              this.$set(item,'topTip',10*index+4)
+              if (index%2===0) {
+                this.$set(item,'left',15)
+                this.$set(item,'leftTip',15-2)
+              } else {
+                this.$set(item,'left',70)
+                this.$set(item,'leftTip',70-2)
+              }
+            });
+            this.$store.dispatch('getNovelFatalismList',this.list)
+          }
+          // console.log(this.list)
         } else {
-          this.$router.go(-1);
+          // 详细页返回
+          if (this.$store.state.novel.novelFatalismList && this.$store.state.novel.novelFatalismList.length) {
+            this.list = this.$store.state.novel.novelFatalismList
+          } else {
+            this.$router.go(-1);
+          }
         }
+      } catch(e) {
+        this.list = [{
+          "id": '1',
+          "name": "夜灵犀、恒叶方丈",
+          "instro": "初试江湖",
+          "descr": "",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "address": "少林寺",
+          "sect": ""
+        },{
+          "id": '2',
+          "name": "夜灵犀、百里梦、妙乐",
+          "instro": "山庄论剑",
+          "descr": "",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "address": "名剑山庄",
+          "sect": ""
+        },{
+          "id": '3',
+          "name": "夜灵犀、朱四爷",
+          "instro": "秘密会谈",
+          "descr": "",
+          "img": "",
+          "createTime": "2022-07-16 16:10:51",
+          "novalId": '1',
+          "address": "月与楼",
+          "sect": ""
+        }]
+        this.list.forEach((item,index) => {
+          this.$set(item,'top',10*index+10)
+          this.$set(item,'topTip',10*index+4)
+          if (index%2===0) {
+            this.$set(item,'left',15)
+            this.$set(item,'leftTip',15-2)
+          } else {
+            this.$set(item,'left',70)
+            this.$set(item,'leftTip',70-2)
+          }
+        });
+        this.$store.dispatch('getNovelFatalismList',this.list)
       }
     },
    // 跳转

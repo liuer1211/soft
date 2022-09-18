@@ -37,7 +37,7 @@
       // console.log(document.body.offsetTop)
       // console.log(document.body.clientHeight)
       // console.log(this.offsetTop)
-      window.addEventListener('scroll',this.rollingheight,true)
+      // window.addEventListener('scroll',this.rollingheight,true)
     },
     watch:{
       // offsetTop(val) {
