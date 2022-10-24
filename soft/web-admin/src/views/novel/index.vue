@@ -1,5 +1,5 @@
 <template>
-  <div class="novel-main">
+  <div class="novel-main" id="print">
     <!-- 关键字搜索 -->
     <div class="search-main">
       <el-form ref="form" :model="form" label-width="80px">
@@ -33,6 +33,15 @@
           </el-col>
         </el-row>
       </el-form>
+    </div>
+    <!-- 头部按钮 -->
+    <div style="padding:12px 0;">
+      <el-button type="primary" @click="typeAdd('')">新增</el-button>
+      <el-button type="">修改</el-button>
+      <el-button type="primary">删除</el-button>
+      <el-button type="">上传</el-button>
+      <el-button type="primary">导出</el-button>
+      <el-button type="" @click="print">打印</el-button>
     </div>
     <!-- 列表 -->
     <div class="novel-list">
@@ -75,9 +84,9 @@
       </el-pagination>
     </div>
     <!-- 底部按钮 -->
-    <div class="novel-main-bot">
+    <!-- <div class="novel-main-bot">
       <el-button type="primary" @click="typeAdd('')">新增</el-button>
-    </div>
+    </div> -->
     <!-- 新增 -->
     <Add 
       :dialogFormVisible="dialogFormVisible" 
@@ -90,7 +99,9 @@
 
 <script>
 import Add from './components/add';
- import { reqQueryNovelList } from '@/api/index' 
+import { reqQueryNovelList } from '@/api/index' 
+import Print from 'print-js'
+
 export default {
   components: {
     Add
@@ -217,6 +228,19 @@ export default {
     // 新增-确定
     toDetermine() {
       this.dialogFormVisible = false
+    },
+    // 打印
+    print() {
+      Print({
+        printable: 'print',
+        type: 'html',
+        documentTitle: '文档标题',
+        header: '',
+        headerStyle: 'font-weight:400;text-align:center;',
+        style: '@page {margin: 0 10mm};', // 不打印页眉和页脚
+        honorColor: true, // 是否打印彩色文本
+        targetStyles: ['*'] // 允许打印所有样式属性
+      })
     }
   }
 }

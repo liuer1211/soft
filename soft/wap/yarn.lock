@@ -7044,6 +7044,11 @@
     "lodash" "^4.17.20"
     "renderkid" "^2.0.4"
 
+"print-js@^1.6.0":
+  "integrity" "sha512-BfnOIzSKbqGRtO4o0rnj/K3681BSd2QUrsIZy/+WdCIugjIswjmx3lDEZpXB2ruGf9d4b3YNINri81+J0FsBWg=="
+  "resolved" "https://registry.npmjs.org/print-js/-/print-js-1.6.0.tgz"
+  "version" "1.6.0"
+
 "process-nextick-args@~2.0.0":
   "integrity" "sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag=="
   "resolved" "https://registry.npmmirror.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz"
