@@ -40,7 +40,7 @@
       <el-button type="">修改</el-button>
       <el-button type="primary">删除</el-button>
       <el-button type="">上传</el-button>
-      <el-button type="primary">导出</el-button>
+      <el-button type="primary" @click="getXlsx">导出</el-button>
       <el-button type="" v-print="printObj"  >打印</el-button>
      
     </div>
@@ -105,6 +105,8 @@
 <script>
 import Add from './components/add';
 import { reqQueryNovelList } from '@/api/index' 
+import xlsxfun from '../../utils/xlsx.js'
+
 export default {
   components: {
     Add
@@ -242,9 +244,16 @@ export default {
     toDetermine() {
       this.dialogFormVisible = false
     },
-    // 打印
-    print() {
-      
+    // 导出
+    getXlsx(){
+      let fields = {
+        num: "书籍编号",
+        title: "书名",
+        author: "作者",
+        type: "类型",
+        createTime: "创建日期",
+      };
+      xlsxfun(this.tableData, fields, "测试");
     }
   }
 }
