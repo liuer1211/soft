@@ -17,6 +17,8 @@ import 'video.js/dist/video-js.css';
 import '@/mock';
 import * as filters from '@/filter';
 
+import socket from './utiles/test/socketio_test';
+
 // import './test/socket'
 
 // import Swiper from 'swiper';
@@ -28,6 +30,7 @@ import * as filters from '@/filter';
 Vue.use(Vant);
 Vue.use(VideoPlayer);
 
+Vue.prototype.$socket = socket;
 
 Vue.config.productionTip = false
 

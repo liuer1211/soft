@@ -29,7 +29,7 @@
     <div class="chat-foot">
       <div class="chat-foot-top">
         <div class="chat-emo" @click="getEmoView">😀</div>
-        <input class="chat-input" v-model="context" id="context" @focus="getFocus"/>
+        <input class="chat-input" v-model="context" id="context" @focus="getFocus" @blur="toSendMsg"/>
         <div class="chat-send">
           <div>
             <label v-show="!active" @click="toSend" for="context">发送</label>
@@ -106,6 +106,18 @@ export default {
     window.scrollTo(0, document.body.scrollHeight)
     this.getInit();
     this.getCaht();
+    let that = this;
+    // 随即获取回复
+    this.$socket.on('receiveMsg', function (data) {
+      console.log('客户端接收服务器发送的消息===', data) 
+      that.list.push({
+        id: '001',
+        name: '阁主',
+        img: '1.jpg',
+        content: `输入框失去焦点的数据socket：${data.content}`,
+        time: '',
+      });
+    })
   },
   methods:{
     // 拼接第一句话
@@ -170,6 +182,12 @@ export default {
       },500)
       this.context = '';
       this.setScroll();
+      // this.toSendMsg();
+    },
+    // 发送消息
+    toSendMsg() {
+      this.context.trim();
+      this.$socket.emit('sendMsg', {from:'001', to:'002', content:this.context.trim()})
     },
     // 随即获取回复
     getContext() {

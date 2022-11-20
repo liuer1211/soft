@@ -55,12 +55,13 @@
         try {
           let params = {};
           let data = await reqQueryNovelList(params);
-          // console.log(data)
+          console.log('data=',data)
           if (data.responseCode && data.responseCode === '0000') {
             this.list = data.result;
             // console.log(this.list)
           }
         } catch(e) {
+          console.log(e)
           this.list=[
               {
                   "id": 1,
