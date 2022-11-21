@@ -18,3 +18,5 @@ export const reqQueryNovalAttributeList = (params)=>requests({url:"/queryNovalAt
 
 // 登录
 export const userInfoLogin = (params)=>requests({url:"/userInfoLogin",method:"post",data:params});
+
+export const getPageMessageList = (params)=>requests({url:"/getPageMessageList",method:"post",data:params});

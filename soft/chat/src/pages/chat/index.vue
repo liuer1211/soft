@@ -77,6 +77,7 @@ import Swiper from "swiper/swiper-bundle.min.js";
 import "swiper/swiper-bundle.min.css";
 import {listMath} from './js'
 import { Toast } from 'vant';
+import { getPageMessageList } from '@/axios/index' 
 
 export default {
   data() {
@@ -130,7 +131,7 @@ export default {
       }, // 好友信息
       chatText:{}, // 聊天数据
       userList:[], // 用户数据
-      page: 1, // 页码
+      pageNumber: 0, // 页码
       chatMore: true, // 加载更多
     }
   },
@@ -170,35 +171,48 @@ export default {
   methods:{
     // 点击加载更多
     async getChatMore() {
-      let data={
-        page: this.page
+      if(!this.chatMore) {
+        return;
       }
-      // let res = await aaa(data);
-      // this.page++;
-      let res=[
-        {
-          "fromUser":1,
-          "fromUserNickname":"东东",
-          "toUser":2,
-          "toUserNickname":"666",
-          "sendMessage":"😀😀qwe"
-        },
-        {
-          "fromUser":2,
-          "fromUserNickname":"666",
-          "toUser":1,
-          "toUserNickname":"东东",
-          "sendMessage":"😀😀"
-        },
-        {
-          "fromUser":2,
-          "fromUserNickname":"666",
-          "toUser":1,
-          "toUserNickname":"东东",
-          "sendMessage":"😀😀qwe"
+      let data={
+        pageNumber: this.pageNumber
+      }
+      try{
+        let res = await getPageMessageList(data);
+        this.pageNumber++;
+        console.log('====res==',res)
+        if(res.result.content.length){
+          this.getList(res.result.content)
+          this.chatMore = true
+        } else {
+          this.chatMore = false
         }
-      ]
-      this.getList(res)
+      } catch(e){
+        // let res=[
+        //   {
+        //     "fromUser":1,
+        //     "fromUserNickname":"东东",
+        //     "toUser":2,
+        //     "toUserNickname":"666",
+        //     "sendMessage":"😀😀qwe"
+        //   },
+        //   {
+        //     "fromUser":2,
+        //     "fromUserNickname":"666",
+        //     "toUser":1,
+        //     "toUserNickname":"东东",
+        //     "sendMessage":"😀😀"
+        //   },
+        //   {
+        //     "fromUser":2,
+        //     "fromUserNickname":"666",
+        //     "toUser":1,
+        //     "toUserNickname":"东东",
+        //     "sendMessage":"😀😀qwe"
+        //   }
+        // ]
+        // this.getList(res)
+      }
     },
     // 初始用户
     getInitUser(){
@@ -248,6 +262,8 @@ export default {
       list.forEach(item => {
         this.list.unshift(item);
       })
+
+      this.setScroll();
     },
     // 拼接第一句话
     getCaht() {
