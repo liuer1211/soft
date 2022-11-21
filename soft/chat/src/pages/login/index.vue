@@ -8,7 +8,7 @@
       <van-field v-model="password" placeholder="请输入密码" type="password"/>
     </div>
     <div class="login-but">
-      <van-button type="primary" @click="toLogin()">登陆</van-button>
+      <van-button type="info" @click="toLogin()">登陆</van-button>
     </div>
   </div>
 </template>

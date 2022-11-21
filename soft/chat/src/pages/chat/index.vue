@@ -4,7 +4,7 @@
     <div class="chat-head">
       <!-- <div class="left" @click="$router.back()"><van-icon class="arrow-left" name="arrow-left" /></div> -->
       <div></div>
-      <h1>{{users.userNick}}</h1>
+      <h1>{{friend.userNick}}</h1>
       <div class="right"></div>
     </div>
     <!-- 聊天 -->
@@ -31,11 +31,11 @@
       <div class="chat-foot-top">
         <div class="chat-emo" @click="getEmoView">😀</div>
         <!--  -->
-        <input class="chat-input" v-model="context" id="context" @focus="getFocus" @blur="toSendMsg"/>
+        <input class="chat-input" v-model="context" id="context" @focus="getFocus"/>
         <div class="chat-send">
           <div>
-            <label v-show="!active" @click="toSend" for="context">发送</label>
-            <label v-show="active" @click="toSend">发送</label>
+            <label v-show="!active" @click="toSendMsg" for="context">发送</label>
+            <label v-show="active" @click="toSendMsg">发送</label>
           </div>
         </div>
       </div>
@@ -85,9 +85,14 @@ export default {
         img: '1.jpg',
         content: '欢迎来到解忧阁，请输入您想说的话，我们将给出您想要的答案！',
         time:'',
-        from:'',
-        to:'',
       },
+      // {
+      //   "fromUser":"1",
+      //   "fromUserNickname":"昵称1",
+      //   "toUser":"2",
+      //   "toUserNickname":"昵称2",
+      //   "sendMessage":"发送消息内容"
+      // }
       list: [
         // {
         //   id: '002',
@@ -119,7 +124,8 @@ export default {
         // userName: "dd"
         // userNick: "东东"
       }, // 好友信息
-      chatText:{} // 聊天数据
+      chatText:{}, // 聊天数据
+      userList:[]
     }
   },
   computed:{
@@ -159,10 +165,33 @@ export default {
     // 初始用户
     getInitUser(){
       let userInfo = JSON.parse(localStorage.getItem('userid'));
+      
+      if(!userInfo){
+        this.$router.push({path: '/login'})
+      }
+
       this.users = userInfo || {};
       console.log('u===========',this.users)
       // 获取好友信息
-      
+      let list = [
+        {
+          account: "wangdongdong",
+          id: 1,
+          password: "4c7a0e30e2874f2534e8892a5ddde722",
+          userName: "dd",
+          userNick: "东东",
+        },
+        {
+          account: "ymh",
+          id: 2,
+          password: "13710f6ab4560927385977dc93b0d95a",
+          userName: "y",
+          userNick: "666",
+        }
+      ]
+      this.userList = list;
+      this.friend = userInfo.id === 1 ? list[1] : list[0];
+      console.log('this=====',this)
     },
     // 获取聊天信息
     getList(){
@@ -234,10 +263,27 @@ export default {
     },
     // 发送消息
     toSendMsg() {
-      this.context.trim();
+      console.log('con===',this.context.trim())
+      if(!this.context.trim()){
+        return;
+      }
+      
+      // {
+      //   "fromUser":"1",
+      //   "fromUserNickname":"昵称1",
+      //   "toUser":"2",
+      //   "toUserNickname":"昵称2",
+      //   "sendMessage":"发送消息内容"
+      // }
       this.websocketsend(JSON.stringify({
-        from:'1', to:'2', content:this.context.trim()
+        // from:'1', to:'2', content:this.context.trim()
+        fromUser:this.id,
+        fromUserNickname:this.name,
+        toUser: this.id === 1 ? this.userList[1].id : this.userList[0].id,
+        toUserNickname: this.id === 1 ? this.userList[1].userNick : this.userList[0].userNick,
+        sendMessage: this.context.trim()
       }));
+      this.context=''
       // this.$socket.emit('sendMsg', {from:'001', to:'002', content:this.context.trim()})
     },
     // 随即获取回复
@@ -322,15 +368,45 @@ export default {
       this.initWebSocket();
     },
     websocketonmessage(e){ //数据接收
-      console.log('数据接收',e);
-      // const redata = JSON.parse(e.data);
+      try {
+        console.log('数据接收==',e.data);
+        console.log('数据接收==',typeof e.data);
+        console.log('fromUser==', e.data.fromUser);
+      
+        const redata = JSON.parse(e.data);
+        console.log('数据接收---',redata.fromUser);
+
+        if (redata.fromUser){
+          this.getChatInfo(redata);
+        }
+      } catch(e) {
+        console.log(e)
+      }
     },
     websocketsend(Data){//数据发送
-      console.log('数据发送')
+      console.log('数据发送',Data)
       this.websock.send(Data);
     },
     websocketclose(e){  //关闭
       console.log('断开连接',e);
+    },
+
+    // 拼数据
+    getChatInfo(data) {
+      console.log('123===',data)
+      console.log('123===',data.sendMessage)
+      // {"fromUser":1,"fromUserNickname":"东东","toUser":2,"toUserNickname":"666","sendMessage":"😀😀"}
+      let obj = {
+        id: data.fromUser ,
+        name: data.fromUserNickname,
+        img: data.fromUser === 1 ? '2.jpg' : '1.jpg',
+        content: data.sendMessage,
+        time: '',
+      };
+     
+      this.list.push(obj);
+      
+      this.setScroll();
     },
 
     // getWebscoket(){
