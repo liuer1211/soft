@@ -9,6 +9,9 @@
     </div>
     <!-- 聊天 -->
     <div class="chat-top" :class="{show:active}">
+      <div class="chat-more" @click="getChatMore">
+        -------{{chatMore ? '点击加载更多' : '没有更多数据了'}}-------
+      </div>
       <!-- 聊天列表 -->
       <div class="chat-list" v-for="(item,index) in list" :key="index">
         <div class="chat-img">
@@ -73,6 +76,7 @@
 import Swiper from "swiper/swiper-bundle.min.js";
 import "swiper/swiper-bundle.min.css";
 import {listMath} from './js'
+import { Toast } from 'vant';
 
 export default {
   data() {
@@ -125,7 +129,9 @@ export default {
         // userNick: "东东"
       }, // 好友信息
       chatText:{}, // 聊天数据
-      userList:[]
+      userList:[], // 用户数据
+      page: 1, // 页码
+      chatMore: true, // 加载更多
     }
   },
   computed:{
@@ -159,9 +165,41 @@ export default {
   created() {
     this.initWebSocket(); // 链接ws
     this.getInitUser(); // 获得当前用户信息
-    this.getList(); // 获取聊天信息
+    this.getChatMore(); // 获取聊天信息
   },
   methods:{
+    // 点击加载更多
+    async getChatMore() {
+      let data={
+        page: this.page
+      }
+      // let res = await aaa(data);
+      // this.page++;
+      let res=[
+        {
+          "fromUser":1,
+          "fromUserNickname":"东东",
+          "toUser":2,
+          "toUserNickname":"666",
+          "sendMessage":"😀😀qwe"
+        },
+        {
+          "fromUser":2,
+          "fromUserNickname":"666",
+          "toUser":1,
+          "toUserNickname":"东东",
+          "sendMessage":"😀😀"
+        },
+        {
+          "fromUser":2,
+          "fromUserNickname":"666",
+          "toUser":1,
+          "toUserNickname":"东东",
+          "sendMessage":"😀😀qwe"
+        }
+      ]
+      this.getList(res)
+    },
     // 初始用户
     getInitUser(){
       let userInfo = JSON.parse(localStorage.getItem('userid'));
@@ -194,8 +232,22 @@ export default {
       console.log('this=====',this)
     },
     // 获取聊天信息
-    getList(){
-      this.list=[]
+    getList(res){
+      // console.log('res=',res)
+      let list = res
+      list = list.map(item=>{
+        return {
+          ...item,
+          id: item.fromUser ,
+          name: item.fromUserNickname,
+          img: item.fromUser === 1 ? '2.jpg' : '1.jpg',
+          content: item.sendMessage,
+          time: '',
+        }
+      })
+      list.forEach(item => {
+        this.list.unshift(item);
+      })
     },
     // 拼接第一句话
     getCaht() {
@@ -367,6 +419,7 @@ export default {
     },
     websocketonerror(){//连接建立失败重连
       console.log('重连')
+      Toast.fail('重连');
       this.initWebSocket();
     },
     websocketonmessage(e){ //数据接收
@@ -604,6 +657,15 @@ export default {
         padding: 50px 0 250px 0;
         box-sizing: border-box;
       }
+      .chat-more{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        color: #9f9f9f;
+      }
     }
     .chat-list{
       display: flex;
@@ -618,7 +680,8 @@ export default {
           width: 40px;
           height: 40px;
           object-fit: cover;
-          border-radius: 4px;
+          border-radius: 50%;
+          box-shadow: 0px 0px 2px 0px #cdcdcd;
           &.left{
             float: right;
           }
