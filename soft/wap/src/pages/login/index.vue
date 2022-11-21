@@ -40,9 +40,9 @@
           password:this.password,
         };
         let data = await userInfoLogin(params);
-        // console.log('data=',data)
+        console.log('data=',data)
         if (data.responseCode && data.responseCode === '0000') {
-          sessionStorage.setItem('userid','');
+          localStorage.setItem('userid',JSON.stringify(data.result));
           this.$router.push({path: '/home'})
         } else {
           this.getTip('登陆失败')
@@ -56,7 +56,15 @@
     mounted(){
     },
     beforeDestroy(){
-    }
+    },
+    // beforeRouteEnter(to,from,next){
+    //   console.log('beforeRouteEnter');
+    //   if(localStorage.getItem('userid') && localStorage.getItem('userid')==='userid'){
+    //     next('/home')
+    //   }else{
+    //     next()
+    //   }
+    // },
   }
 </script>
 

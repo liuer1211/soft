@@ -63,6 +63,7 @@ module.exports = {
           '^/api': ''
         }
       },
+      
     },
     before: require('./mock/mock-server.js')
   },

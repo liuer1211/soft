@@ -1,0 +1,24 @@
+{
+  "novelList": [
+    {
+      "id": "1",
+      "img": "001.png",
+      "flag": "hot",
+      "title": "夜灵犀传奇",
+      "author": "六耳",
+      "date": "2020-02-02",
+      "link": "yelingxi",
+      "type": "武侠/爱情/家国"
+    },
+    {
+      "id": "1",
+      "img": "und.jpg",
+      "flag": "hot",
+      "title": "血雨江湖",
+      "author": "六耳",
+      "date": "2020-02-02",
+      "link": "yelingxi",
+      "type": "武侠/爱情/家国"
+    }
+  ]
+}
