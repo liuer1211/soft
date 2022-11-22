@@ -65,14 +65,7 @@
 </template>
 
 <script>
-// chat_id: "62f626f37e756a06a87172bc_62f6271e7e756a06a87172bd"
-// content: "😁"
-// create_time: 1660299295868
-// from: "62f6271e7e756a06a87172bd"
-// read: false
-// to: "62f626f37e756a06a87172bc"
-// __v: 0
-// _id: "62f6281f3867230b907b4564"
+
 import Swiper from "swiper/swiper-bundle.min.js";
 import "swiper/swiper-bundle.min.css";
 import {listMath} from './js'
@@ -144,24 +137,7 @@ export default {
     }
   },
   mounted() {
-    window.scrollTo(0, document.body.scrollHeight)
     this.getInit();
-    // this.getCaht();
-    // let that = this;
-    // 随即获取回复
-    // this.$socket.on('receiveMsg', function (data) {
-    //   console.log('客户端接收服务器发送的消息===', data) 
-    //   that.list.push({
-    //     id: '001',
-    //     name: '阁主',
-    //     img: '1.jpg',
-    //     content: `输入框失去焦点的数据socket：${data.content}`,
-    //     time: '',
-    //   });
-    // })
-    // this.socketOpen();
-    // this.createWebSocket();
-    // this.getWebscoket();
   },
   created() {
     this.initWebSocket(); // 链接ws
@@ -188,30 +164,7 @@ export default {
           this.chatMore = false
         }
       } catch(e){
-        // let res=[
-        //   {
-        //     "fromUser":1,
-        //     "fromUserNickname":"东东",
-        //     "toUser":2,
-        //     "toUserNickname":"666",
-        //     "sendMessage":"😀😀qwe"
-        //   },
-        //   {
-        //     "fromUser":2,
-        //     "fromUserNickname":"666",
-        //     "toUser":1,
-        //     "toUserNickname":"东东",
-        //     "sendMessage":"😀😀"
-        //   },
-        //   {
-        //     "fromUser":2,
-        //     "fromUserNickname":"666",
-        //     "toUser":1,
-        //     "toUserNickname":"东东",
-        //     "sendMessage":"😀😀qwe"
-        //   }
-        // ]
-        // this.getList(res)
+        console.log(e)
       }
     },
     // 初始用户
@@ -260,10 +213,12 @@ export default {
         }
       })
       list.forEach(item => {
-        this.list.unshift(item);
+        this.list.push(item);
       })
-
-      this.setScroll();
+      console.log(this.pageNumber)
+      if(this.pageNumber <= 1){
+        this.setScroll();
+      }
     },
     // 拼接第一句话
     getCaht() {
@@ -369,7 +324,6 @@ export default {
     // 输入框聚焦
     getFocus() {
       this.active = false;
-      // this.setScroll();
     },
     // 设置滚动条
     setScroll() {
@@ -389,36 +343,11 @@ export default {
     // 头像图片地址
     getImg(data) {
       if (data) {
-        // let img = require(`../../assets/images/imgmodel/${data}`)
         let img =`http://180.76.106.221:5010/images/chat/${data}`
         return img;
       }
-      // http://180.76.106.221:5010/images/chat/
     },
 
-    socketOpen() { 
-      this.$socket.open()// 开始连接 socket
-    },
-    socketSendmsg() { // 发送消息
-      this.$socket.emit('ServerReceive', '这里是客户端==>向服务端发消息了。。。。')
-    },
-    lockResult() {
-      console.log('链接状态', this.$socket.connected)
-      console.log('this.$socket', this.$socket)
-      console.log('this.sockets', this.sockets)
-    },
-    closeSocket() {
-      this.$socket.close()
-    },
-    submsgContent(flag) {  
-      if (flag) { //事件订阅
-        this.sockets.subscribe('ClientReceive', data => { //组件内监听
-          console.log('组件内监听-welcome', data)
-        })
-      } else {//取消订阅
-        this.sockets.unsubscribe('ClientReceive')
-      } 
-    },
 
     initWebSocket(){ //初始化weosocket
       const wsuri = "ws://180.76.106.221:8887/";
@@ -466,7 +395,6 @@ export default {
     getChatInfo(data) {
       console.log('123===',data)
       console.log('123===',data.sendMessage)
-      // {"fromUser":1,"fromUserNickname":"东东","toUser":2,"toUserNickname":"666","sendMessage":"😀😀"}
       let obj = {
         id: data.fromUser ,
         name: data.fromUserNickname,
@@ -479,162 +407,12 @@ export default {
       
       this.setScroll();
     },
-
-    // getWebscoket(){
-    //   //当前浏览器是否支持websocket
-    //   if ("WebSocket" in window) {
-    //     console.log('-------')
-    //     const ws = new WebSocket("ws://180.76.106.221:8887/");
-    //     console.log('ws',ws)
-    //     // 初次连接
-    //     ws.onopen = () => {
-    //       console.log("初次连接");
-    //     };
-    //     // 发送
-    //     ws.onmessage = (res) => {
-    //       console.log('send=',res.data);
-    //     };
-    //     ws.onerror = () => {
-    //       console.log("异常");
-    //     };
-    //     // ws.onclose = () => {
-    //     //   console.log("关闭链接");
-    //     // };
-    //     //当前浏览器页面关闭了 此时应该关闭链接
-    //     // 生命周期
-    //     // onUnmounted(() => {
-    //     //   console.log("关闭");
-    //     //   ws.close(); //关闭
-    //     // });
-    //   } else {
-    //     console.log("不支持WebSocket");
-    //   }
-
-    // }
-
-    // // 创建websocket连接
-    // createWebSocket(){
-    //     let that = this;
-    //     that.webSocet = null;
-    //     that.webSocet= new WebSocket('ws://180.76.106.221:8887');
-    //     // console.log('that.webSocet',that.webSocet);
-    //     if(that.webSocet.readyState == 0 && !that.timeoutnum){
-    //         that.timer = setInterval(() => {
-    //             if(that.timer_num < 3 && that.webSocet.readyState == 0 ){
-    //                 that.timer_num++;
-    //             }else{
-    //                 clearInterval(that.timer);
-    //                 that.timer = null;
-    //                 that.timer_num = 0;
-    //                 // 只要不成功就连接
-    //                 if(that.webSocet.readyState != 1){
-    //                     that.reconnect();
-    //                 }
-    //             }
-    //         }, 1000);
-    //     }
-    //     //链接成功时
-    //     that.webSocet.onopen = function(){
-    //         //开启心跳
-    //         that.start(); 
-    //     }
-    //     //收到消息时
-    //     that.webSocet.onmessage = (msgInfo) => {
-    //         console.log('接收到的消息',msgInfo);
-    //         // that.UP_WEBSOCKETINFO({data:msgInfo.data,timer:msgInfo.timeStamp});
-    //         //收到服务器信息，心跳重置
-    //         that.reset();
-    //     }
-    //     //连接错误
-    //     that.webSocet.onerror = function(){
-    //         console.log("WebSocket连接发生错误");
-    //         //重连
-    //         that.reconnect();
-    //     };
-    //     // 监听组件的销毁
-    //     that.$once('hook:beforeDestroy', () => {
-    //           if(that.webSocet.close){
-    //             that.webSocet.close();
-    //             that.webSocet.onclose = () =>{ 
-    //                 console.log('web socket 链接已关闭'); 
-    //             };
-    //         }
-    //     })
-    // },
-    // reconnect() {//重新连接
-    //     let that = this;
-    //     if(that.webSocet && that.webSocet.readyState == 1){
-    //         clearInterval(that.timeoutnum);
-    //         that.timeoutnum = null;
-    //         that.timeNum = 0;
-    //         return;
-    //     }
-    //     if(!that.timeoutnum) {
-    //         that.timeoutnum = setInterval(function () {
-    //             if(that.webSocet && that.webSocet.readyState == 1){
-    //                 clearInterval(that.timeoutnum);
-    //                 that.timeoutnum = null;
-    //                 that.timeNum = 0;
-    //                 return;
-    //             }   
-    //             //新连接
-    //             that.createWebSocket();
-    //             that.timeNum++;
-    //             if(that.timeNum >= 3){
-    //                 clearInterval(that.timeoutnum);
-    //                 that.timeoutnum = null;
-    //                 that.timeNum = 0;
-    //             }
-    //         },1000);
-    //     };
-    // },
-    // reset(){//重置心跳
-    //     //清除时间
-    //     clearTimeout(this.timeoutObj);
-    //     clearTimeout(this.serverTimeoutObj);
-    //     //重启心跳
-    //     this.start();
-    // },
-    // start(){//开启心跳
-    //     let that = this;
-    //     that.timeoutObj && clearTimeout(that.timeoutObj);
-    //     that.serverTimeoutObj && clearTimeout(that.serverTimeoutObj);
-    //     that.timeoutObj = setTimeout(function(){
-    //         //这里发送一个心跳，后端收到后，返回一个心跳消息，
-    //         if (that.webSocet && that.webSocet.readyState == 1) {//如果连接正常
-    //             that.webSocet.send({
-    //                 name:'123'
-    //             });
-    //         }else{//否则重连
-    //             that.reconnect();
-    //         }
-            
-    //     }, that.timeout)
-    // },
   },
 
   destroyed() {
     this.websock.close() //离开路由之后断开websocket连接
   },
 
-  beforeDestroy() { //订阅事件记得要取消---否则多次订阅会引发多次消息返回
-    // if (!this.$socket) return
-    // this.sockets.unsubscribe('ClientReceive')
-    // this.$socket.close()
-  },
-  sockets: { //监听用的是this.sockets   发送消息是this.$socket，不要弄混
-      connecting() { console.log('正在连接') },
-      connect() { console.log('连接成功') },
-      disconnect() { console.log('断开连接') },
-      connect_failed() { console.log('连接失败') },
-      error() { console.log('错误发生，并且无法被其他事件类型所处理') },
-      reconnecting() { console.log('正在重连') },
-      reconnect_failed() { console.log('重连失败') },
-      reconnect() { console.log('重连成功') },
-      ClientReceive: data => {//全局监听订阅事件，需要与后端约定好
-        console.log('welcome data', data)
-      }
-  },
 }
 </script>
 
@@ -654,6 +432,7 @@ export default {
       top: 0;
       padding: 0 12px 0 4px;
       box-sizing: border-box;
+      z-index: 9;
       .left{
         .arrow-left{
           margin-top: 17px;

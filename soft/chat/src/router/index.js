@@ -2,80 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 // 1. 定义路由组件.
-import Home from '../pages/home/home'
-import Novel from '../pages/novel/novel'
-import User from '../pages/user/user'
 
 const routes = [
   // 重定向
   {
     path: '*',
     redirect: '/login' 
-  },
-  { 
-    name: 'home',
-    path: '/home', 
-    component: Home 
-  },
-  { 
-    name: 'user',
-    path: '/user', 
-    component: User 
-  },
-  { 
-    name: 'novel',
-    path: '/novel', 
-    component: Novel,
-  },
-  { 
-    name: 'people',
-    path: '/people', 
-    component: () => import("@/pages/novel/people/people")
-  },
-  { 
-    name: 'peopleDetail',
-    path: '/peopleDetail', 
-    component: () => import("@/pages/novel/people/detail")
-  },
-  { 
-    name: 'other',
-    path: '/other', 
-    component: () => import("@/pages/novel/other/other")
-  },
-  { 
-    name: 'kungfu',
-    path: '/kungfu', 
-    component: () => import("@/pages/novel/kungfu/kungfu")
-  },
-  { 
-    name: 'sect',
-    path: '/sect', 
-    component: () => import("@/pages/novel/sect/sect")
-  },
-  { 
-    name: 'fatalism',
-    path: '/fatalism', 
-    component: () => import("@/pages/novel/fatalism/fatalism")
-  },
-  { 
-    name: 'fatalismDetail',
-    path: '/fatalismDetail', 
-    component: () => import("@/pages/novel/fatalism/detail")
-  },
-  { 
-    name: 'weapon',
-    path: '/weapon', 
-    component: () => import("@/pages/novel/weapon/weapon")
-  },
-  { 
-    name: 'article',
-    path: '/article', 
-    component: () => import("@/pages/article/article")
-  },
-  { 
-    name: 'articleDetail',
-    path: '/articleDetail', 
-    component: () => import("@/pages/article/articleDetail")
   },
   { 
     name: 'chat',
