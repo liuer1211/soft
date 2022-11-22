@@ -19,8 +19,8 @@
   export default {
     data () {
       return {
-        account:'wangdongdong',
-        password:'wddceshi123456'
+        account:'tingbao',
+        password:'tingbao123456'
       }
     },
     methods: {
