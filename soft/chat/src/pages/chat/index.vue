@@ -42,6 +42,7 @@
           </div>
         </div>
       </div>
+      <!-- <img :src="getImgs('xixiao.png')"> -->
       <div class="chat-bot" :class="{show:active}">
         <div class="chat-model">
           <div class="swiper mySwiper1"  >
@@ -406,6 +407,27 @@ export default {
       this.list.push(obj);
       
       this.setScroll();
+    },
+
+    //表情
+    getEmojis() {
+      let list = [
+        {
+          key: '[微笑]',
+          value: 'weixiao.png'
+        },
+        {
+          key: '[愤怒]',
+          value: 'xixiao.png'
+        }
+      ]
+    },
+    // 头像图片地址
+    getImgs(data) {
+      if (data) {
+        let img = require(`../../assets/images/chat/${data}`);
+        return img;
+      }
     },
   },
 

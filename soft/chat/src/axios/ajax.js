@@ -7,6 +7,7 @@ import router from '../router';
 import axios from "axios";
 import store from "@/store";
 import qs from 'qs';
+import { Toast } from 'vant';
 
 //在当前模块中引入store
 //如果出现进度条没有显示：一定是你忘记了引入样式了
@@ -15,7 +16,7 @@ let baseURL = "/api";
 
 let requests = axios.create({
   //基础路径
-  baseURL: process.env.NODE_ENV === 'development' ? baseURL : 'http://180.76.106.221:8001/',
+  baseURL: process.env.NODE_ENV === 'development' ? baseURL : 'http://180.76.106.221:8002/',
   //请求不能超过5S
   timeout: 5000,
   headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" }
@@ -44,7 +45,8 @@ requests.interceptors.response.use(
     }
   },
   (err) => {
-    console.log(err)
+    console.log('err====',err)
+    Toast.fail('接口异常');
     store.commit('getLoading', false)
     // alert("服务器响应数据失败");
   }
