@@ -7,8 +7,6 @@
 # 访问
   [点我访问](https://liuer1211.github.io/soft/soft/wap/dist/)
   
-    http://180.76.106.221:5010/chat/#/chat
-
 # 配置 package.json
     快捷启动 npm start 
         "start": "npm run serve",
