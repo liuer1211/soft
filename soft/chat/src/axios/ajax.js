@@ -16,7 +16,7 @@ let baseURL = "/api";
 
 let requests = axios.create({
   //基础路径
-  baseURL: process.env.NODE_ENV === 'development' ? baseURL : 'http://180.76.106.221:8002/',
+  baseURL: process.env.NODE_ENV === 'development' ? baseURL : 'http://116.204.116.99:8002/',
   //请求不能超过5S
   timeout: 5000,
   headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" }

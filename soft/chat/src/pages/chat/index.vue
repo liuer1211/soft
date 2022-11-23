@@ -365,7 +365,7 @@ export default {
 
 
     initWebSocket(){ //初始化weosocket
-      const wsuri = "ws://180.76.106.221:8887/";
+      const wsuri = "ws://116.204.116.99/:8887/";
       this.websock = new WebSocket(wsuri);
       this.websock.onmessage = this.websocketonmessage;
       this.websock.onopen = this.websocketonopen;
