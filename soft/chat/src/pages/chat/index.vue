@@ -358,7 +358,7 @@ export default {
     // 头像图片地址
     getImg(data) {
       if (data) {
-        let img =`http://180.76.106.221:5010/images/chat/${data}`
+        let img = require(`../../assets/images/chat/${data}`);
         return img;
       }
     },
