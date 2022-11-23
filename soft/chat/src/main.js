@@ -3,22 +3,14 @@ import App from './App.vue'
 
 import router from './router'
 import 'amfe-flexible'; // px适配
-import store from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
-import echarts from 'echarts'
-Vue.prototype.$echarts = echarts
 
-import VideoPlayer from 'vue-video-player';
-import 'vue-video-player/src/custom-theme.css';
-import 'video.js/dist/video-js.css';
 
-import '@/mock';
 import * as filters from '@/filter';
 
 Vue.use(Vant);
-Vue.use(VideoPlayer);
 
 
 Vue.config.productionTip = false
@@ -31,7 +23,6 @@ Object.keys(filters).forEach(key=>{
 const vm = new Vue({
   render: h => h(App),
   router,
-  store,
 }).$mount('#app')
 
 // console.log('vm=', vm)
