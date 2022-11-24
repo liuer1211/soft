@@ -370,7 +370,8 @@ export default {
     // 头像图片地址
     getImg(data) {
       if (data) {
-        let img = require(`../../assets/images/chat/${data}`);
+        // let img = require(`../../assets/images/chat/${data}`);
+        let img = `http://116.204.116.99:8891/img/${data}`
         return img;
       }
     },
