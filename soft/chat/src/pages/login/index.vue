@@ -19,8 +19,8 @@
   export default {
     data () {
       return {
-        account:'tingbao',
-        password:'tingbao123456'
+        account:'',
+        password:''
       }
     },
     methods: {
@@ -42,7 +42,15 @@
         let data = await userInfoLogin(params);
         console.log('data=',data)
         if (data.responseCode && data.responseCode === '0000') {
-          localStorage.setItem('userid',JSON.stringify(data.result));
+          let obj1 = data.result.filter(item=>{
+            return item.isNowUser==="1" 
+          })
+          let obj2 = data.result.filter(item=>{
+            return item.isNowUser!=="1" 
+          })
+
+          localStorage.setItem('userid',JSON.stringify(obj1[0]));
+          localStorage.setItem('friend',JSON.stringify(obj2[0]));
           this.$router.push({path: '/chat'})
         } else {
           this.getTip('登陆失败')
@@ -57,14 +65,6 @@
     },
     beforeDestroy(){
     },
-    // beforeRouteEnter(to,from,next){
-    //   console.log('beforeRouteEnter');
-    //   if(localStorage.getItem('userid') && localStorage.getItem('userid')==='userid'){
-    //     next('/home')
-    //   }else{
-    //     next()
-    //   }
-    // },
   }
 </script>
 

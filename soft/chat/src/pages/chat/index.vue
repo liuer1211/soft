@@ -42,7 +42,6 @@
           </div>
         </div>
       </div>
-      <!-- <img :src="getImgs('xixiao.png')"> -->
       <div class="chat-bot" :class="{show:active}">
         <div class="chat-model">
           <div class="swiper mySwiper1"  >
@@ -184,34 +183,47 @@ export default {
     },
     // 初始用户
     getInitUser(){
-      let userInfo = JSON.parse(localStorage.getItem('userid'));
-      
-      if(!userInfo){
-        this.$router.push({path: '/login'})
-      }
+      try {
+        let userInfo = JSON.parse(localStorage.getItem('userid'));
+        let friend = JSON.parse(localStorage.getItem('friend'));
 
-      this.users = userInfo || {};
-      console.log('u===========',this.users)
-      // 获取好友信息
-      let list = [
-        {
-          account: "wangdongdong",
-          id: 1,
-          password: "4c7a0e30e2874f2534e8892a5ddde722",
-          userName: "dd",
-          userNick: "东东",
-        },
-        {
-          account: "ymh",
-          id: 2,
-          password: "13710f6ab4560927385977dc93b0d95a",
-          userName: "y",
-          userNick: "666",
+        if(!userInfo){
+          this.$router.push({path: '/login'})
         }
-      ]
-      this.userList = list;
-      this.friend = userInfo.id === 1 ? list[1] : list[0];
-      console.log('this=====',this)
+
+        this.users = userInfo || {};
+        console.log('u===========',this.users)
+        // 获取好友信息
+        let list = [
+          {
+            ...userInfo
+          },
+          {
+            ...friend
+          }
+        ]
+
+        // {
+        //   account: "wangdongdong",
+        //   id: 1,
+        //   password: "4c7a0e30e2874f2534e8892a5ddde722",
+        //   userName: "dd",
+        //   userNick: "东东",
+        // },
+        // {
+        //   account: "ymh",
+        //   id: 2,
+        //   password: "13710f6ab4560927385977dc93b0d95a",
+        //   userName: "y",
+        //   userNick: "666",
+        // }
+        console.log('list====',list)
+        this.userList = list;
+        this.friend = userInfo.id === 1 ? list[1] : list[0];
+        console.log('this=====',this)
+      } catch(e) {
+        console.log(e)
+      }
     },
     // 获取聊天信息
     getList(res){
@@ -423,26 +435,6 @@ export default {
       this.setScroll();
     },
 
-    //表情
-    getEmojis() {
-      let list = [
-        {
-          key: '[微笑]',
-          value: 'weixiao.png'
-        },
-        {
-          key: '[愤怒]',
-          value: 'xixiao.png'
-        }
-      ]
-    },
-    // 头像图片地址
-    getImgs(data) {
-      if (data) {
-        let img = require(`../../assets/images/chat/${data}`);
-        return img;
-      }
-    },
   },
 
   destroyed() {
