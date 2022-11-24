@@ -1,5 +1,5 @@
 <template>
-  <div class="novel-main">
+  <div class="novel-main" id="printMe" >
     <!-- 关键字搜索 -->
     <div class="search-main">
       <el-form ref="form" :model="form" label-width="80px">
@@ -34,9 +34,23 @@
         </el-row>
       </el-form>
     </div>
+    <!-- 头部按钮 -->
+    <div style="padding:12px 0;">
+      <el-button type="primary" @click="typeAdd('')">新增</el-button>
+      <el-button type="">修改</el-button>
+      <el-button type="primary">删除</el-button>
+      <el-button type="">上传</el-button>
+      <el-button type="primary" @click="getXlsx">导出</el-button>
+      <el-button type="" v-print="printObj"  >打印</el-button>
+     
+    </div>
     <!-- 列表 -->
-    <div class="novel-list">
-      <el-table :data="list" border stripe style="width: 100%">
+    <div class="novel-list" >
+      <el-table  :data="list" border stripe style="width: 100%" @selection-change="handleSelectionChange">
+        <el-table-column
+      type="selection"
+      width="55">
+    </el-table-column>
         <el-table-column prop="num" label="书籍编号"></el-table-column>
         <el-table-column prop="title" label="书名" width="180"></el-table-column>
         <el-table-column prop="author" label="作者"></el-table-column>
@@ -75,9 +89,9 @@
       </el-pagination>
     </div>
     <!-- 底部按钮 -->
-    <div class="novel-main-bot">
+    <!-- <div class="novel-main-bot">
       <el-button type="primary" @click="typeAdd('')">新增</el-button>
-    </div>
+    </div> -->
     <!-- 新增 -->
     <Add 
       :dialogFormVisible="dialogFormVisible" 
@@ -90,7 +104,9 @@
 
 <script>
 import Add from './components/add';
- import { reqQueryNovelList } from '@/api/index' 
+import { reqQueryNovelList } from '@/api/index' 
+import xlsxfun from '../../utils/xlsx.js'
+
 export default {
   components: {
     Add
@@ -169,13 +185,23 @@ export default {
           videoName: "001.mp4",
         }
       ],
-      detail: {}
+      detail: {},
+      printObj: {
+        id: "printMe",
+        popTitle: '小说',
+        extraHead: '<meta http-equiv="Content-Language"content="zh-cn"/>'
+      },
+      multipleSelection:[]
     }
   },
   created() {
     this.getDate();
   },
   methods: {
+    handleSelectionChange(val) {
+      this.multipleSelection = val;
+      console.log(val)
+    },
     // 获取数据
     async getDate(){
       let params = {};
@@ -217,6 +243,17 @@ export default {
     // 新增-确定
     toDetermine() {
       this.dialogFormVisible = false
+    },
+    // 导出
+    getXlsx(){
+      let fields = {
+        num: "书籍编号",
+        title: "书名",
+        author: "作者",
+        type: "类型",
+        createTime: "创建日期",
+      };
+      xlsxfun(this.tableData, fields, "测试");
     }
   }
 }

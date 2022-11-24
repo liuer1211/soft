@@ -15,3 +15,6 @@ export const reqQueryNovalDetail = (params)=>requests({url:"/queryNovalDetail",m
 
 // 小说正剧列表详情
 export const reqQueryNovalAttributeList = (params)=>requests({url:"/queryNovalAttributeList",method:"post",data:params});
+
+// 登录
+export const userInfoLogin = (params)=>requests({url:"/userInfoLogin",method:"post",data:params});

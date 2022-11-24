@@ -77,6 +77,11 @@
           //   url: "user",
           //   icon: "user-o"
           // },
+          {
+            title: "游戏",
+            url: "game",
+            icon: "vip-card-o"
+          },
         ]
       }
     },
@@ -99,6 +104,10 @@
       },
       // 跳页面
       toPages(item) {
+        if(item.url === 'game'){
+          window.location.href = 'http://180.76.106.221/html/index.html';
+          return;
+        }
         this.$router.push({
           name: item.url
         })

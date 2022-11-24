@@ -10,7 +10,7 @@ const routes = [
   // 重定向
   {
     path: '*',
-    redirect: '/home' 
+    redirect: '/login' 
   },
   { 
     name: 'home',
@@ -81,6 +81,11 @@ const routes = [
     name: 'chat',
     path: '/chat', 
     component: () => import("@/pages/chat")
+  },
+  { 
+    name: 'login',
+    path: '/login', 
+    component: () => import("@/pages/login")
   },
 ]
 

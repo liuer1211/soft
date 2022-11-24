@@ -1,4 +1,9 @@
 //对于axios进行二次封装
+// import Vue from 'vue'
+// import VueRouter from 'vue-router'
+// Vue.use(VueRouter);
+// import router from 'vue-router';
+import router from '../router';
 import axios from "axios";
 import store from "@/store";
 import qs from 'qs';
@@ -29,9 +34,17 @@ requests.interceptors.response.use(
   (res) => {
     // console.log(res)
     store.commit('getLoading', false)
-    return res.data;
+    let {data = {}}=res;
+    // 无权限
+    if(!data.responseCode || data.responseCode==="9999"){
+      router.push({path: '/login'})
+      return;
+    } else {
+      return data;
+    }
   },
   (err) => {
+    console.log(err)
     store.commit('getLoading', false)
     // alert("服务器响应数据失败");
   }
