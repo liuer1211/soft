@@ -82,6 +82,11 @@
             url: "game",
             icon: "vip-card-o"
           },
+          {
+            title: "抽签",
+            url: "draw",
+            icon: "send-gift-o"
+          },
         ]
       }
     },
