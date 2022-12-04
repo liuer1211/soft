@@ -26,26 +26,30 @@
     methods: {
       // 登陆
       async toLogin() {
-        if (this.account==='') {
-          this.getTip('用户名不能为空!')
-          return
-        }
-        if (this.password==='') {
-          this.getTip('密码不能为空!')
-          return
-        }
+        try {
+          if (this.account==='') {
+            this.getTip('用户名不能为空!')
+            return
+          }
+          if (this.password==='') {
+            this.getTip('密码不能为空!')
+            return
+          }
 
-        let params = {
-          account:this.account,
-          password:this.password,
-        };
-        let data = await userInfoLogin(params);
-        console.log('data=',data)
-        if (data.responseCode && data.responseCode === '0000') {
-          localStorage.setItem('userid',JSON.stringify(data.result));
+          let params = {
+            account:this.account,
+            password:this.password,
+          };
+          let data = await userInfoLogin(params);
+          console.log('data=',data)
+          if (data.responseCode && data.responseCode === '0000') {
+            localStorage.setItem('userid',JSON.stringify(data.result));
+            this.$router.push({path: '/home'})
+          } else {
+            this.getTip('登陆失败')
+          }
+        } catch(e) {
           this.$router.push({path: '/home'})
-        } else {
-          this.getTip('登陆失败')
         }
       },
       // 消息提示
@@ -131,6 +135,11 @@
       &:nth-child(1){
         margin-bottom: 0.5rem;
       }
+    }
+    /deep/ .van-button--primary {
+      color: #fff;
+      background-color: #3399ff;
+      border: 0.02667rem solid #3399ff;
     }
   }
 </style>
