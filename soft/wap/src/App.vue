@@ -13,6 +13,19 @@
     // },
     mounted() {
       // console.log(this.$store)
+      // android点击手机物理返回键退出app bug解决
+      document.addEventListener('plusready',function(){
+        var webview = plus.webview.currentWebview();
+        plus.key.addEventListener('backbutton', function() {
+            webview.canBack(function(e) {
+                if (e.canBack) {
+                    webview.back();
+                } else {
+                    webview.close();//hide,quit
+                }
+            })
+        });
+      });
     }
   }
 </script>
