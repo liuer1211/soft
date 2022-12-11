@@ -17,7 +17,7 @@
         <div class="card-bot">
           <div>
             <p>{{contextObj.text}}</p>
-            <span class="date">{{newDate}}</span>
+            <!-- <span class="date">{{newDate}}</span> -->
           </div>
           <div>签文</div>
         </div>
@@ -263,6 +263,7 @@
             background-color: #ebebeb;
             border: 1px solid #ff9494;
             color: #000;
+            cursor: pointer;
           }
         }
         &.fin{
@@ -285,6 +286,7 @@
             position: absolute;
             right: 48%;
             bottom: 8px;
+            cursor: pointer;
           }
         }
       }
@@ -295,6 +297,7 @@
     color: #fff;
     background-color: #fbb953;
     border: 0.02667rem solid #fbb953;
+    cursor: pointer;
   }
   @keyframes anima{ 
     10% { 
