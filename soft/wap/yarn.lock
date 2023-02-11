@@ -7292,6 +7292,11 @@
   "resolved" "https://registry.npmmirror.com/punycode/-/punycode-1.3.2.tgz"
   "version" "1.3.2"
 
+"push.js@^1.0.12":
+  "integrity" "sha512-Mo/zkrPD58hcbMvC/9WveUPGz0PJ4T5UwQJP6DnMYbyxe7b1xM/9qqmJTMmDcprbZjCtLzf9wWtek7gA8O9QBw=="
+  "resolved" "https://registry.npmjs.org/push.js/-/push.js-1.0.12.tgz"
+  "version" "1.0.12"
+
 "q@^1.1.2":
   "integrity" "sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw=="
   "resolved" "https://registry.npmmirror.com/q/-/q-1.5.1.tgz"
