@@ -10,12 +10,6 @@
     <RightModel :statu="statu" :isBack="isBack"></RightModel>
     <!-- 英雄帖 -->
     <Stick/>
-    <div>
-      ======================
-    </div>
-    <div @click="dianji">
-      点击桌面通知
-    </div>
   </div>
 </template>
 
@@ -48,7 +42,7 @@
     },
     created() {
       //消息通知的初始化
-      Push.Permission.request();
+      // Push.Permission.request();
     },
     watch:{
       // offsetTop(val) {
@@ -66,20 +60,20 @@
         // }
       },
 
-      dianji(){
-        console.log('123')
-        //消息通知的内容
-        this.pushMessage('消息通知的内容');
-      },
-      //推送弹框消息
-      pushMessage(message){
-        Push.create("消息通知的标题", {
-          body: message,
-          requireInteraction: true,
-          //icon: '/icon.png',
-          timeout: 600000,
-        });
-      }
+      // dianji(){
+      //   console.log('123')
+      //   //消息通知的内容
+      //   this.pushMessage('消息通知的内容');
+      // },
+      // //推送弹框消息
+      // pushMessage(message){
+      //   Push.create("消息通知的标题", {
+      //     body: message,
+      //     requireInteraction: true,
+      //     //icon: '/icon.png',
+      //     timeout: 600000,
+      //   });
+      // }
     }
   }
 </script>
