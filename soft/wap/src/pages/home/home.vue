@@ -10,6 +10,12 @@
     <RightModel :statu="statu" :isBack="isBack"></RightModel>
     <!-- 英雄帖 -->
     <Stick/>
+    <div>
+      ======================
+    </div>
+    <div @click="dianji">
+      点击桌面通知
+    </div>
   </div>
 </template>
 
@@ -18,6 +24,7 @@
   import ImgModel from '@/components/imgModel/imgModel'
   import RightModel from '@/components/rightModel/rightModel'
   import Stick from '@/components/stick/stick'
+  import Push from 'push.js'
 
   export default {
     components: {
@@ -39,6 +46,10 @@
       // console.log(this.offsetTop)
       // window.addEventListener('scroll',this.rollingheight,true)
     },
+    created() {
+      //消息通知的初始化
+      Push.Permission.request();
+    },
     watch:{
       // offsetTop(val) {
       //   console.log(val)
@@ -54,6 +65,21 @@
         //   this.isShow = true
         // }
       },
+
+      dianji(){
+        console.log('123')
+        //消息通知的内容
+        this.pushMessage('消息通知的内容');
+      },
+      //推送弹框消息
+      pushMessage(message){
+        Push.create("消息通知的标题", {
+          body: message,
+          requireInteraction: true,
+          //icon: '/icon.png',
+          timeout: 600000,
+        });
+      }
     }
   }
 </script>

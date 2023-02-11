@@ -22,6 +22,7 @@
     "postcss": "^7.0.39",
     "postcss-pxtorem": "^5.1.1",
     "print-js": "^1.6.0",
+    "push.js": "^1.0.12",
     "qs": "^6.5.3",
     "socket.io": "^2.1.0",
     "swiper": "^7.4.1",
