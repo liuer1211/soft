@@ -10,8 +10,11 @@
     <RightModel :statu="statu" :isBack="isBack"></RightModel>
     <!-- 英雄帖 -->
     <Stick/>
+    <div>
+      ======================
+    </div>
     <div @click="dianji">
-      dianjishijian
+      点击桌面通知
     </div>
   </div>
 </template>
