@@ -18,7 +18,7 @@
   import ImgModel from '@/components/imgModel/imgModel'
   import RightModel from '@/components/rightModel/rightModel'
   import Stick from '@/components/stick/stick'
-  import Push from 'push.js'
+  // import Push from 'push.js'
 
   export default {
     components: {

@@ -41,7 +41,7 @@
             password:this.password,
           };
           let data = await userInfoLogin(params);
-          console.log('data=',data)
+          // console.log('data=',data)
           if (data.responseCode && data.responseCode === '0000') {
             localStorage.setItem('userid',JSON.stringify(data.result));
             this.$router.push({path: '/home'})
