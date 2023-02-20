@@ -87,6 +87,11 @@
             url: "draw",
             icon: "send-gift-o"
           },
+          {
+            title: "小游戏",
+            url: "games",
+            icon: "smile-o"
+          },
         ]
       }
     },

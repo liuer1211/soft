@@ -154,6 +154,9 @@
 
     vue inspect > output.js   输出默认配置文件
 
+# ngrok
+    输入命令ngrok http XXX(XXX为待穿透的端口号)，穿透
+
 兵器
 
 声音模拟

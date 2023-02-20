@@ -92,7 +92,11 @@ const routes = [
     path: '/draw', 
     component: () => import("@/pages/draw")
   },
-  
+  { 
+    name: 'games',
+    path: '/games', 
+    component: () => import("@/pages/games")
+  },
 ]
 
 //需要重写VueRouter.prototype原型对象身上的push|replace方法
