@@ -3,7 +3,13 @@
     <div v-show="isStick1" class="stick-model-main" @click.stop="close">
       <div class="stick-model" :class="{hid:$store.state.common.isStick1}">
         <h1>规则</h1>
-        
+        <div class="cen">
+          <img src="../../../assets/images/game/1.png" alt="">
+          <img src="../../../assets/images/game/2.png" alt="">
+          <img src="../../../assets/images/game/3.png" alt="">
+          <img src="../../../assets/images/game/4.png" alt="">
+          <img src="../../../assets/images/game/5.png" alt="">
+        </div>
       </div>
     </div>
   </div>
@@ -105,10 +111,20 @@ export default {
           margin-bottom: 10px;
         }
         p {
-          // margin-top: 12px;
           word-break: break-all;
           text-indent: 12px;
           line-height: 24px;
+        }
+        .cen{
+          width: 100%;
+          height: 425px;
+          img{
+            width: 100%;
+            border-radius: 4px;
+          }
+        }
+        ::-webkit-scrollbar{
+          display: none;
         }
       }
     }
