@@ -1,16 +1,21 @@
 <template>
   <div id="app">
-   <router-view></router-view>
+    <router-view></router-view>
+    <Foot v-show="$route.meta.foot"/>
   </div>
 </template>
 
 <script>
+  import Foot from './components/foot';
   // import Skeleton from '@/components/skeleton'
   export default {
     name: 'App',
     // components: {
     //   Skeleton
     // },
+    components: {
+      Foot
+    },
     mounted() {
       // console.log(this.$store)
       // android点击手机物理返回键退出app bug解决

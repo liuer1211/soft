@@ -17,6 +17,8 @@ import 'video.js/dist/video-js.css';
 import '@/mock';
 import * as filters from '@/filter';
 
+import dataV from '@jiaminghi/data-view'
+
 // import socket from './utiles/test/socketio_test';
 
 // import './test/socket'
@@ -29,6 +31,7 @@ import * as filters from '@/filter';
 
 Vue.use(Vant);
 Vue.use(VideoPlayer);
+Vue.use(dataV)
 
 // Vue.prototype.$socket = socket;
 
