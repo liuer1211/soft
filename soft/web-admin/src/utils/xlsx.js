@@ -15,7 +15,8 @@ export default (json, fields, filename = '测试数据.xlsx') => {
   wb.SheetNames.push(sheetName);
   wb.Sheets[sheetName] = ws;
   const defaultCellStyle = { font: { name: "Verdana", sz: 13, color: "FF00FF88" }, fill: { fgColor: { rgb: "FFFFAA00" } } };//设置表格的样式
-  let wopts = { bookType: 'xlsx', bookSST: false, type: 'binary', cellStyles: true, defaultCellStyle: defaultCellStyle, showGridLines: false };  //写入的样式
+  let wopts = { bookType: 'xlsx', bookSST: false, type: 'binary', cellStyles: true, defaultCellStyle: defaultCellStyle, showGridLines: false };  
+  //写入的样式
   let wbout = XLSX.write(wb, wopts);
   let blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
   fs.saveAs(blob, filename + '.xlsx');

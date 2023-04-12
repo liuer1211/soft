@@ -15,12 +15,22 @@ const routes = [
   { 
     name: 'home',
     path: '/home', 
-    component: Home 
+    component: Home,
+    meta: {
+      foot: true,
+      title: '首页',
+      path: 'home'
+    }
   },
   { 
     name: 'user',
     path: '/user', 
-    component: User 
+    component: User,
+    meta: {
+      foot: true,
+      title: '我的',
+      path: 'user'
+    }
   },
   { 
     name: 'novel',
@@ -70,7 +80,12 @@ const routes = [
   { 
     name: 'article',
     path: '/article', 
-    component: () => import("@/pages/article/article")
+    component: () => import("@/pages/article/article"),
+    meta: {
+      foot: true,
+      title: '文章',
+      path: 'article'
+    }
   },
   { 
     name: 'articleDetail',
@@ -96,6 +111,16 @@ const routes = [
     name: 'games',
     path: '/games', 
     component: () => import("@/pages/games")
+  },
+  { 
+    name: ' ',
+    path: '/datav', 
+    component: () => import("@/pages/datav"),
+    meta: {
+      foot: true,
+      title: '地图',
+      path: 'datav',
+    }
   },
 ]
 

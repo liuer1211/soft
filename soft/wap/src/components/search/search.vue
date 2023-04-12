@@ -62,11 +62,11 @@
         show: false,
         rShow: false,
         list: [
-          {
-            title: "文章",
-            url: "article",
-            icon: "description"
-          },
+          // {
+          //   title: "文章",
+          //   url: "article",
+          //   icon: "description"
+          // },
           {
             title: "解忧",
             url: "chat",
@@ -136,6 +136,12 @@
     display: none;
     background-color: #fff;
     z-index: 999;
+    // /deep/ .van-overlay{
+    //   z-index: 100000!important;
+    // }
+    // /deep/ .van-popup.van-popup--left{
+    //   z-index: 100001!important;
+    // }
     &.active {
       display: block;
     }
@@ -256,7 +262,7 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0,0,0,.7);
-        // z-index: 99!important;
+        // z-index: 100000!important;
       }
       /deep/ .van-popup--top{
         top: 53px;
