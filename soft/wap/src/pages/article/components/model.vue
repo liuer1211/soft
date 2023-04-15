@@ -131,7 +131,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: #3399ff;
+      color: #ababab;
       height: 300px;
       justify-content: center;
       /deep/ i{
