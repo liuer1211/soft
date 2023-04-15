@@ -36,12 +36,21 @@
     methods: {
       getTab(item) {
         this.active = item.active;
+        this.$emit('childFun', item);
         this.$nextTick(()=>{
-          const view = document.getElementById('active');
-          view.scrollIntoView();
+          this.setCentert();
         })
-      }
-    }
+      },
+      setCentert() {
+        // 外层整个tab
+        let container = document.querySelector('.tabs-main-re')
+        // 单个tab
+        let activeNode = document.querySelector('.tabs-main-ab.active')
+        // 元素距离滑块左边距离  -  居中时元素到窗口左边距离  =  滚动条滑动的距离
+        let scrollWidth = activeNode.offsetLeft - (document.body.clientWidth-activeNode.clientWidth)/2
+        container.scrollLeft = scrollWidth;
+      },
+    },
   }
 </script>
 
@@ -70,7 +79,7 @@
         display: flex;
         background-color: #fff;
         user-select: none;
-        transition: .3s;
+        transition: .5s;
         .tabs-main-ab {
           position: relative;
           // padding: 0 8px;
@@ -86,7 +95,7 @@
           text-align: center;
           &.active {
             color: #3399ff;
-            transition: .3s;
+            transition: .5s;
           }
           &.active::after {
             position: absolute;
@@ -98,7 +107,7 @@
             width: 50px;
             background-color: #3399ff;
             border-radius: 20px;
-            animation: .3s wid;
+            animation: .5s wid;
           }
         }
       }

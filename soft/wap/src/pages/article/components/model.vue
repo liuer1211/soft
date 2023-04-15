@@ -1,6 +1,6 @@
 <template>
   <div class="model-main">
-    <div class="model-bg">
+    <div class="model-bg" v-show="list.length">
       <div class="model-list" v-for="(item,index) in list" :key="index" @click="toPage(item)">
         <div>
           <img :src="getImg(item.img)" alt="">
@@ -16,6 +16,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="no-data" v-show="!list.length">
+      <van-icon name="orders-o" />
+      <div>空空如也</div>
     </div>
   </div>
 </template>
@@ -45,12 +49,12 @@
       // 跳页面
       toPage(data) {
         // console.log(data)
-        // this.$router.push({
-        //   name: 'articleDetail',
-        //   params: {
-        //     data
-        //   }
-        // })
+        this.$router.push({
+          name: 'articleDetail',
+          params: {
+            data
+          }
+        })
       }
     }
   }
@@ -119,6 +123,23 @@
             }
           }
         }
+      }
+    }
+    .no-data{
+      padding: 0 12px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #3399ff;
+      height: 300px;
+      justify-content: center;
+      /deep/ i{
+        font-size: 50px;
+      }
+      >div{
+        font-size: 20px;
+        margin-top: 20px;
       }
     }
   }

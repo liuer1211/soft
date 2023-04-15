@@ -21,7 +21,7 @@
     </div>
     <div class="art-bg"></div>
     <!-- 右侧浮框 -->
-    <!-- <RightModel></RightModel> -->
+    <RightModel></RightModel>
   </div>
 </template>
 
