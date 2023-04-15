@@ -6,7 +6,6 @@ import 'amfe-flexible'; // px适配
 import store from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
-
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 
