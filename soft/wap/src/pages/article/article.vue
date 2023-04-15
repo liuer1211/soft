@@ -1,10 +1,10 @@
 <template>
   <div class="article-main">
     <!-- 导航 -->
-    <Tab :list="tabList"/>
+    <Tab :list="tabList" @childFun="getChildFun"/>
     <!-- 内容 -->
     <div class="art-model">
-      <Model :list="modelList"/>
+      <Model :list="getNewList"/>
     </div>
     <!-- 右侧浮框 -->
     <RightModel></RightModel>
@@ -23,7 +23,7 @@
     data() {
       return {
         tabList: [
-          {title: '最新', type: '01', active:'1'},
+          {title: '推荐', type: '01', active:'1'},
           {title: '最热', type: '02', active:'2'},
           {title: '人文', type: '03', active:'3'},
           {title: '科技', type: '04', active:'4'},
@@ -40,7 +40,7 @@
             img: '1.jpg', 
             name: '山鬼', 
             date: '2022-06-01', 
-            type: '02', 
+            type: '03', 
             top: '1', 
             look: '10', 
             agree: '12'
@@ -51,7 +51,7 @@
             img: '1.jpg', 
             name: '雅风', 
             date: '2022-05-20', 
-            type: '02', 
+            type: '05', 
             top: '1', 
             look: '10', 
             agree: '12'
@@ -62,7 +62,7 @@
             img: '1.jpg', 
             name: '山鬼', 
             date: '2022-05-01', 
-            type: '02', 
+            type: '03', 
             top: '1', 
             look: '10', 
             agree: '12'
@@ -73,12 +73,25 @@
             img: '1.jpg', 
             name: '百香子', 
             date: '2022-04-01', 
-            type: '02', 
+            type: '03', 
             top: '1', 
             look: '10', 
             agree: '12'
           },
-        ]
+        ],
+        type: '01'
+      }
+    },
+    computed:{
+      getNewList(){
+        console.log('===')
+        let list =[];
+        if(this.type==='01' || this.type ==='02'){
+          list = this.modelList;
+        } else {
+          list = this.modelList.filter(item=> item.type===this.type)
+        }
+        return list
       }
     },
     mounted() {
@@ -87,6 +100,10 @@
     methods: {
       getList(item) {
         console.log(item)
+      },
+      // tab切换
+      getChildFun(data){
+        this.type = data.type;
       }
     }
   }
