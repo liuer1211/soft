@@ -89,7 +89,7 @@
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
-          flex: 0 0 20%;
+          flex: 0 0 18%;
           height: 44px;
           line-height: 44px;
           text-align: center;
@@ -101,10 +101,10 @@
             position: absolute;
             content: '';
             bottom: 0;
-            left: 13px;
+            left: 14px;
             z-index: 1;
             height: 4px;
-            width: 50px;
+            width: 41px;
             background-color: #3399ff;
             border-radius: 20px;
             animation: .5s wid;
