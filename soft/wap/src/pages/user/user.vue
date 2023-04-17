@@ -18,7 +18,7 @@
             <CountTo
               :startVal='item.startVal'
               :endVal='item.endVal'
-              duration='2000'
+              :duration='duration'
             />
           </p>
         </div>
@@ -121,7 +121,8 @@
             startVal: 0,
             endVal: 34,
           }
-        ]
+        ],
+        duration: 1500
       }
     },
     created() {
@@ -138,6 +139,7 @@
 
 <style lang="less" scoped>
   .user-main{
+    padding-bottom: 56px;
     .user-top{
       padding: 12px;
       box-sizing: border-box;

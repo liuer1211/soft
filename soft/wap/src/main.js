@@ -18,6 +18,15 @@ import * as filters from '@/filter';
 
 import dataV from '@jiaminghi/data-view'
 
+import atm from '@/assets/images/index/logo.png';
+//引入插件
+import VueLazyload from 'vue-lazyload';
+//注册插件
+Vue.use(VueLazyload,{
+  //懒加载默认的图片
+  loading:atm
+});
+
 // import socket from './utiles/test/socketio_test';
 
 // import './test/socket'

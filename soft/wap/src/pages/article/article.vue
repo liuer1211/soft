@@ -135,7 +135,7 @@
   .article-main {
     font-size: 16px;
     .art-model {
-      padding: 56px 0 0;
+      padding: 56px 0;
     }
   }
 </style>

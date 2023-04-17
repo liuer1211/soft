@@ -157,6 +157,19 @@
 # ngrok
     输入命令ngrok http XXX(XXX为待穿透的端口号)，穿透
 
+# v-lazy
+    import atm from '@/assets/images/index/logo.png';
+    //引入插件
+    import VueLazyload from 'vue-lazyload';
+    //注册插件
+    Vue.use(VueLazyload,{
+    //懒加载默认的图片
+    loading:atm
+    });
+    
+    <img v-lazy="`http://180.76.106.221:5010/images/novel/${item.imgName}`" alt=""/>
+
+
 兵器
 
 声音模拟

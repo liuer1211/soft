@@ -82,6 +82,7 @@
   .home-main{
     .home-center{
       padding-top: 66px;
+      padding-bottom: 55px;
     }
   }
 </style>

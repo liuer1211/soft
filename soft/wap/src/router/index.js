@@ -2,9 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 // 1. 定义路由组件.
-import Home from '../pages/home/home'
-import Novel from '../pages/novel/novel'
-import User from '../pages/user/user'
+// import Home from '../pages/home/home'
+// import Novel from '../pages/novel/novel'
+// import User from '../pages/user/user'
 
 const routes = [
   // 重定向
@@ -15,7 +15,8 @@ const routes = [
   { 
     name: 'home',
     path: '/home', 
-    component: Home,
+    // component: Home,
+    component: () => import("@/pages/home/home"),
     meta: {
       foot: true,
       title: '首页',
@@ -25,7 +26,8 @@ const routes = [
   { 
     name: 'user',
     path: '/user', 
-    component: User,
+    // component: User,
+    component: () => import("@/pages/user/user"),
     meta: {
       foot: true,
       title: '我的',
@@ -35,7 +37,8 @@ const routes = [
   { 
     name: 'novel',
     path: '/novel', 
-    component: Novel,
+    // component: Novel,
+    component: () => import("@/pages/novel/novel"),
   },
   { 
     name: 'people',

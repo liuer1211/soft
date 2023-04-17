@@ -3,7 +3,7 @@
     <div class="model-List" v-for="(item,index) in list" :key="index" @click="goPage(item)">
       <div class="model-top" v-if="item.imgName">
         <!-- <img :src="getImg(item.imgName)" alt=""/> -->
-        <img :src="`http://180.76.106.221:5010/images/novel/${item.imgName}`" alt=""/>
+        <img v-lazy="`http://180.76.106.221:5010/images/novel/${item.imgName}`" alt=""/>
         <i>{{item.flag || 'hot'}}</i>
       </div>
       <div class="model-bot">
