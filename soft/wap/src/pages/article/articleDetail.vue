@@ -19,7 +19,7 @@
         </p>
       </div>
       <div v-show="obj.type==='07'">
-        <div style="text-align: center;">
+        <div style="text-align: center;font-size: 18px;">
           信步山岭间，离别故园久。<br/>
           迎面凉风拂，不觉已入秋。<br/>
           落日照大地，余晖暖山丘。<br/>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div v-show="obj.type==='08'">
-        <div style="text-align: center;">
+        <div style="text-align: center;font-size: 18px;">
           夜将近 晚风微凉<br/>
           烟云散 明月照窗<br/>  
           轻舟过小桥<br/>  

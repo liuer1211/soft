@@ -10,7 +10,7 @@
     </div>
     <div :class="$route.path==='/datav'?'active':''" @click="toPage('datav')">
       <van-icon name="flower-o"/>
-      <span>地图</span>
+      <span>生态</span>
     </div>
     <div :class="$route.path==='/user'?'active':''" @click="toPage('user')">
       <van-icon name="manager-o"/>
@@ -60,7 +60,7 @@ export default{
     width: 100%;
     height: 54px;
     position: fixed;
-    bottom: 0;
+    bottom: -1px;
     padding: 12px;
     box-sizing: border-box;
     z-index: 99;
