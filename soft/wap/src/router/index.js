@@ -16,7 +16,9 @@ const routes = [
     name: 'home',
     path: '/home', 
     // component: Home,
-    component: () => import("@/pages/home/home"),
+    component: () => import(
+      /* webpackPrefetch:true */
+      "@/pages/home/home"),
     meta: {
       foot: true,
       title: '首页',
@@ -27,7 +29,9 @@ const routes = [
     name: 'user',
     path: '/user', 
     // component: User,
-    component: () => import("@/pages/user/user"),
+    component: () => import(
+      /* webpackPrefetch:true */
+      "@/pages/user/user"),
     meta: {
       foot: true,
       title: '我的',
@@ -83,7 +87,9 @@ const routes = [
   { 
     name: 'article',
     path: '/article', 
-    component: () => import("@/pages/article/article"),
+    component: () => import(
+      /* webpackPrefetch:true */
+      "@/pages/article/article"),
     meta: {
       foot: true,
       title: '文章',
@@ -118,7 +124,9 @@ const routes = [
   { 
     name: ' ',
     path: '/datav', 
-    component: () => import("@/pages/datav"),
+    component: () => import(
+      /* webpackPrefetch:true */
+      "@/pages/datav"),
     meta: {
       foot: true,
       title: '地图',
