@@ -2,19 +2,6 @@
   <div class="datav">
     <dv-full-screen-container>
       <div class="model-box">
-        <!-- <div class="model1">
-          <dv-border-box-1>
-            <dv-scroll-board :config="config" style="width:100%;height:100%"/>
-          </dv-border-box-1>
-        </div> -->
-        <!-- <div class="model2">
-          <dv-border-box-9>
-            <dv-decoration-9 style="width:150px;height:150px;">66%</dv-decoration-9>
-          </dv-border-box-9>
-          <dv-border-box-8>
-            <dv-decoration-12 style="width:150px;height:150px;"/>
-          </dv-border-box-8>
-        </div> -->
         <dv-decoration-12 class="decoration"/>
       </div>
     </dv-full-screen-container>
