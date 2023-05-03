@@ -70,22 +70,27 @@ export default {
       .sp1 {
         top: 141px;
         left: 136px;
+        animation: sp1 1s;
       }
       .sp2 {
         left: 58px;
         top: 123px;
+        animation: sp2 1.5s;
       }
       .sp3 {
         right: 50px;
         top: 50px;
+        animation: sp3 2s;
       }
       .sp4{
         bottom: 106px;
         right: 112px;
+        animation: sp4 2.5s;
       }
       .sp5{
         bottom: 59px;
         left: 83px;
+        animation: sp5 3s;
       }
     }
     #dv-full-screen-container{
@@ -128,6 +133,46 @@ export default {
       .decoration{
         width:300px;
         height:300px;
+      }
+    }
+    @keyframes sp1 {
+      0%{
+        opacity: 0
+      }
+      100%{
+        opacity: 100
+      }
+    }
+    @keyframes sp2 {
+      0%{
+        opacity: 0
+      }
+      100%{
+        opacity: 100
+      }
+    }
+    @keyframes sp3 {
+      0%{
+        opacity: 0
+      }
+      100%{
+        opacity: 100
+      }
+    }
+    @keyframes sp4 {
+      0%{
+        opacity: 0
+      }
+      100%{
+        opacity: 100
+      }
+    }
+    @keyframes sp5 {
+      0%{
+        opacity: 0
+      }
+      100%{
+        opacity: 100
       }
     }
   }
