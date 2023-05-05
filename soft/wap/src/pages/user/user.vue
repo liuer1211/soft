@@ -55,18 +55,23 @@
       <div class="bg">
         <div class="font">常用功能</div>
         <van-grid :column-num="4" :border="false">
-          <van-grid-item v-for="(value,i) in list" :key="i" :icon="value.icon" :text="value.name" />
+          <van-grid-item @click="handleClick(value)" v-for="(value,i) in list" :key="i" :icon="value.icon" :text="value.name" />
         </van-grid>
       </div>
     </div>
+    <BarScan @ok="getResult" @err="geterror" :flag="flag" @closeModel="flag=false"></BarScan>
   </div>
 </template>
 
 <script>
+  import Vue from 'vue';
+  import { Toast } from 'vant';
+  Vue.use(Toast);
+  import BarScan from '@/components/qrcode/index.vue'
   import CountTo from 'vue-count-to'
   export default {
     components: {
-      CountTo
+      CountTo,BarScan
     },
     data() {
       return {
@@ -95,6 +100,10 @@
           {
             name: '礼物',
             icon: 'gift-o'
+          },
+          {
+            name: '扫一扫',
+            icon: 'scan'
           }
         ],
         tabList: [
@@ -122,17 +131,36 @@
             endVal: 34,
           }
         ],
-        duration: 1500
+        duration: 1500,
+        result:'',
+        flag:false,
       }
     },
     created() {
       this.getUserInfo();
+      
     },
     methods:{
+      // 获取用户信息
       getUserInfo(){
         let user = localStorage.getItem('userid') || "{}";
         this.userInfo = JSON.parse(user)
-      }
+      },
+      // 卡片点击
+      handleClick(value){
+        if(value.name==='扫一扫'){
+          this.flag = true;
+        }
+      },
+      getResult(result){
+        this.result=result;
+        console.log(result)
+        Toast(result);
+			},
+			geterror(e){
+        console.log(e)
+        Toast(e);
+			},
     }
   }
 </script>
