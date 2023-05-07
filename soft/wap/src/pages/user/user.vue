@@ -64,9 +64,7 @@
 </template>
 
 <script>
-  import Vue from 'vue';
   import { Toast } from 'vant';
-  Vue.use(Toast);
   import BarScan from '@/components/qrcode/index.vue'
   import CountTo from 'vue-count-to'
   export default {
@@ -78,33 +76,44 @@
         userInfo:'',
         list: [
           {
+            id:'1',
             name: '设置',
             icon: 'setting-o'
           },
           {
+            id:'2',
             name: '音乐',
             icon: 'service-o'
           },
           {
+            id:'3',
             name: '购物车',
             icon: 'shopping-cart-o'
           },
           {
+            id:'4',
             name: '收藏',
             icon: 'star-o'
           },
           {
+            id:'5',
             name: '关注',
             icon: 'like-o'
           },
           {
+            id:'6',
             name: '礼物',
             icon: 'gift-o'
           },
           {
-            name: '扫一扫',
-            icon: 'scan'
-          }
+            id:'7',
+            name: '简历',
+            icon: 'orders-o'
+          },
+          // {
+          //   name: '扫一扫',
+          //   icon: 'scan'
+          // }
         ],
         tabList: [
           {
@@ -148,9 +157,28 @@
       },
       // 卡片点击
       handleClick(value){
-        if(value.name==='扫一扫'){
-          this.flag = true;
+        switch(value.id){
+          case '7':
+            // Toast('简历');
+            this.getPdf()
+            break;
+          default:
+            Toast('暂未开通');
+            break;
         }
+        // if(value.name==='扫一扫'){
+        //   this.flag = true;
+        // }
+      },
+      // 简历
+      getPdf() {
+        // let a = document.createElement("a"); //创建一个<a></a>标签
+        // a.href = "http://180.76.106.221/pdf/1.pdf"; // 给a标签的href属性值加上地址，注意，这里是绝对路径，不用加 点.
+        // a.download = "1.pdf"; //设置下载文件文件名，这里加上.xlsx指定文件类型，pdf文件就指定.fpd即可
+        // a.style.display = "none"; // 障眼法藏起来a标签
+        // document.body.appendChild(a); // 将a标签追加到文档对象中
+        // a.click(); // 模拟点击了a标签，会触发a标签的href的读取，浏览器就会自动下载了
+        // a.remove(); // 一次性的，用完就删除a标签
       },
       getResult(result){
         this.result=result;
