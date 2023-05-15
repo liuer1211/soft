@@ -8,6 +8,11 @@
       <van-icon name="orders-o"/>
       <span>文章</span>
     </div>
+    <div :class="$route.path==='/record'?'active':''" @click="toPage('record')">
+      <van-icon name="circle" v-if="$route.path!=='/record'"/>  
+      <van-icon @click="toRecord" name="plus" class="weight" v-if="$route.path==='/record'"/>
+      <span v-if="$route.path!=='/record'">记录</span>
+    </div>
     <div :class="$route.path==='/datav'?'active':''" @click="toPage('datav')">
       <van-icon name="flower-o"/>
       <span>生态</span>
@@ -20,6 +25,7 @@
 </template>
 
 <script>
+import { Toast } from 'vant';
 export default{
   methods:{
     toPage(code){
@@ -32,6 +38,11 @@ export default{
         case 'article':
           this.$router.replace({
             path:'/article'
+          })
+          return;
+        case 'record':
+          this.$router.replace({
+            path:'/record'
           })
           return;
         case 'datav':
@@ -47,6 +58,9 @@ export default{
         default:
           return;  
       }
+    },
+    toRecord() {
+      Toast('暂未开通')
     }
   }
 }
@@ -72,6 +86,8 @@ export default{
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 50px;
+      transition: .3s;
       &.active{
         color: #3399ff;
       }
@@ -80,6 +96,9 @@ export default{
       }
       >i{
         font-size: 18px;
+        &.weight{
+          font-weight: 600;
+        }
       }
     }
   }
