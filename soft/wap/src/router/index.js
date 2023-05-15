@@ -122,7 +122,7 @@ const routes = [
     component: () => import("@/pages/games")
   },
   { 
-    name: ' ',
+    name: 'datav',
     path: '/datav', 
     component: () => import(
       /* webpackPrefetch:true */
@@ -133,6 +133,17 @@ const routes = [
       path: 'datav',
     }
   },
+  {
+    
+    name: 'record',
+    path: '/record', 
+    component: () => import("@/pages/record"),
+    meta: {
+      foot: true,
+      title: '记录',
+      path: 'record',
+    }
+  }
 ]
 
 //需要重写VueRouter.prototype原型对象身上的push|replace方法

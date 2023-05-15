@@ -73,7 +73,7 @@
     },
     data() {
       return {
-        userInfo:'',
+        userInfo:{},
         list: [
           {
             id:'1',
@@ -147,7 +147,6 @@
     },
     created() {
       this.getUserInfo();
-      
     },
     methods:{
       // 获取用户信息
@@ -159,8 +158,8 @@
       handleClick(value){
         switch(value.id){
           case '7':
-            // Toast('简历');
-            this.getPdf()
+            Toast('暂未开通');
+            // this.getPdf()
             break;
           default:
             Toast('暂未开通');
