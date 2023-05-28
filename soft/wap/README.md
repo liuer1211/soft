@@ -74,6 +74,14 @@
     阿里矢量图标库
       <i class="iconfont icon-double-arrow-left"></i>
 
+    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+    if (process.env.NODE_ENV === 'production') {
+      config.plugins = [
+          ...config.plugins,
+          new BundleAnalyzerPlugin()
+      ]
+    }
+    运行npm run build后，打开localhost:8888
 
 # 路由
     实例化路由
