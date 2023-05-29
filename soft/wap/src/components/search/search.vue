@@ -2,7 +2,8 @@
   <div class="search-main" :class="isShow ? 'active' : ''">
     <div class="search-head">
       <div @click="showModel">
-        <i class="iconfont icon-nav-list"></i>
+        <i v-if="!isBack" class="iconfont icon-nav-list"></i>
+        <van-icon v-else name="arrow-left" />
       </div>
       <div>
         <van-search v-model="searchValue" :placeholder="placeholder" />
@@ -53,12 +54,19 @@
       isShow: {
         type: Boolean,
         default: true,
+      },
+      isBack: {
+        type: Boolean,
+        default: false,
+      },
+      placeholder:{
+        type: String,
+        default: '今日热词：剧本',
       }
     },
     data() {
       return {
         searchValue: this.searchVal,
-        placeholder: '今日热词：剧本',
         show: false,
         rShow: false,
         list: [
@@ -110,7 +118,11 @@
       },
       // 展示左侧弹框
       showModel() {
-        this.show = true;
+        if(this.isBack){
+          this.$router.go(-1);
+        } else {
+          this.show = true;
+        }
       },
       // 跳页面
       toPages(item) {
@@ -174,6 +186,9 @@
           }
         }
         // background-color: #3399ff;
+      }
+      .van-icon.van-icon-arrow-left{
+        color:#fff;
       }
     }
     /deep/ .van-search{

@@ -134,7 +134,6 @@ const routes = [
     }
   },
   {
-    
     name: 'record',
     path: '/record', 
     component: () => import("@/pages/record"),
@@ -143,6 +142,16 @@ const routes = [
       title: '记录',
       path: 'record',
     }
+  },
+  {
+    name: 'music',
+    path: '/music', 
+    component: () => import("@/pages/music"),
+  },
+  {
+    name: 'dataInfo',
+    path: '/dataInfo', 
+    component: () => import("@/pages/dataInfo"),
   }
 ]
 

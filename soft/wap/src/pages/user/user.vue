@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="t-two">
-        <div v-for="(item,index) in tabList" :key="index">
+        <div v-for="(item,index) in tabList" :key="index" @click="toPage(item)" >
           <span>{{item.name}}</span>
           <p v-if="item.type==='01'">{{item.typeVal}}</p>
           <p v-if="item.type==='02'">
@@ -75,41 +75,41 @@
       return {
         userInfo:{},
         list: [
-          {
-            id:'1',
-            name: '设置',
-            icon: 'setting-o'
-          },
+          // {
+          //   id:'1',
+          //   name: '设置',
+          //   icon: 'setting-o'
+          // },
           {
             id:'2',
             name: '音乐',
             icon: 'service-o'
           },
-          {
-            id:'3',
-            name: '购物车',
-            icon: 'shopping-cart-o'
-          },
-          {
-            id:'4',
-            name: '收藏',
-            icon: 'star-o'
-          },
-          {
-            id:'5',
-            name: '关注',
-            icon: 'like-o'
-          },
-          {
-            id:'6',
-            name: '礼物',
-            icon: 'gift-o'
-          },
-          {
-            id:'7',
-            name: '简历',
-            icon: 'orders-o'
-          },
+          // {
+          //   id:'3',
+          //   name: '购物车',
+          //   icon: 'shopping-cart-o'
+          // },
+          // {
+          //   id:'4',
+          //   name: '收藏',
+          //   icon: 'star-o'
+          // },
+          // {
+          //   id:'5',
+          //   name: '关注',
+          //   icon: 'like-o'
+          // },
+          // {
+          //   id:'6',
+          //   name: '礼物',
+          //   icon: 'gift-o'
+          // },
+          // {
+          //   id:'7',
+          //   name: '简历',
+          //   icon: 'orders-o'
+          // },
           // {
           //   name: '扫一扫',
           //   icon: 'scan'
@@ -157,6 +157,9 @@
       // 卡片点击
       handleClick(value){
         switch(value.id){
+          case '2':
+            this.$router.push('/music')
+            break;
           case '7':
             Toast('暂未开通');
             // this.getPdf()
@@ -188,6 +191,14 @@
         console.log(e)
         Toast(e);
 			},
+      toPage(item){
+        this.$router.push({
+          name: "dataInfo",
+          params: {
+            item
+          },
+        })
+      }
     }
   }
 </script>
@@ -242,6 +253,7 @@
           display: flex;
           flex-direction: column;
           position: relative;
+          cursor: pointer;
           &:not(:last-child)::after{
             content: '';
             border-left: 1px solid #c9c9c9;
@@ -261,6 +273,7 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             font-size: 12px;
+            cursor: pointer;
           }
         }
       }
