@@ -49,6 +49,9 @@ export default {
     height: 54px;
     align-items: center;
     color:#fff;
+    .van-icon{
+      font-size: 18px;
+    }
   }
 }
 </style>

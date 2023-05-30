@@ -189,6 +189,7 @@
       }
       .van-icon.van-icon-arrow-left{
         color:#fff;
+        font-size: 18px;
       }
     }
     /deep/ .van-search{
