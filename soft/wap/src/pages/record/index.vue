@@ -125,9 +125,9 @@ export default {
     },
     getImg(data){
       if(data){
-        console.log(data)
+        // console.log(data)
         let img = require(`../../assets/images/${data}`);
-        console.log(img)
+        // console.log(img)
         return img;
       }else {
         return '';

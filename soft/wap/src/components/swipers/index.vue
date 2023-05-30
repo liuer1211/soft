@@ -4,7 +4,7 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item, index) in list" :key="index">
           <div class="swiper-main-model">
-            
+            <img :src="getImg(item.img)" alt="">
           </div>
         </div>
       </div>
@@ -20,19 +20,27 @@ import Swiper from "swiper/swiper-bundle.min.js";
 import "swiper/swiper-bundle.min.css";
 export default {
   name:'swipers',
+  props:{
+    list:{
+      type: Array,
+      default: ()=>([])
+    }
+  },
   data(){
     return{
-      list:[{},{}]
     }
   },
   mounted() {
     this.getSwiperList()
   },
   methods:{
+    getImg(img){
+      return require(`../../assets/images/music/${img}`)
+    },
     getSwiperList(){
       this.$nextTick(() => {
         let swiper = new Swiper(".swiper", {
-          effect: "coverflow",
+          // effect: "coverflow",
           grabCursor: true,
           pagination: {
             el: ".swiper-pagination",
@@ -56,11 +64,17 @@ export default {
     box-sizing: border-box;
   }
   .swiper-main-model{
-    background: #fff;
+    // background: #fff;
     height: 100%;
     border-radius: 4px;
-    padding: 12px;
-    box-sizing: border-box;
+    overflow: hidden;
+    // padding: 12px;
+    // box-sizing: border-box;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   .swiper-bot{
     position: absolute;
