@@ -6,6 +6,8 @@
       <div></div>
     </div>
     <Echar/>
+    <Echars/>
+    <Maps/>
   </div>
 </template>
 
@@ -15,6 +17,8 @@ export default {
   name:'dataInfo',
   components: {
     Echar:()=>import('@/components/echar/index'),
+    Echars:()=>import('@/components/echar/echarts'),
+    Maps:()=>import('@/components/echar/map/index'),
   },
   created(){
     if(this.$route.params && this.$route.params.item){

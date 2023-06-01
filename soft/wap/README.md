@@ -177,7 +177,9 @@
     
     <img v-lazy="`http://180.76.106.221:5010/images/novel/${item.imgName}`" alt=""/>
 
-
+# echarts
+        水球图  地图  折线图
+        yarn add echarts echarts-liquidfill
 
 =========================
 
