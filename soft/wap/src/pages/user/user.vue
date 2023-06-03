@@ -298,8 +298,8 @@
           }
         }
         .t-three-r{
-          width: 50px;
-          min-width: 50px;
+          width: 60px;
+          min-width: 60px;
           position: relative;
           cursor: pointer;
           >div{
@@ -310,6 +310,7 @@
             color: #ff9710;
             position: absolute;
             top: 6px;
+            text-align: center;
           }
         }
       }

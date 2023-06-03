@@ -18,13 +18,13 @@ export default {
     mycharts.setOption({
         //标题组件
         title: {
-            text: '访问量'
+            // text: '访问量'
         },
         //x|y轴
         xAxis: {
             type: 'category',
             //两侧不留白
-            boundaryGap: false,
+            // boundaryGap: false,
             //分割线不要
             splitLine: {
                 show: false
@@ -54,15 +54,15 @@ export default {
         },
         grid: {
             left: 40,
-            top: 0,
-            right: 20,
-            bottom: 20
+            top: 40,
+            right: 40,
+            bottom: 40
         },
         //系列
         series: [
             {
                 type: 'line',
-                data: [120, 1240, 66, 2299, 321, 890, 1200],
+                data: [120, 345, 456, 123, 321, 555, 444],
                 //平滑曲线的设置
                 smooth: true,
                 //区域填充样式
