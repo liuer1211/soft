@@ -1,23 +1,11 @@
 <template>
   <div class="musModel-main">
-    <div class="m-model">
-      <img src="../../assets/images/music/m1.png" alt="music">
+    <div class="m-model" v-for="(item,index) in musicList" :key="index">
+      <img :src="getImg(item.img)" alt="music">
       <div class="m-right">
         <div>
-          <h2>印双人</h2>
-          <span>六耳</span>
-        </div>
-        <div>
-          <van-icon name="ellipsis" />
-        </div>
-      </div>
-    </div>
-    <div class="m-model">
-      <img src="../../assets/images/music/m1.png" alt="music">
-      <div class="m-right">
-        <div>
-          <h2>再等</h2>
-          <span>灵犀</span>
+          <h2>{{item.title}}</h2>
+          <span>{{item.name}}</span>
         </div>
         <div>
           <van-icon name="ellipsis" />
@@ -32,7 +20,7 @@ export default {
   name:'musModel',
   props:{
     musicList:{
-      type:String,
+      type:Array,
       default:()=>([])
     }
   },
@@ -43,23 +31,26 @@ export default {
   mounted() {
   },
   methods:{
+    getImg(img){
+      return require(`../../assets/images/music/${img}`)
+    },
   }
 }
 </script>
 
 <style lang="less" scoped>
 .musModel-main{
-  // padding: 6px 0;
+  padding: 0 12px 6px;
+  box-sizing: border-box;
   .m-model{
-    background: linear-gradient(to right, #aec8ff, #b4b9ff, #eae3ff);
+    background: linear-gradient(to right, #807fff, #b4b9ff, #c8b6ff);
     cursor: pointer;
     display: flex;
     align-items: center;
     padding: 10px 12px;
     box-sizing: border-box;
-    &:not(:last-child){
-      border-bottom: 1px solid #f6f6f6;
-    }
+    margin-bottom: 6px;
+  border-radius: 4px;
     img{
       min-width: 40px;
       width: 40px;

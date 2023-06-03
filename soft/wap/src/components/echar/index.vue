@@ -5,82 +5,85 @@
 </template>
 
 <script>
+import 'echarts-liquidfill'
+import * as echarts from 'echarts';
 export default {
   mounted(){
     this.getEchartData()
   },
   methods: {
     getEchartData() {
-      const chart = this.$refs.chart
-      if (chart) {
-        const myChart = this.$echarts.init(chart);
-        const option = {
-          title: {
-            // text: '归属地：上海'
-          },
-          tooltip: {
-            // trigger: 'axis'
-          },
-          legend: {
-            // data: ['最高温','最低温']
-          },
-          grid: {
-            top: '18%',
-            left: '4%',
-            right: '4%',
-            bottom: '4%',
-            containLabel: true
-          },
-          xAxis: {
-            // show:false,
+      let mycharts = echarts.init(this.$refs.chart);
+    //设置配置项
+    mycharts.setOption({
+        //标题组件
+        title: {
+            // text: '访问量'
+        },
+        //x|y轴
+        xAxis: {
             type: 'category',
+            //两侧不留白
             // boundaryGap: false,
-            data: ['昨天', '今天', '明天', '16', '17', '18']
-          },
-          yAxis: {
-            // show:false,
-            type: 'value'
-          },
-          series: [
-            {
-              // name: '最高温',
-              type: 'line',
-              // stack: 'Total',
-              data: [30, 28, 30, 30, -8, 30],
-              // 拐点样式 没有小圆点
-              itemStyle:{
-                opacity:0,
-              },
-              // 线条样式
-              lineStyle: {
-                color: '#0e7deb'
-              },
-              // 填充颜色
-              areaStyle: {
-                color: {
-                  type: 'linear',
-                  x:0,
-                  y:0,
-                  x2:0,
-                  y2:1,
-                  colorStops:[
-                    {offset:0,color:'#3399ff'},
-                    {offset:1,color:'#fff'}
-                  ],
-                  global: false,
-                }
-              }
+            //分割线不要
+            splitLine: {
+                show: false
             },
-            // {
-            //   // name: '最低温',
-            //   type: 'line',
-            //   // stack: 'Total',
-            //   data: [15, 16, 18, 22, -1, 15]
-            // }
-          ]
-        };
-        myChart.setOption(option)
-      }
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+            //轴线的设置
+            axisLine: {
+                show: true
+            },
+            //刻度
+            axisTick: {
+                show: true
+            }
+        },
+        yAxis: {
+            splitLine: {
+                show: false
+            },
+            //轴线的设置
+            axisLine: {
+                show: true
+            },
+            //刻度
+            axisTick: {
+                show: true
+            }
+        },
+        grid: {
+            left: 40,
+            top: 40,
+            right: 40,
+            bottom: 40
+        },
+        //系列
+        series: [
+            {
+                type: 'line',
+                data: [120, 345, 456, 123, 321, 555, 444],
+                //平滑曲线的设置
+                smooth: true,
+                //区域填充样式
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: 'red' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: 'blue' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false
+                    }
+                }
+            }
+        ]
+    })
     },
   } 
 }
