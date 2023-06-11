@@ -6,11 +6,11 @@
       </div>
     </dv-full-screen-container>
     <div class="my-pos">
-      <span class="sp1">小说</span>
-      <span class="sp2">音乐</span>
-      <span class="sp3">游戏</span>
-      <span class="sp4">影视</span>
-      <span class="sp5">文学</span>
+      <span class="sp1" @click="toPage('1')">小说</span>
+      <span class="sp2" @click="toPage('2')">音乐</span>
+      <span class="sp3" @click="toPage('3')">游戏</span>
+      <span class="sp4" @click="toPage('4')">影视</span>
+      <span class="sp5" @click="toPage('5')">文学</span>
     </div>
   </div>
 </template>
@@ -33,6 +33,39 @@ export default {
         ]
       },
     }
+  },
+  methods:{
+    toPage(code){
+      switch(code){
+        case '1':
+          this.$router.replace({
+            path:'/home'
+          })
+          return;
+        case '2':
+          this.$router.replace({
+            path:'/music'
+          })
+          return;
+        case '3':
+          this.$router.replace({
+            path:'/games'
+          })
+          return;
+        case '4':
+          this.$router.push({
+            path:'/home'
+          })
+          return;
+        case '5':
+          this.$router.replace({
+            path:'/article'
+          })
+          return;
+        default:
+          return;
+      }
+    }
   }
 }
 </script>
@@ -51,33 +84,37 @@ export default {
       top: 100px;
       right: 38px;
       font-size: 16px;
+      z-index:99;
       >span{
         position: absolute;
+        padding: 6px;
+        box-sizing: border-box;
+        cursor: pointer;
       }
       .sp1 {
         top: 141px;
         left: 136px;
-        animation: sp1 1s;
+        animation: sp1 .5s;
       }
       .sp2 {
         left: 58px;
         top: 123px;
-        animation: sp2 1.5s;
+        animation: sp2 1s;
       }
       .sp3 {
         right: 50px;
         top: 50px;
-        animation: sp3 2s;
+        animation: sp3 1.5s;
       }
       .sp4{
-        bottom: 106px;
-        right: 112px;
-        animation: sp4 2.5s;
+        bottom: 90px;
+        right: 90px;
+        animation: sp4 2s;
       }
       .sp5{
         bottom: 59px;
         left: 83px;
-        animation: sp5 3s;
+        animation: sp5 2.5s;
       }
     }
     #dv-full-screen-container{

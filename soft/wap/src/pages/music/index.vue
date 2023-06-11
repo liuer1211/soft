@@ -33,36 +33,43 @@ export default {
       }],
       musicList:[
         {
+          id:'1',
           img:'m1.png',
           title:'印双人',
           name:'六耳'
         },
         {
+          id:'2',
           img:'m1.png',
           title:'印双人',
           name:'六耳'
         },
         {
+          id:'3',
           img:'m1.png',
           title:'印双人',
           name:'六耳'
         },
         {
+          id:'4',
           img:'m1.png',
           title:'印双人',
           name:'六耳'
         },
         {
+          id:'5',
           img:'m1.png',
           title:'印双人',
           name:'六耳'
         },
         {
+          id:'6',
           img:'m1.png',
           title:'印双人',
           name:'六耳'
         },
         {
+          id:'7',
           img:'m1.png',
           title:'印双人',
           name:'六耳'
