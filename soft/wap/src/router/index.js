@@ -146,7 +146,12 @@ const routes = [
   {
     name: 'music',
     path: '/music', 
-    component: () => import("@/pages/music"),
+    component: () => import("@/pages/music/index.vue"),
+  },
+  {
+    name: 'musicdetail',
+    path: '/musicdetail', 
+    component: () => import("@/pages/music/datail.vue"),
   },
   {
     name: 'dataInfo',

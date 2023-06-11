@@ -1,6 +1,6 @@
 <template>
   <div class="musModel-main">
-    <div class="m-model" v-for="(item,index) in musicList" :key="index">
+    <div class="m-model" v-for="(item,index) in musicList" :key="index" @click="toDetail(item)">
       <img :src="getImg(item.img)" alt="music">
       <div class="m-right">
         <div>
@@ -34,6 +34,13 @@ export default {
     getImg(img){
       return require(`../../assets/images/music/${img}`)
     },
+    // 详情
+    toDetail(item){
+      this.$router.push({
+        path:'/musicdetail',
+        query: item
+      })
+    }
   }
 }
 </script>
@@ -43,7 +50,7 @@ export default {
   padding: 0 12px 6px;
   box-sizing: border-box;
   .m-model{
-    background: linear-gradient(to right, #807fff, #b4b9ff, #c8b6ff);
+    background: linear-gradient(to right,#807fff,#807fff,);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -64,6 +71,7 @@ export default {
       align-items: center;
       padding: 0 0 0 12px;
       overflow: hidden;
+      color:#fff;
       >div{
         overflow: hidden;
         &:first-child{
@@ -74,14 +82,14 @@ export default {
           overflow: hidden;
           white-space:nowrap;
           text-overflow:ellipsis;
-          color:#fff;
         }
         span{
           font-size: 14px;
-          color: #f5f5f5;
+          color: #e4e4e4;
         }
         i{
           font-size: 20px;
+          transform: rotate(90deg);
         }
       }
     }
