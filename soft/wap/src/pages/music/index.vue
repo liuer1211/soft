@@ -1,11 +1,14 @@
 <template>
   <div class="music-main">
-    <!-- 头部 -->
-    <Search :placeholder="placeholder" :searchVal='searchVal' :isShow="isShow" :isBack="isBack"></Search>
-    <div class="cen">
-      <Swipers :list="list"/>
-      <MusModel :musicList="musicList"/>
+    <div class="mu-abs">
+      <!-- 头部 -->
+      <Search :placeholder="placeholder" :searchVal='searchVal' :isShow="isShow" :isBack="isBack"></Search>
+      <div class="cen">
+        <Swipers :list="list"/>
+        <MusModel :musicList="musicList"/>
+      </div>
     </div>
+    <div class="mu-fix"></div>
   </div>
 </template>
 
@@ -83,6 +86,20 @@ export default {
 
 <style lang="less" scoped>
 .music-main{
+  .mu-fix{
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    background: linear-gradient(to bottom, #c7c7ff, #deddf8);
+  }
+  .mu-abs{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
   .cen{
     padding: 54px 0 0;
     font-size: 16px;
