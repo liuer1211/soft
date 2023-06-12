@@ -172,7 +172,7 @@
           font-size:18px;
           padding-top: 80px;
           >p{
-            padding: 2px;
+            padding: 4px 0;
           }
         }
       }
