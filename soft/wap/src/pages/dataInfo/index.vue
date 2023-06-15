@@ -5,7 +5,7 @@
       <div>{{this.info.name}}</div>
       <div></div>
     </div>
-    <Echar/>
+    <Echar :list="list"/>
     <Echars/>
     <Maps/>
   </div>
@@ -29,10 +29,17 @@ export default {
   },
   data(){
     return{
-      info:{}
+      info:{},
+      list:[
+
+      ]
     }
   },
- 
+  mounted(){
+    setTimeout(()=>{
+      this.list = [120, 345, 456, 123, 321, 555, 444]
+    },2000)
+  }
 }
 </script>
 

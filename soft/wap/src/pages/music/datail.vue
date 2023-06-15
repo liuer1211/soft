@@ -67,9 +67,11 @@
         </div>
       </div>
     </div>
+    <div class="m-fixed"></div>
     <div @click="changeModel('1')" class="m-f one" :class="active==='1' ? 'active':''">简</div>
     <div @click="changeModel('2')" class="m-f two" :class="active==='2' ? 'active':''">词</div>
     <div @click="changeModel('3')" class="m-f three" :class="active==='3' ? 'active':''">封</div>
+    <div @click="changeModel('4')" class="m-f five"><van-icon name="arrow-left" /></div>
   </div>
 </template>
 
@@ -86,7 +88,11 @@
         this.detail = this.$route.query
       },
       changeModel(code){
-        this.active = code;
+        if(code === '4'){
+          this.$router.go(-1);
+        } else {
+          this.active = code;
+        }
       }
     },
     mounted(){
@@ -97,14 +103,22 @@
 
 <style lang="less" scoped>
 .m-detail-main{
-  color: #fff;
-  .m-detail{
-    background: #807fff;
+  color: #fdfdfd;
+  .m-fixed{
+    background: #6565f9;
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
+    z-index: 0;
+  }
+  .m-detail{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    // bottom: 0;
     z-index: 1;
     font-size: 16px;
     text-align: center;
@@ -129,8 +143,8 @@
           padding: 20px 36px;
           box-sizing: border-box;
           >div{
-            border:1px solid #fff;
-            height: 80px;
+            border:1px solid #fdfdfd;
+            height: 100px;
             border-radius: 4px;
             line-height: 26px;
             h2{
@@ -157,7 +171,8 @@
           z-index: 4;
           text-align: center;
           padding: 12px 0 20px;
-          background: #807fff;
+          background: #6565f9;
+          box-shadow: 0px 7px 18px 5px #6565f9;
           h2{
             font-size:20px;
             padding: 0 0 12px 0;
@@ -170,7 +185,7 @@
         }
         .cen-bot{
           font-size:18px;
-          padding-top: 80px;
+          padding-top: 90px;
           >p{
             padding: 4px 0;
           }
@@ -187,7 +202,7 @@
           width: 200px;
           height: 200px;
           object-fit: cover;
-          background: #fff;
+          background: #fdfdfd;
           overflow: hidden;
           border-radius: 50%;
         }
@@ -219,18 +234,30 @@
     border: 1px solid #d6d6d6;
     color: #d6d6d6;
     cursor: pointer;
+    transition: all .5s;
     &.active{
-      color: #FFF;
-      border: 1px solid #FFF;
+      color: #fdfdfd;
+      border: 1px solid #fdfdfd;
+      // font-weight: 600;
+      transform: scale(1.1);
     }
     &.one{
-      top: 20px
+      top: 20px;
     }
     &.two{
-      top: 60px
+      top: 60px;
     }
     &.three{
-      top: 100px
+      top: 100px;
+    }
+    &.five{
+      top: 140px;
+      .van-icon{
+        color: #d6d6d6;
+        font-size: 16px;
+        margin-top: 4px;
+        margin-right: 4px;
+      }
     }
   }
 }

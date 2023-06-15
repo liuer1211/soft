@@ -50,7 +50,7 @@ export default {
   padding: 0 12px 6px;
   box-sizing: border-box;
   .m-model{
-    background: linear-gradient(to right,#807fff,#807fff,);
+    background: linear-gradient(to right, #5655ee, #6260eb);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -71,7 +71,7 @@ export default {
       align-items: center;
       padding: 0 0 0 12px;
       overflow: hidden;
-      color:#fff;
+      color:#fdfdfd;
       >div{
         overflow: hidden;
         &:first-child{

@@ -8,84 +8,102 @@
 import 'echarts-liquidfill'
 import * as echarts from 'echarts';
 export default {
+    props:{
+        list:{
+            type:Array,
+            default:()=>([])
+        }
+    },
   mounted(){
     this.getEchartData()
   },
   methods: {
     getEchartData() {
-      let mycharts = echarts.init(this.$refs.chart);
-    //设置配置项
-    mycharts.setOption({
-        //标题组件
-        title: {
-            // text: '访问量'
-        },
-        //x|y轴
-        xAxis: {
-            type: 'category',
-            //两侧不留白
-            // boundaryGap: false,
-            //分割线不要
-            splitLine: {
-                show: false
+        let myChart = echarts.getInstanceByDom(
+            this.$refs.chart
+        );
+        if (myChart == null) {
+          myChart = echarts.init(this.$refs.chart);
+        }
+        // let myChart = echarts.init(this.$refs.chart);
+        //设置配置项
+        myChart.setOption({
+            //标题组件
+            title: {
+                // text: '访问量'
             },
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-            //轴线的设置
-            axisLine: {
-                show: true
+            //x|y轴
+            xAxis: {
+                type: 'category',
+                //两侧不留白
+                // boundaryGap: false,
+                //分割线不要
+                splitLine: {
+                    show: false
+                },
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                //轴线的设置
+                axisLine: {
+                    show: true
+                },
+                //刻度
+                axisTick: {
+                    show: true
+                }
             },
-            //刻度
-            axisTick: {
-                show: true
-            }
-        },
-        yAxis: {
-            splitLine: {
-                show: false
+            yAxis: {
+                splitLine: {
+                    show: false
+                },
+                //轴线的设置
+                axisLine: {
+                    show: true
+                },
+                //刻度
+                axisTick: {
+                    show: true
+                }
             },
-            //轴线的设置
-            axisLine: {
-                show: true
+            grid: {
+                left: 40,
+                top: 40,
+                right: 40,
+                bottom: 40
             },
-            //刻度
-            axisTick: {
-                show: true
-            }
-        },
-        grid: {
-            left: 40,
-            top: 40,
-            right: 40,
-            bottom: 40
-        },
-        //系列
-        series: [
-            {
-                type: 'line',
-                data: [120, 345, 456, 123, 321, 555, 444],
-                //平滑曲线的设置
-                smooth: true,
-                //区域填充样式
-                areaStyle: {
-                    color: {
-                        type: 'linear',
-                        x: 0,
-                        y: 0,
-                        x2: 0,
-                        y2: 1,
-                        colorStops: [{
-                            offset: 0, color: 'red' // 0% 处的颜色
-                        }, {
-                            offset: 1, color: 'blue' // 100% 处的颜色
-                        }],
-                        global: false // 缺省为 false
+            //系列
+            series: [
+                {
+                    type: 'line',
+                    data: this.list,
+                    //平滑曲线的设置
+                    smooth: true,
+                    //区域填充样式
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: 'red' // 0% 处的颜色
+                            }, {
+                                offset: 1, color: 'blue' // 100% 处的颜色
+                            }],
+                            global: false // 缺省为 false
+                        }
                     }
                 }
-            }
-        ]
-    })
-    },
-  } 
+            ]
+        })
+        },
+  },
+  watch:{
+    list(newvalue,oldvalue){
+        console.log(newvalue)
+        this.getEchartData()
+    }
+  }
 }
 </script>
 
