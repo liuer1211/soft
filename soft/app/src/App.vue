@@ -8,7 +8,8 @@
 export default {
   name: 'App',
   mounted(){
-    window.location.href="http://180.76.106.221"
+    let date = new Date();
+    window.location.href=`http://180.76.106.221/#/login?${date.getTime()}`
   }
 }
 </script>
